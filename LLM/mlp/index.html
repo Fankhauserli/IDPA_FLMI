@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>IDPA FLMI — MLP</title>
+    <meta name="description" content="Erklärung des Multi-Layer Perceptron in LLMs" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../../assets/css/styles.css" />
+</head>
+<body class="antialiased bg-gray-50 text-gray-800">
+    <header class="bg-white shadow">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6">
+            <a href="/" class="text-indigo-600 hover:underline">← Zurück zur Übersicht</a>
+            <h1 class="text-3xl font-bold mt-2">Multilayer Perzeptron (MLP)</h1>
+            <p class="text-gray-600 mt-1">Informationen speichern und ergänzen</p>
+        </div>
+    </header>
+    <main class="max-w-4xl mx-auto px-4 py-12">
+        <div class="bg-white p-8 rounded-lg shadow space-y-8">
+
+            <div class="p-4 bg-blue-50 border-l-4 border-blue-400 text-blue-800">
+                <p class="font-semibold">Anmerkung des Autors:</p>
+                <p class="text-sm"><em>Erkläri hie ou Neurali Netzwerk - wöu schlussendlich isch MLP ja eis u i gseh noni wo das ds süsch erklärt wird --> oder lömers eifach us wüus nid direkt direkt brucht wird fürs verständnis was ä AI hie macht?</em></p>
+            </div>
+
+            <div>
+                <h2 class="text-2xl font-bold mb-4">Die Rolle des MLP im Transformer</h2>
+                <p class="text-lg leading-relaxed">Das MLP ist ein neuronales Netzwerk, welches dem LLM ermöglicht, Informationen zu speichern und zu ergänzen. Ein anschauliches Beispiel ist, wenn man einen Chatbot fragt, wie viele Personen in einen Airbus A320 passen. Solange das LLM keinen Zugriff aufs Internet hat, muss die Sitzplatzanzahl irgendwo innerhalb des Models gespeichert sein. Genau diesen Schritt übernimmt das MLP.</p>
+                <p class="text-lg leading-relaxed mt-4">Damit wir den Ablauf genauer verstehen, schauen wir uns einen Durchlauf durchs MLP schrittweise genau an. In realen Zuständen werden mehrere Durchläufe parallel zueinander ausgeführt, um noch schnellere und präzisere Antworten geben zu können.</p>
+            </div>
+
+            <div class="border-t pt-8">
+                <h2 class="text-2xl font-bold mb-6">Ein Durchlauf des MLP: 4 Schritte</h2>
+                
+                <div class="space-y-8">
+                    <!-- Step 1 -->
+                    <div class="p-6 bg-gray-50 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-3">1. Input & Erste Matrix-Multiplikation</h3>
+                        <p>Nach der Attention-Schicht haben wir mehrere Vektoren erhalten. Da in der MLP-Schicht alle Vektoren parallel und isoliert voneinander bearbeitet werden, betrachten wir zur Vereinfachung nur einen Vektor, welcher den "Airbus A320" widerspiegelt.</p>
+                        <p class="mt-4">Als erster Schritt wird dieser Vektor mit einer Matrix multipliziert. Diese Matrix enthält gelernte Modellparameter. Jede Zeile der Matrix kann als "Fragenvektor" betrachtet werden. Die Multiplikation ergibt das Skalarprodukt der beiden Vektoren. Ist das Ergebnis nahe 1, stimmen die Vektoren stark überein (die "Frage" trifft zu).</p>
+                        <div class="mt-4 border-2 border-dashed border-gray-300 p-6 text-center text-gray-500 rounded-lg">
+                            <p class="font-semibold">Placeholder: Grafik</p>
+                            <p class="text-sm">Gezielte Frage "Airbus A320" + Vektoren statt komische Vierecke</p>
+                        </div>
+                        <p class="mt-4 text-sm text-gray-600">In realen LLMs sind die Fragenvektoren komplexer (z.B. die Addition der Vektoren "Kann fliegen" + "Ist ein Flugzeug"). Zusätzlich wird ein "Bias"-Vektor addiert, um die Ergebnisse anzupassen.</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="p-6 bg-gray-50 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-3">2. Nicht-lineare Aktivierung (ReLU)</h3>
+                        <p>Der nächste Schritt entscheidet, welche der "Fragen" als zutreffend gelten. Dafür wird eine nicht-lineare Funktion wie ReLU (Rectified Linear Unit) verwendet.</p>
+                        <p class="mt-4">Die ReLU-Funktion setzt alle negativen Werte auf 0 und behält positive Werte unverändert bei. Trifft eine "Frage" zu (Wert > 0), ist das entsprechende Neuron "aktiv". Trifft sie nicht zu (Wert <= 0), ist es "inaktiv".</p>
+                        <div class="mt-4 border-2 border-dashed border-gray-300 p-6 text-center text-gray-500 rounded-lg">
+                            <p class="font-semibold">Placeholder: Bild</p>
+                            <p class="text-sm">Grafik der ReLU-Funktion & Beispiel-Rechnung</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="p-6 bg-gray-50 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-3">3. Zweite Matrix-Multiplikation</h3>
+                        <p>Das Ergebnis aus der ReLU-Funktion wird erneut mit einer Matrix multipliziert. Man kann sich diese Matrix spaltenweise vorstellen, wobei jede Spalte eine bestimmte Information im ursprünglichen Vektorraum widerspiegelt (z.B. "150-187 Sitzplätze").</p>
+                        <p class="mt-4">Nur wenn ein Neuron im vorherigen Schritt aktiv war, wird die zugehörige Informations-Spalte zum Endergebnis dazugerechnet. Alle anderen werden ignoriert (da sie mit 0 multipliziert werden).</p>
+                        <div class="mt-4 border-2 border-dashed border-gray-300 p-6 text-center text-gray-500 rounded-lg">
+                            <p class="font-semibold">Placeholder: Bild</p>
+                            <p class="text-sm">Beispiel-Multiplikation mit "Sitzplätze"-Spalte</p>
+                        </div>
+                        <p class="mt-4 text-sm text-gray-600">In der Realität enthalten Spalten oft eine Addition verschiedener Fakten, und das Endergebnis ist die Summe aller Spalten von zutreffenden Fragen.</p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="p-6 bg-gray-50 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-3">4. Residuelle Verbindung</h3>
+                        <p>Damit der ursprüngliche Vektor aus der Attention beim Verarbeiten nicht komplett vergessen wird, addiert der letzte Schritt des MLP den ursprünglichen Vektor mit dem Vektor, welcher die zusätzlichen Fakten enthält.</p>
+                        <div class="mt-4 border-2 border-dashed border-gray-300 p-6 text-center text-gray-500 rounded-lg">
+                            <p class="font-semibold">Placeholder: Bild</p>
+                            <p class="text-sm">Visualisierung der Vektor-Addition</p>
+                        </div>
+                        <p class="mt-4">In unserem Beispiel hätten wir nun einen Vektor, welcher die Informationen "Airbus", "A320" und nun auch "150-187 Sitzplätze" beinhaltet.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
