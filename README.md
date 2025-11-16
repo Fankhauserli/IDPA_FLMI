@@ -1,13 +1,4 @@
-# IDPA_FLMI — Static Tailwind Site (Dockerized)
-
-A minimal static website scaffold inside this repository. It's framework-free and uses Tailwind via the Play CDN, vanilla JavaScript, and nginx inside Docker for serving.
-
-What you get
-- `index.html` — the main page using Tailwind Play CDN
-- `assets/css/styles.css` — tiny custom CSS
-- `assets/js/main.js` — small JS for interactivity
-- `Dockerfile` — nginx-based image that serves the static files
-- `docker-compose.yml` — convenience compose file that exposes port 8080
+# IDPA_FLMI
 
 Quick start
 
@@ -35,5 +26,3 @@ Customization
 
 License
 See the repository `LICENSE` file.
-# IDPA_FLMI
-IDPA
