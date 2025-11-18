@@ -14,15 +14,11 @@ Beispiele (Disclaimer: RGB-Mischung funktioniert anders als klassische, echte Fa
 
 **Input fields mit Vektoren unter wechselnden Farben** 
 
-Kein rot + kein grün + kein blau (0, 0, 0) = schwarzer Punkt 
-
-Voll rot + kein grün + kein blau (255, 0, 0) = roter Punkt 
-
-Voll rot + kein grün + voll blau (255, 0, 255) = pinker Punkt 
-
-Voll rot + voll grün + kein blau (255, 255, 0) = gelber Punkt 
-
-Voll rot + voll grün + voll blau (255, 255, 255) = weisser Punkt 
+ - Kein rot + kein grün + kein blau (0, 0, 0) = schwarzer Punkt 
+ - Voll rot + kein grün + kein blau (255, 0, 0) = roter Punkt 
+ - Voll rot + kein grün + voll blau (255, 0, 255) = pinker Punkt 
+ - Voll rot + voll grün + kein blau (255, 255, 0) = gelber Punkt 
+ - Voll rot + voll grün + voll blau (255, 255, 255) = weisser Punkt 
 
 Anschliessend Web-Einbettung in der man selbst damit herumspielen kann. 
 
