@@ -6,10 +6,10 @@ Build and run locally with Docker Compose:
 
 ```bash
 # build image and run in foreground
-docker compose up --build
+docker compose up --build --watch
 
 # run in background
-docker compose up --build -d
+docker compose up --build --watch -d
 
 # stop
 docker compose down
