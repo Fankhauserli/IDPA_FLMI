@@ -66,6 +66,46 @@
 
             <p class="text-lg leading-relaxed mt-6">Der Computer arbeitet anschliessend mit der Position der Farbe. Er weiss nicht, was "Grün" bedeutet, doch er weiss, dass sich grün auf der Grünheitsskala am höchsten Punkt befindet, also auf dem Vektor (0, 255, 0) abbildet. So kann er dann Grün darstellen. Pink beschreibt dann die Beziehung zwischen der blauen und der roten Dimension, (255, 0, 255).</p>
             <p class="text-lg leading-relaxed">Eine LLM übersetzt Wörter in hochdimensionalen Vektoren. Um zu wissen, was «Königin» bedeutet, sucht ein LLM Vektoren, die in eine ähnliche Richtung zeigen. Hier würde zum Beispiel "König" aufkommen. Ein Wort wie "Flugzeug" hätte eine Position im Vektorraum, die seine Beziehung zu anderen Wörtern wie "fliegen", "Pilot" oder "Himmel" widerspiegelt.</p>
+
+            <div class="mt-8 bg-gray-100 p-6 rounded-lg">
+                <h3 class="text-xl font-semibold mb-4">Vom Wort zum Vektor</h3>
+                <p class="mb-6">LLMs übersetzen Wörter und Sätze in numerische Vektoren. Ähnliche Konzepte haben ähnliche Vektoren, was es dem Modell ermöglicht, Beziehungen und Bedeutungen zu "verstehen". Hier ein Beispiel, wie die Anfrage "Airbus A320" in einen Vektor umgewandelt wird, der im Vektorraum in der Nähe von ähnlichen Konzepten wie "Boeing 737" oder "Flugzeug" liegt.</p>
+                <div class="p-4">
+                    <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 font-sans">
+                        <!-- Input Text -->
+                        <div class="p-4 bg-gray-100 border border-gray-200 rounded-lg text-center">
+                            <p class="font-mono text-sm text-gray-800">"Airbus A320"</p>
+                        </div>
+
+                        <!-- Arrow -->
+                        <div class="flex flex-col items-center">
+                            <p class="text-sm text-indigo-600">Einbettung</p>
+                            <p class="text-2xl text-indigo-500 transform sm:rotate-0 rotate-90">→</p>
+                        </div>
+
+                        <!-- Vector Representation -->
+                        <div class="p-4 bg-indigo-50 border border-indigo-200 rounded-lg">
+                            <p class="font-mono text-sm text-indigo-800 break-all">
+                                <span class="font-semibold">Vektor:</span>
+                                <span>[0.8, 0.2, 0.9, ..., -0.4, 0.1]</span>
+                            </p>
+                            <p class="text-xs text-gray-600 mt-1">(~2000-10000 Dimensionen)</p>
+                        </div>
+                    </div>
+                    <div class="mt-8 text-center">
+                        <p class="text-sm font-semibold text-gray-700">Ähnliche Konzepte im Vektorraum:</p>
+                        <div class="flex flex-wrap justify-center gap-4 mt-2">
+                            <div class="p-2 bg-green-50 border border-green-200 rounded-lg">
+                                <p class="font-mono text-xs text-green-800">"Boeing 737": [0.7, 0.3, 0.8, ...]</p>
+                            </div>
+                            <div class="p-2 bg-sky-50 border border-sky-200 rounded-lg">
+                                <p class="font-mono text-xs text-sky-800">"Flugzeug": [0.9, 0.1, 0.7, ...]</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <p class="text-lg leading-relaxed">Heutige LLMs nutzen dafür Räume mit <strong class="font-semibold">2’000 bis 10’000 Dimensionen</strong>, um diese komplexen Beziehungen zu erfassen.</p>
         </div>
     </main>
