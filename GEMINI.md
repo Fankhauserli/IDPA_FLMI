@@ -1,5 +1,9 @@
 # Gemini Project Context: IDPA_FLMI
 
+## IDPA Text
+
+Never change anything inside the ./docs folder.
+
 ## Project Overview
 
 This project is a static website designed to provide educational content and visualizations related to Large Language Models (LLMs). The main entry point (`index.html`) serves as a landing page, linking to different sub-topics.
