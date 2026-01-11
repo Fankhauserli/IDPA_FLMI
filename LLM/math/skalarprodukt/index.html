@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>IDPA FLMI — Skalarprodukt</title>
+    <meta name="description" content="Erklärung des Skalarprodukts zwischen zwei Vektoren" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../../../assets/css/styles.css" />
+    <style>
+        .vector-visualization {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border: 1px solid #e2e8f0;
+            margin: 1rem auto;
+        }
+        .vector {
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform-origin: 0 100%;
+        }
+        .vector::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: currentColor;
+        }
+        .vector::after {
+            content: '▶';
+            position: absolute;
+            bottom: -12px;
+            right: -8px;
+            font-size: 16px;
+            transform: rotate(0deg);
+        }
+    </style>
+</head>
+<body class="antialiased bg-gray-50 text-gray-800">
+    <header class="bg-white shadow">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6">
+            <a href="/" class="text-indigo-600 hover:underline">← Zurück zur Übersicht</a>
+            <h1 class="text-3xl font-bold mt-2">Skalarprodukt</h1>
+            <p class="text-gray-600 mt-1">Die geometrische Interpretation des Skalarprodukts</p>
+        </div>
+    </header>
+    <main class="max-w-4xl mx-auto px-4 py-12">
+        <div class="bg-white p-8 rounded-lg shadow space-y-8">
+
+            <div>
+                <p class="text-lg leading-relaxed">Das Skalarprodukt ist eine fundamentale Operation in der linearen Algebra. Es nimmt zwei Vektoren und gibt eine einzelne Zahl (einen Skalar) zurück. Diese Zahl sagt etwas über die Beziehung zwischen den beiden Vektoren aus, insbesondere wie sehr sie in die gleiche Richtung zeigen.</p>
+            </div>
+
+            <div class="border-t pt-8">
+                <h2 class="text-2xl font-bold mb-4">Geometrische Interpretation</h2>
+                <p>Geometrisch kann das Skalarprodukt auch so ausgedrückt werden:</p>
+                <div class="my-4 p-4 bg-gray-800 text-white rounded-md text-center">
+                    <code class="font-mono text-lg"><strong>a</strong> · <strong>b</strong> = ||<strong>a</strong>|| ||<strong>b</strong>|| cos(θ)</code>
+                </div>
+                <p class="mt-4">Hierbei ist ||<strong>a</strong>|| die Länge (Norm) des Vektors <strong>a</strong>, ||<strong>b</strong>|| die Länge des Vektors <strong>b</strong>, und θ (theta) ist der Winkel zwischen den beiden Vektoren.</p>
+                <p class="mt-4">Diese Formel zeigt die wahre Bedeutung des Skalarprodukts:</p>
+                 <ul class="list-disc list-inside mt-4 pl-4 space-y-2">
+                    <li>Wenn die Vektoren in die <strong>gleiche Richtung</strong> zeigen (θ = 0°, cos(0) = 1), ist das Skalarprodukt maximal und positiv.</li>
+                    <li>Wenn die Vektoren <strong>orthogonal</strong> (rechtwinklig) zueinander stehen (θ = 90°, cos(90) = 0), ist das Skalarprodukt null.</li>
+                    <li>Wenn die Vektoren in <strong>entgegengesetzte Richtungen</strong> zeigen (θ = 180°, cos(180) = -1), ist das Skalarprodukt minimal und negativ.</li>
+                </ul>
+            </div>
+
+            <div class="border-t pt-8">
+                <h2 class="text-2xl font-bold mb-4">Visualisierung</h2>
+                <p>Stellen Sie sich zwei Vektoren im 2D-Raum vor. Ihre Längen und der Winkel zwischen ihnen bestimmen das Skalarprodukt.</p>
+                <div class="vector-visualization">
+                    <!-- Vector A -->
+                    <div class="vector text-red-500" style="width: 100px; transform: rotate(-30deg);">
+                        <span class="absolute -top-6 left-1/2 -translate-x-1/2 font-bold">a</span>
+                    </div>
+                    <!-- Vector B -->
+                    <div class="vector text-blue-500" style="width: 150px; transform: rotate(20deg);">
+                        <span class="absolute -top-6 left-1/2 -translate-x-1/2 font-bold">b</span>
+                    </div>
+                </div>
+                 <p class="text-center text-gray-600">Das Skalarprodukt misst, wie stark der eine Vektor auf den anderen projiziert wird.</p>
+            </div>
+
+            <div class="border-t pt-8">
+                <h2 class="text-2xl font-bold mb-4">Anwendung in LLMs</h2>
+                <p>In Large Language Models (LLMs) werden Wörter und Konzepte als Vektoren in einem hochdimensionalen Raum dargestellt (siehe Vektoreinbettung). Das Skalarprodukt ist hier entscheidend, um die <strong>semantische Ähnlichkeit</strong> zwischen Vektoren zu messen.</p>
+                <p class="mt-4">Wenn zum Beispiel die Vektoren für "König" und "Königin" ein hohes, positives Skalarprodukt haben, bedeutet das, dass sie im Vektorraum nahe beieinander liegen und eine ähnliche Bedeutung haben. Im Self-Attention-Mechanismus des Transformers wird das Skalarprodukt milliardenfach berechnet, um die Wichtigkeit von Wörtern in einem Satz zueinander zu gewichten.</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
