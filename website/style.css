@@ -1,9 +1,9 @@
 
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400,700&family=Inter:wght@400;700&display=swap');
+
 
 /* General Body Styles */
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Agrandir', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #ffffff;
@@ -27,7 +27,7 @@ header {
 }
 
 header .logo {
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'Agrandir', sans-serif;
     font-size: 2.5em;
     font-weight: bold;
     color: #000000; /* Ensure black color */
@@ -72,13 +72,13 @@ section {
 }
 
 section h1, section h2, section h3, section h4 {
-    font-family: 'League Spartan', sans-serif;
+    font-family: 'Agrandir', sans-serif;
     font-weight: 700;
 }
 
 section h1 {
-    font-size: 130.491px; /* Approximation from video style */
-    line-height: 123px;
+    font-size: 260px;
+    line-height: 240px;
     letter-spacing: -0.015em;
     text-transform: none;
     margin: 0;
