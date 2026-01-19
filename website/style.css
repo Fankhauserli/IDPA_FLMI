@@ -1,0 +1,208 @@
+
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400,700&family=Inter:wght@400;700&display=swap');
+
+/* General Body Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #000000; /* Black text */
+    text-align: center;
+    padding-top: 80px; /* Adjusted for fixed header */
+}
+
+/* Header and Navigation */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    z-index: 1000;
+}
+
+header .logo {
+    font-family: 'League Spartan', sans-serif;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 30px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #000000; /* Black links */
+    font-weight: bold;
+    font-size: 1.1em;
+    padding-bottom: 5px;
+    transition: border-bottom 0.3s ease;
+}
+
+header nav ul li a:hover, header nav ul li a.active {
+    text-decoration: underline;
+}
+
+
+/* Main Content Sections */
+main {
+    padding: 0 50px;
+}
+
+section {
+    padding: 80px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+section h1, section h2, section h3, section h4 {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 700;
+}
+
+section h1 {
+    font-size: 10em;
+    margin: 0;
+}
+
+section h2 {
+    font-size: 4em;
+    margin-bottom: 30px;
+}
+
+section h3 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+section p {
+    font-size: 1.1em;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+/* Hero Section */
+.hero {
+    padding: 100px 20px;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Dark Section */
+.dark-section {
+    background-color: #2c2c2c;
+    color: #fff;
+    border-radius: 15px;
+    padding: 60px;
+}
+
+.dark-section h2, .dark-section h3, .dark-section p {
+    color: #f0f0f0; /* Lighter text for dark background */
+}
+
+/* Gradient Section */
+.gradient-section {
+    background: linear-gradient(135deg, #a777d1 0%, #4d25fc 100%);
+    color: #fff;
+    border-radius: 15px;
+    padding: 60px;
+}
+
+.gradient-section h2, .gradient-section p {
+    color: #fff;
+}
+
+/* Gradient Text */
+.gradient-text {
+    background: linear-gradient(135deg, #a777d1 0%, #4d25fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* Tips Section */
+.tips {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.tip-box {
+    background-color: #f4f4f4;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.tip-box h3 {
+     background: linear-gradient(135deg, #a777d1 0%, #4d25fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.tip-box-special {
+    background-color: #e0e0e0;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+.tip-box-special h4 {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.llm-info-box {
+    background-color: #e6e0f8;
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.llm-info-box p {
+    color: #663399;
+    font-weight: bold;
+    margin: 0;
+}
+
+.placeholder-box {
+    background-color: #ccc;
+    border: 1px solid #999;
+    border-radius: 10px;
+    padding: 50px;
+    margin-bottom: 20px;
+}
+
+.placeholder-box p {
+    margin: 0;
+    color: #666;
+}
+
+
+/* Footer */
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+    margin-top: 50px;
+    font-size: 0.9em;
+    color: #aaa;
+}
