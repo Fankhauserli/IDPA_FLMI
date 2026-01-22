@@ -1,43 +1,58 @@
 # Gemini Project Context: IDPA_FLMI
 
+This document provides context for the `IDPA_FLMI` project, which is a static website.
+
 ## Project Overview
 
-This project is a static website designed to provide educational content and visualizations related to Large Language Models (LLMs). The main entry point (`index.html`) serves as a landing page, linking to different sub-topics.
+The project is a static website for an "Interdisziplinäre Projektarbeit" (interdisciplinary project). It is served using Nginx and is fully containerized with Docker.
 
-The project is containerized using Docker and served with `nginx`. It is intentionally built without a front-end framework, relying on plain HTML and Tailwind CSS for styling (loaded via the Play CDN).
+The main technologies are:
+*   **Web Server:** Nginx (from the `nginx:stable-alpine` Docker image)
+*   **Containerization:** Docker
+*   **Orchestration (local):** Docker Compose
+*   **CI/CD:** GitHub Actions
 
-The content includes:
-- A page explaining and visualizing **Backpropagation**.
-- A page with information about the **Transformer** architecture.
+The `Dockerfile` copies the repository's contents into the `/usr/share/nginx/html/` directory of the Nginx container, making it available to be served as a static site.
 
 ## Building and Running
 
-The project is run using Docker Compose.
+### Local Development
 
-- **To build and run the application:**
-  ```bash
-  docker compose up --build
-  ```
-- **To run in the background:**
-  ```bash
-  docker compose up --build -d
-  ```
-- **To stop the application:**
-  ```bash
-  docker compose down
-  ```
+To build and run the website locally, you need Docker and Docker Compose.
 
-Once running, the website is accessible at `http://localhost:8080`.
+1.  **Build and run in the foreground:**
+    ```bash
+    docker compose up --build
+    ```
 
-The `docker-compose.yml` is configured to watch for file changes and automatically rebuild the service, streamlining development.
+2.  **Build and run in the background:**
+    ```bash
+    docker compose up --build -d
+    ```
+
+3.  **Stop the running containers:**
+    ```bash
+    docker compose down
+    ```
+
+When running locally, the website is accessible at `http://localhost:8080`.
+
+### Deployment
+
+Deployment is handled automatically by a GitHub Actions workflow defined in `.github/workflows/build-idpa.yml`.
+
+When code is pushed to the `main` or `master` branch:
+1.  A Docker image is built.
+2.  The image is tagged with metadata (like branch name, semantic version, and commit SHA).
+3.  The image is pushed to the GitHub Container Registry (`ghcr.io`).
+
+The `README.md` mentions that a separate job, running every 5 minutes, deploys the latest Docker image to the following URLs:
+*   `https://f3o.ch`
+*   `https://www.f3o.ch`
+*   `https://idpa.voyagera.ch`
 
 ## Development Conventions
 
-- **Framework-Free:** The project intentionally avoids any JavaScript frameworks.
-- **Styling:** Styling is primarily handled by Tailwind CSS, included via a CDN in the HTML files. A small set of custom styles and overrides are located in `assets/css/styles.css`.
-- **Structure:**
-    - `index.html`: The main landing page and directory.
-    - `LLM/`: Contains the educational content, with each sub-directory representing a topic.
-    - `assets/`: Contains static assets like CSS.
-    - `Dockerfile`: Defines the `nginx` container for serving the site.
-    - `docker-compose.yml`: Orchestrates the build and run process.
+*   All development and deployment is done via Docker.
+*   The project follows a typical Git workflow where pushes to the main branches trigger a build and deployment.
+*   The `docker-compose.yml` is set up to watch for file changes and automatically rebuild the service, which is useful for local development.
