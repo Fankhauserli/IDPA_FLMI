@@ -1,31 +1,21 @@
 
 @media (max-width: 768px) {
     body {
-        padding-top: 220px;
+        padding-top: 80px; /* Adjust to match the fixed header height */
     }
 
-    header {
-        padding: 15px 20px;
-        flex-direction: column;
-        height: auto;
-    }
-
-    header nav ul {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-
-    header nav ul li {
-        margin: 10px 0;
-    }
-
+    /* The navigation is now handled by the slide-in menu, so this is not needed */
     main {
         padding: 0 20px;
     }
 
     section {
         padding: 40px 10px;
+    }
+
+    .hero {
+        padding-top: 0;
+        padding-bottom: 0;
     }
 
     section h1 {
@@ -45,6 +35,19 @@
         font-size: 16px;
     }
 
+    .hero h1 {
+        font-size: 60px;
+    }
+
+    .hero h2 {
+        font-size: 30px;
+    }
+
+    .search-input {
+        padding: 10px;
+        font-size: 14px;
+    }
+
     .dark-section, .gradient-section {
         padding: 40px;
     }
@@ -57,11 +60,15 @@
     .chat-container {
         padding: 0;
     }
+
+    .table-responsive-wrapper {
+        overflow-x: auto;
+    }
 }
 
 @media (max-width: 500px) {
     body {
-        padding-top: 200px;
+        padding-top: 80px; /* Was 200px, correcting for fixed header */
     }
 
     section h1 {
@@ -74,6 +81,19 @@
 
     section h3 {
         font-size: 25px;
+    }
+
+    .hero h1 {
+        font-size: 50px;
+    }
+
+    .hero h2 {
+        font-size: 25px;
+    }
+
+    .search-input {
+        padding: 8px;
+        font-size: 13px;
     }
 
     header {
@@ -97,5 +117,18 @@
 
     section h3 {
         font-size: 22px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero h2 {
+        font-size: 20px;
+    }
+
+    .search-input {
+        padding: 6px;
+        font-size: 12px;
     }
 }

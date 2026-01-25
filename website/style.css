@@ -55,6 +55,85 @@ header nav ul li a:hover, header nav ul li a.active {
     border-bottom: 2px solid #6a11cb;
 }
 
+/* Burger Menu Styles */
+#burger-menu {
+    display: none; /* Hidden on desktop */
+    cursor: pointer;
+}
+
+#burger-menu div {
+    width: 25px;
+    height: 3px;
+    background-color: #000000;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Nav Links Styling for Mobile */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        right: 0px;
+        top: 0px; /* Aligns with the top of the viewport */
+        height: 100vh;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around; /* This will spread out the links vertically */
+        width: 100%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+        z-index: 999; /* Below the header but above other content */
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        padding: 0;
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+        opacity: 0;
+    }
+    
+    .nav-links.nav-active {
+        transform: translateX(0%);
+    }
+
+    #burger-menu {
+        display: block; /* Show on mobile */
+        position: relative;
+        z-index: 1001; /* Make sure it's above the nav-links */
+    }
+}
+
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+    opacity: 0;
+}
+
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Animation for nav links appearing */
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
 
 /* Main Content Sections */
 main {
@@ -97,14 +176,63 @@ section p {
     margin-bottom: 20px;
 }
 
+/* Custom Page Titles */
+.page-title {
+    font-size: 72.094px; /* Same as h2 */
+    margin-bottom: 30px;
+}
 /* Hero Section */
+.hero h1 {
+    font-size: 90px; /* Reduced from the general h1 size */
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
 .hero {
-    padding: 100px 20px;
+    padding: 0 20px; /* Remove top/bottom padding to allow for perfect vertical centering */
     min-height: calc(100vh - 80px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.hero h2 { /* Targeting the new h2 in hero for smaller font size */
+    font-size: 46.14px; /* Same as h3, smaller than main h2 */
+    margin-bottom: 20px;
+}
+
+.hero p { /* Targeting the new p in hero */
+    font-size: 20px;
+    margin-bottom: 30px;
+    max-width: 700px; /* Limit width for readability */
+}
+
+.button {
+    display: inline-block;
+    background: linear-gradient(135deg, #a777d1 0%, #4d25fc 100%);
+    color: #ffffff;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    transition: background 0.3s ease;
+}
+
+.button:hover {
+    background: linear-gradient(135deg, #8e5fb2 0%, #3a1abf 100%);
+}
+
+/* Search Input Styles */
+.search-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+    font-size: 16px;
 }
 
 /* Dark Section */
@@ -204,12 +332,35 @@ section p {
 /* Footer */
 footer {
     display: flex;
-    justify-content: center; /* Changed from space-between to center */
-    padding: 20px 50px;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    padding: 40px 20px; /* Increased padding */
     margin-top: 50px;
-    font-size: 18.899px; /* Slightly larger */
-    color: #000000; /* Black color */
+    font-size: 16px; /* Adjusted font size */
+    color: #000000;
 }
+
+footer nav ul {
+    list-style: none;
+    margin: 0 0 10px 0; /* Margin at the bottom */
+    padding: 0;
+    display: flex;
+    gap: 15px; /* Spacing between links */
+}
+
+footer nav ul li a {
+    text-decoration: none;
+    color: #000000; /* Black links */
+    font-weight: normal; /* Not bold */
+    font-size: 16px; /* Smaller font size */
+    padding-bottom: 5px;
+    transition: border-bottom 0.3s ease;
+}
+
+footer nav ul li a:hover {
+    border-bottom: 2px solid #6a11cb;
+}
+
 
 /* Chat History Styles */
 .chat-container {
@@ -282,6 +433,131 @@ footer {
 }
 
 .collapsible-message .collapsible-content p {
+
     margin: 0 0 10px 0;
+
     font-size: 16px;
+
+}
+
+
+
+/* Table Styles */
+
+table {
+
+    width: 100%;
+
+    border-collapse: separate; /* Use separate to allow for border-radius */
+
+    border-spacing: 0;
+
+    margin-top: 40px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 15px; /* Rounded corners for the table */
+
+    overflow: hidden; /* Ensures content respects the border-radius */
+
+}
+
+
+
+th, td {
+
+    padding: 15px 20px; /* More padding for a cleaner look */
+
+    text-align: left;
+
+    border-bottom: 1px solid #ddd; /* Horizontal lines for rows */
+
+}
+
+
+
+th {
+
+
+
+    color: white;
+
+
+
+    font-weight: bold;
+
+
+
+    text-transform: uppercase;
+
+
+
+    letter-spacing: 0.05em;
+
+
+
+}
+
+
+
+
+
+
+
+thead {
+
+
+
+    background: linear-gradient(135deg, #a777d1 0%, #4d25fc 100%);
+
+
+
+}
+
+
+
+
+
+
+
+tr:last-child td {
+
+    border-bottom: none; /* Remove border for the last row */
+
+}
+
+
+
+tbody tr:hover {
+
+
+
+    background-color: #f5f5f5; /* Hover effect for rows */
+
+
+
+}
+
+
+
+
+
+
+
+td a {
+
+    color: #4d25fc;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+}
+
+
+
+td a:hover {
+
+    text-decoration: underline;
+
 }

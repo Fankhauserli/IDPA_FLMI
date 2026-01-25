@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quellen</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/responsive.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section>
+            <h1 class="page-title">Quellen</h1>
+            <input type="text" id="searchInputSources" placeholder="Suchen nach Titel oder Beschreibung..." class="search-input">
+            <div class="table-responsive-wrapper">
+                <table id="sourcesTable">
+                    <thead>
+                        <tr>
+                            <th>Titel</th>
+                            <th>Beschreibung</th>
+                            <th>Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Perplexity AI</td>
+                            <td>Antwort auf unsere Fragestellung von Perplexity AI.</td>
+                            <td><a href="https://www.perplexity.ai/search/wie-kann-bei-kunstlichen-intel-3EBYzBdbSuS1x.QWbQjjvg#0" target="_blank">Perplexity</a></td>
+                        </tr>
+                        <tr>
+                            <td>ChatGPT</td>
+                            <td>Antwort auf unsere Fragestellung von ChatGPT.</td>
+                            <td><a href="https://chatgpt.com/share/69678a57-489c-8006-8b25-d7c0fd8f4eb2" target="_blank">ChatGPT</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/footer.js"></script>
+    <script src="/js/table-filter.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            setupTableFilter('searchInputSources', 'sourcesTable');
+        });
+    </script>
+</body>
+</html>
