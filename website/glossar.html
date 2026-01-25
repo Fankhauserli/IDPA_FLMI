@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glossar</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/responsive.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section>
+            <h1 class="page-title">Glossar</h1>
+            <input type="text" id="searchInputGlossar" placeholder="Suchen nach Titel oder Beschreibung..." class="search-input">
+            <div class="table-responsive-wrapper">
+                <table id="glossarTable">
+                    <thead>
+                        <tr>
+                            <th>Begriff</th>
+                            <th>Beschreibung</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>LLM</td>
+                            <td>Large Language Model, ein grosses Sprachmodell, das auf riesigen Textmengen trainiert wurde.</td>
+                        </tr>
+                        <tr>
+                            <td>Halluzination</td>
+                            <td>Eine von einer KI generierte Ausgabe, die sachlich falsch, unsinnig oder vom gegebenen Quelltext nicht gestützt ist.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/footer.js"></script>
+    <script src="/js/table-filter.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            setupTableFilter('searchInputGlossar', 'glossarTable');
+        });
+    </script>
+</body>
+</html>
