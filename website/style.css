@@ -204,7 +204,7 @@ section p {
 /* Footer */
 footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Changed from space-between to center */
     padding: 20px 50px;
     margin-top: 50px;
     font-size: 18.899px; /* Slightly larger */
