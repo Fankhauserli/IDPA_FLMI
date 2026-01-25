@@ -48,6 +48,15 @@
     .dark-section, .gradient-section {
         padding: 40px;
     }
+
+    .message {
+        max-width: 90%;
+        padding: 10px 15px;
+    }
+
+    .chat-container {
+        padding: 0;
+    }
 }
 
 @media (max-width: 500px) {
@@ -69,6 +78,11 @@
 
     header {
         padding: 10px 15px;
+    }
+
+    .message {
+        max-width: 95%;
+        padding: 8px 12px;
     }
 }
 

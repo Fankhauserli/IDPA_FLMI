@@ -1,6 +1,3 @@
-
-
-
 /* General Body Styles */
 body {
     font-family: 'Agrandir', sans-serif;
@@ -212,4 +209,79 @@ footer {
     margin-top: 50px;
     font-size: 18.899px; /* Slightly larger */
     color: #000000; /* Black color */
+}
+
+/* Chat History Styles */
+.chat-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.message {
+    padding: 15px 20px;
+    border-radius: 20px;
+    max-width: 70%;
+    line-height: 1.5;
+}
+
+.message p {
+    margin: 0;
+    font-size: 16px; /* Slightly smaller font for chat */
+}
+
+.message-left {
+    background-color: #e0e0e0; /* Slightly darker grey for expert messages */
+    color: #000;
+    align-self: flex-start;
+    text-align: left;
+    border-bottom-left-radius: 5px;
+}
+
+.message-right {
+    background: linear-gradient(135deg, #a777d1 0%, #4d25fc 100%);
+    color: #fff;
+    align-self: flex-end;
+    text-align: left;
+    border-bottom-right-radius: 5px;
+}
+
+/* Collapsible message styles */
+.collapsible-message summary {
+    cursor: pointer;
+    outline: none;
+    list-style: none;
+    position: relative; /* Needed for positioning the pseudo-element */
+    padding-left: 25px; /* Make space for the icon */
+    display: flex; /* Allow content and icon to align */
+    align-items: center; /* Vertically center icon with text */
+}
+
+.collapsible-message summary::before {
+    content: '+'; /* Plus sign as initial icon */
+    position: absolute;
+    left: 0;
+    font-size: 1.2em; /* Slightly larger icon */
+    font-weight: bold;
+    color: inherit; /* Inherit color from summary */
+    transition: transform 0.2s ease-in-out; /* Smooth transition for icon */
+}
+
+.collapsible-message[open] summary::before {
+    content: '-'; /* Minus sign when open */
+}
+
+.collapsible-message .collapsible-content-wrapper {
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+}
+
+.collapsible-message .collapsible-content {
+    padding-top: 15px;
+}
+
+.collapsible-message .collapsible-content p {
+    margin: 0 0 10px 0;
+    font-size: 16px;
 }
