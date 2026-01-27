@@ -20,165 +20,168 @@
             </section>
 
             <section class="neural-network-section">
-                <h2>Neurale Netzwerke</h2>
-                <p>Ein künstliches neuronales Netzwerk (KNN) ist der Versuch, die Funktionsweise des menschlichen
-                    Gehirns mathematisch nachzubauen, um Computer dazu zu bringen, komplexe Muster zu erkennen. Während
-                    klassische Computerprogramme stur einer programmierten Logik folgen (Wenn A, dann B), lernt ein
-                    neuronales Netzwerk aus Erfahrungen, ähnlich wie ein Kind lernt, eine Katze von einem Hund zu
-                    unterscheiden.</p>
+                <div class="tip-box">
+                    <h2>Neurale Netzwerke</h2>
+                    <p>Ein künstliches neuronales Netzwerk (KNN) ist der Versuch, die Funktionsweise des menschlichen
+                        Gehirns mathematisch nachzubauen, um Computer dazu zu bringen, komplexe Muster zu erkennen.
+                        Während klassische Computerprogramme stur einer programmierten Logik folgen (Wenn A, dann B),
+                        lernt ein neuronales Netzwerk aus Erfahrungen, ähnlich wie ein Kind lernt, eine Katze von einem
+                        Hund zu unterscheiden.</p>
 
-                <div class="nn-architecture-diagram">
-                    <svg width="600" height="300" viewBox="0 0 600 300">
-                        <!-- Connections first so they are behind nodes -->
+                    <div class="nn-architecture-diagram">
+                        <svg viewBox="0 0 600 300" preserveAspectRatio="xMidYMid meet">
+                            <!-- Connections first so they are behind nodes -->
 
-                        <!-- Input to Hidden 1 -->
-                        <line x1="80" y1="80" x2="250" y2="60" stroke="#ccc" stroke-width="1" />
-                        <line x1="80" y1="80" x2="250" y2="150" stroke="#ccc" stroke-width="1" />
-                        <line x1="80" y1="80" x2="250" y2="240" stroke="#ccc" stroke-width="1" />
+                            <!-- Input to Hidden 1 -->
+                            <line x1="80" y1="80" x2="250" y2="60" stroke="#ccc" stroke-width="1" />
+                            <line x1="80" y1="80" x2="250" y2="150" stroke="#ccc" stroke-width="1" />
+                            <line x1="80" y1="80" x2="250" y2="240" stroke="#ccc" stroke-width="1" />
 
-                        <line x1="80" y1="150" x2="250" y2="60" stroke="#ccc" stroke-width="1" />
-                        <line x1="80" y1="150" x2="250" y2="150" stroke="#ccc" stroke-width="1" />
-                        <line x1="80" y1="150" x2="250" y2="240" stroke="#ccc" stroke-width="1" />
+                            <line x1="80" y1="150" x2="250" y2="60" stroke="#ccc" stroke-width="1" />
+                            <line x1="80" y1="150" x2="250" y2="150" stroke="#ccc" stroke-width="1" />
+                            <line x1="80" y1="150" x2="250" y2="240" stroke="#ccc" stroke-width="1" />
 
-                        <line x1="80" y1="220" x2="250" y2="60" stroke="#ccc" stroke-width="1" />
-                        <line x1="80" y1="220" x2="250" y2="150" stroke="#ccc" stroke-width="1" />
-                        <line x1="80" y1="220" x2="250" y2="240" stroke="#ccc" stroke-width="1" />
+                            <line x1="80" y1="220" x2="250" y2="60" stroke="#ccc" stroke-width="1" />
+                            <line x1="80" y1="220" x2="250" y2="150" stroke="#ccc" stroke-width="1" />
+                            <line x1="80" y1="220" x2="250" y2="240" stroke="#ccc" stroke-width="1" />
 
-                        <!-- Hidden 1 to Hidden 2 -->
-                        <line x1="250" y1="60" x2="400" y2="60" stroke="#ccc" stroke-width="1" />
-                        <line x1="250" y1="60" x2="400" y2="150" stroke="#ccc" stroke-width="1" />
-                        <line x1="250" y1="60" x2="400" y2="240" stroke="#ccc" stroke-width="1" />
+                            <!-- Hidden 1 to Hidden 2 -->
+                            <line x1="250" y1="60" x2="400" y2="60" stroke="#ccc" stroke-width="1" />
+                            <line x1="250" y1="60" x2="400" y2="150" stroke="#ccc" stroke-width="1" />
+                            <line x1="250" y1="60" x2="400" y2="240" stroke="#ccc" stroke-width="1" />
 
-                        <line x1="250" y1="150" x2="400" y2="60" stroke="#ccc" stroke-width="1" />
-                        <line x1="250" y1="150" x2="400" y2="150" stroke="#ccc" stroke-width="1" />
-                        <line x1="250" y1="150" x2="400" y2="240" stroke="#ccc" stroke-width="1" />
+                            <line x1="250" y1="150" x2="400" y2="60" stroke="#ccc" stroke-width="1" />
+                            <line x1="250" y1="150" x2="400" y2="150" stroke="#ccc" stroke-width="1" />
+                            <line x1="250" y1="150" x2="400" y2="240" stroke="#ccc" stroke-width="1" />
 
-                        <line x1="250" y1="240" x2="400" y2="60" stroke="#ccc" stroke-width="1" />
-                        <line x1="250" y1="240" x2="400" y2="150" stroke="#ccc" stroke-width="1" />
-                        <line x1="250" y1="240" x2="400" y2="240" stroke="#ccc" stroke-width="1" />
+                            <line x1="250" y1="240" x2="400" y2="60" stroke="#ccc" stroke-width="1" />
+                            <line x1="250" y1="240" x2="400" y2="150" stroke="#ccc" stroke-width="1" />
+                            <line x1="250" y1="240" x2="400" y2="240" stroke="#ccc" stroke-width="1" />
 
-                        <!-- Hidden 2 to Output -->
-                        <line x1="400" y1="60" x2="520" y2="150" stroke="#ccc" stroke-width="1" />
-                        <line x1="400" y1="150" x2="520" y2="150" stroke="#ccc" stroke-width="1" />
-                        <line x1="400" y1="240" x2="520" y2="150" stroke="#ccc" stroke-width="1" />
+                            <!-- Hidden 2 to Output -->
+                            <line x1="400" y1="60" x2="520" y2="150" stroke="#ccc" stroke-width="1" />
+                            <line x1="400" y1="150" x2="520" y2="150" stroke="#ccc" stroke-width="1" />
+                            <line x1="400" y1="240" x2="520" y2="150" stroke="#ccc" stroke-width="1" />
 
-                        <!-- Input Layer -->
-                        <circle cx="80" cy="80" r="20" fill="white" stroke="#4d25fc" stroke-width="2" />
-                        <circle cx="80" cy="150" r="20" fill="white" stroke="#4d25fc" stroke-width="2" />
-                        <circle cx="80" cy="220" r="20" fill="white" stroke="#4d25fc" stroke-width="2" />
-                        <text x="80" y="270" text-anchor="middle" font-weight="bold">Input Layer</text>
+                            <!-- Input Layer -->
+                            <circle cx="80" cy="80" r="20" fill="white" stroke="#4d25fc" stroke-width="2" />
+                            <circle cx="80" cy="150" r="20" fill="white" stroke="#4d25fc" stroke-width="2" />
+                            <circle cx="80" cy="220" r="20" fill="white" stroke="#4d25fc" stroke-width="2" />
+                            <text x="80" y="270" text-anchor="middle" font-weight="bold">Input Layer</text>
 
-                        <!-- Hidden Layer 1 -->
-                        <circle cx="250" cy="60" r="20" fill="white" stroke="#4d25fc" stroke-width="2" />
-                        <circle cx="250" cy="150" r="20" fill="white" stroke="#4d25fc" stroke-width="2" />
-                        <circle cx="250" cy="240" r="20" fill="white" stroke="#4d25fc" stroke-width="2" />
+                            <!-- Hidden Layer 1 -->
+                            <circle cx="250" cy="60" r="20" fill="white" stroke="#4d25fc" stroke-width="2" />
+                            <circle cx="250" cy="150" r="20" fill="white" stroke="#4d25fc" stroke-width="2" />
+                            <circle cx="250" cy="240" r="20" fill="white" stroke="#4d25fc" stroke-width="2" />
 
-                        <!-- Hidden Layer 2 -->
-                        <circle cx="400" cy="60" r="20" fill="white" stroke="#4d25fc" stroke-width="2" />
-                        <circle cx="400" cy="150" r="20" fill="white" stroke="#4d25fc" stroke-width="2" />
-                        <circle cx="400" cy="240" r="20" fill="white" stroke="#4d25fc" stroke-width="2" />
-                        <text x="325" y="280" text-anchor="middle" font-weight="bold">Hidden Layers</text>
+                            <!-- Hidden Layer 2 -->
+                            <circle cx="400" cy="60" r="20" fill="white" stroke="#4d25fc" stroke-width="2" />
+                            <circle cx="400" cy="150" r="20" fill="white" stroke="#4d25fc" stroke-width="2" />
+                            <circle cx="400" cy="240" r="20" fill="white" stroke="#4d25fc" stroke-width="2" />
+                            <text x="325" y="280" text-anchor="middle" font-weight="bold">Hidden Layers</text>
 
-                        <!-- Output Layer -->
-                        <circle cx="520" cy="150" r="20" fill="white" stroke="#4d25fc" stroke-width="2" />
-                        <text x="520" y="200" text-anchor="middle" font-weight="bold">Output Layer</text>
+                            <!-- Output Layer -->
+                            <circle cx="520" cy="150" r="20" fill="white" stroke="#4d25fc" stroke-width="2" />
+                            <text x="520" y="200" text-anchor="middle" font-weight="bold">Output Layer</text>
+                        </svg>
+                    </div>
 
-                    </svg>
-                </div>
+                    <div>
+                        <h3>Gewichte und Parameter</h3>
+                        <p>Das wichtigste Konzept zum Verständnis sind die Verbindungen zwischen den Neuronen. Jedes
+                            Neuron ist mit den Neuronen der nächsten Schicht verbunden. Diese Verbindungen sind jedoch
+                            nicht alle gleich stark. Jede Verbindung hat ein sogenanntes Gewicht (Weight).</p>
+                        <p>Man kann sich diese Gewichte wie Wasserleitungen mit Ventilen vorstellen: Bei manchen
+                            Verbindungen ist das Ventil weit offen (das Signal kommt stark durch), bei anderen ist es
+                            fast zu (das Signal wird blockiert).</p>
+                    </div>
 
-                <div class="nn-concept-box">
-                    <h3>Gewichte und Parameter</h3>
-                    <p>Das wichtigste Konzept zum Verständnis sind die Verbindungen zwischen den Neuronen. Jedes Neuron
-                        ist mit den Neuronen der nächsten Schicht verbunden. Diese Verbindungen sind jedoch nicht alle
-                        gleich stark. Jede Verbindung hat ein sogenanntes Gewicht (Weight).</p>
-                    <p>Man kann sich diese Gewichte wie Wasserleitungen mit Ventilen vorstellen: Bei manchen
-                        Verbindungen ist das Ventil weit offen (das Signal kommt stark durch), bei anderen ist es fast
-                        zu (das Signal wird blockiert).</p>
-                </div>
-
-                <!-- Interactive Valve Element -->
-                <div class="valve-interactive-container">
-                    <h4>Interaktives Element: Das Ventil</h4>
-                    <div class="valve-visual">
-                        <div class="valve-node">
-                            Input
-                            <span class="valve-value-label" id="valve-input-value">1.0</span>
+                    <!-- Interactive Valve Element -->
+                    <div class="valve-interactive-container">
+                        <h4>Interaktives Element: Das Ventil</h4>
+                        <div class="valve-visual">
+                            <div class="valve-node">
+                                Input
+                                <span class="valve-value-label" id="valve-input-value">1.0</span>
+                            </div>
+                            <div class="valve-connection-wrapper">
+                                <span class="valve-value-label valve-weight-label" id="valve-weight-value">Weight:
+                                    1.0</span>
+                                <div id="valve-connection"></div>
+                            </div>
+                            <div class="valve-node">
+                                Output
+                                <span class="valve-value-label" id="valve-output-value">1.0</span>
+                            </div>
                         </div>
-                        <div class="valve-connection-wrapper">
-                            <span class="valve-value-label valve-weight-label" id="valve-weight-value">Weight:
-                                1.0</span>
-                            <div id="valve-connection"></div>
-                        </div>
-                        <div class="valve-node">
-                            Output
-                            <span class="valve-value-label" id="valve-output-value">1.0</span>
+                        <div class="valve-controls">
+                            <input type="range" id="valve-slider" class="valve-slider" min="-5" max="5" step="0.1"
+                                value="1">
+                            <p>Stell dir das Gewicht als Ventil vor. Verändere das Gewicht, um zu sehen, wie viel vom
+                                Input beim Output ankommt.</p>
                         </div>
                     </div>
-                    <div class="valve-controls">
-                        <input type="range" id="valve-slider" class="valve-slider" min="-5" max="5" step="0.1"
-                            value="1">
-                        <p>Stell dir das Gewicht als Ventil vor. Verändere das Gewicht, um zu sehen, wie viel vom Input
-                            beim Output ankommt.</p>
-                    </div>
-                </div>
 
-                <p>Zusammengenommen bilden diese Gewichte und Einstellungen die Parameter des Modells. Wenn wir später
-                    davon sprechen, dass ein LLM «Milliarden von Parametern» hat, meinen wir genau diese Milliarden von
-                    kleinen Stellschrauben (unseren Ventilen) und Verbindungen innerhalb des neuronalen Netzwerks, die
-                    den Informationsfluss steuern.</p>
+                    <p>Zusammengenommen bilden diese Gewichte und Einstellungen die Parameter des Modells. Wenn wir
+                        später davon sprechen, dass ein LLM «Milliarden von Parametern» hat, meinen wir genau diese
+                        Milliarden von kleinen Stellschrauben (unseren Ventilen) und Verbindungen innerhalb des
+                        neuronalen Netzwerks, die den Informationsfluss steuern.</p>
 
-                <p>Das Ziel des Netzwerks ist es, diese Parameter so einzustellen, dass am Ende das richtige Ergebnis
-                    herauskommt. Ein LLM ist im Grunde nichts anderes als ein gigantisches, hochkomplexes neuronales
-                    Netzwerk mit einer speziellen Architektur, die sich besonders gut für Sprache eignet.</p>
-
-                <div class="nn-concept-box">
-                    <h3>Die Mathematik hinter einem Neuron</h3>
-                    <p>Um zu verstehen, wie das Netzwerk "denkt", müssen wir uns ansehen, was in einem einzelnen Neuron
-                        mathematisch passiert. Es ist weniger kompliziert, als es aussieht. Der Prozess in einem
-                        einzelnen Neuron lässt sich in zwei Schritte unterteilen: die lineare Funktion und die
-                        Aktivierungsfunktion.</p>
-
-                    <h4>1. Die gewichtete Summe (Linearer Teil)</h4>
-                    <p>Stellen wir uns ein Neuron vor, das drei Eingaben erhält (z. B. drei Wörter oder Pixel). Jede
-                        Eingabe (x) wird mit ihrem eigenen Gewicht (w) multipliziert. Das ist genau der Effekt des oben
-                        beschriebenen "Ventils". Anschliessend werden alle Ergebnisse zusammengezählt.</p>
-                    <p>Mathematisch sieht das für ein einzelnes Neuron so aus:</p>
-                    <p
-                        style="font-family: monospace; background: #eee; padding: 10px; border-radius: 5px; display: inline-block;">
-                        z = (x1 · w1) + (x2 · w2) + (x3 · w3) + b</p>
-                    <p>Oder vereinfacht mit dem Summenzeichen ∑:</p>
-                    <p
-                        style="font-family: monospace; background: #eee; padding: 10px; border-radius: 5px; display: inline-block;">
-                        z = ∑(xi · wi) + b</p>
-                    <ul>
-                        <li><strong>x (Input):</strong> Die Information, die reinkommt.</li>
-                        <li><strong>w (Weight):</strong> Die Wichtigkeit der Information (unser Ventil).</li>
-                        <li><strong>b (Bias):</strong> Der Schwellenwert.</li>
-                    </ul>
-                    <p><strong>Der Bias (b):</strong> Der Bias ist ein spezieller Parameter, der oft vergessen wird. Er
-                        ist eine Art "Grundstimmung" des Neurons. Selbst wenn alle Eingaben (x) null sind, kann der Bias
-                        dafür sorgen, dass das Neuron trotzdem feuert. Er verschiebt die Aktivierungskurve nach oben
-                        oder unten, ähnlich wie der y-Achsenabschnitt in einer einfachen Geradengleichung (y = mx + q).
+                    <p>Das Ziel des Netzwerks ist es, diese Parameter so einzustellen, dass am Ende das richtige
+                        Ergebnis herauskommt. Ein LLM ist im Grunde nichts anderes als ein gigantisches, hochkomplexes
+                        neuronales Netzwerk mit einer speziellen Architektur, die sich besonders gut für Sprache eignet.
                     </p>
 
-                    <h4>2. Die Aktivierungsfunktion (Nicht-linearer Teil)</h4>
-                    <p>Nachdem die gewichtete Summe (z) berechnet wurde, ist das Ergebnis oft eine beliebige Zahl
-                        zwischen minus unendlich und plus unendlich. Damit das Netzwerk komplexe Probleme lösen kann,
-                        muss entschieden werden: "Ist dieses Signal stark genug, um weitergeleitet zu werden?".</p>
-                    <p>Hier kommt die Aktivierungsfunktion (f) ins Spiel. Sie nimmt das Ergebnis der Summe und wandelt
-                        es um:</p>
-                    <p
-                        style="font-family: monospace; background: #eee; padding: 10px; border-radius: 5px; display: inline-block;">
-                        output = f(z)</p>
-                    <p>In modernen LLMs wird hier oft die ReLU-Funktion (Rectified Linear Unit) verwendet. Sie ist
-                        mathematisch sehr simpel: Sie wandelt alle negativen Zahlen in Null um.</p>
-                    <p
-                        style="font-family: monospace; background: #eee; padding: 10px; border-radius: 5px; display: inline-block;">
-                        f(z) = max(0, z)</p>
-                    <p>Das bedeutet: Wenn die gewichtete Summe negativ ist, bleibt das Neuron "still" (Output 0). Ist
-                        sie positiv, leitet es das Signal weiter. Ohne diese nicht-linearen Funktionen wäre das gesamte
-                        Netzwerk, egal wie gross, nur eine einfache lineare Regression und könnte keine Sprache
-                        verstehen.</p>
+                    <div>
+                        <h3>Die Mathematik hinter einem Neuron</h3>
+                        <p>Um zu verstehen, wie das Netzwerk "denkt", müssen wir uns ansehen, was in einem einzelnen
+                            Neuron mathematisch passiert. Es ist weniger kompliziert, als es aussieht. Der Prozess in
+                            einem einzelnen Neuron lässt sich in zwei Schritte unterteilen: die lineare Funktion und die
+                            Aktivierungsfunktion.</p>
+
+                        <h4>1. Die gewichtete Summe (Linearer Teil)</h4>
+                        <p>Stellen wir uns ein Neuron vor, das drei Eingaben erhält (z. B. drei Wörter oder Pixel). Jede
+                            Eingabe (x) wird mit ihrem eigenen Gewicht (w) multipliziert. Das ist genau der Effekt des
+                            oben beschriebenen "Ventils". Anschliessend werden alle Ergebnisse zusammengezählt.</p>
+                        <p>Mathematisch sieht das für ein einzelnes Neuron so aus:</p>
+                        <p
+                            style="font-family: monospace; background: #eee; padding: 10px; border-radius: 5px; display: inline-block;">
+                            z = (x1 · w1) + (x2 · w2) + (x3 · w3) + b</p>
+                        <p>Oder vereinfacht mit dem Summenzeichen ∑:</p>
+                        <p
+                            style="font-family: monospace; background: #eee; padding: 10px; border-radius: 5px; display: inline-block;">
+                            z = ∑(xi · wi) + b</p>
+                        <ul>
+                            <li><strong>x (Input):</strong> Die Information, die reinkommt.</li>
+                            <li><strong>w (Weight):</strong> Die Wichtigkeit der Information (unser Ventil).</li>
+                            <li><strong>b (Bias):</strong> Der Schwellenwert.</li>
+                        </ul>
+                        <p><strong>Der Bias (b):</strong> Der Bias ist ein spezieller Parameter, der oft vergessen wird.
+                            Er ist eine Art "Grundstimmung" des Neurons. Selbst wenn alle Eingaben (x) null sind, kann
+                            der Bias dafür sorgen, dass das Neuron trotzdem feuert. Er verschiebt die Aktivierungskurve
+                            nach oben oder unten, ähnlich wie der y-Achsenabschnitt in einer einfachen Geradengleichung
+                            (y = mx + q).</p>
+
+                        <h4>2. Die Aktivierungsfunktion (Nicht-linearer Teil)</h4>
+                        <p>Nachdem die gewichtete Summe (z) berechnet wurde, ist das Ergebnis oft eine beliebige Zahl
+                            zwischen minus unendlich und plus unendlich. Damit das Netzwerk komplexe Probleme lösen
+                            kann, muss entschieden werden: "Ist dieses Signal stark genug, um weitergeleitet zu
+                            werden?".</p>
+                        <p>Hier kommt die Aktivierungsfunktion (f) ins Spiel. Sie nimmt das Ergebnis der Summe und
+                            wandelt es um:</p>
+                        <p
+                            style="font-family: monospace; background: #eee; padding: 10px; border-radius: 5px; display: inline-block;">
+                            output = f(z)</p>
+                        <p>In modernen LLMs wird hier oft die ReLU-Funktion (Rectified Linear Unit) verwendet. Sie ist
+                            mathematisch sehr simpel: Sie wandelt alle negativen Zahlen in Null um.</p>
+                        <p
+                            style="font-family: monospace; background: #eee; padding: 10px; border-radius: 5px; display: inline-block;">
+                            f(z) = max(0, z)</p>
+                        <p>Das bedeutet: Wenn die gewichtete Summe negativ ist, bleibt das Neuron "still" (Output 0).
+                            Ist sie positiv, leitet es das Signal weiter. Ohne diese nicht-linearen Funktionen wäre das
+                            gesamte Netzwerk, egal wie gross, nur eine einfache lineare Regression und könnte keine
+                            Sprache verstehen.</p>
+                    </div>
                 </div>
             </section>
 
