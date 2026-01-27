@@ -556,90 +556,56 @@ td a:hover {
     text-align: left;
 }
 
-.neural-network-section h2 {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.nn-concept-box {
-    margin-bottom: 50px;
-    background-color: #f9f9f9;
-    padding: 30px;
-    border-radius: 15px;
-    border: 1px solid #eee;
-}
-
-.nn-concept-box h3 {
-    color: #4d25fc;
-    margin-top: 0;
-}
-
 /* Architecture Diagram */
 .nn-architecture-diagram {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     margin: 40px 0;
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    /* Keep slight shadow for diagram only or remove if needed */
     position: relative;
     overflow: hidden;
-    /* For lines if we use SVG background */
 }
 
-.layer-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    z-index: 2;
+.nn-architecture-diagram svg {
+    width: 100%;
+    height: auto;
+    max-width: 600px;
 }
 
-.layer-label {
-    font-weight: bold;
-    margin-bottom: 15px;
-    font-size: 1.1em;
-}
+/* ... existing styles ... */
 
-.neuron {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #fff;
-    border: 2px solid #4d25fc;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: relative;
-    z-index: 2;
-}
-
-/* Simple CSS lines for visual representation - simplified for static display */
-/* For a true connected graph, SVG is better, but CSS approximation works for "schematic" feel */
-
-/* Valve Interactive Element */
 /* Valve Interactive Element */
 .valve-interactive-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 40px 0;
+    width: 100%;
+    box-sizing: border-box;
+    /* Explicitly adding box styles as they are missing */
+    background-color: #ffffff;
     padding: 30px;
-    background-color: #f0f0f5;
     border-radius: 15px;
-    border: 1px solid #dcdcdc;
+    border: 1px solid #ddd;
+}
+
+.valve-interactive-container h4 {
+    margin-top: 0;
+    margin-bottom: 30px;
 }
 
 .valve-visual {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 300px;
+    width: 100%;
+    max-width: 400px;
     height: 120px;
-    /* Increased height for labels */
     position: relative;
     margin-bottom: 20px;
 }
@@ -648,8 +614,9 @@ td a:hover {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #a777d1 0%, #4d25fc 100%);
-    color: white;
+    background: #ffffff;
+    border: 2px solid #4d25fc;
+    color: #4d25fc;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -657,7 +624,7 @@ td a:hover {
     z-index: 2;
     font-size: 0.9em;
     position: relative;
-    box-shadow: 0 4px 10px rgba(77, 37, 252, 0.3);
+    box-shadow: 0 4px 10px rgba(77, 37, 252, 0.1);
 }
 
 .valve-value-label {
