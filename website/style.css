@@ -4,9 +4,11 @@ body {
     margin: 0;
     padding: 0;
     background-color: #ffffff;
-    color: #000000; /* Black text */
+    color: #000000;
+    /* Black text */
     text-align: center;
-    padding-top: 80px; /* Adjusted for fixed header */
+    padding-top: 80px;
+    /* Adjusted for fixed header */
 }
 
 /* Header and Navigation */
@@ -27,7 +29,8 @@ header .logo {
     font-family: 'Agrandir', sans-serif;
     font-size: 46.14px;
     font-weight: bold;
-    color: #000000; /* Ensure black color */
+    color: #000000;
+    /* Ensure black color */
     text-transform: none;
 }
 
@@ -44,20 +47,23 @@ header nav ul li {
 
 header nav ul li a {
     text-decoration: none;
-    color: #000000; /* Black links */
+    color: #000000;
+    /* Black links */
     font-weight: bold;
     font-size: 18.899px;
     padding-bottom: 5px;
     transition: border-bottom 0.3s ease;
 }
 
-header nav ul li a:hover, header nav ul li a.active {
+header nav ul li a:hover,
+header nav ul li a.active {
     border-bottom: 2px solid #6a11cb;
 }
 
 /* Burger Menu Styles */
 #burger-menu {
-    display: none; /* Hidden on desktop */
+    display: none;
+    /* Hidden on desktop */
     cursor: pointer;
 }
 
@@ -74,17 +80,20 @@ header nav ul li a:hover, header nav ul li a.active {
     .nav-links {
         position: fixed;
         right: 0px;
-        top: 0px; /* Aligns with the top of the viewport */
+        top: 0px;
+        /* Aligns with the top of the viewport */
         height: 100vh;
         background: white;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-around; /* This will spread out the links vertically */
+        justify-content: space-around;
+        /* This will spread out the links vertically */
         width: 100%;
         transform: translateX(100%);
         transition: transform 0.5s ease-in;
-        z-index: 999; /* Below the header but above other content */
+        z-index: 999;
+        /* Below the header but above other content */
     }
 
     .nav-links ul {
@@ -98,15 +107,17 @@ header nav ul li a:hover, header nav ul li a.active {
         margin: 20px 0;
         opacity: 0;
     }
-    
+
     .nav-links.nav-active {
         transform: translateX(0%);
     }
 
     #burger-menu {
-        display: block; /* Show on mobile */
+        display: block;
+        /* Show on mobile */
         position: relative;
-        z-index: 1001; /* Make sure it's above the nav-links */
+        z-index: 1001;
+        /* Make sure it's above the nav-links */
     }
 }
 
@@ -128,6 +139,7 @@ header nav ul li a:hover, header nav ul li a.active {
         opacity: 0;
         transform: translateX(50px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0px);
@@ -147,7 +159,10 @@ section {
     text-align: center;
 }
 
-section h1, section h2, section h3, section h4 {
+section h1,
+section h2,
+section h3,
+section h4 {
     font-family: 'Agrandir', sans-serif;
     font-weight: 700;
 }
@@ -178,13 +193,15 @@ section p {
 
 /* Custom Page Titles */
 .page-title {
-    font-size: 72.094px; /* Same as h2 */
+    font-size: 72.094px;
+    /* Same as h2 */
     margin-bottom: 30px;
 }
 
 /* Hero Section */
 .hero {
-    padding: 0 20px; /* Remove top/bottom padding for vertical centering */
+    padding: 0 20px;
+    /* Remove top/bottom padding for vertical centering */
     min-height: calc(100vh - 80px);
     display: flex;
     flex-direction: column;
@@ -193,20 +210,25 @@ section p {
 }
 
 .hero h1 {
-    font-size: 90px; /* Reduced from general h1 size */
+    font-size: 90px;
+    /* Reduced from general h1 size */
     line-height: 1.1;
     margin-bottom: 20px;
 }
 
-.hero h2 { /* Targeting the new h2 in hero for smaller font size */
-    font-size: 46.14px; /* Same as h3, smaller than main h2 */
+.hero h2 {
+    /* Targeting the new h2 in hero for smaller font size */
+    font-size: 46.14px;
+    /* Same as h3, smaller than main h2 */
     margin-bottom: 20px;
 }
 
-.hero p { /* Targeting the new p in hero */
+.hero p {
+    /* Targeting the new p in hero */
     font-size: 20px;
     margin-bottom: 30px;
-    max-width: 700px; /* Limit width for readability */
+    max-width: 700px;
+    /* Limit width for readability */
 }
 
 .button {
@@ -244,8 +266,11 @@ section p {
     padding: 60px;
 }
 
-.dark-section h2, .dark-section h3, .dark-section p {
-    color: #f0f0f0; /* Lighter text for dark background */
+.dark-section h2,
+.dark-section h3,
+.dark-section p {
+    color: #f0f0f0;
+    /* Lighter text for dark background */
 }
 
 /* Gradient Section */
@@ -256,7 +281,8 @@ section p {
     padding: 60px;
 }
 
-.gradient-section h2, .gradient-section p {
+.gradient-section h2,
+.gradient-section p {
     color: #fff;
 }
 
@@ -264,6 +290,7 @@ section p {
 .gradient-text {
     background: linear-gradient(135deg, #a777d1 0%, #4d25fc 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -277,15 +304,17 @@ section p {
 
 .tip-box {
     background-color: #f4f4f4;
-    padding: 15px 30px 30px; /* Reduced top padding */
+    padding: 15px 30px 30px;
+    /* Reduced top padding */
     border-radius: 15px;
     border: 1px solid #ddd;
     text-align: left;
 }
 
 .tip-box h3 {
-     background: linear-gradient(135deg, #a777d1 0%, #4d25fc 100%);
+    background: linear-gradient(135deg, #a777d1 0%, #4d25fc 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -333,27 +362,36 @@ section p {
 /* Footer */
 footer {
     display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
-    padding: 40px 20px; /* Increased padding */
+    flex-direction: column;
+    /* Stack items vertically */
+    align-items: center;
+    /* Center items horizontally */
+    padding: 40px 20px;
+    /* Increased padding */
     margin-top: 50px;
-    font-size: 16px; /* Adjusted font size */
+    font-size: 16px;
+    /* Adjusted font size */
     color: #000000;
 }
 
 footer nav ul {
     list-style: none;
-    margin: 0 0 10px 0; /* Margin at the bottom */
+    margin: 0 0 10px 0;
+    /* Margin at the bottom */
     padding: 0;
     display: flex;
-    gap: 15px; /* Spacing between links */
+    gap: 15px;
+    /* Spacing between links */
 }
 
 footer nav ul li a {
     text-decoration: none;
-    color: #000000; /* Black links */
-    font-weight: normal; /* Not bold */
-    font-size: 16px; /* Smaller font size */
+    color: #000000;
+    /* Black links */
+    font-weight: normal;
+    /* Not bold */
+    font-size: 16px;
+    /* Smaller font size */
     padding-bottom: 5px;
     transition: border-bottom 0.3s ease;
 }
@@ -365,7 +403,8 @@ footer nav ul li a:hover {
 
 /* Chat History Styles */
 .chat-container {
-    padding: 0 20px 20px; /* Removed top padding */
+    padding: 0 20px 20px;
+    /* Removed top padding */
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -386,11 +425,13 @@ footer nav ul li a:hover {
 
 .message p {
     margin: 0;
-    font-size: 16px; /* Slightly smaller font for chat */
+    font-size: 16px;
+    /* Slightly smaller font for chat */
 }
 
 .message-left {
-    background-color: #e0e0e0; /* Slightly darker grey for expert messages */
+    background-color: #e0e0e0;
+    /* Slightly darker grey for expert messages */
     color: #000;
     align-self: flex-start;
     text-align: left;
@@ -410,24 +451,33 @@ footer nav ul li a:hover {
     cursor: pointer;
     outline: none;
     list-style: none;
-    position: relative; /* Needed for positioning the pseudo-element */
-    padding-left: 25px; /* Make space for the icon */
-    display: flex; /* Allow content and icon to align */
-    align-items: center; /* Vertically center icon with text */
+    position: relative;
+    /* Needed for positioning the pseudo-element */
+    padding-left: 25px;
+    /* Make space for the icon */
+    display: flex;
+    /* Allow content and icon to align */
+    align-items: center;
+    /* Vertically center icon with text */
 }
 
 .collapsible-message summary::before {
-    content: '+'; /* Plus sign as initial icon */
+    content: '+';
+    /* Plus sign as initial icon */
     position: absolute;
     left: 0;
-    font-size: 1.2em; /* Slightly larger icon */
+    font-size: 1.2em;
+    /* Slightly larger icon */
     font-weight: bold;
-    color: inherit; /* Inherit color from summary */
-    transition: transform 0.2s ease-in-out; /* Smooth transition for icon */
+    color: inherit;
+    /* Inherit color from summary */
+    transition: transform 0.2s ease-in-out;
+    /* Smooth transition for icon */
 }
 
 .collapsible-message[open] summary::before {
-    content: '-'; /* Minus sign when open */
+    content: '-';
+    /* Minus sign when open */
 }
 
 .collapsible-message .collapsible-content-wrapper {
@@ -449,18 +499,24 @@ footer nav ul li a:hover {
 /* Table Styles */
 table {
     width: 100%;
-    border-collapse: separate; /* Use separate to allow for border-radius */
+    border-collapse: separate;
+    /* Use separate to allow for border-radius */
     border-spacing: 0;
     margin-top: 40px;
     border: 1px solid #ddd;
-    border-radius: 15px; /* Rounded corners for the table */
-    overflow: hidden; /* Ensures content respects the border-radius */
+    border-radius: 15px;
+    /* Rounded corners for the table */
+    overflow: hidden;
+    /* Ensures content respects the border-radius */
 }
 
-th, td {
-    padding: 15px 20px; /* More padding for a cleaner look */
+th,
+td {
+    padding: 15px 20px;
+    /* More padding for a cleaner look */
     text-align: left;
-    border-bottom: 1px solid #ddd; /* Horizontal lines for rows */
+    border-bottom: 1px solid #ddd;
+    /* Horizontal lines for rows */
 }
 
 th {
@@ -475,11 +531,13 @@ thead {
 }
 
 tr:last-child td {
-    border-bottom: none; /* Remove border for the last row */
+    border-bottom: none;
+    /* Remove border for the last row */
 }
 
 tbody tr:hover {
-    background-color: #f5f5f5; /* Hover effect for rows */
+    background-color: #f5f5f5;
+    /* Hover effect for rows */
 }
 
 td a {
@@ -490,4 +548,180 @@ td a {
 
 td a:hover {
     text-decoration: underline;
+}
+
+/* Neural Network Section Styles */
+.neural-network-section {
+    padding: 60px 20px;
+    text-align: left;
+}
+
+.neural-network-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.nn-concept-box {
+    margin-bottom: 50px;
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #eee;
+}
+
+.nn-concept-box h3 {
+    color: #4d25fc;
+    margin-top: 0;
+}
+
+/* Architecture Diagram */
+.nn-architecture-diagram {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 40px 0;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+    /* For lines if we use SVG background */
+}
+
+.layer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    z-index: 2;
+}
+
+.layer-label {
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.neuron {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 2px solid #4d25fc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2;
+}
+
+/* Simple CSS lines for visual representation - simplified for static display */
+/* For a true connected graph, SVG is better, but CSS approximation works for "schematic" feel */
+
+/* Valve Interactive Element */
+/* Valve Interactive Element */
+.valve-interactive-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 0;
+    padding: 30px;
+    background-color: #f0f0f5;
+    border-radius: 15px;
+    border: 1px solid #dcdcdc;
+}
+
+.valve-visual {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+    height: 120px;
+    /* Increased height for labels */
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.valve-node {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #a777d1 0%, #4d25fc 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    z-index: 2;
+    font-size: 0.9em;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(77, 37, 252, 0.3);
+}
+
+.valve-value-label {
+    position: absolute;
+    bottom: -35px;
+    /* Move below the node */
+    font-size: 0.85em;
+    color: #333;
+    font-weight: bold;
+    background-color: #fff;
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    white-space: nowrap;
+}
+
+.valve-connection-wrapper {
+    flex-grow: 1;
+    height: 60px;
+    /* click area */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* Ensure children don't stretch weirdly */
+}
+
+.valve-weight-label {
+    position: absolute;
+    top: -20px;
+    /* Closer to line */
+    height: auto;
+    width: auto;
+    background: transparent;
+    color: #888;
+    /* Grey for subtlety */
+    border: none;
+    box-shadow: none;
+    font-weight: normal;
+    /* Less bold */
+    padding: 0;
+    font-size: 0.8em;
+    /* Smaller */
+    z-index: 5;
+    white-space: nowrap;
+    line-height: normal;
+}
+
+#valve-connection {
+    width: 100%;
+    height: 2px;
+    background-color: #4d25fc;
+    transition: all 0.2s ease;
+}
+
+.valve-controls {
+    margin-top: 10px;
+    width: 80%;
+    text-align: center;
+}
+
+input[type=range].valve-slider {
+    width: 100%;
+    margin: 10px 0;
+    accent-color: #4d25fc;
 }
