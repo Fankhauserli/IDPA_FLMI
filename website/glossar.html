@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,15 @@
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/responsive.css">
 </head>
+
 <body>
     <div id="header-placeholder"></div>
 
     <main>
         <section>
             <h1 class="page-title">Glossar</h1>
-            <input type="text" id="searchInputGlossar" placeholder="Suchen nach Titel oder Beschreibung..." class="search-input">
+            <input type="text" id="searchInputGlossar" placeholder="Suchen nach Titel oder Beschreibung..."
+                class="search-input">
             <div class="table-responsive-wrapper">
                 <table id="glossarTable">
                     <thead>
@@ -25,11 +28,78 @@
                     <tbody>
                         <tr>
                             <td>LLM</td>
-                            <td>Large Language Model, ein grosses Sprachmodell, das auf riesigen Textmengen trainiert wurde.</td>
+                            <td>Large Language Model, ein grosses Sprachmodell, das auf riesigen Textmengen trainiert
+                                wurde.</td>
                         </tr>
                         <tr>
                             <td>Halluzination</td>
-                            <td>Eine von einer KI generierte Ausgabe, die sachlich falsch, unsinnig oder vom gegebenen Quelltext nicht gestützt ist.</td>
+                            <td>Eine von einer KI generierte Ausgabe, die sachlich falsch, unsinnig oder vom gegebenen
+                                Quelltext nicht gestützt ist.</td>
+                        </tr>
+                        <tr>
+                            <td>Backpropagation</td>
+                            <td>Der Algorithmus, mit dem neuronale Netze lernen, indem Fehler rückwärts durch das Netz
+                                geleitet werden, um die Parameter anzupassen.</td>
+                        </tr>
+                        <tr>
+                            <td>Embedding</td>
+                            <td>Die Umwandlung von Wörtern oder Texten in Vektoren (Zahlenreihen), die ihre Bedeutung
+                                mathematisch erfassbar machen.</td>
+                        </tr>
+                        <tr>
+                            <td>Token</td>
+                            <td>Die kleinste Einheit, die ein LLM verarbeitet. Dies kann ein ganzes Wort, ein Teil eines
+                                Wortes oder ein Satzzeichen sein.</td>
+                        </tr>
+                        <tr>
+                            <td>Attention</td>
+                            <td>Ein Mechanismus in Transformern, der es dem Modell ermöglicht, Beziehungen zwischen
+                                Wörtern im Kontext zu erkennen und wichtiges von unwichtigem zu unterscheiden.</td>
+                        </tr>
+                        <tr>
+                            <td>MLP</td>
+                            <td>Multilayer Perzeptron, ein klassisches neuronales Netzwerk, das in Transformern genutzt
+                                wird, um Informationen zu verarbeiten und Fakten zu speichern.</td>
+                        </tr>
+                        <tr>
+                            <td>Loss (Verlust)</td>
+                            <td>Ein mathematisches Mass dafür, wie stark die Vorhersage des Modells vom gewünschten
+                                Ergebnis abweicht.</td>
+                        </tr>
+                        <tr>
+                            <td>Gradient</td>
+                            <td>Die Richtung und Stärke, in der die Parameter angepasst werden müssen, um den Fehler zu
+                                minimieren.</td>
+                        </tr>
+                        <tr>
+                            <td>Cross-Entropy</td>
+                            <td>Eine mathematische Methode zur Berechnung des Verlusts (Loss), die misst, wie stark die
+                                Vorhersagewahrscheinlichkeit von der tatsächlichen Wahrheit abweicht.</td>
+                        </tr>
+                        <tr>
+                            <td>Forward-Pass</td>
+                            <td>Der Durchlauf der Daten durch das neuronale Netz von der Eingabe bis zur Ausgabe
+                                (Vorhersage).</td>
+                        </tr>
+                        <tr>
+                            <td>Backward-Pass</td>
+                            <td>Der Rücklauf durch das Netz, bei dem die Gradienten berechnet werden, um die
+                                Fehlerquelle zu finden.</td>
+                        </tr>
+                        <tr>
+                            <td>Lernrate (Learning Rate)</td>
+                            <td>Ein Parameter, der bestimmt, wie stark die Gewichte bei jedem Update angepasst werden.
+                                Zu hoch führt zu Instabilität, zu niedrig zu sehr langsamem Lernen.</td>
+                        </tr>
+                        <tr>
+                            <td>RLHF</td>
+                            <td>Reinforcement Learning from Human Feedback – eine Methode, um LLMs mit menschlichen
+                                Bewertungen weiterzutrainieren und an menschliche Werte anzupassen.</td>
+                        </tr>
+                        <tr>
+                            <td>Prompt</td>
+                            <td>Die Eingabeaufforderung oder der Text, den ein Benutzer dem LLM gibt, um eine Antwort zu
+                                generieren.</td>
                         </tr>
                     </tbody>
                 </table>
@@ -48,4 +118,5 @@
         });
     </script>
 </body>
+
 </html>
