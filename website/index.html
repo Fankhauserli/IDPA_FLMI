@@ -6,6 +6,83 @@
     <title>IDPA FLMI</title>
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/responsive.css">
+    <style>
+                        /* Slider Container */
+                        .slider-container {
+                            position: relative;
+                            overflow: hidden;
+                            width: 100%;
+                            border-radius: 8px;
+                        }        
+                /* Slider Track */
+                .answers-slider {
+                    display: flex;
+                    transition: transform 0.3s ease-in-out;
+                }
+        
+                /* Individual Slide */
+                .answer {
+                    flex: 0 0 100%;
+                    width: 100%;
+                    box-sizing: border-box;
+                    padding: 20px;
+                    background-color: #f9f9f9;
+                    border-radius: 8px;
+                }
+        
+                .dark-section .answer {
+                    background-color: #333;
+                }
+        
+                .answer h4 {
+                    margin-top: 0;
+                }
+        
+        
+        /* Dots Navigation */
+        .slider-dots {
+            position: absolute;
+            bottom: 10px; /* Position from the bottom */
+            left: 50%; /* Start from the middle */
+            transform: translateX(-50%); /* Shift back by half its width to truly center */
+            display: flex; /* Use flexbox for spacing dots */
+            justify-content: center; /* Center dots within the flex container */
+            gap: 8px; /* Space between dots */
+            z-index: 10; /* Ensure dots are above other content */
+        }
+        
+        .slider-dots .dot {
+            cursor: pointer;
+            height: 12px;
+            width: 12px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .slider-dots .dot.active {
+            background-color: #717171;
+        }
+
+        /* On larger screens, show answers side-by-side */
+        @media (min-width: 768px) {
+            .answers-slider {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+                transform: none !important; /* Disable sliding transform */
+            }
+
+            .answer {
+                flex-basis: auto; /* Reset flex-basis */
+            }
+
+            .slider-dots {
+                display: none; /* Hide dots on desktop */
+            }
+        }
+    </style>
 </head>
 <body>
     <div id="header-placeholder"></div>
@@ -135,28 +212,34 @@
                 
                     <div class="question-block">
                         <h5 class="chat-header">Frage 1: Was ist Ihre Meinung zu X?</h5>
-                        <div class="answers-container">
-                            <div class="answer">
-                                <h4>Antwort von Person A</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <div class="answers-container slider-container">
+                            <div class="answers-slider">
+                                <div class="answer">
+                                    <h4>Antwort von Person A</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                </div>
+                                <div class="answer">
+                                    <h4>Antwort von Person B</h4>
+                                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                </div>
                             </div>
-                            <div class="answer">
-                                <h4>Antwort von Person B</h4>
-                                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            </div>
+                            <div class="slider-dots"></div>
                         </div>
                     </div>
                     <div class="question-block">
                         <h5 class="chat-header">Frage 2: Wie sehen Sie die Zukunft von Y?</h5>
-                        <div class="answers-container">
-                            <div class="answer">
-                                <h4>Antwort von Person A</h4>
-                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        <div class="answers-container slider-container">
+                            <div class="answers-slider">
+                                <div class="answer">
+                                    <h4>Antwort von Person A</h4>
+                                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                </div>
+                                <div class="answer">
+                                    <h4>Antwort von Person B</h4>
+                                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                </div>
                             </div>
-                            <div class="answer">
-                                <h4>Antwort von Person B</h4>
-                                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                            </div>
+                            <div class="slider-dots"></div>
                         </div>
                     </div>
                 </section>
@@ -225,6 +308,88 @@
                     }
                 });
             });
+        });
+
+        const sliders = document.querySelectorAll('.slider-container');
+
+        sliders.forEach(slider => {
+            const sliderTrack = slider.querySelector('.answers-slider');
+            const slides = slider.querySelectorAll('.answer');
+
+            const dotsContainer = slider.querySelector('.slider-dots');
+            
+            if (!sliderTrack || slides.length === 0) {
+                return;
+            }
+
+            let currentIndex = 0;
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            // Create dots
+            slides.forEach((_, index) => {
+                const dot = document.createElement('span');
+                dot.classList.add('dot');
+                if (index === 0) {
+                    dot.classList.add('active');
+                }
+                dot.addEventListener('click', () => {
+                    goToSlide(index);
+                });
+                dotsContainer.appendChild(dot);
+            });
+
+            const dots = dotsContainer.querySelectorAll('.dot');
+
+            function goToSlide(index) {
+                if (index < 0 || index >= slides.length) {
+                    return;
+                }
+                currentIndex = index;
+                const offset = -currentIndex * 100;
+                sliderTrack.style.transform = `translateX(${offset}%)`;
+                updateDots();
+            }
+
+            function updateDots() {
+                dots.forEach((dot, index) => {
+                    if (index === currentIndex) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+
+
+
+            // Swipe functionality
+            sliderTrack.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+
+            sliderTrack.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+
+            function handleSwipe() {
+                if (window.innerWidth >= 768) return; // Only on mobile
+                
+                const swipeThreshold = 50; // Minimum swipe distance
+                if (touchStartX - touchEndX > swipeThreshold) {
+                    // Swiped left
+                    const newIndex = (currentIndex + 1) % slides.length;
+                    goToSlide(newIndex);
+                } else if (touchEndX - touchStartX > swipeThreshold) {
+                    // Swiped right
+                    const newIndex = currentIndex - 1 < 0 ? slides.length - 1 : currentIndex - 1;
+                    goToSlide(newIndex);
+                }
+            }
+            
+            // Initial setup
+            goToSlide(0);
         });
     </script>
 </body>
