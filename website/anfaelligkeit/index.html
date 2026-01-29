@@ -14,113 +14,119 @@
 
     <main>
         <section class="hero">
-            <h1>Anfälligkeit</h1>
+            <h1 class="gradient-text">Anfälligkeit</h1>
             <p>Warum LLMs Fehler machen und was wir dagegen tun können.</p>
         </section>
 
         <!-- Intro Section -->
         <section id="einleitung">
-            <div class="tip-box">
-                <h3>Einleitung</h3>
-                <p>Es lässt sich feststellen, dass Large Language Models (LLM), wie ChatGPT, noch nicht in vollem Umfang
-                    perfekt sind. Ein wesentlicher Kritikpunkt ist, dass diese Modelle häufig Falschinformationen
-                    erzeugen, die auf den ersten Blick glaubwürdig wirken, was in der Fachliteratur als Halluzination
-                    bezeichnet wird. Gemäss den Ergebnissen einer Studie der BBC manifestiert sich dieses Phänomen mit
-                    einer höheren Frequenz, als gemeinhin angenommen wird. Gemäss dieser Studie manifestieren sich in
-                    nahezu 45 % der Antworten, die von KI-Assistenten auf nachrichtenbezogene Fragen gegeben werden,
-                    mindestens eine signifikante Inkonsistenz. Die vorliegende Untersuchung, die in Kooperation mit der
-                    European Broadcasting Union (EBU) durchgeführt wurde, verdeutlicht, dass die technologische
-                    Zuverlässigkeit noch weit hinter dem öffentlichen Vertrauen zurückbleibt.</p>
-                <p>Ein besonders problematischer Aspekt ist dabei die sogenannte Autoritäts-Falle: Die Modelle sind
-                    darauf trainiert, Informationen in einem sachlichen, selbstbewussten und seriösen Tonfall zu
-                    präsentieren. In der Konsequenz wird es für den Rezipienten nahezu unmöglich, allein durch das Lesen
-                    des Textes zu differenzieren, ob es sich um eine faktisch korrekte Antwort oder eine täuschend echt
-                    wirkende Halluzination handelt. In etwa 31 % der Fälle wurde seitens der Forscher zudem
-                    festgestellt, dass die von der KI offerierten Quellen und Zitate entweder in die Irre führten, auf
-                    nicht existente Webseiten verweisen oder den eigentlichen Inhalt der Antwort gar nicht stützten.</p>
-                <p>Es ist von Interesse, dass die Fehlerquote signifikant zwischen den verschiedenen Anbietern variiert.
-                    Während ChatGPT und Microsoft Copilot in der Studie bei etwa einem Drittel der Antworten Mängel
-                    aufwiesen, schnitt Google Gemini mit einer Fehlerquote von 76 % bei den Quellenangaben deutlich
-                    schlechter ab. Dies veranschaulicht, dass die Integration von Echtzeit-Daten aus dem Internet nach
-                    wie vor eine signifikante technische Herausforderung darstellt, die bislang noch nicht bewältigt
-                    werden konnte. Ein weiteres kritisches Ergebnis der Studie ist das Sprachgefälle: Englischsprachige
-                    Anfragen weisen demnach eine hohe Bearbeitungsstabilität auf, während das Risiko einer
-                    Desinformation bei kleineren europäischen Sprachen signifikant ansteigt.</p>
-                <p>Zusammenfassend äussert der Bericht die Besorgnis einer schleichenden Erosion des Vertrauens in
-                    Fakten. Die zunehmende Nutzung von KI-Systemen als primäre Informationsquelle birgt die Gefahr der
-                    unbewussten Verbreitung falscher Narrative, welche das Fundament des Qualitätsjournalismus
-                    untergraben können. Die Experten der EBU und der BBC kommen daher zu dem Schluss, dass
-                    KI-Assistenten zum jetzigen Zeitpunkt eher als kreative Werkzeuge und nicht als verlässliche
-                    Fakten-Bibliotheken betrachtet werden sollten. Eine manuelle Überprüfung der Primärquellen ist somit
-                    für jeden Nutzer unerlässlich, um nicht Opfer dieser als "plausibel klingend" zu bezeichnenden
-                    Falschinformationen zu werden.</p>
+            <h2 class="gradient-text">Einleitung</h2>
+            <h3>Halluzinationen</h3>
+            <p>Es lässt sich feststellen, dass Large Language Models (LLM), wie ChatGPT, noch nicht in vollem Umfang
+                perfekt sind. Ein wesentlicher Kritikpunkt ist, dass diese Modelle häufig Falschinformationen
+                erzeugen, die auf den ersten Blick glaubwürdig wirken, was in der Fachliteratur als Halluzination
+                bezeichnet wird. Gemäss den Ergebnissen einer Studie der BBC manifestiert sich dieses Phänomen mit
+                einer höheren Frequenz, als gemeinhin angenommen wird. Gemäss dieser Studie manifestieren sich in
+                nahezu 45 % der Antworten, die von KI-Assistenten auf nachrichtenbezogene Fragen gegeben werden,
+                mindestens eine signifikante Inkonsistenz. Die vorliegende Untersuchung, die in Kooperation mit der
+                European Broadcasting Union (EBU) durchgeführt wurde, verdeutlicht, dass die technologische
+                Zuverlässigkeit noch weit hinter dem öffentlichen Vertrauen zurückbleibt.</p>
+            <p>Ein besonders problematischer Aspekt ist dabei die sogenannte Autoritäts-Falle: Die Modelle sind
+                darauf trainiert, Informationen in einem sachlichen, selbstbewussten und seriösen Tonfall zu
+                präsentieren. In der Konsequenz wird es für den Rezipienten nahezu unmöglich, allein durch das Lesen
+                des Textes zu differenzieren, ob es sich um eine faktisch korrekte Antwort oder eine täuschend echt
+                wirkende Halluzination handelt. In etwa 31 % der Fälle wurde seitens der Forscher zudem
+                festgestellt, dass die von der KI offerierten Quellen und Zitate entweder in die Irre führten, auf
+                nicht existente Webseiten verweisen oder den eigentlichen Inhalt der Antwort gar nicht stützten.</p>
+            <p>Es ist von Interesse, dass die Fehlerquote signifikant zwischen den verschiedenen Anbietern variiert.
+                Während ChatGPT und Microsoft Copilot in der Studie bei etwa einem Drittel der Antworten Mängel
+                aufwiesen, schnitt Google Gemini mit einer Fehlerquote von 76 % bei den Quellenangaben deutlich
+                schlechter ab. Dies veranschaulicht, dass die Integration von Echtzeit-Daten aus dem Internet nach
+                wie vor eine signifikante technische Herausforderung darstellt, die bislang noch nicht bewältigt
+                werden konnte. Ein weiteres kritisches Ergebnis der Studie ist das Sprachgefälle: Englischsprachige
+                Anfragen weisen demnach eine hohe Bearbeitungsstabilität auf, während das Risiko einer
+                Desinformation bei kleineren europäischen Sprachen signifikant ansteigt.</p>
+            <p>Zusammenfassend äussert der Bericht die Besorgnis einer schleichenden Erosion des Vertrauens in
+                Fakten. Die zunehmende Nutzung von KI-Systemen als primäre Informationsquelle birgt die Gefahr der
+                unbewussten Verbreitung falscher Narrative, welche das Fundament des Qualitätsjournalismus
+                untergraben können. Die Experten der EBU und der BBC kommen daher zu dem Schluss, dass
+                KI-Assistenten zum jetzigen Zeitpunkt eher als kreative Werkzeuge und nicht als verlässliche
+                Fakten-Bibliotheken betrachtet werden sollten. Eine manuelle Überprüfung der Primärquellen ist somit
+                für jeden Nutzer unerlässlich, um nicht Opfer dieser als "plausibel klingend" zu bezeichnenden
+                Falschinformationen zu werden.</p>
             </div>
         </section>
 
         <!-- Technical Causes -->
         <section id="ursachen">
-            <div class="tip-box">
-                <h3>Optionen der Einschränkung: Warum passieren Fehler?</h3>
-                <p>Das Maschinen Fehler machen scheint auf den ersten Blick einfach lösbar, denn eine Maschine macht ja
-                    nur das, was man ihr sagt, also kann man einer LLM nicht einfach sagen, dass sie keine Fehler machen
-                    soll? Die Antwort ist komplex, denn im Gegensatz zu herkömmlicher Software basieren LLMs nicht auf
-                    logischen Regeln, sondern auf statistischen Wahrscheinlichkeiten. Sie “wissen” nichts, sie berechnen
-                    lediglich die plausibelste Fortsetzung eines Textes.</p>
-                <p>Wie im Teil Training beschrieben ist das fundamentale Problem das Trainingsziel:
-                    Next-Token-Prediction. Das Modell wird darauf trainiert, den statistischen Fehler (Cross-Entropy
-                    Loss) bei der Vorhersage des nächsten Wortes zu minimieren, nicht den faktischen Fehler.</p>
+            <h2 class="gradient-text">Ursachen</h2>
+            <h3>Warum passieren Fehler?</h3>
+            <p>Das Maschinen Fehler machen scheint auf den ersten Blick einfach lösbar, denn eine Maschine macht ja
+                nur das, was man ihr sagt, also kann man einer LLM nicht einfach sagen, dass sie keine Fehler machen
+                soll? Die Antwort ist komplex, denn im Gegensatz zu herkömmlicher Software basieren LLMs nicht auf
+                logischen Regeln, sondern auf statistischen Wahrscheinlichkeiten. Sie “wissen” nichts, sie berechnen
+                lediglich die plausibelste Fortsetzung eines Textes.</p>
+            <p>Wie im Teil <a href="/llm/index.html#training-detail">Training</a> beschrieben ist das fundamentale
+                Problem das
+                Trainingsziel:
+                Next-Token-Prediction. Das Modell wird darauf trainiert, den statistischen Fehler (Cross-Entropy
+                Loss) bei der Vorhersage des nächsten Wortes zu minimieren, nicht den faktischen Fehler.</p>
 
-                <h4>Fehler im Embedding</h4>
-                <p>Wie im Embedding Teil beschrieben werden Wörter, die in ähnlichen Kontexten vorkommen, im Vektorraum
-                    sehr nahe beieinander dargestellt. So zum Beispiel sind die Vektoren, welche die Wörter Airbus und
-                    Boeing darstellen sehr ähnlich. Wenn ein Modell jetzt halluziniert, greift es nicht komplett
-                    daneben, sondern nur ein bisschen, also kann zum Beispiel bei dem Satz: “Das Flugzeug A350 wird
-                    hergestellt von” das nächste Wort in der Vektoriellen Darstellung näher bei Boeing als bei Airbus
-                    sein und das Modell gibt mit voller Sicherheit den Satz: “Das Flugzeug A350 wird hergestellt von
-                    Boeing.” aus.</p>
+            <h4>Fehler im Embedding</h4>
+            <p>Wie im <a href="/llm/index.html#vektoren">Embedding Teil</a> beschrieben werden Wörter, die in ähnlichen
+                Kontexten
+                vorkommen, im Vektorraum
+                sehr nahe beieinander dargestellt. So zum Beispiel sind die Vektoren, welche die Wörter Airbus und
+                Boeing darstellen sehr ähnlich. Wenn ein Modell jetzt halluziniert, greift es nicht komplett
+                daneben, sondern nur ein bisschen, also kann zum Beispiel bei dem Satz: “Das Flugzeug A350 wird
+                hergestellt von” das nächste Wort in der Vektoriellen Darstellung näher bei Boeing als bei Airbus
+                sein und das Modell gibt mit voller Sicherheit den Satz: “Das Flugzeug A350 wird hergestellt von
+                Boeing.” aus.</p>
 
-                <h4>Fehler in der Attention</h4>
-                <p>Wir wissen, dass in dem Attention-Mechanismus berechnet wird, wie stark jedes Wort im Satz mit jedem
-                    anderen Wort in Verbindung steht.</p>
-                <p>Was nun passieren kann ist das sogenannte “snowballing”, bei dem Phänomen handelt es sich darum, dass
-                    der Attention-Algorithmus, wenn im Input eine falsche Prämisse steht, seinen Fokus darauf ausrichtet
-                    und generiert basierend auf dieser falschen Annahme weiter, um den Kontext kohärent zu halten. Das
-                    Modell priorisiert Kohärenz (dass der Satz flüssig klingt) über Korrektheit. Es achtet auf Muster,
-                    nicht auf Wahrheitsgehalt.</p>
+            <h4>Fehler in der Attention</h4>
+            <p>Wir wissen, dass in dem <a href="/llm/index.html#attention-detail">Attention-Mechanismus</a> berechnet
+                wird, wie
+                stark jedes Wort im Satz mit jedem
+                anderen Wort in Verbindung steht.</p>
+            <p>Was nun passieren kann ist das sogenannte “snowballing”, bei dem Phänomen handelt es sich darum, dass
+                der Attention-Algorithmus, wenn im Input eine falsche Prämisse steht, seinen Fokus darauf ausrichtet
+                und generiert basierend auf dieser falschen Annahme weiter, um den Kontext kohärent zu halten. Das
+                Modell priorisiert Kohärenz (dass der Satz flüssig klingt) über Korrektheit. Es achtet auf Muster,
+                nicht auf Wahrheitsgehalt.</p>
 
-                <h4>Fehler im MLP</h4>
-                <p>Während die Attention Beziehungen zwischen Wörtern herstellt, vermuten Forscher, dass das eigentliche
-                    "Wissen" in den MLPs gespeichert ist, die auf die Attention folgen.</p>
-                <p>Das Problem hierbei ist, dass falls Falsche Trainingsdaten verwendet werden die Gewichte des
-                    Netzwerks nicht mehr stimmen.</p>
-                <p>Das tönt zwar nach einem einfachen Problem, da man einfach die Daten nach ihrer Richtigkeit
-                    überprüfen kann, bevor man diese zum Trainieren benutzt. Jedoch ist das Problem, das die Menge von
-                    Informationen, die gebracht werden, so gross ist, dass es unmöglich wäre für einen Menschen diese zu
-                    überprüfen. Zudem gibt es neue Modelle, die während der Ausführung Zugriff auf das Internet haben
-                    und somit kann man die Daten nicht überprüfen.</p>
+            <h4>Fehler im MLP</h4>
+            <p>Während die Attention Beziehungen zwischen Wörtern herstellt, vermuten Forscher, dass das eigentliche
+                "Wissen" in den <a href="/llm/index.html#mlp-detail">MLPs</a> gespeichert ist, die auf die Attention
+                folgen.</p>
+            <p>Das Problem hierbei ist, dass falls Falsche Trainingsdaten verwendet werden die Gewichte des
+                Netzwerks nicht mehr stimmen.</p>
+            <p>Das tönt zwar nach einem einfachen Problem, da man einfach die Daten nach ihrer Richtigkeit
+                überprüfen kann, bevor man diese zum Trainieren benutzt. Jedoch ist das Problem, das die Menge von
+                Informationen, die gebracht werden, so gross ist, dass es unmöglich wäre für einen Menschen diese zu
+                überprüfen. Zudem gibt es neue Modelle, die während der Ausführung Zugriff auf das Internet haben
+                und somit kann man die Daten nicht überprüfen.</p>
 
-                <div class="tip-box-special">
-                    <h4>Zusammenfassung der Fehlerquellen</h4>
-                    <ul>
-                        <li><strong>Embedding:</strong> Sorgt für unscharfe Begriffsabgrenzungen (Airbus ≈ Boeing).</li>
-                        <li><strong>Attention:</strong> Priorisiert flüssigen Text und Kohärenz über Fakten
-                            ("Snowballing").</li>
-                        <li><strong>MLP:</strong> Speichert Fakten nur als Wahrscheinlichkeiten, basierend auf den
-                            Trainingsdaten.</li>
-                    </ul>
-                    <p>Deshalb hilft der Befehl “Mache keine Fehler” nicht – das Modell weiss nicht, dass es einen
-                        Fehler macht, es wählt nur den Pfad der höchsten Wahrscheinlichkeit.</p>
-                </div>
+            <div class="tip-box-special">
+                <h4>Zusammenfassung der Fehlerquellen</h4>
+                <ul>
+                    <li><strong>Embedding:</strong> Sorgt für unscharfe Begriffsabgrenzungen (Airbus ≈ Boeing).</li>
+                    <li><strong>Attention:</strong> Priorisiert flüssigen Text und Kohärenz über Fakten
+                        ("Snowballing").</li>
+                    <li><strong>MLP:</strong> Speichert Fakten nur als Wahrscheinlichkeiten, basierend auf den
+                        Trainingsdaten.</li>
+                </ul>
+                <p>Deshalb hilft der Befehl “Mache keine Fehler” nicht – das Modell weiss nicht, dass es einen
+                    Fehler macht, es wählt nur den Pfad der höchsten Wahrscheinlichkeit.</p>
             </div>
         </section>
 
         <!-- Current Solutions -->
-        <section id="loesungen">
-            <h2 class="page-title" style="margin-top:40px;">Aktuelle Lösungsansätze</h2>
+        <section id="loesungen" class="tips">
+            <h2 class="gradient-text" style="margin-top:40px;">Aktuelle Lösungsansätze</h2>
             <p>In diesem Abschnitt beschreiben wir aktuelle Ansätze, welche verfolgt werden, um Halluzinationen
                 innerhalb von LLM’s zu minimieren.</p>
 
-            <div class="tip-box">
+            <div class="tip-box" id="rag">
                 <h3>Retrieval Augmented Generation (RAG)</h3>
                 <p>Retrieval Augmented Generation ermöglicht es zwischen dem User Prompt und dem eigentlichen Berechnen,
                     weiteren Kontext zum Prompt hinzuzufügen. Wenn nun ein Benutzer fragt “Wie viele Sitzplätze hat der
@@ -184,7 +190,7 @@
                     ein anderer Lösungsansatz bei einem grösseren Wissens-Kontext verwendet werden.</p>
             </div>
 
-            <div class="tip-box">
+            <div class="tip-box" id="rlhf">
                 <h3>Reinforcement Learning from Human Feedback (RLHF)</h3>
                 <p>Ein grosser Vorteil von RLHF ist, dass Menschen direkt im Prozess involviert sind. Da sämtliche
                     Antworten von Menschen angeschaut und auch auf faktische Korrektheit überprüft werden, können
@@ -202,7 +208,7 @@
                     erwarten und nicht die Wahrheit.</p>
             </div>
 
-            <div class="tip-box">
+            <div class="tip-box" id="temperatur">
                 <h3>Temperatur</h3>
                 <p>Die Temperatur ist ein Parameter, der steuert, wie streng sich das Modell an die berechneten
                     Wahrscheinlichkeiten hält. Sie bestimmt den Grad der «Zufälligkeit» bei der Auswahl des nächsten
@@ -246,7 +252,7 @@
             </div>
 
             <!-- Prompt Engineering -->
-            <div class="tip-box">
+            <div class="tip-box" id="prompt-engineering">
                 <h3>Prompt Engineering</h3>
                 <p>Ein weiterer schon stark verbreiteter Lösungsansatz, um Halluzinationen innerhalb einer LLM zu
                     vermeiden, ist das Prompt Engineering. Unter Prompt Engineering wird verstanden, Prompts so
@@ -273,7 +279,7 @@
             </div>
 
             <!-- Agent Architecture -->
-            <div class="tip-box">
+            <div class="tip-box" id="agenten">
                 <h3>Agent Architektur</h3>
                 <p>Anstelle von einer einzigen LLM, welche den User Prompt verarbeitet, gibt es den Ansatz von KI-Agents
                     zu arbeiten. Dies sind Systeme, welche aus einer LLM bestehen, welche verschiedene Aufgaben

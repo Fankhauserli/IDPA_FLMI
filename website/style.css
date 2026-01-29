@@ -788,3 +788,11 @@ input[type=range].valve-slider {
     display: inline-block;
     border: 1px solid #ddd;
 }
+
+/* Scroll Margin for Anchor Links */
+section,
+h3,
+h4,
+.tip-box {
+    scroll-margin-top: 80px;
+}
