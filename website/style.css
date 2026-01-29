@@ -410,9 +410,19 @@ footer nav ul li a:hover {
     gap: 15px;
 }
 
+.hinweis-box {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+    border-radius: .25rem;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
 .chat-header {
     text-align: center;
-    font-size: 30px;
+    font-size: clamp(18px, 4vw, 30px);
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -728,6 +738,14 @@ input[type=range].valve-slider {
 .answer h4 {
     margin-top: 0;
     color: #4d25fc;
+}
+
+.answer p {
+    overflow-wrap: break-word;
+    word-wrap: break-word; /* for older browsers */
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
 }
 
 /* RGB Interactive Element */

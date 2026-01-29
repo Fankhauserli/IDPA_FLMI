@@ -209,34 +209,197 @@
             </div>
             <p>Wir wissen nicht, warum der Studienleiter die Fragen nicht selbständig beantwortet hat. Vielleicht gab es ein Missverständnis und er dachte er würde durch das Beantworten der Frage unsere Recherche übernehmen. Wobei wir viel mehr seine persönliche Meinung erfahren wollten. Möglicherweise waren unsere Frage auch zu simpel und er wollte uns Auffordern, uns noch tiefer ins Thema einzulesen. Eine weitere Option besteht darin, dass wir mit unserer Recherche in ein Gebiet vorgestossen sind, in welchem es selbst für Fachpersonen schwer ist Aussagen zu geben. Entsprechend seiner Empfehlung haben wir die Interview-Fragen mit einer künstlichen Intelligenz erarbeitet.</p>
             <p>Nun haben wir Fragen, über Fehlinformationen und Halluzinationen innerhalb künstlicher Intelligenz, mit einer künstlichen Intelligenz beantworten lassen. Aufgrund dieser Ironie haben wir uns entschlossen weiter nach einem möglichen Interview Ausschau zu halten. Im erweiterten Bekanntenkreis stiessen wir auf Mikaela Buzdin, gelehrte Informatikerin Applikationsentwicklung EFZ und im letzten Semester des Studienganges "BSc Data Science & Artificial Intelligence" an der Fachhochschule Nordwestschweiz (FHNW). Neben dem Studium arbeitet Mikaela aktuell an einem generativem KI Projekt, welches mit Transformer-ähnlichen Strukturen (TRELLIS) arbeitet. Das Ziel dieses Projektes ist es 3D Rekonstruktion aus 2D Bildern zu erstellen. Weitere Informationen über ihr Werdegang können in ihrem <a href="https://dpoportfolio-mikaela.onrender.com/" target="_blank">Portfolio</a> gefunden werden. Sie stimmte unserem Interview zu und beantwortet unsere Fragen schriftlich.</p>
+            <div class="hinweis-box">
+                <p><strong>Hinweis:</strong> Die folgenden KI-generierten Antworten sind Platzhalter und sollten vor der Veröffentlichung überprüft und überarbeitet werden.</p>
+            </div>
                 
                     <div class="question-block">
-                        <h5 class="chat-header">Frage 1: Was ist Ihre Meinung zu X?</h5>
+                        <h5 class="chat-header">Warum treten Halluzinationen auf?</h5>
                         <div class="answers-container slider-container">
                             <div class="answers-slider">
                                 <div class="answer">
-                                    <h4>Antwort von Person A</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    <h4>KI-generierte Antwort</h4>
+                                    <p>Halluzinationen in Sprachmodellen sind ein Ergebnis des probabilistischen Charakters ihrer Architektur. Sie entstehen, wenn das Modell versucht, Muster in den Trainingsdaten zu verallgemeinern, aber dabei auf fehlerhafte oder unzureichende Informationen stößt, was zu faktisch falschen, aber syntaktisch korrekten Aussagen führt.</p>
                                 </div>
                                 <div class="answer">
-                                    <h4>Antwort von Person B</h4>
-                                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                    <h4>Antwort von Mikaela Buzdin</h4>
+                                    <p>Halluzinationen können aus vielen Quellen entstehen, beispielsweise durch Overfitting oder Underfitting, je nachdem, wie die Trainingsdaten und/oder die Struktur des Transformers/LLMs sind oder wie einige Prozesse während der Datenaufbereitung stattfanden. Ein leicht illustrierbares Beispiel, das in letzter Zeit viel Aufmerksamkeit erhalten hat, ist die Frage „Is there a seahorse emoji?” bei ChatGPT. Da ChatGPT auf Next-Word-Prediction trainiert wurde und kein Seahorse-Emoji kennt, fiel es aufgrund interner Gewichte in einen langen Loop, in dem es sich dachte: „Ja, ich kenne das Seahorse-Emoji”, ein falsches Emoji postete, sich dann entschuldigte und wieder von vorne begann.</p>
                                 </div>
                             </div>
                             <div class="slider-dots"></div>
                         </div>
                     </div>
                     <div class="question-block">
-                        <h5 class="chat-header">Frage 2: Wie sehen Sie die Zukunft von Y?</h5>
+                        <h5 class="chat-header">Was sind die Problemstellen innerhalb einer LLM / eines Transformers?</h5>
                         <div class="answers-container slider-container">
                             <div class="answers-slider">
                                 <div class="answer">
-                                    <h4>Antwort von Person A</h4>
-                                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                    <h4>KI-generierte Antwort</h4>
+                                    <p>Die Hauptproblemstellen liegen in der "Blackbox"-Natur der Transformer-Architektur. Insbesondere die Aufmerksamkeitsmechanismen, obwohl mächtig, können zu einer übermäßigen Fokussierung auf irrelevante Datenpunkte führen, was die Generierung von ungenauen oder kontextlosen Informationen begünstigt.</p>
                                 </div>
                                 <div class="answer">
-                                    <h4>Antwort von Person B</h4>
-                                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    <h4>Antwort von Mikaela Buzdin</h4>
+                                    <p>Halluzinationen können aus vielen Quellen entstehen, beispielsweise durch Overfitting oder Underfitting, je nachdem, wie die Trainingsdaten und/oder die Struktur des Transformers/LLMs sind oder wie einige Prozesse während der Datenaufbereitung stattfanden. Ein leicht illustrierbares Beispiel, das in letzter Zeit viel Aufmerksamkeit erhalten hat, ist die Frage „Is there a seahorse emoji?” bei ChatGPT. Da ChatGPT auf Next-Word-Prediction trainiert wurde und kein Seahorse-Emoji kennt, fiel es aufgrund interner Gewichte in einen langen Loop, in dem es sich dachte: „Ja, ich kenne das Seahorse-Emoji”, ein falsches Emoji postete, sich dann entschuldigte und wieder von vorne begann.</p>
+                                </div>
+                            </div>
+                            <div class="slider-dots"></div>
+                        </div>
+                    </div>
+                    <div class="question-block">
+                        <h5 class="chat-header">Ist es möglich, ein RAG-System aufzubauen, welches die Informationen direkt aus dem Internet bezieht?</h5>
+                        <div class="answers-container slider-container">
+                            <div class="answers-slider">
+                                <div class="answer">
+                                    <h4>KI-generierte Antwort</h4>
+                                    <p>Ja, es ist technisch machbar, ein RAG-System (Retrieval-Augmented Generation) so zu gestalten, dass es Informationen in Echtzeit aus dem Internet abruft. Dies würde dem Modell den Zugriff auf aktuelle Daten ermöglichen, die über den ursprünglichen Trainingsdatensatz hinausgehen.</p>
+                                </div>
+                                <div class="answer">
+                                    <h4>Antwort von Mikaela Buzdin</h4>
+                                    <p>Ja, es wäre möglich, aber es ist eine schreckliche Idee, die die „Halluzinationen” nur verschlimmert. Wenn wir Live-Daten aus dem Internet beziehen, beziehen wir unglaublich viele unverifizierte Informationen, oft auch Informationen, die sich direkt widersprechen. Wenn wir wahllos Daten aus dem Internet beziehen, fügen wir unserem Datensatz nur mehr Rauschen hinzu. Und auch wenn diese Daten eine Ahnung von aktuellen Themen haben, sind sie wahrscheinlich inkorrekt und somit ein großes Risiko für Firmen, die LLMs anbieten. Wenn wir rein hypothetisch ein System aufbauen, das Daten automatisch korrekt und gut recherchiert bezieht, wäre dies möglich und könnte Halluzinationen verringern. Das rigorose Überprüfen der aktuell schon vorhandenen Daten wäre jedoch ein gleichwertiger, wenn nicht sogar besserer Ansatz, um Halluzinationen zu verhindern. Oft sind aktuelle Themen auch noch entwickelnde Geschichten bei welchen Halbwahrheiten und Rumore Vortritt vor Fakten nehmen.</p>
+                                </div>
+                            </div>
+                            <div class="slider-dots"></div>
+                        </div>
+                    </div>
+                    <div class="question-block">
+                        <h5 class="chat-header">Kann dies ein Lösungsansatz gegen Halluzinationen sein?</h5>
+                        <div class="answers-container slider-container">
+                            <div class="answers-slider">
+                                <div class="answer">
+                                    <h4>KI-generierte Antwort</h4>
+                                    <p>Ein RAG-System kann Halluzinationen reduzieren, indem es die generierten Antworten auf externe, überprüfbare Informationen stützt. Es ist jedoch keine vollständige Lösung, da die Qualität der abgerufenen Informationen und die Fähigkeit des Modells, diese korrekt zu interpretieren, entscheidend sind.</p>
+                                </div>
+                                <div class="answer">
+                                    <h4>Antwort von Mikaela Buzdin</h4>
+                                    <p>Ja, es wäre möglich, aber es ist eine schreckliche Idee, die die „Halluzinationen” nur verschlimmert. Wenn wir Live-Daten aus dem Internet beziehen, beziehen wir unglaublich viele unverifizierte Informationen, oft auch Informationen, die sich direkt widersprechen. Wenn wir wahllos Daten aus dem Internet beziehen, fügen wir unserem Datensatz nur mehr Rauschen hinzu. Und auch wenn diese Daten eine Ahnung von aktuellen Themen haben, sind sie wahrscheinlich inkorrekt und somit ein großes Risiko für Firmen, die LLMs anbieten. Wenn wir rein hypothetisch ein System aufbauen, das Daten automatisch korrekt und gut recherchiert bezieht, wäre dies möglich und könnte Halluzinationen verringern. Das rigorose Überprüfen der aktuell schon vorhandenen Daten wäre jedoch ein gleichwertiger, wenn nicht sogar besserer Ansatz, um Halluzinationen zu verhindern. Oft sind aktuelle Themen auch noch entwickelnde Geschichten bei welchen Halbwahrheiten und Rumore Vortritt vor Fakten nehmen.</p>
+                                </div>
+                            </div>
+                            <div class="slider-dots"></div>
+                        </div>
+                    </div>
+                    <div class="question-block">
+                        <h5 class="chat-header">Wird das Problem von Fehlinformationen durch das Skalieren der LLM behoben?</h5>
+                        <div class="answers-container slider-container">
+                            <div class="answers-slider">
+                                <div class="answer">
+                                    <h4>KI-generierte Antwort</h4>
+                                    <p>Eine reine Skalierung der Modellgröße und der Trainingsdaten kann die Häufigkeit von Fehlinformationen verringern, da größere Modelle mehr Faktenwissen speichern können. Es löst jedoch nicht das grundlegende Problem, da auch größere Modelle inhärenten Verzerrungen in den Daten unterliegen und weiterhin halluzinieren können.</p>
+                                </div>
+                                <div class="answer">
+                                    <h4>Antwort von Mikaela Buzdin</h4>
+                                    <p>Das Problem lässt sich durch Skalierung und mehr Informationen reduzieren. Mehr Verständnis dieser Informationen führt natürlich zu einer Verminderung solcher Fehlinformationen. Eine vollständige Behebung wird jedoch nie möglich sein, solange Fehlinformationen in der Welt existieren – was sie vorhersehbar immer tun werden.</p>
+                                </div>
+                            </div>
+                            <div class="slider-dots"></div>
+                        </div>
+                    </div>
+                    <div class="question-block">
+                        <h5 class="chat-header">Welche Entwicklungen hatten bis jetzt den grössten Einfluss auf die Fehlerquote?</h5>
+                        <div class="answers-container slider-container">
+                            <div class="answers-slider">
+                                <div class="answer">
+                                    <h4>KI-generierte Antwort</h4>
+                                    <p>Die Einführung von Reinforcement Learning from Human Feedback (RLHF) hatte einen signifikanten Einfluss auf die Reduzierung der Fehlerquote. Durch die Integration menschlicher Bewertungen in den Trainingsprozess können Modelle lernen, unerwünschte Ausgaben wie Fehlinformationen und toxische Inhalte zu vermeiden.</p>
+                                </div>
+                                <div class="answer">
+                                    <h4>Antwort von Mikaela Buzdin</h4>
+                                    <p>Es gibt viele verschiedene Ansätze, die der Entwicklung von LLMs helfen können. Human Feedback ist immer ein starker Kandidat für Verbesserungen. Auch generelle Erläuterungen bei schwierigen Themen, bei denen sich KI nicht sicher ist und dies auch klarmacht, sind hilfreich. Jedoch bin ich nicht intim beschäftigt mit der Historie der Entwicklung von Large Language Modellen, es steht sicher noch mehr Online dazu als ich hier vermittle.</p>
+                                </div>
+                            </div>
+                            <div class="slider-dots"></div>
+                        </div>
+                    </div>
+                    <div class="question-block">
+                        <h5 class="chat-header">Welche Massnahmen werden aktuell entwickelt oder erforscht, um Halluzinationen weiter zu verhindern?</h5>
+                        <div class="answers-container slider-container">
+                            <div class="answers-slider">
+                                <div class="answer">
+                                    <h4>KI-generierte Antwort</h4>
+                                    <p>Aktuelle Forschungsansätze umfassen die Verbesserung von Faktenprüfungs-Mechanismen, die Entwicklung von "interpretierbaren" KI-Modellen, um Entscheidungsprozesse nachvollziehbarer zu machen, und die Verfeinerung von RAG-Systemen, um die Zuverlässigkeit der abgerufenen Informationen zu erhöhen.</p>
+                                </div>
+                                <div class="answer">
+                                    <h4>Antwort von Mikaela Buzdin</h4>
+                                    <p>Auch hier bin ich keine Expertin, mir ist jedoch bewusst, dass es seit einiger Zeit ein erhöhtes Interesse an der Erklärbarkeit von KI gibt, insbesondere in LLMs. Es geht darum, zu untersuchen, was genau in den verschiedenen Gewichten und Vorurteilen eines Layers abläuft und wie allein schon die Einbettungen auf einer intimen und intuitiven Ebene erklärt werden können ist noch ein entwickelndes Thema, welches uns auch hilft exakte Massnahmen zu treffen um LLMs in diesen Ansätzen zu verbessern.</p>
+                                </div>
+                            </div>
+                            <div class="slider-dots"></div>
+                        </div>
+                    </div>
+                    <div class="question-block">
+                        <h5 class="chat-header">Was können private Anwender von ChatBots machen, um Halluzinationen zu verhindern?</h5>
+                        <div class="answers-container slider-container">
+                            <div class="answers-slider">
+                                <div class="answer">
+                                    <h4>KI-generierte Antwort</h4>
+                                    <p>Private Anwender sollten stets eine kritische Haltung bewahren und die von ChatBots generierten Informationen, insbesondere bei wichtigen Themen, durch die Konsultation vertrauenswürdiger externer Quellen überprüfen. Präzise und kontextreiche Anfragen (Prompts) können ebenfalls helfen, die Wahrscheinlichkeit von Halluzinationen zu verringern.</p>
+                                </div>
+                                <div class="answer">
+                                    <h4>Antwort von Mikaela Buzdin</h4>
+                                    <p>Exaktes und einheitliches prompten, es gibt viele Arten wie man LLMs prompten kann um mehr Informationen zu gewinnen über den Generierungsprozess. Ebenfalls haben LLMs einen limitierten Kontext, somit sollte man Vorsichtig sein viele Sachen auf einmal zu Fragen. Ich kann empfehlen oft nach Quellen von Antworten zu fragen und diese zu überprüfen und jeweils nur 1 Frage pro Nachricht zu senden.</p>
+                                </div>
+                            </div>
+                            <div class="slider-dots"></div>
+                        </div>
+                    </div>
+                    <div class="question-block">
+                        <h5 class="chat-header">Wie gross schätzen Sie die Auswirkung von gutem Prompt-Engineering?</h5>
+                        <div class="answers-container slider-container">
+                            <div class="answers-slider">
+                                <div class="answer">
+                                    <h4>KI-generierte Antwort</h4>
+                                    <p>Gutes Prompt-Engineering hat einen erheblichen Einfluss auf die Qualität der Modellausgaben. Durch klar formulierte, spezifische und kontextbezogene Anfragen kann der Nutzer das Modell gezielt steuern und die Wahrscheinlichkeit für präzise und relevante Antworten maximieren, während unklare Prompts das Risiko von Halluzinationen erhöhen.</p>
+                                </div>
+                                <div class="answer">
+                                    <h4>Antwort von Mikaela Buzdin</h4>
+                                    <p>Prompt-Engineering kann dem Output massiv helfen das zu kriegen was man erwartet, mehr Kontext verhilft Sprachmodellen exaktere Quellen zu beziehen und Outputs nach diesen Quellen zu produzieren.</p>
+                                </div>
+                            </div>
+                            <div class="slider-dots"></div>
+                        </div>
+                    </div>
+                    <div class="question-block">
+                        <h5 class="chat-header">Bringt es einen messbaren Mehrwert, wenn das Modell seine eigene Antwort in einem zweiten Schritt überprüft?</h5>
+                        <div class="answers-container slider-container">
+                            <div class="answers-slider">
+                                <div class="answer">
+                                    <h4>KI-generierte Antwort</h4>
+                                    <p>Die Selbstüberprüfung durch ein Modell kann einen gewissen Mehrwert bringen, indem offensichtliche Inkonsistenzen erkannt werden. Dieser Ansatz ist jedoch begrenzt, da das Modell dabei denselben internen Wissensstand und denselben Verzerrungen unterliegt, die bereits zur ursprünglichen Antwort geführt haben. Eine Überprüfung durch ein separates, unabhängiges Modell oder System ist oft effektiver.</p>
+                                </div>
+                                <div class="answer">
+                                    <h4>Antwort von Mikaela Buzdin</h4>
+                                    <p>Nein, ein und dasselbe Modell würde nur seine eigenen Verzerrungen und Fehler verstärken. Auch wenn man ein anderes Modell nützt hilft man hier nur wenig, das kein Modell an sich eine Wahrheitsbasis besitzt.</p>
+                                </div>
+                            </div>
+                            <div class="slider-dots"></div>
+                        </div>
+                    </div>
+                    <div class="question-block">
+                        <h5 class="chat-header">Denken Sie, dass wir bei der «Next-Token-Prediction» an ein Limit stossen werden?</h5>
+                        <div class="answers-container slider-container">
+                            <div class="answers-slider">
+                                <div class="answer">
+                                    <h4>KI-generierte Antwort</h4>
+                                    <p>Es ist plausibel, dass die reine "Next-Token-Prediction" als Paradigma an ein qualitatives Limit stößt, insbesondere bei Aufgaben, die tiefes logisches Schlussfolgern oder ein echtes Weltverständnis erfordern. Zukünftige Durchbrüche könnten eine Kombination aus Vorhersage und symbolischer KI oder gänzlich neue Architekturen erfordern.</p>
+                                </div>
+                                <div class="answer">
+                                    <h4>Antwort von Mikaela Buzdin</h4>
+                                    <p>Das hängt davon ab, was hier mit dem Limit von genau gemeint ist. Natürlich ist eine Next-Token-Prediction nicht für Anwendungsfälle ausserhalb der Sprache optimal. Mit Transformer-Modellen, die viele verschiedene Architekturen nutzen, können wir jedoch Modelle bauen, die für verschiedene Aufgaben viel besser geeignet sind. Aktuell sind wir ja auch schon weiter als nur „Next-Token-Prediction“ und moderne Architekturen arbeiten mit verschiedenen Tasks zur Optimierung.</p>
+                                </div>
+                            </div>
+                            <div class="slider-dots"></div>
+                        </div>
+                    </div>
+                    <div class="question-block">
+                        <h5 class="chat-header">Sollten wir unsere Zeit in die Forschung für neue Algorithmen investieren, welche einen anderen Ansatz verfolgen?</h5>
+                        <div class="answers-container slider-container">
+                            <div class="answers-slider">
+                                <div class="answer">
+                                    <h4>KI-generierte Antwort</h4>
+                                    <p>Ja, die Investition in die Erforschung neuer Algorithmen ist entscheidend für den langfristigen Fortschritt der KI. Während die Optimierung bestehender Architekturen wie Transformer inkrementelle Verbesserungen bringt, sind grundlegend neue Ansätze notwendig, um die aktuellen Limitierungen zu überwinden und robustere, vertrauenswürdigere und fähigere KI-Systeme zu schaffen.</p>
+                                </div>
+                                <div class="answer">
+                                    <h4>Antwort von Mikaela Buzdin</h4>
+                                    <p>Ja, grundsätzlich schon. Es gibt noch sehr viel Arbeit im Umfeld von KI und insbesondere von Transformer-Modellen in allen möglichen Richtungen: Performance, Rechenzeit, Erklärbarkeit, Stromverbrauch usw. Wie schon zuvor sollten wir uns weiterhin bemühen, neue Architekturen und Modellansätze zu entwickeln.</p>
                                 </div>
                             </div>
                             <div class="slider-dots"></div>
