@@ -79,7 +79,7 @@ scene.add(new THREE.Mesh(new THREE.SphereGeometry(0.3, 16, 16), new THREE.MeshBa
 // Load Font
 const fontLoader = new FontLoader();
 fontLoader.load('https://unpkg.com/three@0.160.0/examples/fonts/helvetiker_bold.typeface.json', (font) => {
-    const textParams = { font: font, size: 0.8, height: 0.1 };
+    const textParams = { font: font, size: 1.5, height: 0.2 };
 
     // R Label
     const rGeo = new TextGeometry('R', textParams);
