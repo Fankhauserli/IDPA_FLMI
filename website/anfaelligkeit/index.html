@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,14 +8,336 @@
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/responsive.css">
 </head>
+
 <body>
     <div id="header-placeholder"></div>
 
     <main>
-        <section id="anfälligkeit">
-            <h2 class="gradient-text">Anfälligkeit von LLMs</h2>
-            <p>KI Chatbots beeinflussen schon heute wie wir an Informationen gelangen. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. KI Chatbots beeinflussen schon heute wie wir an Informationen gelangen. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p>KI Chatbots beeinflussen schon heute wie wir an Informationen gelangen. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. KI Chatbots beeinflussen schon heute wie wir an Informationen gelangen. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <section class="hero">
+            <h1>Anfälligkeit</h1>
+            <p>Warum LLMs Fehler machen und was wir dagegen tun können.</p>
+        </section>
+
+        <!-- Intro Section -->
+        <section id="einleitung">
+            <div class="tip-box">
+                <h3>Einleitung</h3>
+                <p>Es lässt sich feststellen, dass Large Language Models (LLM), wie ChatGPT, noch nicht in vollem Umfang
+                    perfekt sind. Ein wesentlicher Kritikpunkt ist, dass diese Modelle häufig Falschinformationen
+                    erzeugen, die auf den ersten Blick glaubwürdig wirken, was in der Fachliteratur als Halluzination
+                    bezeichnet wird. Gemäss den Ergebnissen einer Studie der BBC manifestiert sich dieses Phänomen mit
+                    einer höheren Frequenz, als gemeinhin angenommen wird. Gemäss dieser Studie manifestieren sich in
+                    nahezu 45 % der Antworten, die von KI-Assistenten auf nachrichtenbezogene Fragen gegeben werden,
+                    mindestens eine signifikante Inkonsistenz. Die vorliegende Untersuchung, die in Kooperation mit der
+                    European Broadcasting Union (EBU) durchgeführt wurde, verdeutlicht, dass die technologische
+                    Zuverlässigkeit noch weit hinter dem öffentlichen Vertrauen zurückbleibt.</p>
+                <p>Ein besonders problematischer Aspekt ist dabei die sogenannte Autoritäts-Falle: Die Modelle sind
+                    darauf trainiert, Informationen in einem sachlichen, selbstbewussten und seriösen Tonfall zu
+                    präsentieren. In der Konsequenz wird es für den Rezipienten nahezu unmöglich, allein durch das Lesen
+                    des Textes zu differenzieren, ob es sich um eine faktisch korrekte Antwort oder eine täuschend echt
+                    wirkende Halluzination handelt. In etwa 31 % der Fälle wurde seitens der Forscher zudem
+                    festgestellt, dass die von der KI offerierten Quellen und Zitate entweder in die Irre führten, auf
+                    nicht existente Webseiten verweisen oder den eigentlichen Inhalt der Antwort gar nicht stützten.</p>
+                <p>Es ist von Interesse, dass die Fehlerquote signifikant zwischen den verschiedenen Anbietern variiert.
+                    Während ChatGPT und Microsoft Copilot in der Studie bei etwa einem Drittel der Antworten Mängel
+                    aufwiesen, schnitt Google Gemini mit einer Fehlerquote von 76 % bei den Quellenangaben deutlich
+                    schlechter ab. Dies veranschaulicht, dass die Integration von Echtzeit-Daten aus dem Internet nach
+                    wie vor eine signifikante technische Herausforderung darstellt, die bislang noch nicht bewältigt
+                    werden konnte. Ein weiteres kritisches Ergebnis der Studie ist das Sprachgefälle: Englischsprachige
+                    Anfragen weisen demnach eine hohe Bearbeitungsstabilität auf, während das Risiko einer
+                    Desinformation bei kleineren europäischen Sprachen signifikant ansteigt.</p>
+                <p>Zusammenfassend äussert der Bericht die Besorgnis einer schleichenden Erosion des Vertrauens in
+                    Fakten. Die zunehmende Nutzung von KI-Systemen als primäre Informationsquelle birgt die Gefahr der
+                    unbewussten Verbreitung falscher Narrative, welche das Fundament des Qualitätsjournalismus
+                    untergraben können. Die Experten der EBU und der BBC kommen daher zu dem Schluss, dass
+                    KI-Assistenten zum jetzigen Zeitpunkt eher als kreative Werkzeuge und nicht als verlässliche
+                    Fakten-Bibliotheken betrachtet werden sollten. Eine manuelle Überprüfung der Primärquellen ist somit
+                    für jeden Nutzer unerlässlich, um nicht Opfer dieser als "plausibel klingend" zu bezeichnenden
+                    Falschinformationen zu werden.</p>
+            </div>
+        </section>
+
+        <!-- Technical Causes -->
+        <section id="ursachen">
+            <div class="tip-box">
+                <h3>Optionen der Einschränkung: Warum passieren Fehler?</h3>
+                <p>Das Maschinen Fehler machen scheint auf den ersten Blick einfach lösbar, denn eine Maschine macht ja
+                    nur das, was man ihr sagt, also kann man einer LLM nicht einfach sagen, dass sie keine Fehler machen
+                    soll? Die Antwort ist komplex, denn im Gegensatz zu herkömmlicher Software basieren LLMs nicht auf
+                    logischen Regeln, sondern auf statistischen Wahrscheinlichkeiten. Sie “wissen” nichts, sie berechnen
+                    lediglich die plausibelste Fortsetzung eines Textes.</p>
+                <p>Wie im Teil Training beschrieben ist das fundamentale Problem das Trainingsziel:
+                    Next-Token-Prediction. Das Modell wird darauf trainiert, den statistischen Fehler (Cross-Entropy
+                    Loss) bei der Vorhersage des nächsten Wortes zu minimieren, nicht den faktischen Fehler.</p>
+
+                <h4>Fehler im Embedding</h4>
+                <p>Wie im Embedding Teil beschrieben werden Wörter, die in ähnlichen Kontexten vorkommen, im Vektorraum
+                    sehr nahe beieinander dargestellt. So zum Beispiel sind die Vektoren, welche die Wörter Airbus und
+                    Boeing darstellen sehr ähnlich. Wenn ein Modell jetzt halluziniert, greift es nicht komplett
+                    daneben, sondern nur ein bisschen, also kann zum Beispiel bei dem Satz: “Das Flugzeug A350 wird
+                    hergestellt von” das nächste Wort in der Vektoriellen Darstellung näher bei Boeing als bei Airbus
+                    sein und das Modell gibt mit voller Sicherheit den Satz: “Das Flugzeug A350 wird hergestellt von
+                    Boeing.” aus.</p>
+
+                <h4>Fehler in der Attention</h4>
+                <p>Wir wissen, dass in dem Attention-Mechanismus berechnet wird, wie stark jedes Wort im Satz mit jedem
+                    anderen Wort in Verbindung steht.</p>
+                <p>Was nun passieren kann ist das sogenannte “snowballing”, bei dem Phänomen handelt es sich darum, dass
+                    der Attention-Algorithmus, wenn im Input eine falsche Prämisse steht, seinen Fokus darauf ausrichtet
+                    und generiert basierend auf dieser falschen Annahme weiter, um den Kontext kohärent zu halten. Das
+                    Modell priorisiert Kohärenz (dass der Satz flüssig klingt) über Korrektheit. Es achtet auf Muster,
+                    nicht auf Wahrheitsgehalt.</p>
+
+                <h4>Fehler im MLP</h4>
+                <p>Während die Attention Beziehungen zwischen Wörtern herstellt, vermuten Forscher, dass das eigentliche
+                    "Wissen" in den MLPs gespeichert ist, die auf die Attention folgen.</p>
+                <p>Das Problem hierbei ist, dass falls Falsche Trainingsdaten verwendet werden die Gewichte des
+                    Netzwerks nicht mehr stimmen.</p>
+                <p>Das tönt zwar nach einem einfachen Problem, da man einfach die Daten nach ihrer Richtigkeit
+                    überprüfen kann, bevor man diese zum Trainieren benutzt. Jedoch ist das Problem, das die Menge von
+                    Informationen, die gebracht werden, so gross ist, dass es unmöglich wäre für einen Menschen diese zu
+                    überprüfen. Zudem gibt es neue Modelle, die während der Ausführung Zugriff auf das Internet haben
+                    und somit kann man die Daten nicht überprüfen.</p>
+
+                <div class="tip-box-special">
+                    <h4>Zusammenfassung der Fehlerquellen</h4>
+                    <ul>
+                        <li><strong>Embedding:</strong> Sorgt für unscharfe Begriffsabgrenzungen (Airbus ≈ Boeing).</li>
+                        <li><strong>Attention:</strong> Priorisiert flüssigen Text und Kohärenz über Fakten
+                            ("Snowballing").</li>
+                        <li><strong>MLP:</strong> Speichert Fakten nur als Wahrscheinlichkeiten, basierend auf den
+                            Trainingsdaten.</li>
+                    </ul>
+                    <p>Deshalb hilft der Befehl “Mache keine Fehler” nicht – das Modell weiss nicht, dass es einen
+                        Fehler macht, es wählt nur den Pfad der höchsten Wahrscheinlichkeit.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Current Solutions -->
+        <section id="loesungen">
+            <h2 class="page-title" style="margin-top:40px;">Aktuelle Lösungsansätze</h2>
+            <p>In diesem Abschnitt beschreiben wir aktuelle Ansätze, welche verfolgt werden, um Halluzinationen
+                innerhalb von LLM’s zu minimieren.</p>
+
+            <div class="tip-box">
+                <h3>Retrieval Augmented Generation (RAG)</h3>
+                <p>Retrieval Augmented Generation ermöglicht es zwischen dem User Prompt und dem eigentlichen Berechnen,
+                    weiteren Kontext zum Prompt hinzuzufügen. Wenn nun ein Benutzer fragt “Wie viele Sitzplätze hat der
+                    A320?” kann durch RAG automatisch der Kontext “Ein A320 hat 150-187 Sitzplätze” hinzufügen werden.
+                    Dadurch erhält das LLM gerade sämtliche Fakten und muss nicht auf interne, beim Training gelernte,
+                    Informationen (welche auch veraltet sein könnten) zurückgreifen.</p>
+
+                <div class="nn-architecture-diagram">
+                    <svg viewBox="0 0 600 250">
+                        <defs>
+                            <marker id="arrowhead-rag" markerWidth="10" markerHeight="7" refX="9" refY="3.5"
+                                orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="#4d25fc" />
+                            </marker>
+                        </defs>
+
+                        <!-- User -->
+                        <circle cx="50" cy="125" r="25" fill="#fff" stroke="#4d25fc" stroke-width="2" />
+                        <text x="50" y="130" text-anchor="middle" font-size="12">User</text>
+
+                        <!-- Prompt -->
+                        <path d="M 80 125 L 140 125" stroke="#4d25fc" stroke-width="2"
+                            marker-end="url(#arrowhead-rag)" />
+                        <text x="110" y="120" text-anchor="middle" font-size="10">Frage</text>
+
+                        <!-- RAG System -->
+                        <rect x="150" y="50" width="100" height="150" rx="10" fill="#e6e0f8" stroke="#4d25fc" />
+                        <text x="200" y="80" text-anchor="middle" font-weight="bold">RAG System</text>
+
+                        <!-- Database -->
+                        <path d="M 200 150 L 200 180" stroke="#4d25fc" stroke-width="2" />
+                        <g transform="translate(175, 180)">
+                            <path d="M0 5 Q25 0 50 5 L50 35 Q25 40 0 35 Z" fill="#fff" stroke="#4d25fc"
+                                stroke-width="2" />
+                            <path d="M0 5 Q25 10 50 5" fill="none" stroke="#4d25fc" stroke-width="2" />
+                            <text x="25" y="25" text-anchor="middle" font-size="10">Datenbank</text>
+                        </g>
+
+                        <!-- Context Arrow -->
+                        <path d="M 260 125 L 340 125" stroke="#4d25fc" stroke-width="2"
+                            marker-end="url(#arrowhead-rag)" />
+                        <text x="300" y="115" text-anchor="middle" font-size="10">+ Fakten (Kontext)</text>
+                        <text x="300" y="140" text-anchor="middle" font-size="10">+ Frage</text>
+
+                        <!-- LLM -->
+                        <rect x="350" y="80" width="80" height="90" rx="10" fill="#a777d1" />
+                        <text x="390" y="130" text-anchor="middle" fill="#fff" font-weight="bold">LLM</text>
+
+                        <!-- Answer Arrow -->
+                        <path d="M 440 125 L 520 125" stroke="#4d25fc" stroke-width="2"
+                            marker-end="url(#arrowhead-rag)" />
+                        <text x="480" y="120" text-anchor="middle" font-size="10">Antwort</text>
+                    </svg>
+                </div>
+
+                <p>Während Halluzinationen meistens behoben werden können, hat dieser Lösungsansatz jedoch ein grosses
+                    Problem. Die Quelle, von welcher RAG die Informationen bekommt, darf keine Fehlinformationen
+                    beinhaltet. Bei einer kleinen Informationssammlung ist dies vielleicht noch überprüfbar, aber das
+                    Limit von menschlicher Kontrolle ist schon bald erreicht. Somit muss entweder ein System erstellt
+                    werden, welches Falsche und Richtige Informationen erkennt und nur die Richtigen abspeichert oder
+                    ein anderer Lösungsansatz bei einem grösseren Wissens-Kontext verwendet werden.</p>
+            </div>
+
+            <div class="tip-box">
+                <h3>Reinforcement Learning from Human Feedback (RLHF)</h3>
+                <p>Ein grosser Vorteil von RLHF ist, dass Menschen direkt im Prozess involviert sind. Da sämtliche
+                    Antworten von Menschen angeschaut und auch auf faktische Korrektheit überprüft werden, können
+                    Halluzinationen direkt erkennt werden und schlecht bewertet werden. Dadurch werden diese weniger
+                    oder sogar komplett aus dem System genommen. Bei grossen KI-Firmen wird dies schon längstens
+                    umgesetzt, könnte hier durch noch längeres oder besseres RLHF mehr Fehlinformationen aus dem System
+                    gefiltert werden.</p>
+                <p>Es gibt Vermutungen, dass durch RLHF jedoch eine neue Form von Fehlinformationen im System auftauchen
+                    können. Während dem RLHF wird das LLM trainiert, hilfreich zu sein und dem Menschen zuzustimmen.
+                    Besonders bei Fragen, auf welche eine Antwort im RLHF gewählt wird, die faktisch nicht korrekt ist.
+                    Beispielsweise lernt das LLM, dass es auf die Frage, wie ein Auto gestohlen werden kann, antwortet,
+                    dass diese Handlung illegal ist. Rein faktisch ist diese Antwort jedoch inkorrekt, weil nicht
+                    beschrieben ist, wie ein Auto gestohlen werden kann. Das führt zu einem Konflikt zwischen Wahrheit
+                    und der Erwartung von uns Menschen, was dazu führen kann, dass das LLM die Antwort gibt, welche wir
+                    erwarten und nicht die Wahrheit.</p>
+            </div>
+
+            <div class="tip-box">
+                <h3>Temperatur</h3>
+                <p>Die Temperatur ist ein Parameter, der steuert, wie streng sich das Modell an die berechneten
+                    Wahrscheinlichkeiten hält. Sie bestimmt den Grad der «Zufälligkeit» bei der Auswahl des nächsten
+                    Wortes.</p>
+                <ul>
+                    <li><strong>Niedrige Temperatur (nahe 0):</strong> Das Modell wählt fast immer das Wort mit der
+                        allerhöchsten berechneten Wahrscheinlichkeit. Das Verhalten ist sehr strikt und deterministisch.
+                    </li>
+                    <li><strong>Hohe Temperatur (nahe 1):</strong> Das Modell hat mehr Freiheiten und darf auch Wörter
+                        wählen, die statistisch etwas weniger wahrscheinlich sind. Dies sorgt für vielfältigere, aber
+                        auch unvorhersehbarere Texte.</li>
+                </ul>
+                <p>Halluzinationen entstehen oft, wenn das Modell vom sichersten Pfad abweicht und anfängt,
+                    unwahrscheinliche Verknüpfungen zu bilden (es wird zu «kreativ» bei Fakten). Indem man die
+                    Temperatur senkt, zwingt man das Modell, strikt beim statistisch sichersten Pfad zu bleiben. Das
+                    eliminiert das Risiko, dass das Modell zufällig Fakten erfindet, nur um den Text variabler zu
+                    gestalten.</p>
+
+                <!-- Visualization: Temperature -->
+                <div class="nn-architecture-diagram">
+                    <svg viewBox="0 0 500 150">
+                        <defs>
+                            <linearGradient id="tempGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#4d25fc;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#ff4d4d;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+
+                        <rect x="50" y="60" width="400" height="20" rx="10" fill="url(#tempGradient)" />
+
+                        <text x="50" y="45" font-weight="bold" fill="#4d25fc">Low Temp (0)</text>
+                        <text x="450" y="45" text-anchor="end" font-weight="bold" fill="#ff4d4d">High Temp (1)</text>
+
+                        <text x="50" y="100" font-size="12">Faktisch, Strikt</text>
+                        <text x="50" y="115" font-size="12">Deterministisch</text>
+
+                        <text x="450" y="100" text-anchor="end" font-size="12">Kreativ, Variabel</text>
+                        <text x="450" y="115" text-anchor="end" font-size="12">Halluzinationsrisiko</text>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Prompt Engineering -->
+            <div class="tip-box">
+                <h3>Prompt Engineering</h3>
+                <p>Ein weiterer schon stark verbreiteter Lösungsansatz, um Halluzinationen innerhalb einer LLM zu
+                    vermeiden, ist das Prompt Engineering. Unter Prompt Engineering wird verstanden, Prompts so
+                    anzupassen, dass das LLM die bestmögliche Antwort generiert. Für sämtliche Abfragen muss ein
+                    Benutzer ein Prompt schreiben, somit gibt es hier grosses Optimierungspotential. Doch auch für die
+                    LLM-Hersteller ist Prompt Engineering wichtig. Die Hersteller definieren sogenannte System-Prompts,
+                    diese sind für den Endbenutzer unsichtbar und können nicht überschrieben werden, enthalten jedoch
+                    wichtige Regeln oder Anweisung für die LLM. Ein typisches Beispiel für einen System-Prompt ist, dass
+                    der Hersteller der LLM sagt, wie die LLM heisst oder worauf sie bei der Antwort-Generierung Wert
+                    legen soll.</p>
+
+                <h4>Tipps für den idealen Prompt-Aufbau</h4>
+                <ul>
+                    <li><strong>Abtrennungen:</strong> Verwende XML-Tags wie <code>&lt;text&gt;...&lt;/text&gt;</code>,
+                        um Anweisungen klar von Daten zu trennen.</li>
+                    <li><strong>Spezifischer Kontext:</strong> Gib relevante Daten, erwartete Ausgabeformate (z.B.
+                        "Liste mit 5 Punkten") und Rollen ("Du bist ein Physiklehrer") an.</li>
+                    <li><strong>Schritt für Schritt (Chain of Thought):</strong> Fordere das Modell auf, "Schritt für
+                        Schritt" zu denken. Dies zwingt das Modell, Zwischenschritte zu berechnen, was logische Fehler
+                        reduziert.</li>
+                    <li><strong>Nach Beweisen fragen:</strong> Erlaube dem Modell explizit zu sagen "Ich weiss es
+                        nicht", anstatt etwas zu erfinden.</li>
+                </ul>
+            </div>
+
+            <!-- Agent Architecture -->
+            <div class="tip-box">
+                <h3>Agent Architektur</h3>
+                <p>Anstelle von einer einzigen LLM, welche den User Prompt verarbeitet, gibt es den Ansatz von KI-Agents
+                    zu arbeiten. Dies sind Systeme, welche aus einer LLM bestehen, welche verschiedene Aufgaben
+                    koordinieren kann. Zusätzlich sind oft andere Tools, wie Mail, Kalender oder Datenbanken daran
+                    angeschlossen, um eine Antwort noch besser und fehlerfreier zu generieren.</p>
+
+                <h4>Unternehmen Nachstellung (Multi-Agent System)</h4>
+                <p>In dieser Architektur wird pro Abteilung in einem realen Unternehmen ein Agent erstellt, welcher in
+                    seinem Bereich spezialisiert ist. Wenn nun ein Benutzer sein Prompt absetzt, wird dies dem
+                    Projektleiter gegeben, welcher dann einen ersten Plan entwirft. Dieser wird dann den einzelnen
+                    Agents gegeben und von dort an wie in einem echten Unternehmen abgearbeitet. Die verschiedenen
+                    Agents können hierbei komplett frei miteinander kommunizieren.</p>
+
+                <div class="nn-architecture-diagram">
+                    <svg viewBox="0 0 600 300">
+                        <defs>
+                            <marker id="arrowhead-agent" markerWidth="10" markerHeight="7" refX="9" refY="3.5"
+                                orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+                            </marker>
+                        </defs>
+
+                        <!-- Project Lead -->
+                        <g transform="translate(250, 40)">
+                            <rect width="100" height="60" rx="10" fill="#a777d1" stroke="#4d25fc" stroke-width="2" />
+                            <text x="50" y="35" text-anchor="middle" fill="#fff" font-weight="bold">Projektleiter</text>
+                        </g>
+
+                        <!-- Agents -->
+                        <g transform="translate(50, 180)">
+                            <rect width="100" height="60" rx="10" fill="#e6e0f8" stroke="#4d25fc" />
+                            <text x="50" y="35" text-anchor="middle" font-size="12" font-weight="bold">Design
+                                Agent</text>
+                            <text x="50" y="80" text-anchor="middle" font-size="10">"Spezialist Grafik"</text>
+                        </g>
+
+                        <g transform="translate(250, 180)">
+                            <rect width="100" height="60" rx="10" fill="#e6e0f8" stroke="#4d25fc" />
+                            <text x="50" y="35" text-anchor="middle" font-size="12" font-weight="bold">Handwerk
+                                Agent</text>
+                            <text x="50" y="80" text-anchor="middle" font-size="10">"Spezialist Möbel"</text>
+                        </g>
+
+                        <g transform="translate(450, 180)">
+                            <rect width="100" height="60" rx="10" fill="#e6e0f8" stroke="#4d25fc" />
+                            <text x="50" y="35" text-anchor="middle" font-size="12" font-weight="bold">Finanz
+                                Agent</text>
+                            <text x="50" y="80" text-anchor="middle" font-size="10">"Spezialist Geld"</text>
+                        </g>
+
+                        <!-- Connections -->
+                        <line x1="300" y1="100" x2="100" y2="180" stroke="#333" stroke-width="1" stroke-dasharray="4" />
+                        <line x1="300" y1="100" x2="300" y2="180" stroke="#333" stroke-width="1" stroke-dasharray="4" />
+                        <line x1="300" y1="100" x2="500" y2="180" stroke="#333" stroke-width="1" stroke-dasharray="4" />
+
+                        <text x="300" y="140" text-anchor="middle" font-size="10" fill="#333">Verteilt Aufgaben &
+                            Kontext</text>
+                    </svg>
+                </div>
+
+                <p>Ein grosser Vorteil von diesem Aufbau ist, dass jeder Agent auf ein Thema spezialisiert ist und nicht
+                    alles verstehen muss. Die Aufgabe vom User wird in kleine Subtasks aufgeteilt, welche dann gezielt
+                    und genauer abgearbeitet werden können.</p>
+            </div>
         </section>
     </main>
 
@@ -23,4 +346,5 @@
     <script src="/js/main.js"></script>
     <script src="/js/footer.js"></script>
 </body>
+
 </html>
