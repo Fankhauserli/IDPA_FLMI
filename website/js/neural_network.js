@@ -39,43 +39,5 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // RGB Interactive Element
-    const rgbBox = document.getElementById('rgb-result-box');
-    const sliderR = document.getElementById('slider-r');
-    const sliderG = document.getElementById('slider-g');
-    const sliderB = document.getElementById('slider-b');
-
-    const valR = document.getElementById('val-r');
-    const valG = document.getElementById('val-g');
-    const valB = document.getElementById('val-b');
-
-    const vecR = document.getElementById('vec-r');
-    const vecG = document.getElementById('vec-g');
-    const vecB = document.getElementById('vec-b');
-
-    function updateRGB() {
-        if (!rgbBox || !sliderR || !sliderG || !sliderB) return;
-
-        const r = sliderR.value;
-        const g = sliderG.value;
-        const b = sliderB.value;
-
-        rgbBox.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-
-        if (valR) valR.innerText = r;
-        if (valG) valG.innerText = g;
-        if (valB) valB.innerText = b;
-
-        if (vecR) vecR.innerText = r;
-        if (vecG) vecG.innerText = g;
-        if (vecB) vecB.innerText = b;
-    }
-
-    if (sliderR && sliderG && sliderB) {
-        sliderR.addEventListener('input', updateRGB);
-        sliderG.addEventListener('input', updateRGB);
-        sliderB.addEventListener('input', updateRGB);
-        // Initialize
-        updateRGB();
-    }
+    // RGB Interactive Element logic has been moved to /js/rgb_cube.js for 3D visualization
 });
