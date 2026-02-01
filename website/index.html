@@ -92,7 +92,7 @@
             <h1 class="gradient-text">Erforschung von Fehlinformationen in LLMs</h1>
             <h2>Interdisziplinäre Projektarbeit</h2>
             <p>Entdecken Sie, wie Large Language Models Fehlinformationen verbreiten und wie wir dem entgegenwirken können.</p>
-            <a href="#einleitung" class="button">Mehr erfahren</a>
+            <a href="#einleitung" class="button">Tauchen Sie ein</a>
         </section>
 
         <section id="einleitung">
@@ -104,6 +104,48 @@
             <h2>Fragestellung</h2>
             <h3>Wie anfällig sind LLMs auf Falschinformationen?</h3>
             <p>KI Chatbots beeinflussen schon heute wie wir an Informationen gelangen. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </section>
+
+        <section id="themen">
+            <h2 class="gradient-text">Übersicht</h2>
+            <p>Um unsere Arbeit übersichtlicher zu gestalten haben wir sie in folgende Bereiche unterteilt.</p>
+            <div class="topic-links-container">
+                <a href="/llm/" class="topic-link">
+                    <div class="topic-box">
+                        <h3>LLM</h3>
+                        <p>Lernen Sie wie ein LLM funktioniert?</p>
+                        <span class="learn-more">Erfahre mehr</span>
+                    </div>
+                </a>
+                <a href="/vorschlaege/" class="topic-link">
+                    <div class="topic-box topic-box-special">
+                        <h3>Unsere Vorschläge</h3>
+                        <p>Was können <strong>Sie</strong> gegen Fehlinformationen machen?</p>
+                        <span class="learn-more">Erfahre mehr</span>
+                    </div>
+                </a>
+                <a href="/anfaelligkeit/" class="topic-link">
+                    <div class="topic-box">
+                        <h3>Anfälligkeit</h3>
+                        <p>Wie entstehen Fehler in Large Language Models?</p>
+                        <span class="learn-more">Erfahre mehr</span>
+                    </div>
+                </a>
+                <a href="#interview" class="topic-link">
+                    <div class="topic-box">
+                        <h3>Interview</h3>
+                        <p>Interview mit Experten im LLM Bereich</p>
+                        <span class="learn-more">Erfahre mehr</span>
+                    </div>
+                </a>
+                <a href="#fazit" class="topic-link">
+                    <div class="topic-box">
+                        <h3>Fazit</h3>
+                        <p>Unser Zusammenfassung der Erkenntnisse der IDPA</p>
+                        <span class="learn-more">Erfahre mehr</span>
+                    </div>
+                </a>
+            </div>
         </section>
 
         <section id="interview" class="tips">
@@ -219,7 +261,8 @@
                             <div class="answers-slider">
                                 <div class="answer">
                                     <h4>KI-generierte Antwort</h4>
-                                    <p>Halluzinationen in Sprachmodellen sind ein Ergebnis des probabilistischen Charakters ihrer Architektur. Sie entstehen, wenn das Modell versucht, Muster in den Trainingsdaten zu verallgemeinern, aber dabei auf fehlerhafte oder unzureichende Informationen stößt, was zu faktisch falschen, aber syntaktisch korrekten Aussagen führt.</p>
+                                    <p>Halluzinationen treten primär auf, weil die auf Vaswani et al. basierende Transformer-Architektur als reiner „Next-Token-Predictor“ fungiert, der statistische Wahrscheinlichkeiten berechnet, ohne ein intrinsisches Konzept von Wahrheit oder Faktenwissen zu besitzen. Wie Lin et al. in TruthfulQA aufzeigen, führt das Training auf Imitation dazu, dass Modelle menschliche Fehlannahmen reproduzieren, wobei grössere Modelle nicht automatisch wahrheitsgetreuer sind. Ergänzend identifiziert der ACM-Survey Ursachen wie fehlende Evidenz in den Trainingsdaten, Fehlkalibrierung und Verteilungsverschiebungen, während Zhang et al. betonen, dass selbst bei der Nutzung externer Daten mittels RAG Halluzinationen entstehen können, wenn bereits der Retrieval-Prozess fehleranfällig ist.</p>
+                                    <p style="font-size: 0.8em; color: #666; margin-top: 10px;">Quelle: <a href="https://gemini.google.com/share/293e3c138982" target="_blank">https://gemini.google.com/share/293e3c138982</a></p>
                                 </div>
                                 <div class="answer">
                                     <h4>Antwort von Mikaela Buzdin</h4>
@@ -409,24 +452,7 @@
         
 
 
-                <section id="was-wird-gemacht" class="tips">
-                    <h2 class="gradient-text">Was wird dagegen gemacht?</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. KI Chatbots beeinflussen schon heute wie wir an Informationen gelangen. Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                    <div class="tip-box">
-                        <h3>Beispiel 1 - Schon aktiv</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. KI Chatbots beeinflussen schon heute wie wir an Informationen gelangen. Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                    </div>
-                     <div class="tip-box">
-                        <h3>Beispiel 2 - Gröberes Beispiel</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. KI Chatbots beeinflussen schon heute wie wir an Informationen gelangen. Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. KI Chatbots beeinflussen schon heute wie wir an Informationen gelangen. Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                    <div class="tip-box-special">
-                        <h4>SO GEHT DASS</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. KI Chatbots beeinflussen schon heute wie wir an Informationen gelangen. Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                    </div>
-                    </div>
-                </section>
-        
+
 
         <section id="fazit" class="gradient-section">
             <h2>Fazit</h2>
