@@ -2157,3 +2157,7 @@ h4,
 .topic-box-special p {
     color: #fff;
 }
+
+#themen {
+    margin-top: 60px; /* Pull the section up visually */
+}

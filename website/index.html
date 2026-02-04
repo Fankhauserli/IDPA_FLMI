@@ -261,24 +261,8 @@
                             <div class="answers-slider">
                                 <div class="answer">
                                     <h4>KI-generierte Antwort</h4>
-                                    <p>Halluzinationen treten primär auf, weil die auf Vaswani et al. basierende Transformer-Architektur als reiner „Next-Token-Predictor“ fungiert, der statistische Wahrscheinlichkeiten berechnet, ohne ein intrinsisches Konzept von Wahrheit oder Faktenwissen zu besitzen. Wie Lin et al. in TruthfulQA aufzeigen, führt das Training auf Imitation dazu, dass Modelle menschliche Fehlannahmen reproduzieren, wobei grössere Modelle nicht automatisch wahrheitsgetreuer sind. Ergänzend identifiziert der ACM-Survey Ursachen wie fehlende Evidenz in den Trainingsdaten, Fehlkalibrierung und Verteilungsverschiebungen, während Zhang et al. betonen, dass selbst bei der Nutzung externer Daten mittels RAG Halluzinationen entstehen können, wenn bereits der Retrieval-Prozess fehleranfällig ist.</p>
-                                    <p style="font-size: 0.8em; color: #666; margin-top: 10px;">Quelle: <a href="https://gemini.google.com/share/293e3c138982" target="_blank">https://gemini.google.com/share/293e3c138982</a></p>
-                                </div>
-                                <div class="answer">
-                                    <h4>Antwort von Mikaela Buzdin</h4>
-                                    <p>Halluzinationen können aus vielen Quellen entstehen, beispielsweise durch Overfitting oder Underfitting, je nachdem, wie die Trainingsdaten und/oder die Struktur des Transformers/LLMs sind oder wie einige Prozesse während der Datenaufbereitung stattfanden. Ein leicht illustrierbares Beispiel, das in letzter Zeit viel Aufmerksamkeit erhalten hat, ist die Frage „Is there a seahorse emoji?” bei ChatGPT. Da ChatGPT auf Next-Word-Prediction trainiert wurde und kein Seahorse-Emoji kennt, fiel es aufgrund interner Gewichte in einen langen Loop, in dem es sich dachte: „Ja, ich kenne das Seahorse-Emoji”, ein falsches Emoji postete, sich dann entschuldigte und wieder von vorne begann.</p>
-                                </div>
-                            </div>
-                            <div class="slider-dots"></div>
-                        </div>
-                    </div>
-                    <div class="question-block">
-                        <h5 class="chat-header">Was sind die Problemstellen innerhalb einer LLM / eines Transformers?</h5>
-                        <div class="answers-container slider-container">
-                            <div class="answers-slider">
-                                <div class="answer">
-                                    <h4>KI-generierte Antwort</h4>
-                                    <p>Die Hauptproblemstellen liegen in der "Blackbox"-Natur der Transformer-Architektur. Insbesondere die Aufmerksamkeitsmechanismen, obwohl mächtig, können zu einer übermäßigen Fokussierung auf irrelevante Datenpunkte führen, was die Generierung von ungenauen oder kontextlosen Informationen begünstigt.</p>
+                                    <p>Halluzinationen entstehen primär dadurch, dass Transformer als reine Vorhersagesysteme für das nächste Textelement konzipiert sind und über kein internes Verständnis von Wahrheit oder Fakten verfügen. Da diese Modelle darauf trainiert werden, menschliche Sprache und Schreibstile zu imitieren, priorisieren sie oft die Plausibilität und den sprachlichen Fluss gegenüber der faktischen Korrektheit. Problemstellen liegen insbesondere in Wissenslücken innerhalb der Trainingsdaten sowie in einer mangelhaften Kalibrierung, die dazu führt, dass das Modell bei Unsicherheit oder fehlender Evidenz dennoch eine Antwort generiert. Zusätzliche Fehlerquellen ergeben sich durch Abweichungen zwischen dem Trainingszeitpunkt und der aktuellen Anfrage sowie durch Ungenauigkeiten im Abrufprozess externer Informationen, was insgesamt zu einer Diskrepanz zwischen statistischer Wahrscheinlichkeit und realer Faktenlage führt.</p>
+                                    <p style="font-size: 0.8em; color: #666; margin-top: 10px;">Quelle: <a href="https://gemini.google.com/share/16e1eedaea84" target="_blank">https://gemini.google.com/share/16e1eedaea84</a></p>
                                 </div>
                                 <div class="answer">
                                     <h4>Antwort von Mikaela Buzdin</h4>
@@ -294,27 +278,12 @@
                             <div class="answers-slider">
                                 <div class="answer">
                                     <h4>KI-generierte Antwort</h4>
-                                    <p>Ja, es ist technisch machbar, ein RAG-System (Retrieval-Augmented Generation) so zu gestalten, dass es Informationen in Echtzeit aus dem Internet abruft. Dies würde dem Modell den Zugriff auf aktuelle Daten ermöglichen, die über den ursprünglichen Trainingsdatensatz hinausgehen.</p>
+                                    <p>Technisch ist dies absolut möglich, indem man Sprachmodelle mit einer Live-Suche kombiniert und die gefundenen Dokumente direkt als Kontext für die Antwortgenerierung nutzt. Dieses Verfahren hilft oft effektiv gegen Halluzinationen, da die Aussagen auf aktuell recherchierten und verifizierten Fakten basieren statt rein auf dem Modellwissen. Der Erfolg hängt jedoch massgeblich von der Qualität der Quellen und der Abrufmechanik ab, da ungenaue Suchergebnisse sonst lediglich zu neuen Fehlern führen würden.</p>
+                                    <p style="font-size: 0.8em; color: #666; margin-top: 10px;">Quelle: <a href="https://gemini.google.com/share/473dfcb65adb" target="_blank">https://gemini.google.com/share/473dfcb65adb</a></p>
                                 </div>
                                 <div class="answer">
                                     <h4>Antwort von Mikaela Buzdin</h4>
-                                    <p>Ja, es wäre möglich, aber es ist eine schreckliche Idee, die die „Halluzinationen” nur verschlimmert. Wenn wir Live-Daten aus dem Internet beziehen, beziehen wir unglaublich viele unverifizierte Informationen, oft auch Informationen, die sich direkt widersprechen. Wenn wir wahllos Daten aus dem Internet beziehen, fügen wir unserem Datensatz nur mehr Rauschen hinzu. Und auch wenn diese Daten eine Ahnung von aktuellen Themen haben, sind sie wahrscheinlich inkorrekt und somit ein großes Risiko für Firmen, die LLMs anbieten. Wenn wir rein hypothetisch ein System aufbauen, das Daten automatisch korrekt und gut recherchiert bezieht, wäre dies möglich und könnte Halluzinationen verringern. Das rigorose Überprüfen der aktuell schon vorhandenen Daten wäre jedoch ein gleichwertiger, wenn nicht sogar besserer Ansatz, um Halluzinationen zu verhindern. Oft sind aktuelle Themen auch noch entwickelnde Geschichten bei welchen Halbwahrheiten und Rumore Vortritt vor Fakten nehmen.</p>
-                                </div>
-                            </div>
-                            <div class="slider-dots"></div>
-                        </div>
-                    </div>
-                    <div class="question-block">
-                        <h5 class="chat-header">Kann dies ein Lösungsansatz gegen Halluzinationen sein?</h5>
-                        <div class="answers-container slider-container">
-                            <div class="answers-slider">
-                                <div class="answer">
-                                    <h4>KI-generierte Antwort</h4>
-                                    <p>Ein RAG-System kann Halluzinationen reduzieren, indem es die generierten Antworten auf externe, überprüfbare Informationen stützt. Es ist jedoch keine vollständige Lösung, da die Qualität der abgerufenen Informationen und die Fähigkeit des Modells, diese korrekt zu interpretieren, entscheidend sind.</p>
-                                </div>
-                                <div class="answer">
-                                    <h4>Antwort von Mikaela Buzdin</h4>
-                                    <p>Ja, es wäre möglich, aber es ist eine schreckliche Idee, die die „Halluzinationen” nur verschlimmert. Wenn wir Live-Daten aus dem Internet beziehen, beziehen wir unglaublich viele unverifizierte Informationen, oft auch Informationen, die sich direkt widersprechen. Wenn wir wahllos Daten aus dem Internet beziehen, fügen wir unserem Datensatz nur mehr Rauschen hinzu. Und auch wenn diese Daten eine Ahnung von aktuellen Themen haben, sind sie wahrscheinlich inkorrekt und somit ein großes Risiko für Firmen, die LLMs anbieten. Wenn wir rein hypothetisch ein System aufbauen, das Daten automatisch korrekt und gut recherchiert bezieht, wäre dies möglich und könnte Halluzinationen verringern. Das rigorose Überprüfen der aktuell schon vorhandenen Daten wäre jedoch ein gleichwertiger, wenn nicht sogar besserer Ansatz, um Halluzinationen zu verhindern. Oft sind aktuelle Themen auch noch entwickelnde Geschichten bei welchen Halbwahrheiten und Rumore Vortritt vor Fakten nehmen.</p>
+                                    <p>Ja, es wäre möglich, aber es ist eine schreckliche Idee, die die „Halluzinationen” nur verschlimmert. Wenn wir Live-Daten aus dem Internet beziehen, beziehen wir unglaublich viele unverifizierte Informationen, oft auch Informationen, die sich direkt widersprechen. Wenn wir wahllos Daten aus dem Internet beziehen, fügen wir unserem Datensatz nur mehr Rauschen hinzu. Und auch wenn diese Daten eine Ahnung von aktuellen Themen haben, sind sie wahrscheinlich inkorrekt und somit ein grosses Risiko für Firmen, die LLMs anbieten. Wenn wir rein hypothetisch ein System aufbauen, das Daten automatisch korrekt und gut recherchiert bezieht, wäre dies möglich und könnte Halluzinationen verringern. Das rigorose Überprüfen der aktuell schon vorhandenen Daten wäre jedoch ein gleichwertiger, wenn nicht sogar besserer Ansatz, um Halluzinationen zu verhindern. Oft sind aktuelle Themen auch noch entwickelnde Geschichten bei welchen Halbwahrheiten und Rumore Vortritt vor Fakten nehmen.</p>
                                 </div>
                             </div>
                             <div class="slider-dots"></div>
@@ -326,7 +295,8 @@
                             <div class="answers-slider">
                                 <div class="answer">
                                     <h4>KI-generierte Antwort</h4>
-                                    <p>Eine reine Skalierung der Modellgröße und der Trainingsdaten kann die Häufigkeit von Fehlinformationen verringern, da größere Modelle mehr Faktenwissen speichern können. Es löst jedoch nicht das grundlegende Problem, da auch größere Modelle inhärenten Verzerrungen in den Daten unterliegen und weiterhin halluzinieren können.</p>
+                                    <p>Das reine Skalieren von Modellen behebt das Problem der Fehlinformation nicht zuverlässig. Zwar verbessern sich mit zunehmender Grösse viele Fähigkeiten und die Fehlerrate sinkt, doch die Wahrhaftigkeit steigt dabei nicht automatisch linear an. Grössere Modelle sind folglich nicht zwingend ehrlicher, weshalb gezielte Anpassungen wie Instruction-Tuning oft entscheidender sind als reine Modellgrösse.</p>
+                                    <p style="font-size: 0.8em; color: #666; margin-top: 10px;">Quelle: <a href="https://gemini.google.com/share/41a74bcf8c8e" target="_blank">https://gemini.google.com/share/41a74bcf8c8e</a></p>
                                 </div>
                                 <div class="answer">
                                     <h4>Antwort von Mikaela Buzdin</h4>
@@ -342,7 +312,8 @@
                             <div class="answers-slider">
                                 <div class="answer">
                                     <h4>KI-generierte Antwort</h4>
-                                    <p>Die Einführung von Reinforcement Learning from Human Feedback (RLHF) hatte einen signifikanten Einfluss auf die Reduzierung der Fehlerquote. Durch die Integration menschlicher Bewertungen in den Trainingsprozess können Modelle lernen, unerwünschte Ausgaben wie Fehlinformationen und toxische Inhalte zu vermeiden.</p>
+                                    <p>Den grössten Einfluss hatten effizientere Trainingsmethoden zur Balance von Daten und Rechenleistung sowie die gezielte Ausrichtung der Modelle durch menschliches Feedback. Ergänzend dazu reduzierten der Zugriff auf externe Quellen zur Faktenprüfung und spezielle Eingabetechniken für logische Schlussfolgerungen die Fehlerraten erheblich, wobei erst präzisere Messverfahren eine solch gezielte Optimierung der Wahrheitstreue möglich machten.</p>
+                                    <p style="font-size: 0.8em; color: #666; margin-top: 10px;">Quelle: <a href="https://gemini.google.com/share/f1577ac31a56" target="_blank">https://gemini.google.com/share/f1577ac31a56</a></p>
                                 </div>
                                 <div class="answer">
                                     <h4>Antwort von Mikaela Buzdin</h4>
@@ -358,7 +329,8 @@
                             <div class="answers-slider">
                                 <div class="answer">
                                     <h4>KI-generierte Antwort</h4>
-                                    <p>Aktuelle Forschungsansätze umfassen die Verbesserung von Faktenprüfungs-Mechanismen, die Entwicklung von "interpretierbaren" KI-Modellen, um Entscheidungsprozesse nachvollziehbarer zu machen, und die Verfeinerung von RAG-Systemen, um die Zuverlässigkeit der abgerufenen Informationen zu erhöhen.</p>
+                                    <p>Die Forschung konzentriert sich aktuell stark auf die Weiterentwicklung von Retrieval-Augmented Generation, indem iterative Korrekturprozesse und dynamische Suchverfahren integriert werden, die Informationen erst bei explizitem Bedarf abrufen. Parallel dazu werden Mechanismen etabliert, die Modelle dazu zwingen, ihre eigenen Aussagen durch Verifikationsketten zu prüfen, externe Werkzeuge zur inhaltlichen Entlastung zu nutzen oder Antworten bei Unsicherheit und fehlenden Belegen gänzlich zu verweigern.</p>
+                                    <p style="font-size: 0.8em; color: #666; margin-top: 10px;">Quelle: <a href="https://gemini.google.com/share/37a5f038ca2f" target="_blank">https://gemini.google.com/share/37a5f038ca2f</a></p>
                                 </div>
                                 <div class="answer">
                                     <h4>Antwort von Mikaela Buzdin</h4>
@@ -374,7 +346,8 @@
                             <div class="answers-slider">
                                 <div class="answer">
                                     <h4>KI-generierte Antwort</h4>
-                                    <p>Private Anwender sollten stets eine kritische Haltung bewahren und die von ChatBots generierten Informationen, insbesondere bei wichtigen Themen, durch die Konsultation vertrauenswürdiger externer Quellen überprüfen. Präzise und kontextreiche Anfragen (Prompts) können ebenfalls helfen, die Wahrscheinlichkeit von Halluzinationen zu verringern.</p>
+                                    <p>Private Anwender können Halluzinationen effektiv entgegenwirken, indem sie konsequent Belege wie Zitate oder Links einfordern und bevorzugt Modi mit aktiver Internetrecherche nutzen. Zudem empfiehlt es sich, das Modell anzuweisen, bei Unsicherheit zu schweigen, sowie Antworten durch mehrfache Abfragen auf ihre Konsistenz zu prüfen und komplexe Fragen in einzeln verifizierbare Fakten zu zerlegen.</p>
+                                    <p style="font-size: 0.8em; color: #666; margin-top: 10px;">Quelle: <a href="https://gemini.google.com/share/febe989dc02a" target="_blank">https://gemini.google.com/share/febe989dc02a</a></p>
                                 </div>
                                 <div class="answer">
                                     <h4>Antwort von Mikaela Buzdin</h4>
@@ -390,7 +363,8 @@
                             <div class="answers-slider">
                                 <div class="answer">
                                     <h4>KI-generierte Antwort</h4>
-                                    <p>Gutes Prompt-Engineering hat einen erheblichen Einfluss auf die Qualität der Modellausgaben. Durch klar formulierte, spezifische und kontextbezogene Anfragen kann der Nutzer das Modell gezielt steuern und die Wahrscheinlichkeit für präzise und relevante Antworten maximieren, während unklare Prompts das Risiko von Halluzinationen erhöhen.</p>
+                                    <p>Die Auswirkung ist empirisch substanziell, jedoch stark von der jeweiligen Aufgabe abhängig. Zwar können gezielte Strukturierung und Methoden wie Chain-of-Thought die Fehlerquoten massgeblich senken und das Reasoning verbessern, sie ersetzen jedoch kein fundiertes Grounding.</p>
+                                    <p style="font-size: 0.8em; color: #666; margin-top: 10px;">Quelle: <a href="https://gemini.google.com/share/f881278bfb1b" target="_blank">https://gemini.google.com/share/f881278bfb1b</a></p>
                                 </div>
                                 <div class="answer">
                                     <h4>Antwort von Mikaela Buzdin</h4>
@@ -406,7 +380,9 @@
                             <div class="answers-slider">
                                 <div class="answer">
                                     <h4>KI-generierte Antwort</h4>
-                                    <p>Die Selbstüberprüfung durch ein Modell kann einen gewissen Mehrwert bringen, indem offensichtliche Inkonsistenzen erkannt werden. Dieser Ansatz ist jedoch begrenzt, da das Modell dabei denselben internen Wissensstand und denselben Verzerrungen unterliegt, die bereits zur ursprünglichen Antwort geführt haben. Eine Überprüfung durch ein separates, unabhängiges Modell oder System ist oft effektiver.</p>
+                                    <p>Eine Überprüfung im zweiten Schritt bietet oft messbaren Mehrwert, indem sie durch iterative Feedbackschlaufen oder das Abwägen mehrerer Lösungswege zu robusteren Antworten führt und Halluzinationen reduziert.</p>
+                                    <p>Dieser Nutzen ist allerdings nicht garantiert, da die Zuverlässigkeit der Selbstkorrektur stark vom Setup sowie dem jeweiligen Evaluationsmass abhängt und negative Befunde zeigen, dass Modelle ihre Antworten nicht in jedem Kontext erfolgreich verbessern.</p>
+                                    <p style="font-size: 0.8em; color: #666; margin-top: 10px;">Quelle: <a href="https://gemini.google.com/share/bc31629f968c" target="_blank">https://gemini.google.com/share/bc31629f968c</a></p>
                                 </div>
                                 <div class="answer">
                                     <h4>Antwort von Mikaela Buzdin</h4>
