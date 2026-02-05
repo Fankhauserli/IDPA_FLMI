@@ -28,61 +28,83 @@
                 Hund zu unterscheiden.</p>
 
             <div class="nn-architecture-diagram">
-                <svg viewBox="0 0 600 300" preserveAspectRatio="xMidYMid meet">
-                    <!-- Connections first so they are behind nodes -->
+                <div class="html-diagram">
+                    <div class="architecture-container"
+                        style="display: grid; grid-template-columns: repeat(4, 1fr); position: relative;">
+                        <!-- Connection Layer (SVG) -->
+                        <svg class="connection-layer"
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;"
+                            preserveAspectRatio="none">
+                            <defs>
+                                <linearGradient id="lineGraph" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#cccccc;stop-opacity:0.6" />
+                                    <stop offset="100%" style="stop-color:#cccccc;stop-opacity:0.6" />
+                                </linearGradient>
+                            </defs>
+                            <!-- Input (3) to Hidden 1 (3) - Centers at roughly 12.5% and 37.5% -->
+                            <!-- y percentages based on 3 nodes (25%, 50%, 75%) approx -->
+                            <line x1="12.5%" y1="25%" x2="37.5%" y2="25%" stroke="#ccc" stroke-width="1" />
+                            <line x1="12.5%" y1="25%" x2="37.5%" y2="50%" stroke="#ccc" stroke-width="1" />
+                            <line x1="12.5%" y1="25%" x2="37.5%" y2="75%" stroke="#ccc" stroke-width="1" />
 
-                    <!-- Input to Hidden 1 -->
-                    <line x1="80" y1="80" x2="250" y2="60" stroke="#ccc" stroke-width="1" />
-                    <line x1="80" y1="80" x2="250" y2="150" stroke="#ccc" stroke-width="1" />
-                    <line x1="80" y1="80" x2="250" y2="240" stroke="#ccc" stroke-width="1" />
+                            <line x1="12.5%" y1="50%" x2="37.5%" y2="25%" stroke="#ccc" stroke-width="1" />
+                            <line x1="12.5%" y1="50%" x2="37.5%" y2="50%" stroke="#ccc" stroke-width="1" />
+                            <line x1="12.5%" y1="50%" x2="37.5%" y2="75%" stroke="#ccc" stroke-width="1" />
 
-                    <line x1="80" y1="150" x2="250" y2="60" stroke="#ccc" stroke-width="1" />
-                    <line x1="80" y1="150" x2="250" y2="150" stroke="#ccc" stroke-width="1" />
-                    <line x1="80" y1="150" x2="250" y2="240" stroke="#ccc" stroke-width="1" />
+                            <line x1="12.5%" y1="75%" x2="37.5%" y2="25%" stroke="#ccc" stroke-width="1" />
+                            <line x1="12.5%" y1="75%" x2="37.5%" y2="50%" stroke="#ccc" stroke-width="1" />
+                            <line x1="12.5%" y1="75%" x2="37.5%" y2="75%" stroke="#ccc" stroke-width="1" />
 
-                    <line x1="80" y1="220" x2="250" y2="60" stroke="#ccc" stroke-width="1" />
-                    <line x1="80" y1="220" x2="250" y2="150" stroke="#ccc" stroke-width="1" />
-                    <line x1="80" y1="220" x2="250" y2="240" stroke="#ccc" stroke-width="1" />
+                            <!-- Hidden 1 (3) to Hidden 2 (3) - Centers at 37.5% and 62.5% -->
+                            <line x1="37.5%" y1="25%" x2="62.5%" y2="25%" stroke="#ccc" stroke-width="1" />
+                            <line x1="37.5%" y1="25%" x2="62.5%" y2="50%" stroke="#ccc" stroke-width="1" />
+                            <line x1="37.5%" y1="25%" x2="62.5%" y2="75%" stroke="#ccc" stroke-width="1" />
 
-                    <!-- Hidden 1 to Hidden 2 -->
-                    <line x1="250" y1="60" x2="400" y2="60" stroke="#ccc" stroke-width="1" />
-                    <line x1="250" y1="60" x2="400" y2="150" stroke="#ccc" stroke-width="1" />
-                    <line x1="250" y1="60" x2="400" y2="240" stroke="#ccc" stroke-width="1" />
+                            <line x1="37.5%" y1="50%" x2="62.5%" y2="25%" stroke="#ccc" stroke-width="1" />
+                            <line x1="37.5%" y1="50%" x2="62.5%" y2="50%" stroke="#ccc" stroke-width="1" />
+                            <line x1="37.5%" y1="50%" x2="62.5%" y2="75%" stroke="#ccc" stroke-width="1" />
 
-                    <line x1="250" y1="150" x2="400" y2="60" stroke="#ccc" stroke-width="1" />
-                    <line x1="250" y1="150" x2="400" y2="150" stroke="#ccc" stroke-width="1" />
-                    <line x1="250" y1="150" x2="400" y2="240" stroke="#ccc" stroke-width="1" />
+                            <line x1="37.5%" y1="75%" x2="62.5%" y2="25%" stroke="#ccc" stroke-width="1" />
+                            <line x1="37.5%" y1="75%" x2="62.5%" y2="50%" stroke="#ccc" stroke-width="1" />
+                            <line x1="37.5%" y1="75%" x2="62.5%" y2="75%" stroke="#ccc" stroke-width="1" />
 
-                    <line x1="250" y1="240" x2="400" y2="60" stroke="#ccc" stroke-width="1" />
-                    <line x1="250" y1="240" x2="400" y2="150" stroke="#ccc" stroke-width="1" />
-                    <line x1="250" y1="240" x2="400" y2="240" stroke="#ccc" stroke-width="1" />
+                            <!-- Hidden 2 (3) to Output (1) - Centers at 62.5% and 87.5% -->
+                            <!-- Output node at 50% vertical? -->
+                            <line x1="62.5%" y1="25%" x2="87.5%" y2="50%" stroke="#ccc" stroke-width="1" />
+                            <line x1="62.5%" y1="50%" x2="87.5%" y2="50%" stroke="#ccc" stroke-width="1" />
+                            <line x1="62.5%" y1="75%" x2="87.5%" y2="50%" stroke="#ccc" stroke-width="1" />
+                        </svg>
 
-                    <!-- Hidden 2 to Output -->
-                    <line x1="400" y1="60" x2="520" y2="150" stroke="#ccc" stroke-width="1" />
-                    <line x1="400" y1="150" x2="520" y2="150" stroke="#ccc" stroke-width="1" />
-                    <line x1="400" y1="240" x2="520" y2="150" stroke="#ccc" stroke-width="1" />
+                        <!-- Input Layer -->
+                        <div class="layer-group" style="justify-content: center; height: 100%;">
+                            <div class="node circle input"></div>
+                            <div class="node circle input"></div>
+                            <div class="node circle input"></div>
+                            <span class="layer-label">Input Layer</span>
+                        </div>
 
-                    <!-- Input Layer -->
-                    <circle cx="80" cy="80" r="20" fill="white" stroke="#4d25fc" stroke-width="2" />
-                    <circle cx="80" cy="150" r="20" fill="white" stroke="#4d25fc" stroke-width="2" />
-                    <circle cx="80" cy="220" r="20" fill="white" stroke="#4d25fc" stroke-width="2" />
-                    <text x="80" y="270" text-anchor="middle" font-weight="bold">Input Layer</text>
+                        <!-- Hidden Layer 1 -->
+                        <div class="layer-group" style="justify-content: center; height: 100%;">
+                            <div class="node circle hidden"></div>
+                            <div class="node circle hidden"></div>
+                            <div class="node circle hidden"></div>
+                        </div>
 
-                    <!-- Hidden Layer 1 -->
-                    <circle cx="250" cy="60" r="20" fill="white" stroke="#4d25fc" stroke-width="2" />
-                    <circle cx="250" cy="150" r="20" fill="white" stroke="#4d25fc" stroke-width="2" />
-                    <circle cx="250" cy="240" r="20" fill="white" stroke="#4d25fc" stroke-width="2" />
+                        <!-- Hidden Layer 2 -->
+                        <div class="layer-group" style="justify-content: center; height: 100%;">
+                            <div class="node circle hidden"></div>
+                            <div class="node circle hidden"></div>
+                            <div class="node circle hidden"></div>
+                            <span class="layer-label">Hidden Layers</span>
+                        </div>
 
-                    <!-- Hidden Layer 2 -->
-                    <circle cx="400" cy="60" r="20" fill="white" stroke="#4d25fc" stroke-width="2" />
-                    <circle cx="400" cy="150" r="20" fill="white" stroke="#4d25fc" stroke-width="2" />
-                    <circle cx="400" cy="240" r="20" fill="white" stroke="#4d25fc" stroke-width="2" />
-                    <text x="325" y="280" text-anchor="middle" font-weight="bold">Hidden Layers</text>
-
-                    <!-- Output Layer -->
-                    <circle cx="520" cy="150" r="20" fill="white" stroke="#4d25fc" stroke-width="2" />
-                    <text x="520" y="200" text-anchor="middle" font-weight="bold">Output Layer</text>
-                </svg>
+                        <!-- Output Layer -->
+                        <div class="layer-group" style="justify-content: center; height: 100%;">
+                            <div class="node circle output"></div>
+                            <span class="layer-label">Output Layer</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div>
@@ -138,27 +160,14 @@
                     Aktivierungsfunktion.</p>
 
                 <h4>1. Die gewichtete Summe (Linearer Teil)</h4>
-                <p>Stellen wir uns ein Neuron vor, das drei Eingaben erhält (z. B. drei Wörter oder Pixel). Jede
-                    Eingabe (x) wird mit ihrem eigenen Gewicht (w) multipliziert. Das ist genau der Effekt des
-                    oben beschriebenen "Ventils". Anschliessend werden alle Ergebnisse zusammengezählt.</p>
-                <p>Mathematisch sieht das für ein einzelnes Neuron so aus:</p>
-                <p
-                    style="font-family: monospace; background: #eee; padding: 10px; border-radius: 5px; display: inline-block;">
-                    z = (x1 · w1) + (x2 · w2) + (x3 · w3) + b</p>
-                <p>Oder vereinfacht mit dem Summenzeichen ∑:</p>
-                <p
-                    style="font-family: monospace; background: #eee; padding: 10px; border-radius: 5px; display: inline-block;">
-                    z = ∑(xi · wi) + b</p>
-                <ul>
-                    <li><strong>x (Input):</strong> Die Information, die reinkommt.</li>
-                    <li><strong>w (Weight):</strong> Die Wichtigkeit der Information (unser Ventil).</li>
-                    <li><strong>b (Bias):</strong> Der Schwellenwert.</li>
-                </ul>
-                <p><strong>Der Bias (b):</strong> Der Bias ist ein spezieller Parameter, der oft vergessen wird.
-                    Er ist eine Art "Grundstimmung" des Neurons. Selbst wenn alle Eingaben (x) null sind, kann
-                    der Bias dafür sorgen, dass das Neuron trotzdem feuert. Er verschiebt die Aktivierungskurve
-                    nach oben oder unten, ähnlich wie der y-Achsenabschnitt in einer einfachen Geradengleichung
-                    (y = mx + q).</p>
+                <p>Anstatt abstrakter Formeln können wir uns dies visuell vorstellen. Ein Neuron sammelt Informationen
+                    von seinen Vorgängern. Jede Verbindung gewichtet die Information unterschiedlich stark – wie ein
+                    Ventil, das mehr oder weniger Wasser durchlässt.</p>
+
+
+
+                <p>Mathematisch dargestellt: <code>z = (x1 · w1) + ... + b</code>. Dies ist der "Input" für den nächsten
+                    Schritt, die Aktivierungsfunktion.</p>
 
                 <h4>2. Die Aktivierungsfunktion (Nicht-linearer Teil)</h4>
                 <p>Nachdem die gewichtete Summe (z) berechnet wurde, ist das Ergebnis oft eine beliebige Zahl
@@ -306,7 +315,8 @@
                 anschauen, die Cross-Attention lassen wir aus.</p>
 
             <h4>Query und Key Vektoren</h4>
-            <p>Innerhalb der Attention wird mit jedem Token zwei Matrixmultiplikationen durchgeführt. Beide Matrizen
+            <p>Innerhalb der Attention wird mit jedem Token zwei <a href="/math/index.html#matrix-vektor"
+                    class="text-indigo-600 hover:underline">Matrixmultiplikationen</a> durchgeführt. Beide Matrizen
                 bestehen komplett aus Modelparameter, welche, während dem Lernen der LLM definiert werden. Als
                 Ergebnis der beiden Multiplikationen erhalten wir Query und Key Vektoren, diese befinden sich in
                 einer kleineren Dimension im Vergleich zum ursprünglichen Einbettungsraum.</p>
@@ -319,48 +329,41 @@
                 repräsentieren, die Antwort geben “Ich bin ein Flugzeug Typ, an der Position X”.</p>
 
             <div class="nn-architecture-diagram">
-                <svg viewBox="0 0 600 200">
-                    <defs>
-                        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-                            <polygon points="0 0, 10 3.5, 0 7" fill="#4d25fc" />
-                        </marker>
-                    </defs>
-                    <!-- Token -->
-                    <rect x="50" y="80" width="80" height="40" rx="5" fill="#e6e0f8" stroke="#4d25fc"
-                        stroke-width="2" />
-                    <text x="90" y="105" text-anchor="middle" font-family="sans-serif" font-weight="bold"
-                        fill="#4d25fc">Token</text>
+                <div class="html-diagram">
+                    <div class="diagram-column">
+                        <!-- Input -->
+                        <div class="node rect input" style="border-width: 2px;">Input Token</div>
 
-                    <!-- Weights Q -->
-                    <rect x="200" y="40" width="60" height="40" fill="white" stroke="#333" stroke-width="1" />
-                    <text x="230" y="65" text-anchor="middle" font-family="sans-serif" font-size="12">Weight
-                        Q</text>
-                    <!-- Weights K -->
-                    <rect x="200" y="120" width="60" height="40" fill="white" stroke="#333" stroke-width="1" />
-                    <text x="230" y="145" text-anchor="middle" font-family="sans-serif" font-size="12">Weight
-                        K</text>
+                        <!-- Split Arrows (Visual only) -->
+                        <div style="font-size: 20px; color: #ccc;">↓</div>
 
-                    <!-- Arrows -->
-                    <line x1="130" y1="100" x2="200" y2="60" stroke="#4d25fc" stroke-width="2"
-                        marker-end="url(#arrowhead)" />
-                    <line x1="130" y1="100" x2="200" y2="140" stroke="#4d25fc" stroke-width="2"
-                        marker-end="url(#arrowhead)" />
+                        <div class="diagram-row" style="align-items: flex-start;">
+                            <!-- Query Path -->
+                            <div class="diagram-column">
+                                <div class="node rect" style="border-style: dashed; background: #f9f9f9;">W_Query</div>
+                                <div style="font-size: 20px; color: #999;">×</div>
+                                <div class="node rect output"
+                                    style="background: linear-gradient(135deg, #a777d1 0%, #4d25fc 100%); color: white;">
+                                    Query Vector</div>
+                                <div class="diagram-label">q = x · W_q</div>
+                            </div>
 
-                    <!-- Vectors Q & K -->
-                    <rect x="350" y="40" width="100" height="30" rx="5" fill="#a777d1" stroke="none" />
-                    <text x="400" y="60" text-anchor="middle" fill="white" font-weight="bold">Query (Q)</text>
-
-                    <rect x="350" y="120" width="100" height="30" rx="5" fill="#a777d1" stroke="none" />
-                    <text x="400" y="140" text-anchor="middle" fill="white" font-weight="bold">Key (K)</text>
-
-                    <!-- Matrix Multi labels -->
-                    <text x="280" y="55" font-family="sans-serif" font-size="20">×</text>
-                    <text x="280" y="135" font-family="sans-serif" font-size="20">×</text>
-                </svg>
+                            <!-- Key Path -->
+                            <div class="diagram-column">
+                                <div class="node rect" style="border-style: dashed; background: #f9f9f9;">W_Key</div>
+                                <div style="font-size: 20px; color: #999;">×</div>
+                                <div class="node rect highlight" style="color: #4d25fc;">Key Vector</div>
+                                <div class="diagram-label">k = x · W_k</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <h4>Skalarprodukt vom Key und Query Vektor</h4>
-            <p>Sobald für jeden Token ein Key und Query-Vektor berechnet wurde, wird das Skalarprodukt von jedem
+            <p>Sobald für jeden Token ein Key und Query-Vektor berechnet wurde, wird das <a
+                    href="/math/index.html#skalarprodukt" class="text-indigo-600 hover:underline">Skalarprodukt</a> von
+                jedem
                 Key-Vektor mit jedem Query-Vektor ausgerechnet. Wenn das Skalarprodukt von einem Query-Vektor und
                 einem Key-Vektor stark positiv ist, bedeutet dies, dass das Token vom Key-Vektor auf das Token vom
                 Query-Vektor Einfluss haben sollte. Bei einem Skalarprodukt nahe bei Null oder im Minus beeinflussen
@@ -373,7 +376,9 @@
             <p>Sämtliche Skalarprodukte von Key-Vektoren, welche nach einem Query-Vektor in der Reihenfolge sind,
                 werden auf minus Unendlich gesetzt. Dies bewirkt, dass in folgendem Beispielsatz: “Das A320 Flugzeug
                 neben dem PC-21” das Token für “PC-21” das Token für “Flugzeug” nicht beeinflusst.</p>
-            <p>Anschliessend wird ein Softmax von allen Skalaren von einem Query-Vektor und allen Key-Vektoren
+            <p>Anschliessend wird ein <a href="/math/index.html#softmax"
+                    class="text-indigo-600 hover:underline">Softmax</a> von allen Skalaren von einem Query-Vektor und
+                allen Key-Vektoren
                 genommen. Softmax setzt alle Werte im Minus Bereich auf Null und gewichtet alle positiven Zahlen so,
                 dass am Schluss die Summe sämtlicher Zahlen zusammenaddiert Eins ergeben. Das Ergebnis vom Softmax
                 ist eine normalisierte Spalte, in welcher abgelesen werden kann welcher Token welchen Token wie fest
@@ -398,34 +403,34 @@
                 wobei die einzelnen Kontextwörter unterschiedlich gewichtet wurden.</p>
 
             <div class="nn-architecture-diagram">
-                <svg viewBox="0 0 600 200">
-                    <defs>
-                        <marker id="arrowhead-b" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-                            <polygon points="0 0, 10 3.5, 0 7" fill="#4d25fc" />
-                        </marker>
-                    </defs>
-                    <!-- Original Token -->
-                    <g transform="translate(50, 80)">
-                        <rect width="80" height="40" rx="5" fill="#ddd" stroke="#999" stroke-width="2" />
-                        <text x="40" y="25" text-anchor="middle" font-size="12">Original</text>
-                    </g>
+                <div class="html-diagram">
+                    <div class="diagram-row">
+                        <!-- Original -->
+                        <div class="diagram-column">
+                            <div class="node rect" style="border-style: dashed; background: #f0f0f0; color: #666;">
+                                Original "Flugzeug"</div>
+                        </div>
 
-                    <!-- Context Vector -->
-                    <g transform="translate(200, 80)">
-                        <rect width="80" height="40" rx="5" fill="#e6e0f8" stroke="#4d25fc" stroke-width="2" />
-                        <text x="40" y="25" text-anchor="middle" font-size="12">Kontext (A320)</text>
-                    </g>
+                        <!-- Plus -->
+                        <div class="node circle input"
+                            style="width: 40px; height: 40px; background: #4d25fc; color: white; border: none; font-size: 20px;">
+                            +</div>
 
-                    <!-- Added -->
-                    <g transform="translate(450, 80)">
-                        <rect width="100" height="40" rx="5" fill="#a777d1" stroke="none" />
-                        <text x="50" y="25" text-anchor="middle" fill="white" font-weight="bold">Neuer Vektor</text>
-                    </g>
+                        <!-- Context -->
+                        <div class="diagram-column">
+                            <div class="node rect highlight">Kontext "A320"</div>
+                        </div>
 
-                    <text x="170" y="105" font-size="24">+</text>
-                    <line x1="290" y1="100" x2="440" y2="100" stroke="#4d25fc" stroke-width="2"
-                        marker-end="url(#arrowhead-b)" />
-                </svg>
+                        <!-- Arrow -->
+                        <div class="connector-arrow" style="border-left-color: #ccc; border-width: 10px;"></div>
+
+                        <!-- Result -->
+                        <div class="diagram-column">
+                            <div class="node rect output">Angereichertes Token</div>
+                            <div class="diagram-label">"Flugzeug" + A320 Info</div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <p>Nun konnten wir erfolgreich Kontext, aufgrund anderen Tokens, zu einem zuvor kontextlosen Token
@@ -467,30 +472,65 @@
                 imaginieren Vektor, welcher aus einer Reihe innerhalb der Matrix besteht.</p>
 
             <div class="nn-architecture-diagram">
-                <svg viewBox="0 0 500 200" preserveAspectRatio="xMidYMid meet">
-                    <!-- Vector -->
-                    <rect x="50" y="50" width="20" height="100" fill="#e6e0f8" stroke="#4d25fc" />
-                    <text x="60" y="40" text-anchor="middle" font-size="12">Vektor</text>
+                <div class="diagram-container">
+                    <!-- Input Vector -->
+                    <div class="diagram-column">
+                        <span class="diagram-label" style="font-weight:bold;">Input</span>
+                        <div class="vector-box">
+                            <div class="vector-cell" style="background:#e6e0f8;">x₁</div>
+                            <div class="vector-cell">x₂</div>
+                            <div class="vector-cell">x₃</div>
+                            <div class="vector-cell">x₄</div>
+                        </div>
+                    </div>
+
+                    <div style="font-size: 24px; color: #999;">×</div>
+
                     <!-- Matrix -->
-                    <g transform="translate(120, 50)">
-                        <rect width="100" height="100" fill="#fff" stroke="#333" />
-                        <!-- Grid lines -->
-                        <line x1="0" y1="20" x2="100" y2="20" stroke="#ddd" />
-                        <line x1="0" y1="40" x2="100" y2="40" stroke="#ddd" />
-                        <line x1="0" y1="60" x2="100" y2="60" stroke="#ddd" />
-                        <line x1="0" y1="80" x2="100" y2="80" stroke="#ddd" />
-                        <line x1="20" y1="0" x2="20" y2="100" stroke="#ddd" />
-                        <line x1="40" y1="0" x2="40" y2="100" stroke="#ddd" />
-                        <line x1="60" y1="0" x2="60" y2="100" stroke="#ddd" />
-                        <line x1="80" y1="0" x2="80" y2="100" stroke="#ddd" />
-                    </g>
-                    <text x="170" y="40" text-anchor="middle" font-size="12">Parameter Matrix</text>
-                    <text x="100" y="105" font-size="20">×</text>
-                    <text x="250" y="105" font-size="20">=</text>
-                    <!-- Result -->
-                    <rect x="280" y="20" width="20" height="160" fill="#a777d1" stroke="none" />
-                    <text x="290" y="195" text-anchor="middle" font-size="12">Grösserer Vektor</text>
-                </svg>
+                    <div class="diagram-column">
+                        <span class="diagram-label" style="font-weight:bold;">Parameter Matrix</span>
+                        <div class="matrix-grid">
+                            <!-- Row 1 -->
+                            <div class="matrix-cell">w1</div>
+                            <div class="matrix-cell">w2</div>
+                            <div class="matrix-cell">w3</div>
+                            <div class="matrix-cell">w4</div>
+                            <!-- Row 2 (Highlighted) -->
+                            <div class="matrix-cell" style="background:#e6e0f8; color:#4d25fc; font-weight:bold;">w5
+                            </div>
+                            <div class="matrix-cell" style="background:#e6e0f8; color:#4d25fc; font-weight:bold;">w6
+                            </div>
+                            <div class="matrix-cell" style="background:#e6e0f8; color:#4d25fc; font-weight:bold;">w7
+                            </div>
+                            <div class="matrix-cell" style="background:#e6e0f8; color:#4d25fc; font-weight:bold;">w8
+                            </div>
+                            <!-- Row 3 -->
+                            <div class="matrix-cell">w9</div>
+                            <div class="matrix-cell">w10</div>
+                            <div class="matrix-cell">w11</div>
+                            <div class="matrix-cell">w12</div>
+                            <!-- Row 4 -->
+                            <div class="matrix-cell">w13</div>
+                            <div class="matrix-cell">w14</div>
+                            <div class="matrix-cell">w15</div>
+                            <div class="matrix-cell">w16</div>
+                        </div>
+                        <span class="diagram-label" style="color:#a777d1;">Projiziert auf Dimensionen</span>
+                    </div>
+
+                    <div style="font-size: 24px; color: #999;">=</div>
+
+                    <!-- Result Vector -->
+                    <div class="diagram-column">
+                        <span class="diagram-label" style="font-weight:bold;">Expansion</span>
+                        <div class="vector-box" style="border-color:#a777d1;">
+                            <div class="vector-cell">y₁</div>
+                            <div class="vector-cell" style="background:#e6e0f8; font-weight:bold;">y₂</div>
+                            <div class="vector-cell">y₃</div>
+                            <div class="vector-cell">y₄</div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <p>Das Skalarprodukt von zwei Vektoren liefert Informationen darüber, wie Vektoren zueinanderstehen. Ist
@@ -514,22 +554,42 @@
                 Funktion genauer an.</p>
 
             <div class="nn-architecture-diagram">
-                <svg viewBox="0 0 400 300">
-                    <!-- Coordinate System -->
-                    <line x1="50" y1="250" x2="350" y2="250" stroke="#000" stroke-width="2" />
-                    <line x1="200" y1="50" x2="200" y2="280" stroke="#000" stroke-width="2" />
-                    <!-- Y Axis in middle -->
+                <div class="html-diagram">
+                    <div
+                        style="position: relative; width: 300px; height: 200px; border-left: 2px solid #333; border-bottom: 2px solid #333; margin: 20px;">
+                        <!-- Grid Background (Optional, simple lines) -->
+                        <div
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(#f0f0f0 1px, transparent 1px), linear-gradient(90deg, #f0f0f0 1px, transparent 1px); background-size: 20px 20px; z-index: 0;">
+                        </div>
 
-                    <!-- ReLU Line -->
-                    <!-- x < 0: y = 0 -->
-                    <line x1="50" y1="250" x2="200" y2="250" stroke="#4d25fc" stroke-width="4" />
-                    <!-- x > 0: y = x (approx, scale 1:1 visually) -->
-                    <line x1="200" y1="250" x2="350" y2="100" stroke="#4d25fc" stroke-width="4" />
+                        <!-- Labels -->
+                        <div style="position: absolute; bottom: -25px; right: 0; font-weight: bold; color: #333;">x
+                        </div>
+                        <div style="position: absolute; top: -25px; left: -10px; font-weight: bold; color: #333;">y
+                        </div>
+                        <div
+                            style="position: absolute; top: 10%; right: 10%; font-weight: bold; font-family: monospace; color: #4d25fc; background: white; padding: 5px;">
+                            f(x) = max(0, x)</div>
 
-                    <text x="340" y="270" font-weight="bold">x</text>
-                    <text x="210" y="60" font-weight="bold">y</text>
-                    <text x="250" y="150" fill="#4d25fc" font-weight="bold" font-size="18">f(x) = max(0, x)</text>
-                </svg>
+                        <!-- Graph Lines -->
+                        <!-- x < 0 -->
+                        <div
+                            style="position: absolute; bottom: 0; left: 0; width: 50%; height: 4px; border-top: 4px dashed #ccc;">
+                        </div>
+
+                        <!-- x > 0 -->
+                        <div
+                            style="position: absolute; bottom: 0; left: 50%; width: 50px; height: 4px; background: #4d25fc; transform-origin: left bottom; transform: rotate(-45deg) scaleX(3); z-index: 1;">
+                        </div>
+
+                        <!-- Origin Dot -->
+                        <div class="node circle"
+                            style="width: 16px; height: 16px; position: absolute; bottom: -8px; left: calc(50% - 8px); border-color: #4d25fc; z-index: 2;">
+                        </div>
+                        <div style="position: absolute; bottom: -25px; left: 48%; color: #666; font-size: 0.8rem;">0
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <p>Die ReLU-Funktion ergibt für alle Werte welche kleiner oder gleich null sind null. Bei positiven
@@ -566,21 +626,33 @@
                 zusätzlichen Fakten enthält.</p>
 
             <div class="nn-architecture-diagram">
-                <svg viewBox="0 0 500 150">
-                    <defs>
-                        <marker id="arrowhead-c" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-                            <polygon points="0 0, 10 3.5, 0 7" fill="#4d25fc" />
-                        </marker>
-                    </defs>
-                    <text x="50" y="80" text-anchor="middle" font-weight="bold">Attention Vektor</text>
-                    <text x="250" y="80" text-anchor="middle" font-weight="bold">Fakten Vektor</text>
-                    <text x="150" y="85" font-size="24">+</text>
+                <div class="html-diagram">
+                    <div class="diagram-row">
+                        <!-- Attention Vector -->
+                        <div class="diagram-column">
+                            <div class="node rect" style="border-style: dashed; background: #f0f0f0; color: #666;">
+                                Attention Vektor (Original)</div>
+                        </div>
 
-                    <line x1="300" y1="80" x2="380" y2="80" stroke="#4d25fc" stroke-width="2"
-                        marker-end="url(#arrowhead-c)" />
+                        <!-- Plus -->
+                        <div style="font-size: 30px; color: #333; font-weight: bold;">+</div>
 
-                    <text x="440" y="80" text-anchor="middle" font-weight="bold" fill="#a777d1">Ergebnis</text>
-                </svg>
+                        <!-- Fact Vector -->
+                        <div class="diagram-column">
+                            <div class="node rect highlight" style="background: #e6e0f8; color: #4d25fc;">Fakten Vektor
+                                (Neu)</div>
+                        </div>
+
+                        <!-- Arrow -->
+                        <div class="connector-arrow" style="border-left-color: #4d25fc; border-width: 10px;"></div>
+
+                        <!-- Result -->
+                        <div class="diagram-column">
+                            <div class="node rect output">Ergebnis</div>
+                            <div class="diagram-label">Kombiniertes Wissen</div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <p>In unserem Beispiel hätten wir nun einen Vektor, welcher Airbus, A320 und nun auch die 150-187
@@ -616,36 +688,7 @@
                 Wahrscheinlichkeit für «pink» 45%, also ist der Verlust deutlich grösser als null, in unserem
                 Beispiel 55%.</p>
 
-            <!-- Visualization: Prediction vs Target Loss -->
-            <div class="nn-architecture-diagram">
-                <svg viewBox="0 0 500 250">
-                    <text x="100" y="30" text-anchor="middle" font-weight="bold">Vorhersage</text>
-                    <text x="300" y="30" text-anchor="middle" font-weight="bold">Ziel (Wahrheit)</text>
-                    <text x="450" y="30" text-anchor="middle" font-weight="bold" fill="#ff4d4d">Verlust</text>
 
-                    <!-- Prediction Bar -->
-                    <rect x="50" y="50" width="100" height="20" fill="#a777d1" opacity="0.45" /> <text x="160"
-                        y="65">pink (45%)</text>
-                    <rect x="50" y="80" width="100" height="20" fill="#ccc" opacity="0.2" /> <text x="160" y="95">gross
-                        (20%)</text>
-                    <rect x="50" y="110" width="100" height="20" fill="#ccc" opacity="0.2" /> <text x="160"
-                        y="125">schön (20%)</text>
-                    <rect x="50" y="140" width="100" height="20" fill="#ccc" opacity="0.15" /> <text x="160"
-                        y="155">weiss (15%)</text>
-
-                    <!-- Target Bar -->
-                    <rect x="250" y="50" width="100" height="20" fill="#4d25fc" /> <text x="360" y="65">pink
-                        (100%)</text>
-                    <rect x="250" y="80" width="100" height="20" fill="none" stroke="#ccc" />
-                    <rect x="250" y="110" width="100" height="20" fill="none" stroke="#ccc" />
-                    <rect x="250" y="140" width="100" height="20" fill="none" stroke="#ccc" />
-
-                    <!-- Loss Arrow -->
-                    <line x1="300" y1="180" x2="100" y2="180" stroke="#ff4d4d" stroke-width="2"
-                        marker-end="url(#arrowhead)" />
-                    <text x="200" y="200" text-anchor="middle" fill="#ff4d4d">Differenz = Hoher Loss</text>
-                </svg>
-            </div>
 
             <p>Das Ziel: Diesen Verlust minimieren.</p>
 
@@ -656,37 +699,119 @@
                 Kategorien «Säugetier» und «Vogel».</p>
 
             <!-- Visualization: Small Network -->
+            <!-- Visualization: Small Network -->
             <div class="nn-architecture-diagram">
-                <svg viewBox="0 0 500 200">
-                    <text x="50" y="30" text-anchor="middle" font-size="12">Input (Wörter)</text>
-                    <text x="250" y="30" text-anchor="middle" font-size="12">Hidden</text>
-                    <text x="450" y="30" text-anchor="middle" font-size="12">Output (Kategorie)</text>
+                <div class="html-diagram">
+                    <div class="architecture-container"
+                        style="max-width: 500px; display: grid; grid-template-columns: repeat(3, 1fr); position: relative;">
+                        <!-- Connection Layer (SVG) -->
+                        <svg class="connection-layer"
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;"
+                            preserveAspectRatio="none">
+                            <!-- Inputs: 16.7% at 24.7%, 43.1%, 61.4%, 95.9% -->
+                            <!-- Hiddens: 50.0% at 27.8%, 49.5%, 71.2%, 92.9% -->
+                            <!-- Outputs: 83.3% at 42.0%, 79.0% -->
 
-                    <!-- Input Nodes -->
-                    <circle cx="50" cy="60" r="10" fill="#fff" stroke="#4d25fc" />
-                    <circle cx="50" cy="90" r="10" fill="#fff" stroke="#4d25fc" />
-                    <circle cx="50" cy="120" r="10" fill="#fff" stroke="#4d25fc" />
-                    <text x="50" y="150" text-anchor="middle">...</text>
-                    <circle cx="50" cy="170" r="10" fill="#fff" stroke="#4d25fc" />
+                            <!-- Input 1 -> All Hiddens -->
+                            <line x1="16.7%" y1="24.7%" x2="50%" y2="27.8%" stroke="#ccc" stroke-width="1"
+                                opacity="0.3" />
+                            <line x1="16.7%" y1="24.7%" x2="50%" y2="49.5%" stroke="#ccc" stroke-width="1"
+                                opacity="0.3" />
+                            <line x1="16.7%" y1="24.7%" x2="50%" y2="71.2%" stroke="#ccc" stroke-width="1"
+                                opacity="0.3" />
+                            <line x1="16.7%" y1="24.7%" x2="50%" y2="92.9%" stroke="#ccc" stroke-width="1"
+                                opacity="0.3" />
 
-                    <!-- Hidden Nodes -->
-                    <circle cx="250" cy="70" r="15" fill="#e6e0f8" stroke="#4d25fc" />
-                    <circle cx="250" cy="110" r="15" fill="#e6e0f8" stroke="#4d25fc" />
-                    <circle cx="250" cy="150" r="15" fill="#e6e0f8" stroke="#4d25fc" />
-                    <circle cx="250" cy="190" r="15" fill="#e6e0f8" stroke="#4d25fc" />
+                            <!-- Input 2 -> All Hiddens -->
+                            <line x1="16.7%" y1="43.1%" x2="50%" y2="27.8%" stroke="#ccc" stroke-width="1"
+                                opacity="0.3" />
+                            <line x1="16.7%" y1="43.1%" x2="50%" y2="49.5%" stroke="#ccc" stroke-width="1"
+                                opacity="0.3" />
+                            <line x1="16.7%" y1="43.1%" x2="50%" y2="71.2%" stroke="#ccc" stroke-width="1"
+                                opacity="0.3" />
+                            <line x1="16.7%" y1="43.1%" x2="50%" y2="92.9%" stroke="#ccc" stroke-width="1"
+                                opacity="0.3" />
 
-                    <!-- Output Nodes -->
-                    <circle cx="450" cy="80" r="20" fill="#fff" stroke="#4d25fc" /> <text x="450" y="85"
-                        text-anchor="middle" font-size="10">Säugetier</text>
-                    <circle cx="450" cy="160" r="20" fill="#fff" stroke="#4d25fc" /> <text x="450" y="165"
-                        text-anchor="middle" font-size="10">Vogel</text>
+                            <!-- Input 3 -> All Hiddens -->
+                            <line x1="16.7%" y1="61.4%" x2="50%" y2="27.8%" stroke="#ccc" stroke-width="1"
+                                opacity="0.3" />
+                            <line x1="16.7%" y1="61.4%" x2="50%" y2="49.5%" stroke="#ccc" stroke-width="1"
+                                opacity="0.3" />
+                            <line x1="16.7%" y1="61.4%" x2="50%" y2="71.2%" stroke="#ccc" stroke-width="1"
+                                opacity="0.3" />
+                            <line x1="16.7%" y1="61.4%" x2="50%" y2="92.9%" stroke="#ccc" stroke-width="1"
+                                opacity="0.3" />
 
-                    <!-- Connections (simplified) -->
-                    <line x1="60" y1="60" x2="235" y2="70" stroke="#ccc" stroke-width="1" />
-                    <line x1="60" y1="90" x2="235" y2="110" stroke="#ccc" stroke-width="1" />
-                    <line x1="265" y1="70" x2="430" y2="80" stroke="#ccc" stroke-width="1" />
-                    <line x1="265" y1="190" x2="430" y2="160" stroke="#ccc" stroke-width="1" />
-                </svg>
+                            <!-- Input 4 (bottom) -> All Hiddens -->
+                            <line x1="16.7%" y1="95.9%" x2="50%" y2="27.8%" stroke="#ccc" stroke-width="1"
+                                opacity="0.3" />
+                            <line x1="16.7%" y1="95.9%" x2="50%" y2="49.5%" stroke="#ccc" stroke-width="1"
+                                opacity="0.3" />
+                            <line x1="16.7%" y1="95.9%" x2="50%" y2="71.2%" stroke="#ccc" stroke-width="1"
+                                opacity="0.3" />
+                            <line x1="16.7%" y1="95.9%" x2="50%" y2="92.9%" stroke="#ccc" stroke-width="1"
+                                opacity="0.3" />
+
+
+                            <!-- Hiddens -> Output 1 (42.0%) -->
+                            <line x1="50%" y1="27.8%" x2="83.3%" y2="42.0%" stroke="#ccc" stroke-width="1"
+                                opacity="0.3" />
+                            <line x1="50%" y1="49.5%" x2="83.3%" y2="42.0%" stroke="#ccc" stroke-width="1"
+                                opacity="0.3" />
+                            <line x1="50%" y1="71.2%" x2="83.3%" y2="42.0%" stroke="#ccc" stroke-width="1"
+                                opacity="0.3" />
+                            <line x1="50%" y1="92.9%" x2="83.3%" y2="42.0%" stroke="#ccc" stroke-width="1"
+                                opacity="0.3" />
+
+                            <!-- Hiddens -> Output 2 (79.0%) -->
+                            <line x1="50%" y1="27.8%" x2="83.3%" y2="79.0%" stroke="#ccc" stroke-width="1"
+                                opacity="0.3" />
+                            <line x1="50%" y1="49.5%" x2="83.3%" y2="79.0%" stroke="#ccc" stroke-width="1"
+                                opacity="0.3" />
+                            <line x1="50%" y1="71.2%" x2="83.3%" y2="79.0%" stroke="#ccc" stroke-width="1"
+                                opacity="0.3" />
+                            <line x1="50%" y1="92.9%" x2="83.3%" y2="79.0%" stroke="#ccc" stroke-width="1"
+                                opacity="0.3" />
+                        </svg>
+
+                        <!-- Input -->
+                        <div class="layer-group" style="justify-content: center; height: 100%;">
+                            <span class="diagram-label" style="margin-bottom: 10px; font-weight: bold;">Input
+                                (Wörter)</span>
+                            <div class="node circle input" style="width: 20px; height: 20px;"></div>
+                            <div class="node circle input" style="width: 20px; height: 20px;"></div>
+                            <div class="node circle input" style="width: 20px; height: 20px;"></div>
+                            <div style="font-weight: bold; color: #333;">...</div>
+                            <div class="node circle input" style="width: 20px; height: 20px;"></div>
+                        </div>
+
+                        <!-- Hidden -->
+                        <div class="layer-group" style="justify-content: center; height: 100%;">
+                            <span class="diagram-label" style="margin-bottom: 10px; font-weight: bold;">Hidden
+                                Layer</span>
+                            <div class="node circle hidden" style="width: 30px; height: 30px;"></div>
+                            <div class="node circle hidden" style="width: 30px; height: 30px;"></div>
+                            <div class="node circle hidden" style="width: 30px; height: 30px;"></div>
+                            <div class="node circle hidden" style="width: 30px; height: 30px;"></div>
+                        </div>
+
+                        <!-- Output -->
+                        <div class="layer-group" style="justify-content: center; height: 100%; gap: 40px;">
+                            <span class="diagram-label" style="margin-bottom: 10px; font-weight: bold;">Output
+                                (Kategorie)</span>
+                            <div class="diagram-column" style="gap: 5px;">
+                                <div class="node circle output"
+                                    style="width: 40px; height: 40px; background: white; border-color: #4d25fc;"></div>
+                                <span class="diagram-label" style="font-size: 0.8rem;">Säugetier</span>
+                            </div>
+                            <div class="diagram-column" style="gap: 5px;">
+                                <div class="node circle output"
+                                    style="width: 40px; height: 40px; background: white; border-color: #4d25fc;"></div>
+                                <span class="diagram-label" style="font-size: 0.8rem;">Vogel</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <p>Wir trainieren es damit, das Wort «Katze» als Säugetier zu klassifizieren. Im Forward-Pass fliesst
@@ -694,31 +819,73 @@
                 aber unsicher. Der Verlust beträgt -log(0,7) = 0,15.</p>
 
             <!-- Visualization: Network with values -->
+            <!-- Visualization: Network with values -->
             <div class="nn-architecture-diagram">
-                <svg viewBox="0 0 500 200">
-                    <!-- Same structure, added predictions -->
-                    <text x="50" y="30" text-anchor="middle" font-size="12">Input "Katze"</text>
-                    <!-- Input Active -->
-                    <circle cx="50" cy="90" r="10" fill="#4d25fc" stroke="#4d25fc" />
+                <div class="html-diagram">
+                    <div class="architecture-container"
+                        style="max-width: 500px; display: grid; grid-template-columns: repeat(3, 1fr); position: relative;">
+                        <!-- Connection Layer (SVG) -->
+                        <svg class="connection-layer"
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;"
+                            preserveAspectRatio="none">
+                            <!-- Input (16.7%, 66.8%) to Hidden (50% at 14.8%, 50.0%, 85.2%) -->
+                            <line x1="16.7%" y1="66.8%" x2="50%" y2="14.8%" stroke="#ccc" stroke-width="1" />
+                            <line x1="16.7%" y1="66.8%" x2="50%" y2="50.0%" stroke="#ccc" stroke-width="1" />
+                            <line x1="16.7%" y1="66.8%" x2="50%" y2="85.2%" stroke="#ccc" stroke-width="1" />
 
-                    <!-- Hidden Processing -->
-                    <circle cx="250" cy="70" r="15" fill="#e6e0f8" stroke="#4d25fc" />
-                    <circle cx="250" cy="110" r="15" fill="#e6e0f8" stroke="#4d25fc" />
-                    <circle cx="250" cy="150" r="15" fill="#e6e0f8" stroke="#4d25fc" />
+                            <!-- Hidden to Output (83.3% at 13.2%, 74.2%) -->
+                            <!-- From Hidden 1 (14.8%) -->
+                            <line x1="50%" y1="14.8%" x2="83.3%" y2="13.2%" stroke="#ccc" stroke-width="1" />
+                            <line x1="50%" y1="14.8%" x2="83.3%" y2="74.2%" stroke="#ccc" stroke-width="1" />
 
-                    <!-- Output with Values -->
-                    <circle cx="450" cy="80" r="20" fill="#a777d1" stroke="#4d25fc" />
-                    <text x="490" y="85" font-weight="bold">0.7</text>
-                    <text x="450" y="60" text-anchor="middle" font-size="10">Säugetier</text>
+                            <!-- From Hidden 2 (50.0%) -->
+                            <line x1="50%" y1="50.0%" x2="83.3%" y2="13.2%" stroke="#ccc" stroke-width="1" />
+                            <line x1="50%" y1="50.0%" x2="83.3%" y2="74.2%" stroke="#ccc" stroke-width="1" />
 
-                    <circle cx="450" cy="160" r="20" fill="#fff" stroke="#4d25fc" />
-                    <text x="490" y="165" font-weight="bold">0.3</text>
-                    <text x="450" y="140" text-anchor="middle" font-size="10">Vogel</text>
+                            <!-- From Hidden 3 (85.2%) -->
+                            <line x1="50%" y1="85.2%" x2="83.3%" y2="13.2%" stroke="#ccc" stroke-width="1" />
+                            <line x1="50%" y1="85.2%" x2="83.3%" y2="74.2%" stroke="#ccc" stroke-width="1" />
+                        </svg>
 
-                    <!-- Loss -->
-                    <rect x="380" y="180" width="120" height="30" rx="5" fill="#ff4d4d" opacity="0.2" />
-                    <text x="440" y="200" text-anchor="middle" fill="#d00" font-weight="bold">Loss = 0.15</text>
-                </svg>
+                        <!-- Input -->
+                        <div class="layer-group" style="justify-content: center; height: 100%;">
+                            <span class="diagram-label" style="margin-bottom: 10px; font-weight: bold;">Input
+                                "Katze"</span>
+                            <div class="node circle input"
+                                style="width: 20px; height: 20px; background: #4d25fc; border-color: #4d25fc;"></div>
+                        </div>
+
+                        <!-- Hidden -->
+                        <div class="layer-group" style="justify-content: center; height: 100%;">
+                            <div class="node circle hidden" style="width: 30px; height: 30px;"></div>
+                            <div class="node circle hidden" style="width: 30px; height: 30px;"></div>
+                            <div class="node circle hidden" style="width: 30px; height: 30px;"></div>
+                        </div>
+
+                        <!-- Output -->
+                        <div class="layer-group" style="justify-content: center; gap: 40px; height: 100%;">
+                            <!-- Saugetier -->
+                            <div class="diagram-column" style="gap: 5px;">
+                                <div class="node circle output" style="width: 44px; height: 44px; font-size: 0.8rem;">
+                                    0.7</div>
+                                <span class="diagram-label" style="font-size: 0.8rem;">Säugetier</span>
+                            </div>
+                            <!-- Vogel -->
+                            <div class="diagram-column" style="gap: 5px;">
+                                <div class="node circle output"
+                                    style="width: 40px; height: 40px; background: white; border-color: #4d25fc; color: #4d25fc; font-size: 0.8rem;">
+                                    0.3</div>
+                                <span class="diagram-label" style="font-size: 0.8rem;">Vogel</span>
+                            </div>
+
+                            <!-- Loss Box -->
+                            <div
+                                style="position: absolute; right: -120px; top: 80%; background: rgba(255, 77, 77, 0.1); border: 1px solid #ff4d4d; color: #d00; padding: 5px 10px; border-radius: 15px; font-weight: bold; font-size: 0.8rem;">
+                                Loss = 0.15
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <p>Jetzt beginnt der Backward-Pass: Dieser Fehler von 0,15 wandert rückwärts durch jede einzelne
@@ -739,33 +906,52 @@
                 jedes Gewicht einen separaten Durchlauf zu starten.</p>
 
             <!-- Visualization: Backpropagation Arrows -->
+            <!-- Visualization: Backpropagation Arrows -->
             <div class="nn-architecture-diagram">
-                <svg viewBox="0 0 500 200">
-                    <defs>
-                        <marker id="arrowhead-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-                            <polygon points="0 0, 10 3.5, 0 7" fill="#ff4d4d" />
-                        </marker>
-                    </defs>
-                    <!-- Nodes lighter -->
-                    <g opacity="0.3">
-                        <circle cx="50" cy="90" r="10" fill="#4d25fc" />
-                        <circle cx="250" cy="70" r="15" fill="#e6e0f8" stroke="#4d25fc" />
-                        <circle cx="250" cy="110" r="15" fill="#e6e0f8" stroke="#4d25fc" />
-                        <circle cx="450" cy="80" r="20" fill="#a777d1" stroke="#4d25fc" />
-                    </g>
+                <div class="html-diagram">
+                    <div style="position: relative; padding: 20px;">
+                        <!-- Faded Network Background -->
+                        <div class="architecture-container"
+                            style="max-width: 500px; display: grid; grid-template-columns: repeat(3, 1fr);  filter: grayscale(100%); opacity: 0.4;">
+                            <!-- Connection Layer (SVG) -->
+                            <svg class="connection-layer"
+                                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;"
+                                preserveAspectRatio="none">
+                                <!-- Input (16.7%, 50.0%) to Hidden (50% at 17.3%, 82.7%) -->
+                                <line x1="16.7%" y1="50.0%" x2="50%" y2="17.3%" stroke="#ccc" stroke-width="1" />
+                                <line x1="16.7%" y1="50.0%" x2="50%" y2="82.7%" stroke="#ccc" stroke-width="1" />
 
-                    <!-- Backward arrows -->
-                    <line x1="430" y1="80" x2="270" y2="70" stroke="#ff4d4d" stroke-width="4"
-                        marker-end="url(#arrowhead-red)" />
-                    <line x1="430" y1="80" x2="270" y2="110" stroke="#ff4d4d" stroke-width="2"
-                        marker-end="url(#arrowhead-red)" />
+                                <!-- Hidden to Output (83.3%, 50.0%) -->
+                                <line x1="50%" y1="17.3%" x2="83.3%" y2="50.0%" stroke="#ccc" stroke-width="1" />
+                                <line x1="50%" y1="82.7%" x2="83.3%" y2="50.0%" stroke="#ccc" stroke-width="1" />
+                            </svg>
 
-                    <line x1="235" y1="70" x2="65" y2="90" stroke="#ff4d4d" stroke-width="3"
-                        marker-end="url(#arrowhead-red)" />
+                            <div class="layer-group" style="justify-content: center; height: 100%;">
+                                <div class="node circle input" style="width: 20px; height: 20px; background: #4d25fc;">
+                                </div>
+                            </div>
+                            <div class="layer-group" style="justify-content: center; height: 100%;">
+                                <div class="node circle hidden" style="width: 30px; height: 30px;"></div>
+                                <div class="node circle hidden" style="width: 30px; height: 30px;"></div>
+                            </div>
+                            <div class="layer-group" style="justify-content: center; height: 100%;">
+                                <div class="node circle output" style="width: 40px; height: 40px;"></div>
+                            </div>
+                        </div>
 
-                    <text x="250" y="180" text-anchor="middle" fill="#ff4d4d" font-weight="bold">Fehler wird
-                        zurückgerechnet</text>
-                </svg>
+                        <!-- Backward Arrow Overlay (Simulated with absolute div) -->
+                        <div
+                            style="position: absolute; top: 50%; left: 0; width: 100%; text-align: center; pointer-events: none;">
+                            <div
+                                style="font-size: 40px; color: #ff4d4d; font-weight: bold; text-shadow: 0 0 10px white;">
+                                ← ← ←
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; color: #ff4d4d; font-weight: bold; font-size: 14px;">
+                        Fehler (Gradient) wird zurückgerechnet
+                    </div>
+                </div>
             </div>
 
             <p>Die Gradienten zeigen die Richtung des steilsten Anstiegs. Wir wollen aber den Fehler minimieren,
@@ -775,26 +961,10 @@
             <p>Ein Gewicht, das den Fehler vergrössert hat, wird verringert; eines, das ihn verringern würde, wird
                 erhöht. Dies passiert für alle Parameter gleichzeitig.</p>
 
-            <!-- Visualization: Weight Update Zoom -->
-            <div class="nn-architecture-diagram">
-                <svg viewBox="0 0 400 150">
-                    <circle cx="50" cy="75" r="20" fill="#fff" stroke="#4d25fc" />
-                    <circle cx="350" cy="75" r="20" fill="#fff" stroke="#4d25fc" />
-                    <line x1="70" y1="75" x2="330" y2="75" stroke="#ccc" stroke-width="2" />
 
-                    <!-- Weight control -->
-                    <circle cx="200" cy="75" r="15" fill="#a777d1" />
-                    <text x="200" y="110" text-anchor="middle" font-size="12">Gewicht w</text>
-
-                    <!-- Adjustment -->
-                    <path d="M 180 50 Q 200 30 220 50" fill="none" stroke="#ff4d4d" stroke-width="2"
-                        marker-end="url(#arrowhead-red)" />
-                    <text x="200" y="25" text-anchor="middle" fill="#ff4d4d" font-size="12">- Update</text>
-                </svg>
-            </div>
             </div>
 
-            <div class="tip-box">
+            <div id="learning">
                 <h3>Wie jedoch lernen LLMs?</h3>
                 <p>Dieses Prinzip, so einfach es klingt, ist exakt das, was in LLMs passiert. Statt zehn Gewichten hat
                     GPT-3 175 Milliarden Parameter. Statt drei Schichten hat es 96 Transformer-Blöcke. Statt eines
@@ -805,36 +975,70 @@
 
                 <!-- Visualization: Comparison -->
                 <div class="nn-architecture-diagram">
-                    <svg viewBox="0 0 600 300">
-                        <!-- Small Net -->
-                        <g transform="translate(50, 50)">
-                            <rect width="100" height="200" fill="none" stroke="#ccc" stroke-dasharray="5,5" />
-                            <text x="50" y="-10" text-anchor="middle" font-weight="bold">Unser Beispiel</text>
+                    <div class="html-diagram">
+                        <div class="architecture-container"
+                            style="justify-content: center; gap: 40px; align-items: flex-end;">
 
-                            <circle cx="50" cy="30" r="10" fill="#fff" stroke="#4d25fc" />
-                            <circle cx="50" cy="100" r="10" fill="#e6e0f8" stroke="#4d25fc" />
-                            <circle cx="50" cy="170" r="10" fill="#fff" stroke="#4d25fc" />
-                            <line x1="50" y1="40" x2="50" y2="90" stroke="#ccc" />
-                            <line x1="50" y1="110" x2="50" y2="160" stroke="#ccc" />
-                            <text x="50" y="220" text-anchor="middle" font-size="12">~20 Parameter</text>
-                        </g>
+                            <!-- Left: Small Net -->
+                            <div class="diagram-column">
+                                <div class="diagram-label" style="font-weight: bold; margin-bottom: 20px;">Unser
+                                    Beispiel</div>
+                                <div style="padding: 20px 10px;">
+                                    <!-- Mini Net -->
+                                    <div class="layer-group" style="gap: 10px;">
+                                        <div class="node circle"
+                                            style="width: 15px; height: 15px; border-color: #4d25fc;"></div>
+                                        <div class="node circle"
+                                            style="width: 15px; height: 15px; background: #e6e0f8; border-color: #4d25fc;">
+                                        </div>
+                                        <div class="node circle"
+                                            style="width: 15px; height: 15px; border-color: #4d25fc;"></div>
+                                    </div>
+                                </div>
+                                <div class="diagram-label">~20 Parameter</div>
+                            </div>
 
-                        <!-- Transformer Tower -->
-                        <g transform="translate(300, 50)">
-                            <text x="100" y="-10" text-anchor="middle" font-weight="bold">GPT-3 (LLM)</text>
-                            <!-- Stack of blocks -->
-                            <rect x="50" y="180" width="100" height="20" fill="#e6e0f8" stroke="#4d25fc" />
-                            <rect x="50" y="155" width="100" height="20" fill="#e6e0f8" stroke="#4d25fc" />
-                            <rect x="50" y="130" width="100" height="20" fill="#e6e0f8" stroke="#4d25fc" />
-                            <rect x="50" y="105" width="100" height="20" fill="#e6e0f8" stroke="#4d25fc" />
-                            <text x="100" y="90" text-anchor="middle" font-weight="bold">...</text>
-                            <rect x="50" y="30" width="100" height="20" fill="#e6e0f8" stroke="#4d25fc" />
-                            <rect x="50" y="5" width="100" height="20" fill="#e6e0f8" stroke="#4d25fc" />
+                            <!-- Arrow -->
+                            <div style="margin-bottom: 50px; text-align: center;">
+                                <div style="font-size: 30px; color: #ccc;">↝</div>
+                                <div style="font-size: 0.8rem; color: #999;">Prinzip gleich,<br>nur skaliert</div>
+                            </div>
 
-                            <text x="200" y="100" font-size="12">96 Layer</text>
-                            <text x="100" y="220" text-anchor="middle" font-size="12">175'000'000'000 Parameter</text>
-                        </g>
-                    </svg>
+                            <!-- Right: GPT-3 -->
+                            <div class="diagram-column">
+                                <div class="diagram-label"
+                                    style="font-weight: bold; color: #4d25fc; margin-bottom: 20px;">GPT-3 (LLM)</div>
+                                <div style="display: flex; flex-direction: column; align-items: center; gap: 2px;">
+                                    <!-- Stack -->
+                                    <div class="node rect"
+                                        style="width: 100px; height: 20px; background: linear-gradient(90deg, #a777d1, #4d25fc); border: none;">
+                                    </div>
+                                    <div class="node rect"
+                                        style="width: 100px; height: 20px; background: linear-gradient(90deg, #a777d1, #4d25fc); border: none;">
+                                    </div>
+                                    <div class="node rect"
+                                        style="width: 100px; height: 20px; background: linear-gradient(90deg, #a777d1, #4d25fc); border: none;">
+                                    </div>
+                                    <div style="font-weight: bold; color: #a777d1;">⋮</div>
+                                    <div style="color: #666; font-size: 0.7rem;">96 Layer</div>
+                                    <div class="node rect"
+                                        style="width: 100px; height: 20px; background: linear-gradient(90deg, #a777d1, #4d25fc); border: none;">
+                                    </div>
+                                    <div class="node rect"
+                                        style="width: 100px; height: 20px; background: linear-gradient(90deg, #a777d1, #4d25fc); border: none;">
+                                    </div>
+
+                                    <!-- Base -->
+                                    <div
+                                        style="width: 140px; height: 8px; background: #333; opacity: 0.1; margin-top: 10px; border-radius: 4px;">
+                                    </div>
+                                </div>
+                                <div class="diagram-label" style="font-weight: bold; color: #4d25fc;">175'000'000'000
+                                    Parameter</div>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
 
                 <p>Was bei LLMs jedoch besonders ist: Die Embedding-Matrix selbst lernt mit. Während des Trainings
@@ -852,7 +1056,7 @@
                     messen, ableiten, anpassen und wiederholen.</p>
             </div>
 
-            <div class="tip-box">
+            <div id="rlhf">
                 <h3>Reinforcement Learning from Human Feedback</h3>
                 <p>RLHF ist eine Training Methode, bei welcher Menschen die Antwort zu einem gegebenen Prompt schreiben.
                     Anhand dieser Prompts und Antworten wird dann das LLM trainiert. Damit erhält man ein LLM, welches
@@ -869,7 +1073,7 @@
                     bewerten.</p>
             </div>
 
-            <div class="tip-box">
+            <div id="summary">
                 <h3>Zusammenfassung</h3>
                 <h4>Grundprinzip: Next Word Prediction</h4>
                 <p>LLMs fungieren im Kern als komplexe probabilistische Systeme. Ihre primäre Aufgabe ist die Next Word
