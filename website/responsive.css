@@ -64,6 +64,14 @@
     .table-responsive-wrapper {
         overflow-x: auto;
     }
+
+    .answers-container {
+        flex-direction: column;
+    }
+
+    .answer {
+        word-break: break-word;
+    }
 }
 
 @media (max-width: 500px) {
