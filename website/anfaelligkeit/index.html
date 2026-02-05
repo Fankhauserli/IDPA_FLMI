@@ -106,7 +106,7 @@
                 überprüfen. Zudem gibt es neue Modelle, die während der Ausführung Zugriff auf das Internet haben
                 und somit kann man die Daten nicht überprüfen.</p>
 
-            <div class="tip-box-special">
+            <div class="summary-section">
                 <h4>Zusammenfassung der Fehlerquellen</h4>
                 <ul>
                     <li><strong>Embedding:</strong> Sorgt für unscharfe Begriffsabgrenzungen (Airbus ≈ Boeing).</li>
@@ -126,7 +126,7 @@
             <p>In diesem Abschnitt beschreiben wir aktuelle Ansätze, welche verfolgt werden, um Halluzinationen
                 innerhalb von LLM’s zu minimieren.</p>
 
-            <div class="tip-box" id="rag">
+            <div id="rag">
                 <h3>Retrieval Augmented Generation (RAG)</h3>
                 <p>Retrieval Augmented Generation ermöglicht es zwischen dem User Prompt und dem eigentlichen Berechnen,
                     weiteren Kontext zum Prompt hinzuzufügen. Wenn nun ein Benutzer fragt “Wie viele Sitzplätze hat der
@@ -135,62 +135,80 @@
                     Informationen (welche auch veraltet sein könnten) zurückgreifen.</p>
 
                 <div class="nn-architecture-diagram">
-                    <svg viewBox="0 0 600 250">
-                        <defs>
-                            <marker id="arrowhead-rag" markerWidth="10" markerHeight="7" refX="9" refY="3.5"
-                                orient="auto">
-                                <polygon points="0 0, 10 3.5, 0 7" fill="#4d25fc" />
-                            </marker>
-                        </defs>
-
+                    <div class="rag-diagram">
                         <!-- User -->
-                        <circle cx="50" cy="125" r="25" fill="#fff" stroke="#4d25fc" stroke-width="2" />
-                        <text x="50" y="130" text-anchor="middle" font-size="12">User</text>
+                        <div class="rag-user">User</div>
 
-                        <!-- Prompt -->
-                        <path d="M 80 125 L 140 125" stroke="#4d25fc" stroke-width="2"
-                            marker-end="url(#arrowhead-rag)" />
-                        <text x="110" y="120" text-anchor="middle" font-size="10">Frage</text>
+                        <!-- Arrow -->
+                        <div class="rag-arrow">
+                            <span>Frage</span>
+                            <div class="rag-arrow-line"></div>
+                        </div>
 
-                        <!-- RAG System -->
-                        <rect x="150" y="50" width="100" height="150" rx="10" fill="#e6e0f8" stroke="#4d25fc" />
-                        <text x="200" y="80" text-anchor="middle" font-weight="bold">RAG System</text>
+                        <!-- System -->
+                        <div class="rag-system-container">
+                            <span class="rag-system-label">RAG System</span>
+                            <!-- DB inside -->
+                            <div class="rag-db">Datenbank</div>
+                        </div>
 
-                        <!-- Database -->
-                        <path d="M 200 150 L 200 180" stroke="#4d25fc" stroke-width="2" />
-                        <g transform="translate(175, 180)">
-                            <path d="M0 5 Q25 0 50 5 L50 35 Q25 40 0 35 Z" fill="#fff" stroke="#4d25fc"
-                                stroke-width="2" />
-                            <path d="M0 5 Q25 10 50 5" fill="none" stroke="#4d25fc" stroke-width="2" />
-                            <text x="25" y="25" text-anchor="middle" font-size="10">Datenbank</text>
-                        </g>
-
-                        <!-- Context Arrow -->
-                        <path d="M 260 125 L 340 125" stroke="#4d25fc" stroke-width="2"
-                            marker-end="url(#arrowhead-rag)" />
-                        <text x="300" y="115" text-anchor="middle" font-size="10">+ Fakten (Kontext)</text>
-                        <text x="300" y="140" text-anchor="middle" font-size="10">+ Frage</text>
+                        <!-- Arrow -->
+                        <div class="rag-arrow">
+                            <span>Kontext</span>
+                            <div class="rag-arrow-line"></div>
+                            <span>+ Frage</span>
+                        </div>
 
                         <!-- LLM -->
-                        <rect x="350" y="80" width="80" height="90" rx="10" fill="#a777d1" />
-                        <text x="390" y="130" text-anchor="middle" fill="#fff" font-weight="bold">LLM</text>
+                        <div class="rag-llm">LLM</div>
 
-                        <!-- Answer Arrow -->
-                        <path d="M 440 125 L 520 125" stroke="#4d25fc" stroke-width="2"
-                            marker-end="url(#arrowhead-rag)" />
-                        <text x="480" y="120" text-anchor="middle" font-size="10">Antwort</text>
-                    </svg>
+                        <!-- Arrow -->
+                        <div class="rag-arrow">
+                            <span>Antwort</span>
+                            <div class="rag-arrow-line"></div>
+                        </div>
+                    </div>
                 </div>
 
                 <p>Während Halluzinationen meistens behoben werden können, hat dieser Lösungsansatz jedoch ein grosses
-                    Problem. Die Quelle, von welcher RAG die Informationen bekommt, darf keine Fehlinformationen
-                    beinhaltet. Bei einer kleinen Informationssammlung ist dies vielleicht noch überprüfbar, aber das
-                    Limit von menschlicher Kontrolle ist schon bald erreicht. Somit muss entweder ein System erstellt
-                    werden, welches Falsche und Richtige Informationen erkennt und nur die Richtigen abspeichert oder
-                    ein anderer Lösungsansatz bei einem grösseren Wissens-Kontext verwendet werden.</p>
+                    Risiko für "Prompt Injections".
+                    Dabei versucht der Angreifer den System Prompt des LLMs so zu manipulieren, dass es seine
+                    ursprünglichen Instruktionen ignoriert und Dinge tut, die es eigentlich nicht tun sollte.
+                    Da die Daten aus der Datenbank direkt (ohne Filterung) in den Prompt des LLMs geschrieben werden,
+                    kann
+                    ein Angreifer durch das Hinzufügen von bösartigen Daten in die Datenbank das LLM steuern.
+                    Ein Beispiel für einen Angriffsvektor wäre eine bösartige E-Mail, die in einem Ticket-System
+                    gespeichert wird und dann vom Support-Bot gelesen wird.</p>
+
+
+                <h3 id="temperatur">Temperatur</h3>
+                <p>Jedes LLM hat einen Temperatur-Parameter, welcher steuert, wie "kreativ" das Modell ist.
+                    Eine tiefe Temperatur (nahe 0) macht das Modell deterministisch und faktisch.
+                    Eine hohe Temperatur (nahe 1 oder höher) macht das Modell kreativer, erhöht aber das Risiko für
+                    Halluzinationen massiv.
+                    Für klassische RAG Systeme, welche Fakten wiedergeben sollen, wird meist eine Temperatur von 0
+                    gewählt, um das Risiko so gering wie möglich zu
+                    gestalten.</p>
+
+                <!-- Visualization: Temperature -->
+                <div class="nn-architecture-diagram">
+                    <div class="temp-scale-container">
+                        <div class="temp-header-row">
+                            <span class="temp-text-left">Low Temp (0)</span>
+                            <span class="temp-text-right">High Temp (1)</span>
+                        </div>
+                        <div class="temp-bar"></div>
+                        <div class="temp-desc-row">
+                            <span class="temp-text-left">Faktisch, Strikt<br>Deterministisch</span>
+                            <span class="temp-text-right">Kreativ, Variabel<br>Halluzinationsrisiko</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="tip-box" id="rlhf">
+
+
+            <div id="rlhf">
                 <h3>Reinforcement Learning from Human Feedback (RLHF)</h3>
                 <p>Ein grosser Vorteil von RLHF ist, dass Menschen direkt im Prozess involviert sind. Da sämtliche
                     Antworten von Menschen angeschaut und auch auf faktische Korrektheit überprüft werden, können
@@ -208,51 +226,11 @@
                     erwarten und nicht die Wahrheit.</p>
             </div>
 
-            <div class="tip-box" id="temperatur">
-                <h3>Temperatur</h3>
-                <p>Die Temperatur ist ein Parameter, der steuert, wie streng sich das Modell an die berechneten
-                    Wahrscheinlichkeiten hält. Sie bestimmt den Grad der «Zufälligkeit» bei der Auswahl des nächsten
-                    Wortes.</p>
-                <ul>
-                    <li><strong>Niedrige Temperatur (nahe 0):</strong> Das Modell wählt fast immer das Wort mit der
-                        allerhöchsten berechneten Wahrscheinlichkeit. Das Verhalten ist sehr strikt und deterministisch.
-                    </li>
-                    <li><strong>Hohe Temperatur (nahe 1):</strong> Das Modell hat mehr Freiheiten und darf auch Wörter
-                        wählen, die statistisch etwas weniger wahrscheinlich sind. Dies sorgt für vielfältigere, aber
-                        auch unvorhersehbarere Texte.</li>
-                </ul>
-                <p>Halluzinationen entstehen oft, wenn das Modell vom sichersten Pfad abweicht und anfängt,
-                    unwahrscheinliche Verknüpfungen zu bilden (es wird zu «kreativ» bei Fakten). Indem man die
-                    Temperatur senkt, zwingt man das Modell, strikt beim statistisch sichersten Pfad zu bleiben. Das
-                    eliminiert das Risiko, dass das Modell zufällig Fakten erfindet, nur um den Text variabler zu
-                    gestalten.</p>
 
-                <!-- Visualization: Temperature -->
-                <div class="nn-architecture-diagram">
-                    <svg viewBox="0 0 500 150">
-                        <defs>
-                            <linearGradient id="tempGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" style="stop-color:#4d25fc;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#ff4d4d;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-
-                        <rect x="50" y="60" width="400" height="20" rx="10" fill="url(#tempGradient)" />
-
-                        <text x="50" y="45" font-weight="bold" fill="#4d25fc">Low Temp (0)</text>
-                        <text x="450" y="45" text-anchor="end" font-weight="bold" fill="#ff4d4d">High Temp (1)</text>
-
-                        <text x="50" y="100" font-size="12">Faktisch, Strikt</text>
-                        <text x="50" y="115" font-size="12">Deterministisch</text>
-
-                        <text x="450" y="100" text-anchor="end" font-size="12">Kreativ, Variabel</text>
-                        <text x="450" y="115" text-anchor="end" font-size="12">Halluzinationsrisiko</text>
-                    </svg>
-                </div>
-            </div>
 
             <!-- Prompt Engineering -->
-            <div class="tip-box" id="prompt-engineering">
+            <!-- Prompt Engineering -->
+            <div id="prompt-engineering">
                 <h3>Prompt Engineering</h3>
                 <p>Ein weiterer schon stark verbreiteter Lösungsansatz, um Halluzinationen innerhalb einer LLM zu
                     vermeiden, ist das Prompt Engineering. Unter Prompt Engineering wird verstanden, Prompts so
@@ -279,7 +257,7 @@
             </div>
 
             <!-- Agent Architecture -->
-            <div class="tip-box" id="agenten">
+            <div id="agenten">
                 <h3>Agent Architektur</h3>
                 <p>Anstelle von einer einzigen LLM, welche den User Prompt verarbeitet, gibt es den Ansatz von KI-Agents
                     zu arbeiten. Dies sind Systeme, welche aus einer LLM bestehen, welche verschiedene Aufgaben
@@ -294,50 +272,31 @@
                     Agents können hierbei komplett frei miteinander kommunizieren.</p>
 
                 <div class="nn-architecture-diagram">
-                    <svg viewBox="0 0 600 300">
-                        <defs>
-                            <marker id="arrowhead-agent" markerWidth="10" markerHeight="7" refX="9" refY="3.5"
-                                orient="auto">
-                                <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
-                            </marker>
-                        </defs>
+                    <div class="agent-diagram">
+                        <div class="agent-boss">Projektleiter</div>
+                        <div class="agent-connectors">
+                            <!-- Helper lines to mimic tree -->
+                            <div class="agent-line-vertical"></div>
+                            <div class="agent-line-horizontal"></div>
+                            <div class="agent-line-drop-left"></div>
+                            <div class="agent-line-drop-right"></div>
+                        </div>
 
-                        <!-- Project Lead -->
-                        <g transform="translate(250, 40)">
-                            <rect width="100" height="60" rx="10" fill="#a777d1" stroke="#4d25fc" stroke-width="2" />
-                            <text x="50" y="35" text-anchor="middle" fill="#fff" font-weight="bold">Projektleiter</text>
-                        </g>
-
-                        <!-- Agents -->
-                        <g transform="translate(50, 180)">
-                            <rect width="100" height="60" rx="10" fill="#e6e0f8" stroke="#4d25fc" />
-                            <text x="50" y="35" text-anchor="middle" font-size="12" font-weight="bold">Design
-                                Agent</text>
-                            <text x="50" y="80" text-anchor="middle" font-size="10">"Spezialist Grafik"</text>
-                        </g>
-
-                        <g transform="translate(250, 180)">
-                            <rect width="100" height="60" rx="10" fill="#e6e0f8" stroke="#4d25fc" />
-                            <text x="50" y="35" text-anchor="middle" font-size="12" font-weight="bold">Handwerk
-                                Agent</text>
-                            <text x="50" y="80" text-anchor="middle" font-size="10">"Spezialist Möbel"</text>
-                        </g>
-
-                        <g transform="translate(450, 180)">
-                            <rect width="100" height="60" rx="10" fill="#e6e0f8" stroke="#4d25fc" />
-                            <text x="50" y="35" text-anchor="middle" font-size="12" font-weight="bold">Finanz
-                                Agent</text>
-                            <text x="50" y="80" text-anchor="middle" font-size="10">"Spezialist Geld"</text>
-                        </g>
-
-                        <!-- Connections -->
-                        <line x1="300" y1="100" x2="100" y2="180" stroke="#333" stroke-width="1" stroke-dasharray="4" />
-                        <line x1="300" y1="100" x2="300" y2="180" stroke="#333" stroke-width="1" stroke-dasharray="4" />
-                        <line x1="300" y1="100" x2="500" y2="180" stroke="#333" stroke-width="1" stroke-dasharray="4" />
-
-                        <text x="300" y="140" text-anchor="middle" font-size="10" fill="#333">Verteilt Aufgaben &
-                            Kontext</text>
-                    </svg>
+                        <div class="agent-row">
+                            <div class="agent-node">
+                                <span class="agent-title">Design Agent</span>
+                                <span class="agent-sub">"Spezialist Grafik"</span>
+                            </div>
+                            <div class="agent-node">
+                                <span class="agent-title">Handwerk Agent</span>
+                                <span class="agent-sub">"Spezialist Möbel"</span>
+                            </div>
+                            <div class="agent-node">
+                                <span class="agent-title">Finanz Agent</span>
+                                <span class="agent-sub">"Spezialist Geld"</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <p>Ein grosser Vorteil von diesem Aufbau ist, dass jeder Agent auf ein Thema spezialisiert ist und nicht
