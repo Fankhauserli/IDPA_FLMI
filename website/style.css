@@ -1,17 +1,26 @@
-/* General Body Styles */
+/* ===========================================
+   IDPA FLMI - Consolidated Stylesheet
+   Cleaned up: removed duplicate class definitions
+   =========================================== */
+
+/* ===========================================
+   1. BASE STYLES & TYPOGRAPHY
+   =========================================== */
+
 body {
     font-family: 'Agrandir', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #ffffff;
     color: #000000;
-    /* Black text */
     text-align: center;
     padding-top: 86px;
-    /* Adjusted for fixed header */
 }
 
-/* Header and Navigation */
+/* ===========================================
+   2. HEADER & NAVIGATION
+   =========================================== */
+
 header {
     display: flex;
     justify-content: space-between;
@@ -30,7 +39,6 @@ header .logo {
     font-size: 46.14px;
     font-weight: bold;
     color: #000000;
-    /* Ensure black color */
     text-transform: none;
 }
 
@@ -48,7 +56,6 @@ header nav ul li {
 header nav ul li a {
     text-decoration: none;
     color: #000000;
-    /* Black links */
     font-weight: bold;
     font-size: 18.899px;
     padding-bottom: 5px;
@@ -60,10 +67,9 @@ header nav ul li a.active {
     border-bottom: 2px solid #6a11cb;
 }
 
-/* Burger Menu Styles */
+/* Burger Menu */
 #burger-menu {
     display: none;
-    /* Hidden on desktop */
     cursor: pointer;
 }
 
@@ -73,52 +79,6 @@ header nav ul li a.active {
     background-color: #000000;
     margin: 5px;
     transition: all 0.3s ease;
-}
-
-/* Nav Links Styling for Mobile */
-@media (max-width: 768px) {
-    .nav-links {
-        position: fixed;
-        right: 0px;
-        top: 0px;
-        /* Aligns with the top of the viewport */
-        height: 100vh;
-        background: white;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-        /* This will spread out the links vertically */
-        width: 100%;
-        transform: translateX(100%);
-        transition: transform 0.5s ease-in;
-        z-index: 999;
-        /* Below the header but above other content */
-    }
-
-    .nav-links ul {
-        flex-direction: column;
-        text-align: center;
-        width: 100%;
-        padding: 0;
-    }
-
-    .nav-links li {
-        margin: 20px 0;
-        opacity: 0;
-    }
-
-    .nav-links.nav-active {
-        transform: translateX(0%);
-    }
-
-    #burger-menu {
-        display: block;
-        /* Show on mobile */
-        position: relative;
-        z-index: 1001;
-        /* Make sure it's above the nav-links */
-    }
 }
 
 .toggle .line1 {
@@ -133,7 +93,6 @@ header nav ul li a.active {
     transform: rotate(45deg) translate(-5px, -6px);
 }
 
-/* Animation for nav links appearing */
 @keyframes navLinkFade {
     from {
         opacity: 0;
@@ -146,8 +105,10 @@ header nav ul li a.active {
     }
 }
 
+/* ===========================================
+   3. MAIN CONTENT & SECTIONS
+   =========================================== */
 
-/* Main Content Sections */
 main {
     padding: 0 50px;
 }
@@ -159,125 +120,13 @@ section {
     text-align: center;
 }
 
-/* HTML-based Diagram Styles */
-.diagram-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    padding: 30px;
-    flex-wrap: wrap;
-    position: relative;
-    font-family: 'Agrandir', sans-serif;
-}
-
-.diagram-column {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-    justify-content: center;
-}
-
-.diagram-node {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: #fff;
-    border: 2px solid #4d25fc;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(77, 37, 252, 0.1);
-    position: relative;
-    z-index: 2;
-}
-
-.diagram-label {
-    font-size: 14px;
-    color: #666;
-    margin-top: 5px;
-    text-align: center;
-}
-
-.summation-node {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, #a777d1 0%, #4d25fc 100%);
-    color: white;
-    font-size: 32px;
-    border: 3px solid white;
-    box-shadow: 0 0 20px rgba(77, 37, 252, 0.3);
-}
-
-.bias-node {
-    width: 40px;
-    height: 40px;
-    font-size: 12px;
-    background: #f0f0f0;
-    border: 2px solid #4d25fc;
-}
-
-.connection-line {
-    border-top: 2px solid #ccc;
-    width: 50px;
-    position: relative;
-}
-
-.connection-line.thick {
-    border-top-width: 4px;
-}
-
-.connection-line.dashed {
-    border-top-style: dashed;
-}
-
-.weight-label {
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #a777d1;
-    color: white;
-    padding: 2px 6px;
-    border-radius: 10px;
-    font-size: 10px;
-}
-
-.result-box {
-    background: #f8f8f8;
-    border: 1px solid #ddd;
-    padding: 15px 25px;
-    border-radius: 10px;
-    font-family: monospace;
-    font-weight: bold;
-    color: #333;
-}
-
-/* Arrow CSS */
-.arrow-right {
-    width: 0;
-    height: 0;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-left: 15px solid #4d25fc;
-    margin: 0 10px;
-}
-
-section h1,
-section h2,
-section h3,
-section h4 {
-    margin-bottom: 20px;
-}
-
 section h1,
 section h2,
 section h3,
 section h4 {
     font-family: 'Agrandir', sans-serif;
     font-weight: 700;
+    margin-bottom: 20px;
 }
 
 section h1 {
@@ -309,14 +158,24 @@ section p {
     margin-bottom: 10px;
 }
 
-/* Custom Page Titles */
 .page-title {
     font-size: 72.094px;
-    /* Same as h2 */
     margin-bottom: 30px;
 }
 
-/* Hero Section */
+/* Scroll Margin for Anchor Links */
+section,
+h2,
+h3,
+h4,
+.tip-box {
+    scroll-margin-top: 90px;
+}
+
+/* ===========================================
+   4. HERO SECTION
+   =========================================== */
+
 .hero {
     padding: 0 20px;
     min-height: calc(100vh - 86px);
@@ -328,24 +187,31 @@ section p {
 
 .hero h1 {
     font-size: 90px;
-    /* Reduced from general h1 size */
     line-height: 1.1;
 }
 
 .hero h2 {
-    /* Targeting the new h2 in hero for smaller font size */
     font-size: 46.14px;
-    /* Same as h3, smaller than main h2 */
     margin-bottom: 20px;
 }
 
 .hero p {
-    /* Targeting the new p in hero */
     font-size: 20px;
     margin-bottom: 30px;
     max-width: 700px;
-    /* Limit width for readability */
 }
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+/* ===========================================
+   5. BUTTONS & INTERACTIVE ELEMENTS
+   =========================================== */
 
 .button {
     display: inline-block;
@@ -363,15 +229,6 @@ section p {
     background: linear-gradient(135deg, #8e5fb2 0%, #3a1abf 100%);
 }
 
-.hero-buttons {
-    display: flex;
-    gap: 20px; /* Space between buttons */
-    justify-content: center;
-    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
-    margin-top: 30px; /* Space above buttons */
-}
-
-/* Search Input Styles */
 .search-input {
     width: 100%;
     padding: 12px;
@@ -382,7 +239,10 @@ section p {
     font-size: 16px;
 }
 
-/* Dark Section */
+/* ===========================================
+   6. SPECIAL SECTIONS (DARK, GRADIENT)
+   =========================================== */
+
 .dark-section {
     background-color: #2c2c2c;
     color: #fff;
@@ -394,10 +254,8 @@ section p {
 .dark-section h3,
 .dark-section p {
     color: #f0f0f0;
-    /* Lighter text for dark background */
 }
 
-/* Gradient Section */
 .gradient-section {
     background: linear-gradient(135deg, #a777d1 0%, #4d25fc 100%);
     color: #fff;
@@ -410,7 +268,6 @@ section p {
     color: #fff;
 }
 
-/* Gradient Text */
 .gradient-text {
     background: linear-gradient(135deg, #a777d1 0%, #4d25fc 100%);
     -webkit-background-clip: text;
@@ -418,8 +275,10 @@ section p {
     -webkit-text-fill-color: transparent;
 }
 
+/* ===========================================
+   7. TIP BOXES & INFO BOXES
+   =========================================== */
 
-/* Tips Section */
 .tips {
     display: flex;
     flex-direction: column;
@@ -429,7 +288,6 @@ section p {
 .tip-box {
     background-color: #f4f4f4;
     padding: 15px 30px 30px;
-    /* Reduced top padding */
     border-radius: 15px;
     border: 1px solid #ddd;
     text-align: left;
@@ -517,58 +375,6 @@ section p {
     color: #666;
 }
 
-
-/* Footer */
-footer {
-    display: flex;
-    flex-direction: column;
-    /* Stack items vertically */
-    align-items: center;
-    /* Center items horizontally */
-    padding: 40px 20px;
-    /* Increased padding */
-    margin-top: 50px;
-    font-size: 16px;
-    /* Adjusted font size */
-    color: #000000;
-}
-
-footer nav ul {
-    list-style: none;
-    margin: 0 0 10px 0;
-    /* Margin at the bottom */
-    padding: 0;
-    display: flex;
-    gap: 15px;
-    /* Spacing between links */
-}
-
-footer nav ul li a {
-    text-decoration: none;
-    color: #000000;
-    /* Black links */
-    font-weight: normal;
-    /* Not bold */
-    font-size: 16px;
-    /* Smaller font size */
-    padding-bottom: 5px;
-    transition: border-bottom 0.3s ease;
-}
-
-footer nav ul li a:hover {
-    border-bottom: 2px solid #6a11cb;
-}
-
-
-/* Chat History Styles */
-.chat-container {
-    padding: 0 20px 20px;
-    /* Removed top padding */
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
 .hinweis-box {
     background-color: #fff3cd;
     color: #856404;
@@ -577,6 +383,52 @@ footer nav ul li a:hover {
     padding: .75rem 1.25rem;
     margin-bottom: 1rem;
     text-align: left;
+}
+
+/* ===========================================
+   8. FOOTER
+   =========================================== */
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    margin-top: 50px;
+    font-size: 16px;
+    color: #000000;
+}
+
+footer nav ul {
+    list-style: none;
+    margin: 0 0 10px 0;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+footer nav ul li a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: normal;
+    font-size: 16px;
+    padding-bottom: 5px;
+    transition: border-bottom 0.3s ease;
+}
+
+footer nav ul li a:hover {
+    border-bottom: 2px solid #6a11cb;
+}
+
+/* ===========================================
+   9. CHAT STYLES
+   =========================================== */
+
+.chat-container {
+    padding: 0 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .chat-header {
@@ -596,12 +448,10 @@ footer nav ul li a:hover {
 .message p {
     margin: 0;
     font-size: 16px;
-    /* Slightly smaller font for chat */
 }
 
 .message-left {
     background-color: #e0e0e0;
-    /* Slightly darker grey for expert messages */
     color: #000;
     align-self: flex-start;
     text-align: left;
@@ -616,38 +466,29 @@ footer nav ul li a:hover {
     border-bottom-right-radius: 5px;
 }
 
-/* Collapsible message styles */
+/* Collapsible Messages */
 .collapsible-message summary {
     cursor: pointer;
     outline: none;
     list-style: none;
     position: relative;
-    /* Needed for positioning the pseudo-element */
     padding-left: 25px;
-    /* Make space for the icon */
     display: flex;
-    /* Allow content and icon to align */
     align-items: center;
-    /* Vertically center icon with text */
 }
 
 .collapsible-message summary::before {
     content: '+';
-    /* Plus sign as initial icon */
     position: absolute;
     left: 0;
     font-size: 1.2em;
-    /* Slightly larger icon */
     font-weight: bold;
     color: inherit;
-    /* Inherit color from summary */
     transition: transform 0.2s ease-in-out;
-    /* Smooth transition for icon */
 }
 
 .collapsible-message[open] summary::before {
     content: '-';
-    /* Minus sign when open */
 }
 
 .collapsible-message .collapsible-content-wrapper {
@@ -664,29 +505,25 @@ footer nav ul li a:hover {
     font-size: 16px;
 }
 
+/* ===========================================
+   10. TABLES
+   =========================================== */
 
-
-/* Table Styles */
 table {
     width: 100%;
     border-collapse: separate;
-    /* Use separate to allow for border-radius */
     border-spacing: 0;
     margin-top: 40px;
     border: 1px solid #ddd;
     border-radius: 15px;
-    /* Rounded corners for the table */
     overflow: hidden;
-    /* Ensures content respects the border-radius */
 }
 
 th,
 td {
     padding: 15px 20px;
-    /* More padding for a cleaner look */
     text-align: left;
     border-bottom: 1px solid #ddd;
-    /* Horizontal lines for rows */
 }
 
 th {
@@ -702,12 +539,10 @@ thead {
 
 tr:last-child td {
     border-bottom: none;
-    /* Remove border for the last row */
 }
 
 tbody tr:hover {
     background-color: #f5f5f5;
-    /* Hover effect for rows */
 }
 
 td a {
@@ -720,37 +555,225 @@ td a:hover {
     text-decoration: underline;
 }
 
-/* Neural Network Section Styles */
+/* ===========================================
+   11. TOPIC LINKS & CARDS
+   =========================================== */
+
+.topic-links-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.topic-link {
+    text-decoration: none;
+    color: inherit;
+    flex: 0 0 calc(33.333% - 20px);
+    max-width: calc(33.333% - 20px);
+    display: flex;
+    box-sizing: border-box;
+}
+
+.topic-box {
+    background-color: #f4f4f4;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+    width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.topic-link:hover .topic-box {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.topic-box h3 {
+    margin-top: 0;
+    font-size: 24px;
+}
+
+.topic-box p {
+    font-size: 16px;
+}
+
+.learn-more {
+    display: inline-block;
+    margin-top: 20px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.topic-box-special {
+    background: linear-gradient(135deg, #a777d1 0%, #4d25fc 100%);
+    color: #fff;
+}
+
+.topic-box-special h3,
+.topic-box-special p {
+    color: #fff;
+}
+
+#themen {
+    margin-top: 60px;
+}
+
+.censored {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+/* ===========================================
+   12. DIAGRAM BASE STYLES
+   =========================================== */
+
+.diagram-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 30px;
+    flex-wrap: wrap;
+    position: relative;
+    font-family: 'Agrandir', sans-serif;
+}
+
+.diagram-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.diagram-node {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #4d25fc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(77, 37, 252, 0.1);
+    position: relative;
+    z-index: 2;
+}
+
+.diagram-label {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.summation-node {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #a777d1 0%, #4d25fc 100%);
+    color: white;
+    font-size: 32px;
+    border: 3px solid white;
+    box-shadow: 0 0 20px rgba(77, 37, 252, 0.3);
+}
+
+.bias-node {
+    width: 40px;
+    height: 40px;
+    font-size: 12px;
+    background: #f0f0f0;
+    border: 2px solid #4d25fc;
+}
+
+.connection-line {
+    border-top: 2px solid #ccc;
+    width: 50px;
+    position: relative;
+}
+
+.connection-line.thick {
+    border-top-width: 4px;
+}
+
+.connection-line.dashed {
+    border-top-style: dashed;
+}
+
+.weight-label {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #a777d1;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-size: 10px;
+}
+
+.result-box {
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-family: monospace;
+    font-weight: bold;
+    color: #333;
+}
+
+.arrow-right {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 15px solid #4d25fc;
+    margin: 0 10px;
+}
+
+/* ===========================================
+   13. NEURAL NETWORK DIAGRAMS
+   =========================================== */
+
 .neural-network-section {
     padding: 60px 20px;
     text-align: left;
 }
 
-/* Architecture Diagram */
 .nn-architecture-diagram {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 40px 0;
-    padding: 20px;
-    background-color: transparent;
-    /* border-radius: 10px; */
-    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); */
-    /* Keep slight shadow for diagram only or remove if needed */
+    margin: 60px 0;
+    padding: 40px;
+    background: transparent;
     position: relative;
     overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nn-architecture-diagram:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px rgba(77, 37, 252, 0.12);
 }
 
 .nn-architecture-diagram svg {
     width: 100%;
     height: auto;
-    max-width: 600px;
+    max-width: 800px;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.05));
 }
 
-/* ... existing styles ... */
+/* ===========================================
+   14. GLASSMORPHISM & PREMIUM CONTAINERS
+   =========================================== */
 
-/* Valve Interactive Element */
-/* Glassmorphism & Premium Containers */
 .glass-panel {
     background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(10px);
@@ -774,35 +797,6 @@ td a:hover {
     border-radius: 20px;
 }
 
-/* Updated Diagram Styles */
-.nn-architecture-diagram {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 60px 0;
-    padding: 40px;
-    background: transparent;
-    /* border-radius: 20px; */
-    /* box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); */
-    /* border: 1px solid rgba(0, 0, 0, 0.03); */
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.nn-architecture-diagram:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 50px rgba(77, 37, 252, 0.12);
-}
-
-.nn-architecture-diagram svg {
-    width: 100%;
-    height: auto;
-    max-width: 800px;
-    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.05));
-}
-
-/* Card Style for Explanations */
 .explanation-card {
     background: #fff;
     border-radius: 15px;
@@ -818,6 +812,10 @@ td a:hover {
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+/* ===========================================
+   15. VALVE INTERACTIVE ELEMENT
+   =========================================== */
 
 .valve-interactive-container h4 {
     margin-top: 0;
@@ -855,7 +853,6 @@ td a:hover {
 .valve-value-label {
     position: absolute;
     bottom: -35px;
-    /* Move below the node */
     font-size: 0.85em;
     color: #333;
     font-weight: bold;
@@ -870,30 +867,24 @@ td a:hover {
 .valve-connection-wrapper {
     flex-grow: 1;
     height: 60px;
-    /* click area */
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    /* Ensure children don't stretch weirdly */
 }
 
 .valve-weight-label {
     position: absolute;
     top: -20px;
-    /* Closer to line */
     height: auto;
     width: auto;
     background: transparent;
     color: #888;
-    /* Grey for subtlety */
     border: none;
     box-shadow: none;
     font-weight: normal;
-    /* Less bold */
     padding: 0;
     font-size: 0.8em;
-    /* Smaller */
     z-index: 5;
     white-space: nowrap;
     line-height: normal;
@@ -918,7 +909,10 @@ input[type=range].valve-slider {
     accent-color: #4d25fc;
 }
 
-/* Interview-Vergleich Section */
+/* ===========================================
+   16. INTERVIEW COMPARISON SECTION
+   =========================================== */
+
 #interview-vergleich {
     text-align: left;
 }
@@ -957,13 +951,15 @@ input[type=range].valve-slider {
 .answer p {
     overflow-wrap: break-word;
     word-wrap: break-word;
-    /* for older browsers */
     -webkit-hyphens: auto;
     -ms-hyphens: auto;
     hyphens: auto;
 }
 
-/* RGB Interactive Element */
+/* ===========================================
+   17. RGB INTERACTIVE ELEMENT
+   =========================================== */
+
 .rgb-visual {
     width: 150px;
     height: 150px;
@@ -1022,20 +1018,10 @@ input[type=range].valve-slider {
     border: 1px solid #ddd;
 }
 
-/* Scroll Margin for Anchor Links */
-section,
-h2,
-h3,
-h4,
-.tip-box {
-    scroll-margin-top: 90px;
-}
+/* ===========================================
+   18. UNIVERSAL HTML DIAGRAM STYLES
+   =========================================== */
 
-/* =========================================
-   Universal HTML Diagram Styles
-   ========================================= */
-
-/* Main Container */
 .html-diagram {
     display: flex;
     flex-direction: column;
@@ -1046,7 +1032,6 @@ h4,
     position: relative;
     user-select: none;
     overflow: hidden;
-    /* Contain relative positioned elements */
 }
 
 .diagram-row {
@@ -1057,15 +1042,6 @@ h4,
     gap: 40px;
     position: relative;
     width: 100%;
-}
-
-.diagram-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    position: relative;
 }
 
 /* Nodes */
@@ -1099,7 +1075,6 @@ h4,
     min-width: 80px;
 }
 
-/* Colors & Themes */
 .node.input {
     border-color: #4d25fc;
     color: #4d25fc;
@@ -1114,7 +1089,6 @@ h4,
 .node.output {
     background: linear-gradient(135deg, #a777d1 0%, #4d25fc 100%);
     border-color: white;
-    /* Clean look */
     color: white;
     box-shadow: 0 4px 10px rgba(77, 37, 252, 0.2);
 }
@@ -1122,14 +1096,6 @@ h4,
 .node.highlight {
     background: #e6e0f8;
     border-color: #4d25fc;
-}
-
-/* Labels */
-.diagram-label {
-    font-size: 0.9rem;
-    color: #666;
-    margin-top: 5px;
-    text-align: center;
 }
 
 .layer-label {
@@ -1142,7 +1108,7 @@ h4,
     white-space: nowrap;
 }
 
-/* Connections (Simulated for HTML) */
+/* Connections */
 .connector-line {
     height: 2px;
     background: #ccc;
@@ -1158,9 +1124,7 @@ h4,
     border-left: 8px solid #ccc;
 }
 
-/* Specific Diagrams */
-
-/* 1. Architecture Diagram */
+/* Architecture */
 .architecture-container {
     display: flex;
     justify-content: space-between;
@@ -1178,7 +1142,7 @@ h4,
     padding: 0 20px;
 }
 
-/* 2. Attention / Value Bar Charts */
+/* Bar Charts */
 .bar-chart {
     display: flex;
     align-items: flex-end;
@@ -1213,7 +1177,7 @@ h4,
     color: #4d25fc;
 }
 
-/* 3. Knob */
+/* Knob */
 .knob-container {
     width: 80px;
     height: 80px;
@@ -1235,11 +1199,10 @@ h4,
     background: #4d25fc;
     transform-origin: left center;
     transform: rotate(-45deg);
-    /* Default angle */
     border-radius: 2px;
 }
 
-/* 4. Matrix / Grid */
+/* Matrix / Grid */
 .matrix-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -1268,30 +1231,25 @@ h4,
     border-color: #4d25fc;
 }
 
-/* Math symbols */
 .math-symbol {
     font-size: 1.5rem;
     color: #999;
     font-weight: 300;
 }
 
+/* ===========================================
+   19. RAG DIAGRAM
+   =========================================== */
 
-
-/* 
- * RAG Diagram - Restored to match original SVG
- * Horizontal Flow: User -> Arrow -> RAG System [Box containing RAG Label + Database] -> Arrow -> LLM -> Answer Arrow
- */
 .rag-diagram {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    /* Reduced gap to match SVG compactness */
     padding: 20px;
-    /* background: white; - Removed to match Agent diagram style */
+    background: white;
 }
 
-/* User Node: Simple white circle with blue border */
 .rag-user {
     width: 60px;
     height: 60px;
@@ -1306,20 +1264,15 @@ h4,
     z-index: 2;
 }
 
-/* RAG System Container: Lilac rectangle */
 .rag-system-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    /* Space out Label and Database inside */
     width: 140px;
-    /* SVG width was ~100 but HTML needs flex space */
     height: 160px;
-    /* SVG height was 150 */
     background: #e6e0f8;
     border: 2px solid #4d25fc;
-    /* SVG stroke was blue */
     border-radius: 10px;
     padding: 10px;
     position: relative;
@@ -1332,14 +1285,12 @@ h4,
     color: black;
 }
 
-/* Database: White cylinder inside RAG System */
 .rag-db {
     width: 60px;
     height: 60px;
     background: white;
     border: 2px solid #4d25fc;
     border-radius: 20px;
-    /* Primitive cylinder look */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1349,7 +1300,6 @@ h4,
     margin-bottom: 10px;
 }
 
-/* Top oval for cylinder */
 .rag-db::before {
     content: '';
     position: absolute;
@@ -1362,7 +1312,6 @@ h4,
     border-radius: 50%;
 }
 
-/* LLM Node: Purple rectangle */
 .rag-llm {
     width: 80px;
     height: 90px;
@@ -1375,7 +1324,6 @@ h4,
     font-weight: bold;
 }
 
-/* Simple Arrow Style mimicking SVG path */
 .rag-arrow {
     display: flex;
     flex-direction: column;
@@ -1385,7 +1333,6 @@ h4,
     font-size: 12px;
     gap: 2px;
     min-width: 60px;
-    /* ensure space for text */
 }
 
 .rag-arrow-line {
@@ -1405,10 +1352,10 @@ h4,
     border-left: 8px solid #4d25fc;
 }
 
-/* 
- * Temperature Diagram - Restored
- * Simple Gradient Bar + Labels
- */
+/* ===========================================
+   20. TEMPERATURE DIAGRAM
+   =========================================== */
+
 .temp-scale-container {
     width: 100%;
     max-width: 500px;
@@ -1450,264 +1397,16 @@ h4,
     text-align: right;
 }
 
+/* ===========================================
+   21. AGENT ARCHITECTURE DIAGRAM
+   =========================================== */
 
-/* 
- * Agent Architecture - Restored to Tree Structure
- * Top Node -> Dotted Lines -> 3 Bottom Nodes
- */
 .agent-diagram {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
     padding: 20px;
-}
-
-/* Project Leader Node */
-.agent-boss {
-    width: 140px;
-    height: 60px;
-    background: #a777d1;
-    border: 2px solid #4d25fc;
-    border-radius: 10px;
-    color: white;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-    /* Content on top of lines */
-    box-sizing: border-box;
-}
-
-/* Connector Container */
-.agent-connectors {
-    position: relative;
-    height: 80px;
-    /* Space between rows */
-    width: 100%;
-    max-width: 600px;
-    margin-bottom: -10px;
-    /* Slightly overlap to connect */
-}
-
-/* SVG Line mimicry using borders */
-/* Main vertical line from boss */
-.agent-line-vertical {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 1px;
-    height: 100%;
-    border-left: 1px dashed #333;
-    /* Dotted line style */
-}
-
-/* Horizontal Fork Bar */
-.agent-line-horizontal {
-    position: absolute;
-    top: 50%;
-    /* Middle of connector space */
-    left: 16%;
-    /* Approximate reach to outer nodes */
-    right: 16%;
-    height: 1px;
-    border-top: 1px dashed #333;
-}
-
-/* Vertical drops to agents */
-.agent-line-drop-left {
-    position: absolute;
-    top: 50%;
-    left: 16%;
-    height: 50%;
-    border-left: 1px dashed #333;
-}
-
-.agent-line-drop-right {
-    position: absolute;
-    top: 50%;
-    right: 16%;
-    height: 50%;
-    border-right: 1px dashed #333;
-}
-
-
-.agent-row {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 700px;
-    z-index: 2;
-}
-
-.agent-node {
-    width: 120px;
-    height: 80px;
-    background: #e6e0f8;
-    border: 1px solid #4d25fc;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 5px;
-    box-sizing: border-box;
-}
-
-.agent-title {
-    font-weight: bold;
-    font-size: 12px;
-    background: transparent;
-    color: black;
-    display: block;
-}
-
-.agent-sub {
-    font-size: 10px;
-    color: black;
-    font-style: italic;
-    background: transparent;
-}/* Improved RAG Diagram */
-.rag-diagram {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    padding: 50px;
-    background: transparent;
-    flex-wrap: wrap;
-    position: relative;
-}
-
-.rag-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    z-index: 2;
-}
-
-.rag-node {
-    padding: 15px 30px;
-    border-radius: 12px;
-    font-weight: bold;
-    text-align: center;
-    position: relative;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease;
-}
-
-.rag-node:hover {
-    transform: translateY(-3px);
-}
-
-.rag-user {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    border: 3px solid #4d25fc;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: white;
-    font-weight: bold;
-    color: #4d25fc;
-    box-shadow: 0 5px 15px rgba(77, 37, 252, 0.2);
-}
-
-.rag-system {
-    background: linear-gradient(135deg, #e6e0f8 0%, #dcd3ff 100%);
-    border: 1px solid rgba(77, 37, 252, 0.2);
-    color: #4d25fc;
-}
-
-.rag-db {
-    border: 2px solid #4d25fc;
-    background: white;
-    border-radius: 10px;
-    position: relative;
-    padding: 15px 20px;
-    color: #333;
-}
-
-/* Cylinder effect for DB */
-.rag-db::before {
-    content: '';
-    position: absolute;
-    top: -5px;
-    left: 0;
-    right: 0;
-    height: 10px;
-    border: 2px solid #4d25fc;
-    background: white;
-    border-radius: 50%;
-    z-index: 1;
-}
-
-.rag-db::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    right: 0;
-    height: 10px;
-    border: 2px solid #4d25fc;
-    background: white;
-    border-radius: 50%;
-    z-index: -1;
-    background: #4d25fc;
-    /* Solid fill for bottom look */
-}
-
-.rag-llm {
-    background: linear-gradient(135deg, #a777d1 0%, #4d25fc 100%);
-    color: white;
-    box-shadow: 0 10px 25px rgba(77, 37, 252, 0.3);
-}
-
-/* Modern Arrow Style */
-.rag-arrow {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #666;
-    font-size: 12px;
-    position: relative;
-    font-weight: bold;
-    gap: 5px;
-}
-
-.rag-arrow::after {
-    content: '';
-    display: block;
-    width: 40px;
-    height: 2px;
-    background: linear-gradient(90deg, #ccc 0%, #4d25fc 100%);
-    border-radius: 2px;
-}
-
-.rag-arrow::before {
-    content: '';
-    position: absolute;
-    right: -2px;
-    bottom: -4px;
-    width: 0;
-    height: 0;
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
-    border-left: 8px solid #4d25fc;
-}
-
-
-/* Improved Agent Architecture */
-.agent-diagram {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 50px;
-    padding: 50px 30px;
-    background: transparent;
 }
 
 .agent-boss {
@@ -1723,57 +1422,41 @@ h4,
 }
 
 .agent-connectors {
-    display: flex;
-    justify-content: center;
     position: relative;
-    width: 100%;
-    max-width: 800px;
-}
-
-/* Tree Structure Lines */
-.agent-tree-lines {
-    position: absolute;
-    top: -50px;
-    /* Start from boss bottom */
-    left: 0;
-    width: 100%;
     height: 50px;
-    pointer-events: none;
-    z-index: 0;
+    width: 100%;
+    max-width: 700px;
+    margin-bottom: -10px;
 }
 
-/* We create the fork using borders on a pseudo element or extra div */
 .agent-connectors::before {
     content: '';
     position: absolute;
-    top: -25px;
-    /* Halfway up to boss */
-    left: 16%;
-    /* Adjust based on outer agents */
-    right: 16%;
-    height: 2px;
-    border-top: 2px solid #ccc;
-    z-index: 1;
-}
-
-/* Vertical line from Boss to crossbar */
-.agent-boss::after {
-    content: '';
-    position: absolute;
-    bottom: -25px;
-    /* Connect to crossbar */
+    top: 0;
     left: 50%;
     transform: translateX(-50%);
     width: 2px;
     height: 25px;
-    background: #ccc;
+    background: #4d25fc;
+    z-index: 1;
+}
+
+.agent-connectors::after {
+    content: '';
+    position: absolute;
+    top: 25px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: #4d25fc;
+    z-index: 1;
 }
 
 .agent-row {
     display: flex;
     justify-content: space-around;
-    /* Distribute evenly */
     width: 100%;
+    max-width: 700px;
     gap: 20px;
     z-index: 2;
 }
@@ -1794,23 +1477,16 @@ h4,
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.agent-node:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(77, 37, 252, 0.1);
-    border-color: rgba(77, 37, 252, 0.3);
-}
-
-/* Vertical lines to agents from crossbar */
 .agent-node::before {
     content: '';
     position: absolute;
-    top: -27px;
-    /* Distance to crossbar (25px + 2px stroke) */
+    bottom: 100%;
     left: 50%;
     transform: translateX(-50%);
     width: 2px;
-    height: 27px;
-    background: #ccc;
+    height: 25px;
+    background: #4d25fc;
+    z-index: 1;
 }
 
 .agent-icon {
@@ -1837,547 +1513,209 @@ h4,
     font-size: 12px;
     color: #888;
     font-style: italic;
-}/* 
- * RAG Diagram - Restored to match original SVG
- * Horizontal Flow: User -> Arrow -> RAG System [Box containing RAG Label + Database] -> Arrow -> LLM -> Answer Arrow
- */
-.rag-diagram {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    /* Reduced gap to match SVG compactness */
-    padding: 20px;
-    background: white;
-    /* No fancy shadows or gradients */
-}
-
-/* User Node: Simple white circle with blue border */
-.rag-user {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: 2px solid #4d25fc;
-    background: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    color: black;
-    z-index: 2;
-}
-
-/* RAG System Container: Lilac rectangle */
-.rag-system-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    /* Space out Label and Database inside */
-    width: 140px;
-    /* SVG width was ~100 but HTML needs flex space */
-    height: 160px;
-    /* SVG height was 150 */
-    background: #e6e0f8;
-    border: 2px solid #4d25fc;
-    /* SVG stroke was blue */
-    border-radius: 10px;
-    padding: 10px;
-    position: relative;
-    box-sizing: border-box;
-}
-
-.rag-system-label {
-    font-weight: bold;
-    font-size: 14px;
-    color: black;
-}
-
-/* Database: White cylinder inside RAG System */
-.rag-db {
-    width: 60px;
-    height: 60px;
-    background: white;
-    border: 2px solid #4d25fc;
-    border-radius: 20px;
-    /* Primitive cylinder look */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 10px;
-    color: black;
-    position: relative;
-    margin-bottom: 10px;
-}
-
-/* Top oval for cylinder */
-.rag-db::before {
-    content: '';
-    position: absolute;
-    top: -5px;
-    left: -2px;
-    right: -2px;
-    height: 10px;
-    border: 2px solid #4d25fc;
-    background: white;
-    border-radius: 50%;
-}
-
-/* LLM Node: Purple rectangle */
-.rag-llm {
-    width: 80px;
-    height: 90px;
-    background: #a777d1;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: bold;
-}
-
-/* Simple Arrow Style mimicking SVG path */
-.rag-arrow {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: black;
-    font-size: 12px;
-    gap: 2px;
-    min-width: 60px;
-    /* ensure space for text */
-}
-
-.rag-arrow-line {
-    width: 100%;
-    height: 2px;
-    background: #4d25fc;
-    position: relative;
-}
-
-.rag-arrow-line::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: -4px;
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
-    border-left: 8px solid #4d25fc;
-}
-
-/* 
- * Temperature Diagram - Restored
- * Simple Gradient Bar + Labels
- */
-.temp-scale-container {
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-    font-family: 'Agrandir', sans-serif;
-    padding: 20px 0;
-}
-
-.temp-bar {
-    height: 20px;
-    width: 100%;
-    background: linear-gradient(90deg, #4d25fc 0%, #ff4d4d 100%);
-    border-radius: 10px;
-    margin: 10px 0;
-}
-
-.temp-header-row {
-    display: flex;
-    justify-content: space-between;
-    font-weight: bold;
-    font-size: 14px;
-    margin-bottom: 5px;
-}
-
-.temp-desc-row {
-    display: flex;
-    justify-content: space-between;
-    font-size: 12px;
-    color: black;
-}
-
-.temp-text-left {
-    color: #4d25fc;
-    text-align: left;
-}
-
-.temp-text-right {
-    color: #ff4d4d;
-    text-align: right;
-}
-
-
-/* 
- * Agent Architecture - Restored to Tree Structure
- * Top Node -> Dotted Lines -> 3 Bottom Nodes
- */
-.agent-diagram {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    padding: 20px;
-}
-
-/* Project Leader Node */
-.agent-boss {
-    width: 140px;
-    height: 60px;
-    background: #a777d1;
-    border: 2px solid #4d25fc;
-    border-radius: 10px;
-    color: white;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-    /* Content on top of lines */
-    box-sizing: border-box;
-}
-
-/* Connector Container */
-.agent-connectors {
-    position: relative;
-    height: 80px;
-    /* Space between rows */
-    width: 100%;
-    max-width: 600px;
-    margin-bottom: -10px;
-    /* Slightly overlap to connect */
-}
-
-/* SVG Line mimicry using borders */
-/* Main vertical line from boss */
-.agent-line-vertical {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 1px;
-    height: 100%;
-    border-left: 1px dashed #333;
-    /* Dotted line style */
-}
-
-/* Horizontal Fork Bar */
-.agent-line-horizontal {
-    position: absolute;
-    top: 50%;
-    /* Middle of connector space */
-    left: 16%;
-    /* Approximate reach to outer nodes */
-    right: 16%;
-    height: 1px;
-    border-top: 1px dashed #333;
-}
-
-/* Vertical drops to agents */
-.agent-line-drop-left {
-    position: absolute;
-    top: 50%;
-    left: 16%;
-    height: 50%;
-    border-left: 1px dashed #333;
-}
-
-.agent-line-drop-right {
-    position: absolute;
-    top: 50%;
-    right: 16%;
-    height: 50%;
-    border-right: 1px dashed #333;
-}
-
-
-.agent-row {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 700px;
-    z-index: 2;
-}
-
-.agent-node {
-    width: 120px;
-    height: 80px;
-    background: #e6e0f8;
-    border: 1px solid #4d25fc;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 5px;
-    box-sizing: border-box;
-}
-
-.agent-title {
-    font-weight: bold;
-    font-size: 12px;
-    background: transparent;
-    color: black;
-    display: block;
-}
-
-.agent-sub {
-    font-size: 10px;
-    color: black;
-    font-style: italic;
     background: transparent;
 }
-    
-/* Topic Links Section */
-.topic-links-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 40px;
-}
 
-.topic-link {
-    text-decoration: none;
-    color: inherit;
-    flex: 0 0 calc(33.333% - 20px); /* Approximately 3 items per row with gap */
-    max-width: calc(33.333% - 20px);
-    display: flex;
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-}
+/* ===========================================
+   22. RESPONSIVE STYLES
+   =========================================== */
 
-@media (max-width: 1024px) { /* Adjust for smaller desktops/large tablets */
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    body {
+        padding-top: 80px;
+    }
+
+    .nav-links {
+        position: fixed;
+        right: 0px;
+        top: 0px;
+        height: 100vh;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+        z-index: 999;
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        padding: 0;
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+        opacity: 0;
+    }
+
+    .nav-links.nav-active {
+        transform: translateX(0%);
+    }
+
+    #burger-menu {
+        display: block;
+        position: relative;
+        z-index: 1001;
+    }
+
+    main {
+        padding: 0 20px;
+    }
+
+    section {
+        padding: 40px 10px;
+    }
+
+    .hero {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    section h1 {
+        font-size: 100px;
+        line-height: 1.1;
+    }
+
+    section h2 {
+        font-size: 50px;
+    }
+
+    section h3 {
+        font-size: 30px;
+    }
+
+    section p {
+        font-size: 16px;
+    }
+
+    .hero h1 {
+        font-size: 60px;
+    }
+
+    .hero h2 {
+        font-size: 30px;
+    }
+
+    .search-input {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .dark-section,
+    .gradient-section {
+        padding: 40px;
+    }
+
+    .message {
+        max-width: 90%;
+        padding: 10px 15px;
+    }
+
+    .chat-container {
+        padding: 0;
+    }
+
+    .table-responsive-wrapper {
+        overflow-x: auto;
+    }
+
+    .answers-container {
+        flex-direction: column;
+    }
+
+    .answer {
+        word-break: break-word;
+    }
+
     .topic-link {
-        flex: 0 0 calc(50% - 20px); /* 2 items per row */
+        flex: 0 0 calc(50% - 20px);
         max-width: calc(50% - 20px);
     }
 }
 
-@media (max-width: 768px) { /* Mobile */
+@media (max-width: 500px) {
+    body {
+        padding-top: 80px;
+    }
+
+    section h1 {
+        font-size: 80px;
+    }
+
+    section h2 {
+        font-size: 40px;
+    }
+
+    section h3 {
+        font-size: 25px;
+    }
+
+    .hero h1 {
+        font-size: 50px;
+    }
+
+    .hero h2 {
+        font-size: 25px;
+    }
+
+    .search-input {
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    header {
+        padding: 10px 15px;
+    }
+
+    .message {
+        max-width: 95%;
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 400px) {
+    section h1 {
+        font-size: 60px;
+    }
+
+    section h2 {
+        font-size: 35px;
+    }
+
+    section h3 {
+        font-size: 22px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero h2 {
+        font-size: 20px;
+    }
+
+    .search-input {
+        padding: 6px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
     .topic-link {
-        flex: 0 0 100%; /* 1 item per row */
+        flex: 0 0 100%;
         max-width: 100%;
     }
 }
 
-.topic-box {
-    background-color: #f4f4f4;
-    padding: 30px;
-    border-radius: 15px;
-    border: 1px solid #ddd;
-    text-align: center;
-    width: 100%;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}    
-.topic-link:hover .topic-box {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.topic-box h3 {
-    margin-top: 0;
-    font-size: 24px;
-}
-
-.topic-box p {
-    font-size: 16px;
-}
-
-.learn-more {
-    display: inline-block;
-    margin-top: 20px;
-    font-weight: bold;
-    text-decoration: underline;
-}
-
-.topic-box-special {
-    background: linear-gradient(135deg, #a777d1 0%, #4d25fc 100%);
-    color: #fff;
-}    
-.topic-box-special h3,
-.topic-box-special p {
-    color: #fff;
-}
-
-#themen {
-    margin-top: 60px; /* Pull the section up visually */
-}
-
-.censored {
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 2px 5px;
-    border-radius: 3px;
-}
-
-/* 
- * Temperature Diagram - Restored
- * Simple Gradient Bar + Labels
- */
-.temp-scale-container {
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-    font-family: 'Agrandir', sans-serif;
-    padding: 20px 0;
-}
-
-.temp-bar {
-    height: 20px;
-    width: 100%;
-    background: linear-gradient(90deg, #4d25fc 0%, #ff4d4d 100%);
-    border-radius: 10px;
-    margin: 10px 0;
-}
-
-.temp-header-row {
-    display: flex;
-    justify-content: space-between;
-    font-weight: bold;
-    font-size: 14px;
-    margin-bottom: 5px;
-}
-
-.temp-desc-row {
-    display: flex;
-    justify-content: space-between;
-    font-size: 12px;
-    color: black;
-}
-
-.temp-text-left {
-    color: #4d25fc;
-    text-align: left;
-}
-
-.temp-text-right {
-    color: #ff4d4d;
-    text-align: right;
-}
-
-
-/* 
- * Agent Architecture - Restored to Tree Structure
- * Top Node -> Dotted Lines -> 3 Bottom Nodes
- */
-.agent-diagram {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    padding: 20px;
-}
-
-/* Project Leader Node */
-.agent-boss {
-    background: linear-gradient(135deg, #a777d1 0%, #4d25fc 100%);
-    color: white;
-    padding: 18px 40px;
-    border-radius: 30px;
-    font-weight: 800;
-    position: relative;
-    box-shadow: 0 10px 30px rgba(77, 37, 252, 0.25);
-    z-index: 2;
-    font-size: 1.1em;
-}
-
-.agent-connectors {
-    position: relative;
-    height: 50px; /* Space between rows */
-    width: 100%;
-    max-width: 700px; /* Adjust to span across nodes */
-    margin-bottom: -10px; /* Adjust to overlap correctly */
-}
-
-/* Top vertical line from boss */
-.agent-connectors::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 2px; /* Thicker line */
-    height: 25px; /* Vertical line length */
-    background: #4d25fc; /* Blue line color */
-    z-index: 1;
-}
-
-/* Horizontal line to connect to agents */
-.agent-connectors::after {
-    content: '';
-    position: absolute;
-    top: 25px; /* Aligned with end of vertical line */
-    left: 10%; /* Starting point of horizontal line (adjust as needed) */
-    right: 10%; /* Ending point of horizontal line (adjust as needed) */
-    height: 2px; /* Thicker line */
-    background: #4d25fc; /* Blue line color */
-    z-index: 1;
-}
-
-.agent-row {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 700px;
-    gap: 20px;
-    z-index: 2;
-}
-
-.agent-node {
-    background: white;
-    border: 1px solid rgba(77, 37, 252, 0.1);
-    padding: 20px;
-    border-radius: 15px;
-    text-align: center;
-    position: relative;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-    flex: 1;
-    max-width: 200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-/* Vertical lines to agents from crossbar */
-.agent-node::before {
-    content: '';
-    position: absolute;
-    bottom: 100%; /* Start from top of agent-node */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 2px; /* Thicker line */
-    height: 25px; /* Vertical line length */
-    background: #4d25fc; /* Blue line color */
-    z-index: 1;
-}
-
-.agent-icon {
-    font-size: 24px;
-    margin-bottom: 10px;
-    background: #f0f0f0;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    color: #4d25fc;
-}
-
-.agent-title {
-    font-weight: 700;
-    display: block;
-    margin-bottom: 4px;
-    color: #333;
-}
-
-.agent-sub {
-    font-size: 12px;
-    color: #888;
-    font-style: italic;
-    background: transparent;
+@media (max-width: 1024px) {
+    .topic-link {
+        flex: 0 0 calc(50% - 20px);
+        max-width: calc(50% - 20px);
+    }
 }
