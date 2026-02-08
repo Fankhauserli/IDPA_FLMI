@@ -107,6 +107,28 @@
                 </div>
             </div>
 
+            <p>Die Grundstruktur besteht aus künstlichen Neuronen (Knoten), die in verschiedenen Schichten (Layers)
+                angeordnet sind:</p>
+
+            <div class="topic-links-container">
+                <div class="topic-box">
+                    <h3>Input Layer</h3>
+                    <p>Hier kommen die Daten in das Netzwerk rein. Bei einem LLM wäre dies der Text, der in Zahlen,
+                        sogenannten Tokens, umgewandelt wurde.</p>
+                </div>
+                <div class="topic-box">
+                    <h3>Hidden Layers</h3>
+                    <p>Hier findet die eigentliche Verarbeitung statt. In modernen LLMs gibt es hunderte dieser
+                        Schichten. Je mehr Schichten ein Netzwerk hat, desto «tiefer» ist es – daher der Begriff «Deep
+                        Learning».</p>
+                </div>
+                <div class="topic-box">
+                    <h3>Output Layer</h3>
+                    <p>Hier liefert das Netzwerk sein Ergebnis, zum Beispiel die Wahrscheinlichkeit für das nächste
+                        Wort.</p>
+                </div>
+            </div>
+
             <div>
                 <h3>Gewichte und Parameter</h3>
                 <p>Das wichtigste Konzept zum Verständnis sind die Verbindungen zwischen den Neuronen. Jedes
@@ -160,14 +182,81 @@
                     Aktivierungsfunktion.</p>
 
                 <h4>1. Die gewichtete Summe (Linearer Teil)</h4>
-                <p>Anstatt abstrakter Formeln können wir uns dies visuell vorstellen. Ein Neuron sammelt Informationen
-                    von seinen Vorgängern. Jede Verbindung gewichtet die Information unterschiedlich stark – wie ein
-                    Ventil, das mehr oder weniger Wasser durchlässt.</p>
+                <p>Stellen wir uns ein Neuron vor, das drei Eingaben erhält (z. B. drei Wörter oder Pixel). Jede
+                    Eingabe (x) wird mit ihrem eigenen Gewicht (w) multipliziert. Das ist genau der Effekt des
+                    oben beschriebenen "Ventils". Anschliessend werden alle Ergebnisse zusammengezählt.</p>
 
+                <p>Mathematisch dargestellt: <code>z = (x1 · w1) + (x2 · w2) + (x3 · w3) + b</code></p>
+                <p>Oder vereinfacht: <code>z = Σ(xi · wi) + b</code></p>
 
+                <div class="glass-panel" style="padding: 20px; margin: 20px 0;">
+                    <h5 style="margin-top: 0; margin-bottom: 15px;">Was bedeuten diese Variablen?</h5>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 8px;"><strong>z (Output):</strong> Die Information, die rausgeht</li>
+                        <li style="margin-bottom: 8px;"><strong>x (Input):</strong> Die Information, die reinkommt</li>
+                        <li style="margin-bottom: 8px;"><strong>w (Weight):</strong> Die Wichtigkeit der Information
+                            (unser Ventil)</li>
+                        <li><strong>b (Bias):</strong> Der Schwellenwert</li>
+                    </ul>
+                </div>
 
-                <p>Mathematisch dargestellt: <code>z = (x1 · w1) + ... + b</code>. Dies ist der "Input" für den nächsten
-                    Schritt, die Aktivierungsfunktion.</p>
+                <h4>Der Bias (b)</h4>
+                <p>Der Bias ist ein spezieller Parameter, der oft vergessen wird. Er ist eine Art "Grundstimmung"
+                    des Neurons. Selbst wenn alle Eingaben (x) null sind, kann der Bias dafür sorgen, dass das
+                    Neuron trotzdem feuert. Er verschiebt die Aktivierungskurve nach oben oder unten, ähnlich
+                    wie der y-Achsenabschnitt in einer einfachen Geradengleichung (y = mx + q).</p>
+
+                <div class="glass-panel" style="padding: 30px; margin: 20px 0;">
+                    <h5 style="text-align: center; margin-top: 0; margin-bottom: 20px;">Bias verschiebt die Aktivierung
+                    </h5>
+                    <div
+                        style="display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap;">
+                        <!-- Without Bias: ReLU at origin -->
+                        <div style="text-align: center;">
+                            <p style="font-weight: bold; margin-bottom: 10px; color: #666;">Ohne Bias (b = 0)</p>
+                            <svg width="180" height="140" style="overflow: visible;">
+                                <!-- Axes -->
+                                <line x1="30" y1="110" x2="170" y2="110" stroke="#333" stroke-width="2" />
+                                <line x1="90" y1="130" x2="90" y2="10" stroke="#333" stroke-width="2" />
+                                <!-- Axis labels -->
+                                <text x="165" y="125" font-size="12">z</text>
+                                <text x="75" y="20" font-size="12">f(z)</text>
+                                <!-- ReLU: flat at 0 for negative z, then linear -->
+                                <polyline points="30,110 90,110 150,50" fill="none" stroke="#4d25fc" stroke-width="3" />
+                                <!-- Zero marker -->
+                                <circle cx="90" cy="110" r="5" fill="#4d25fc" />
+                                <text x="85" y="130" font-size="11">0</text>
+                            </svg>
+                            <p style="font-size: 0.85em; color: #888; margin-top: 5px;">f(z) = max(0, z)</p>
+                        </div>
+
+                        <!-- Arrow -->
+                        <div style="font-size: 2rem; color: #4d25fc;">→</div>
+
+                        <!-- With positive Bias: ReLU shifted up -->
+                        <div style="text-align: center;">
+                            <p style="font-weight: bold; margin-bottom: 10px; color: #666;">Mit Bias (b = +2)</p>
+                            <svg width="180" height="140" style="overflow: visible;">
+                                <!-- Axes -->
+                                <line x1="30" y1="110" x2="170" y2="110" stroke="#333" stroke-width="2" />
+                                <line x1="90" y1="130" x2="90" y2="10" stroke="#333" stroke-width="2" />
+                                <!-- Axis labels -->
+                                <text x="165" y="125" font-size="12">z</text>
+                                <text x="75" y="20" font-size="12">f(z)</text>
+                                <!-- ReLU shifted: kink at z=-2 (x=50), flat on x-axis, then rises -->
+                                <polyline points="30,110 50,110 150,10" fill="none" stroke="#4d25fc" stroke-width="3" />
+                                <!-- Point at z=0, f(0)=2 -->
+                                <circle cx="90" cy="70" r="5" fill="#4d25fc" />
+                                <text x="95" y="75" font-size="10" fill="#666">2</text>
+                                <text x="85" y="130" font-size="11">0</text>
+                            </svg>
+                            <p style="font-size: 0.85em; color: #888; margin-top: 5px;">f(z) = max(0, z + 2)</p>
+                        </div>
+                    </div>
+                    <p style="text-align: center; font-style: italic; color: #666; margin-top: 20px; margin-bottom: 0;">
+                        Der Bias verschiebt die gesamte Aktivierungsfunktion nach oben oder unten.
+                    </p>
+                </div>
 
                 <h4>2. Die Aktivierungsfunktion (Nicht-linearer Teil)</h4>
                 <p>Nachdem die gewichtete Summe (z) berechnet wurde, ist das Ergebnis oft eine beliebige Zahl
