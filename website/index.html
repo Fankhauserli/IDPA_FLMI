@@ -65,6 +65,57 @@
             background-color: #717171;
         }
 
+        .collapsible-content-wrapper {
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        /* Style for the collapsible question summary */
+        .collapsible-question summary {
+            display: flex;
+            align-items: center; /* Vertically align the arrow and text */
+            cursor: pointer;
+            padding: 10px 15px; /* Add padding around the summary */
+            background-color: #f0f0f0; /* Light background for the summary */
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 10px; /* Space between summary and content */
+            user-select: none; /* Prevent text selection on summary */
+        }
+
+        /* Hide default disclosure triangle */
+        .collapsible-question summary::-webkit-details-marker {
+            display: none;
+        }
+        .collapsible-question summary::marker {
+            display: none;
+        }
+
+        /* Custom arrow icon using a pseudo-element */
+        .collapsible-question summary::before {
+            content: '►'; /* Right-pointing triangle */
+            font-size: 1.2em;
+            margin-right: 10px; /* Space between arrow and text */
+            color: #555; /* Color for the arrow */
+            transform: rotate(0deg);
+            transition: transform 0.2s ease-in-out;
+            flex-shrink: 0; /* Prevent arrow from shrinking */
+        }
+
+        /* Rotate arrow when details is open */
+        .collapsible-question[open] summary::before {
+            transform: rotate(90deg); /* Down-pointing when open */
+        }
+
+        /* Style the h4 inside the summary for centering */
+        .collapsible-question summary .chat-header {
+            flex-grow: 1; /* Allow h4 to take available space */
+            text-align: center; /* Center the text */
+            margin: 0; /* Remove default h4 margins */
+            color: #333; /* Darker text color */
+        }
+
+
         /* On larger screens, show answers side-by-side */
         @media (min-width: 768px) {
             .answers-slider {
@@ -252,6 +303,10 @@
             </div>
             <p>Wir wissen nicht, warum die Person die Fragen nicht selbständig beantwortet hat. Vielleicht gab es ein Missverständnis und er dachte er würde durch das Beantworten der Frage unsere Recherche übernehmen. Wobei wir viel mehr seine persönliche Meinung erfahren wollten. Möglicherweise waren unsere Frage auch zu simpel und er wollte uns Auffordern, uns noch tiefer ins Thema einzulesen. Eine weitere Option besteht darin, dass wir mit unserer Recherche in ein Gebiet vorgestossen sind, in welchem es selbst für Fachpersonen schwer ist Aussagen zu geben. Entsprechend seiner Empfehlung haben wir die Interview-Fragen mit einer künstlichen Intelligenz erarbeitet.</p>
             <p>Nun haben wir Fragen, über Fehlinformationen und Halluzinationen innerhalb künstlicher Intelligenz, mit einer künstlichen Intelligenz beantworten lassen. Aufgrund dieser Ironie haben wir uns entschlossen weiter nach einem möglichen Interview Ausschau zu halten. Im erweiterten Bekanntenkreis stiessen wir auf Mikaela, gelehrte Informatikerin Applikationsentwicklung EFZ und im letzten Semester des Studienganges "BSc Data Science & Artificial Intelligence" an der Fachhochschule Nordwestschweiz (FHNW). Neben dem Studium arbeitet Mikaela aktuell an einem generativem KI Projekt, welches mit Transformer-ähnlichen Strukturen (TRELLIS) arbeitet. Das Ziel dieses Projektes ist es 3D Rekonstruktion aus 2D Bildern zu erstellen. Weitere Informationen über ihr Werdegang können in ihrem <a href="https://dpoportfolio-mikaela.onrender.com/" target="_blank">Portfolio</a> gefunden werden. Sie stimmte unserem Interview zu und beantwortet unsere Fragen schriftlich.</p>
+                    <details class="collapsible-question">
+                        <summary><h4 class="chat-header">Interview Fragen und Antworten</h4></summary>
+                        <div class="collapsible-content-wrapper">
+                            <div class="collapsible-content">
                     <div class="question-block">
                         <h5 class="chat-header">Warum treten Halluzinationen auf?</h5>
                         <div class="answers-container slider-container">
@@ -423,17 +478,20 @@
                             <div class="slider-dots"></div>
                         </div>
                     </div>
+                            </div>
+                        </div>
+                    </details>
                     <h4>Auswertung des Interviews</h4>
-                    <p>Die Interviews mit Mikaela und der generativen AI decken unsere Recherche gut ab. Entsprechend unser Erwartung können sowohl Anwender, wie auch Entwickler auf Halluzinationen Einfluss nehmen. Klar erkenntlich ist, dass in diesem Feld bereits viel gemacht wurde aber auch weiterhin viel geforscht wird. Entsprechend unser Erwartung ist das Prompt Engineering für private Personen am wichtigsten. Bei der Entwicklung gibt es zwei unterschiedliche Bereiche in welchen in Zukunft weiterentwickelt werden kann. Der KI Antworten entnehmen wir, dass aktuell darauf konzentriert werden soll, mit verschiedenen Umsystemen oder weiteren Mechanismen Halluzinationen, in der Transformer Architektur, zu vermindern. Mikaela erwähnt auch diesen Ansatz, ausserdem teilte sie mit, dass wir auch weitere Architekturen und Modellansätze entwickeln sollten.</p>
-
-                    <p>Zusätzlich ist uns beim Auswerten des Interviews noch etwas weiteres aufgefallen. Gemini antwortete, dass aktuell Mechanismen entwickelt werden, damit LLM Antworten, bei fehlenden Quellen oder Unsicherheiten, verweigern können. Mikaela hat bei zwei Fragen sich Distanziert und mit Aussagen wie "bin ich keine Expertin" klargemacht, dass die Fakten nicht vollständig sind oder sie etwas unsicher ist. Dies wäre sicherlich eine der grössten Entwicklungen gegen Halluzinationen. Wenn ein LLM Situationen erkennen, in welchen zu wenig Belege vorhanden sind, und diese anschliessend markieren hätten die Benutzer schon eine erste Einschätzung wie wahrheitsgetreu die Antwort sein kann.</p>
-
-                    <p>Ein grosses Erkenntnis aus dem Mailverkehr mit der anonymisierter Person und dem Interview war, dass unsere Fragestellung immer noch zu allgemein gehalten war. Daher passten wir diese noch während der Arbeit an.</p>
+                    <p>Die beiden Interviews, sowohl mit Mikaela wie auch mit der generativen KI, ermöglichen uns nun die Themen aus zwei unterschiedlichen Blickwinkeln zu analysieren. Während Gemini die Fragen in den meisten Fällen sehr allgemeingültig beantwortete, hatte Mikaela eine klarere Meinung zu den Themen und distanzierte sich auch offiziell von Fragen, bei welchen sie nicht ausreichend Fakten hatte.</p>
+                    <p>Im Interview wird klar, dass private Anwender am meisten beeinflussen können, indem sie durch Prompt Engineering ihre Prompts verbessern und nach Quellen fragen, welche sie anschliessend unabhängig von dem LLM überprüfen. Auch die korrekte Verwendung von verschiedenen Chats und der Online Such Funktion wird erwähnt.</p>
+                    <p>Aus den Antworten ist ersichtlich, dass bei der Entwicklung von LLM drei unterschiedliche Bereiche gibt, welche zur Verhinderung Fehlinformation nützlich sein können. Es kann die LLM-Architektur angepasst werden, beim Training des LLM anders vorgegangen werden oder Umsystemen verwendet werden, die Halluzinationen eingegrenzt werden. Laut Gemini stösst auch die "Next-Token-Prediction" irgendwann auf ein Limit, da die Vorhersagung von nächsten Worten keine Faktenchecks beinhalten. Gerade hier erwähnt Mikaela, dass wir schon viel weiter sind als diese Vorhersage. Zum Beispiel RLHF war im Training eine sehr effektive Variante, um Halluzinationen weiter einzudämmen. Zusätzlich erwähnt Mikaela, dass auch intern im Aufbau eines Transformer schon viel angepasst wurde. Durch Verschieben oder neu anordnen von Komponenten können andere Ziele erreicht werden. Umsysteme bieten zwar einen grossen Mehrwert, verschieben aber das Problem meist nur auf einen anderen Punkt. Bei RAG hat man beispielsweise das Problem, dass bei steigender Grösse nicht mehr alle Quellen verifizierte, werden können.</p>
+                    <p>Zusätzlich ist uns beim Auswerten des Interviews noch etwas weiteres aufgefallen. Gemini antwortete, dass aktuell Mechanismen entwickelt werden, damit LLM Antworten, bei fehlenden Quellen oder Unsicherheiten, verweigern können. Mikaela hat bei zwei Fragen sich Distanziert und mit Aussagen wie "bin ich keine Expertin" klargemacht, dass die Fakten nicht vollständig sind oder sie etwas unsicher ist. Das wäre für LLM sicherlich eine der grössten Entwicklungen gegen Halluzinationen. Wenn eine LLM Situationen erkennt, in welchen zu wenig Belege vorhanden sind, und diese anschliessend markiert, hätten die Benutzer ein erster Anhaltspunkt wie wahrheitsgetreu die Antwort sein kann.</p>
+                    <p>Ein grosses Erkenntnis aus dem Mailverkehr mit dem Studiengangleiter und dem Interview war, dass unsere Fragestellung immer noch zu allgemein gehalten war. Daher passten wir diese noch während der Arbeit an.</p>
                 </section>
         <section id="fazit" class="gradient-section">
             <h2>Fazit</h2>
             <p>KI Chatbots beeinflussen schon heute wie wir an Informationen gelangen. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. KI Chatbots beeinflussen schon heute wie wir an Informationen gelangen. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p>KI Chatbots beeinflussen schon heute wie wir an Informationen gelangen. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. KI Chatbots beeinflussen schon heute wie we an Informationen gelangen. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>KI Chatbots beeinflussen schon heute wie we an Informationen gelangen. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. KI Chatbots beeinflussen schon heute wie we an Informationen gelangen. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </section>
     </main>
 
@@ -443,7 +501,7 @@
     <script src="/js/footer.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const allDetails = document.querySelectorAll('.collapsible-message');
+            const allDetails = document.querySelectorAll('.collapsible-message, .collapsible-question');
             
             allDetails.forEach(details => {
                 const summary = details.querySelector('summary');

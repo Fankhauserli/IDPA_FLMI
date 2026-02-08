@@ -363,6 +363,14 @@ section p {
     background: linear-gradient(135deg, #8e5fb2 0%, #3a1abf 100%);
 }
 
+.hero-buttons {
+    display: flex;
+    gap: 20px; /* Space between buttons */
+    justify-content: center;
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    margin-top: 30px; /* Space above buttons */
+}
+
 /* Search Input Styles */
 .search-input {
     width: 100%;
@@ -445,6 +453,41 @@ section p {
 .tip-box-special h4 {
     font-weight: bold;
     font-size: 23.624px;
+}
+
+.prompt-tip-block {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #eee;
+    text-align: left;
+}
+
+.prompt-tip-block h5 {
+    color: #4d25fc;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.prompt-tip-block p {
+    margin-bottom: 15px;
+}
+
+.prompt-tip-block pre {
+    background-color: #eef;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-size: 0.9em;
+    line-height: 1.4;
+    border: 1px solid #dee;
+}
+
+.prompt-tip-block pre code {
+    font-family: 'Consolas', 'Monaco', monospace;
+    color: #333;
 }
 
 .llm-info-box {
@@ -2167,4 +2210,173 @@ h4,
     color: white;
     padding: 2px 5px;
     border-radius: 3px;
+}
+
+/* 
+ * Temperature Diagram - Restored
+ * Simple Gradient Bar + Labels
+ */
+.temp-scale-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    font-family: 'Agrandir', sans-serif;
+    padding: 20px 0;
+}
+
+.temp-bar {
+    height: 20px;
+    width: 100%;
+    background: linear-gradient(90deg, #4d25fc 0%, #ff4d4d 100%);
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.temp-header-row {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.temp-desc-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: black;
+}
+
+.temp-text-left {
+    color: #4d25fc;
+    text-align: left;
+}
+
+.temp-text-right {
+    color: #ff4d4d;
+    text-align: right;
+}
+
+
+/* 
+ * Agent Architecture - Restored to Tree Structure
+ * Top Node -> Dotted Lines -> 3 Bottom Nodes
+ */
+.agent-diagram {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 20px;
+}
+
+/* Project Leader Node */
+.agent-boss {
+    background: linear-gradient(135deg, #a777d1 0%, #4d25fc 100%);
+    color: white;
+    padding: 18px 40px;
+    border-radius: 30px;
+    font-weight: 800;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(77, 37, 252, 0.25);
+    z-index: 2;
+    font-size: 1.1em;
+}
+
+.agent-connectors {
+    position: relative;
+    height: 50px; /* Space between rows */
+    width: 100%;
+    max-width: 700px; /* Adjust to span across nodes */
+    margin-bottom: -10px; /* Adjust to overlap correctly */
+}
+
+/* Top vertical line from boss */
+.agent-connectors::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px; /* Thicker line */
+    height: 25px; /* Vertical line length */
+    background: #4d25fc; /* Blue line color */
+    z-index: 1;
+}
+
+/* Horizontal line to connect to agents */
+.agent-connectors::after {
+    content: '';
+    position: absolute;
+    top: 25px; /* Aligned with end of vertical line */
+    left: 10%; /* Starting point of horizontal line (adjust as needed) */
+    right: 10%; /* Ending point of horizontal line (adjust as needed) */
+    height: 2px; /* Thicker line */
+    background: #4d25fc; /* Blue line color */
+    z-index: 1;
+}
+
+.agent-row {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 700px;
+    gap: 20px;
+    z-index: 2;
+}
+
+.agent-node {
+    background: white;
+    border: 1px solid rgba(77, 37, 252, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    flex: 1;
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Vertical lines to agents from crossbar */
+.agent-node::before {
+    content: '';
+    position: absolute;
+    bottom: 100%; /* Start from top of agent-node */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px; /* Thicker line */
+    height: 25px; /* Vertical line length */
+    background: #4d25fc; /* Blue line color */
+    z-index: 1;
+}
+
+.agent-icon {
+    font-size: 24px;
+    margin-bottom: 10px;
+    background: #f0f0f0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #4d25fc;
+}
+
+.agent-title {
+    font-weight: 700;
+    display: block;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+.agent-sub {
+    font-size: 12px;
+    color: #888;
+    font-style: italic;
+    background: transparent;
 }
