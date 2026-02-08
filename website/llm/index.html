@@ -905,54 +905,7 @@
                 Backward-Pass in einem einzigen Sweep von hinten nach vorne alle Gradienten berechnen, ohne für
                 jedes Gewicht einen separaten Durchlauf zu starten.</p>
 
-            <!-- Visualization: Backpropagation Arrows -->
-            <!-- Visualization: Backpropagation Arrows -->
-            <div class="nn-architecture-diagram">
-                <div class="html-diagram">
-                    <div style="position: relative; padding: 20px;">
-                        <!-- Faded Network Background -->
-                        <div class="architecture-container"
-                            style="max-width: 500px; display: grid; grid-template-columns: repeat(3, 1fr);  filter: grayscale(100%); opacity: 0.4;">
-                            <!-- Connection Layer (SVG) -->
-                            <svg class="connection-layer"
-                                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;"
-                                preserveAspectRatio="none">
-                                <!-- Input (16.7%, 50.0%) to Hidden (50% at 17.3%, 82.7%) -->
-                                <line x1="16.7%" y1="50.0%" x2="50%" y2="17.3%" stroke="#ccc" stroke-width="1" />
-                                <line x1="16.7%" y1="50.0%" x2="50%" y2="82.7%" stroke="#ccc" stroke-width="1" />
 
-                                <!-- Hidden to Output (83.3%, 50.0%) -->
-                                <line x1="50%" y1="17.3%" x2="83.3%" y2="50.0%" stroke="#ccc" stroke-width="1" />
-                                <line x1="50%" y1="82.7%" x2="83.3%" y2="50.0%" stroke="#ccc" stroke-width="1" />
-                            </svg>
-
-                            <div class="layer-group" style="justify-content: center; height: 100%;">
-                                <div class="node circle input" style="width: 20px; height: 20px; background: #4d25fc;">
-                                </div>
-                            </div>
-                            <div class="layer-group" style="justify-content: center; height: 100%;">
-                                <div class="node circle hidden" style="width: 30px; height: 30px;"></div>
-                                <div class="node circle hidden" style="width: 30px; height: 30px;"></div>
-                            </div>
-                            <div class="layer-group" style="justify-content: center; height: 100%;">
-                                <div class="node circle output" style="width: 40px; height: 40px;"></div>
-                            </div>
-                        </div>
-
-                        <!-- Backward Arrow Overlay (Simulated with absolute div) -->
-                        <div
-                            style="position: absolute; top: 50%; left: 0; width: 100%; text-align: center; pointer-events: none;">
-                            <div
-                                style="font-size: 40px; color: #ff4d4d; font-weight: bold; text-shadow: 0 0 10px white;">
-                                ← ← ←
-                            </div>
-                        </div>
-                    </div>
-                    <div style="margin-top: 10px; color: #ff4d4d; font-weight: bold; font-size: 14px;">
-                        Fehler (Gradient) wird zurückgerechnet
-                    </div>
-                </div>
-            </div>
 
             <p>Die Gradienten zeigen die Richtung des steilsten Anstiegs. Wir wollen aber den Fehler minimieren,
                 also gehen wir in die entgegengesetzte Richtung. Die Lernrate, typischerweise eine kleine Zahl wie
@@ -973,73 +926,7 @@
                     Cross-Entropy, Backward-Pass durch alle 96 Schichten hinunter zu den Embeddings, und schliesslich
                     das Update aller Parameter.</p>
 
-                <!-- Visualization: Comparison -->
-                <div class="nn-architecture-diagram">
-                    <div class="html-diagram">
-                        <div class="architecture-container"
-                            style="justify-content: center; gap: 40px; align-items: flex-end;">
 
-                            <!-- Left: Small Net -->
-                            <div class="diagram-column">
-                                <div class="diagram-label" style="font-weight: bold; margin-bottom: 20px;">Unser
-                                    Beispiel</div>
-                                <div style="padding: 20px 10px;">
-                                    <!-- Mini Net -->
-                                    <div class="layer-group" style="gap: 10px;">
-                                        <div class="node circle"
-                                            style="width: 15px; height: 15px; border-color: #4d25fc;"></div>
-                                        <div class="node circle"
-                                            style="width: 15px; height: 15px; background: #e6e0f8; border-color: #4d25fc;">
-                                        </div>
-                                        <div class="node circle"
-                                            style="width: 15px; height: 15px; border-color: #4d25fc;"></div>
-                                    </div>
-                                </div>
-                                <div class="diagram-label">~20 Parameter</div>
-                            </div>
-
-                            <!-- Arrow -->
-                            <div style="margin-bottom: 50px; text-align: center;">
-                                <div style="font-size: 30px; color: #ccc;">↝</div>
-                                <div style="font-size: 0.8rem; color: #999;">Prinzip gleich,<br>nur skaliert</div>
-                            </div>
-
-                            <!-- Right: GPT-3 -->
-                            <div class="diagram-column">
-                                <div class="diagram-label"
-                                    style="font-weight: bold; color: #4d25fc; margin-bottom: 20px;">GPT-3 (LLM)</div>
-                                <div style="display: flex; flex-direction: column; align-items: center; gap: 2px;">
-                                    <!-- Stack -->
-                                    <div class="node rect"
-                                        style="width: 100px; height: 20px; background: linear-gradient(90deg, #a777d1, #4d25fc); border: none;">
-                                    </div>
-                                    <div class="node rect"
-                                        style="width: 100px; height: 20px; background: linear-gradient(90deg, #a777d1, #4d25fc); border: none;">
-                                    </div>
-                                    <div class="node rect"
-                                        style="width: 100px; height: 20px; background: linear-gradient(90deg, #a777d1, #4d25fc); border: none;">
-                                    </div>
-                                    <div style="font-weight: bold; color: #a777d1;">⋮</div>
-                                    <div style="color: #666; font-size: 0.7rem;">96 Layer</div>
-                                    <div class="node rect"
-                                        style="width: 100px; height: 20px; background: linear-gradient(90deg, #a777d1, #4d25fc); border: none;">
-                                    </div>
-                                    <div class="node rect"
-                                        style="width: 100px; height: 20px; background: linear-gradient(90deg, #a777d1, #4d25fc); border: none;">
-                                    </div>
-
-                                    <!-- Base -->
-                                    <div
-                                        style="width: 140px; height: 8px; background: #333; opacity: 0.1; margin-top: 10px; border-radius: 4px;">
-                                    </div>
-                                </div>
-                                <div class="diagram-label" style="font-weight: bold; color: #4d25fc;">175'000'000'000
-                                    Parameter</div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
 
                 <p>Was bei LLMs jedoch besonders ist: Die Embedding-Matrix selbst lernt mit. Während des Trainings
                     rücken «Kirschbaum» und «Baum» im Vektorraum näher zusammen, während «pink» eine spezielle Beziehung

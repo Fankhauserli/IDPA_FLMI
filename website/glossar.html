@@ -26,99 +26,155 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>LLM</td>
-                            <td>Large Language Model, ein grosses Sprachmodell, das auf riesigen Textmengen trainiert
-                                wurde.</td>
-                        </tr>
-                        <tr>
-                            <td>Halluzination</td>
-                            <td>Eine von einer KI generierte Ausgabe, die sachlich falsch, unsinnig oder vom gegebenen
-                                Quelltext nicht gestützt ist.</td>
-                        </tr>
-                        <tr>
-                            <td>Backpropagation</td>
-                            <td>Der Algorithmus, mit dem neuronale Netze lernen, indem Fehler rückwärts durch das Netz
-                                geleitet werden, um die Parameter anzupassen.</td>
-                        </tr>
-                        <tr>
-                            <td>Embedding</td>
-                            <td>Die Umwandlung von Wörtern oder Texten in Vektoren (Zahlenreihen), die ihre Bedeutung
-                                mathematisch erfassbar machen.</td>
-                        </tr>
-                        <tr>
-                            <td>Token</td>
-                            <td>Die kleinste Einheit, die ein LLM verarbeitet. Dies kann ein ganzes Wort, ein Teil eines
-                                Wortes oder ein Satzzeichen sein.</td>
+                            <td>Agent Architektur</td>
+                            <td>Ein System, bei dem ein LLM verschiedene Aufgaben koordiniert und externe Tools (z. B.
+                                Mail, Datenbanken) nutzt, um Fehler zu minimieren.</td>
                         </tr>
                         <tr>
                             <td>Attention</td>
-                            <td>Ein Mechanismus in Transformern, der es dem Modell ermöglicht, Beziehungen zwischen
-                                Wörtern im Kontext zu erkennen und wichtiges von unwichtigem zu unterscheiden.</td>
+                            <td>Ein Mechanismus, der es dem Modell ermöglicht, den Kontext von Wörtern zu verstehen,
+                                indem berechnet wird, wie stark Wörter miteinander in Verbindung stehen.</td>
                         </tr>
                         <tr>
-                            <td>MLP</td>
-                            <td>Multilayer Perzeptron, ein klassisches neuronales Netzwerk, das in Transformern genutzt
-                                wird, um Informationen zu verarbeiten und Fakten zu speichern.</td>
+                            <td>Autoritäts-Falle</td>
+                            <td>Das Phänomen, dass Nutzer fehlerhaften, aber plausibel und selbstbewusst klingenden
+                                Antworten blind vertrauen.</td>
                         </tr>
                         <tr>
-                            <td>Loss (Verlust)</td>
-                            <td>Ein mathematisches Mass dafür, wie stark die Vorhersage des Modells vom gewünschten
-                                Ergebnis abweicht.</td>
+                            <td>Backpropagation</td>
+                            <td>Der zentrale Algorithmus zum Lernen, bei dem der Fehler einer Vorhersage rückwärts durch
+                                das Netzwerk geleitet wird, um die Parameter anzupassen.</td>
                         </tr>
                         <tr>
-                            <td>Gradient</td>
-                            <td>Die Richtung und Stärke, in der die Parameter angepasst werden müssen, um den Fehler zu
-                                minimieren.</td>
+                            <td>Bias</td>
+                            <td>Ein Schwellenwert oder eine "Grundstimmung" eines Neurons, der die Aktivierungskurve
+                                verschiebt und dafür sorgen kann, dass ein Neuron auch ohne starken Input feuert.</td>
                         </tr>
                         <tr>
                             <td>Cross-Entropy</td>
-                            <td>Eine mathematische Methode zur Berechnung des Verlusts (Loss), die misst, wie stark die
-                                Vorhersagewahrscheinlichkeit von der tatsächlichen Wahrheit abweicht.</td>
+                            <td>Eine mathematische Methode, um den Verlust (Loss) zu berechnen. Sie misst, wie stark die
+                                vorhergesagte Wahrscheinlichkeit von der tatsächlichen Antwort abweicht.</td>
+                        </tr>
+                        <tr>
+                            <td>Embedding</td>
+                            <td>Die Umwandlung von Wörtern (und anderen Inputs) in hochdimensionale Vektoren, damit der
+                                Computer deren Bedeutung und semantische Nähe verarbeiten kann.</td>
                         </tr>
                         <tr>
                             <td>Forward-Pass</td>
-                            <td>Der Durchlauf der Daten durch das neuronale Netz von der Eingabe bis zur Ausgabe
-                                (Vorhersage).</td>
+                            <td>Der erste Schritt im Training oder der Nutzung, bei dem Daten (z. B. ein Prompt) durch
+                                das Netzwerk fliessen, um eine Vorhersage zu generieren.</td>
                         </tr>
                         <tr>
-                            <td>Backward-Pass</td>
-                            <td>Der Rücklauf durch das Netz, bei dem die Gradienten berechnet werden, um die
-                                Fehlerquelle zu finden.</td>
+                            <td>Gewichte (Weights)</td>
+                            <td>Die Stärke der Verbindungen zwischen Neuronen. Im Text werden sie mit "Ventilen"
+                                verglichen, die bestimmen, wie viel Signal durchgelassen wird.</td>
                         </tr>
                         <tr>
-                            <td>Lernrate (Learning Rate)</td>
-                            <td>Ein Parameter, der bestimmt, wie stark die Gewichte bei jedem Update angepasst werden.
-                                Zu hoch führt zu Instabilität, zu niedrig zu sehr langsamem Lernen.</td>
+                            <td>Gradient</td>
+                            <td>Ein Wert, der die Richtung des steilsten Anstiegs anzeigt. Beim Lernen (Backpropagation)
+                                wird er genutzt, um den Fehler zu minimieren, indem man in die entgegengesetzte Richtung
+                                geht.</td>
                         </tr>
                         <tr>
-                            <td>RLHF</td>
-                            <td>Reinforcement Learning from Human Feedback – eine Methode, um LLMs mit menschlichen
-                                Bewertungen weiterzutrainieren und an menschliche Werte anzupassen.</td>
+                            <td>Halluzination</td>
+                            <td>Das Generieren von faktisch falschen Informationen durch das Modell, die jedoch
+                                glaubwürdig wirken.</td>
                         </tr>
                         <tr>
-                            <td>Prompt</td>
-                            <td>Die Eingabeaufforderung oder der Text, den ein Benutzer dem LLM gibt, um eine Antwort zu
-                                generieren.</td>
+                            <td>Kettenregel</td>
+                            <td>Das mathematische Rückgrat des Backward-Passes. Sie wird genutzt, um zu berechnen, wie
+                                stark ein einzelnes Gewicht zum Gesamtfehler beigetragen hat.</td>
+                        </tr>
+                        <tr>
+                            <td>Lernrate</td>
+                            <td>Eine kleine Zahl (z. B. 0,01), die bestimmt, wie gross die Anpassungsschritte der
+                                Gewichte beim Training sind.</td>
+                        </tr>
+                        <tr>
+                            <td>LLM</td>
+                            <td>Large Language Model. Ein System, das basierend auf statistischen Wahrscheinlichkeiten
+                                Texte generiert und den Kern moderner Chatbots bildet.</td>
+                        </tr>
+                        <tr>
+                            <td>Logits</td>
+                            <td>Die unnormalisierten Scores (Rohdaten), die das LLM vor der Anwendung der
+                                Softmax-Funktion generiert.</td>
+                        </tr>
+                        <tr>
+                            <td>MLP</td>
+                            <td>Multilayer Perzeptron. Ein neuronales Netzwerk innerhalb des Modells, das als
+                                Wissensspeicher dient und Informationen parallel verarbeitet.</td>
+                        </tr>
+                        <tr>
+                            <td>Next-Token-Prediction</td>
+                            <td>Das Grundprinzip von LLMs: Die Vorhersage des nächsten Wortteils (Token) basierend auf
+                                der bisherigen Eingabe.</td>
+                        </tr>
+                        <tr>
+                            <td>Parameter</td>
+                            <td>Die Gesamtheit aller Einstellungen im Modell, wie Gewichte und Bias. Bei modernen LLMs
+                                sind dies Milliarden von "Stellschrauben".</td>
                         </tr>
                         <tr>
                             <td>Prompt Engineering</td>
-                            <td>Die Kunst, Eingabeaufforderungen (Prompts) so zu formulieren, dass das LLM die
-                                bestmöglichen Ergebnisse liefert.</td>
+                            <td>Das gezielte Formulieren von Anweisungen an das LLM, um die Qualität der Antwort zu
+                                verbessern und Fehler zu vermeiden.</td>
                         </tr>
                         <tr>
-                            <td>RAG (Retrieval Augmented Generation)</td>
-                            <td>Eine Methode, bei der dem LLM vor der Generierung relevante, externe Informationen (z.
-                                B. aus einer Datenbank) bereitgestellt werden, um Halluzinationen zu reduzieren.</td>
+                            <td>RAG</td>
+                            <td>Retrieval Augmented Generation. Eine Methode, bei der dem Prompt Kontext aus einer
+                                externen Datenbank hinzugefügt wird, um Halluzinationen zu verringern.</td>
+                        </tr>
+                        <tr>
+                            <td>ReLU</td>
+                            <td>Rectified Linear Unit. Eine Aktivierungsfunktion, die negative Werte auf Null setzt und
+                                positive Werte unverändert lässt, um zu entscheiden, ob ein Neuron "feuert".</td>
+                        </tr>
+                        <tr>
+                            <td>RLHF</td>
+                            <td>Reinforcement Learning from Human Feedback. Eine Trainingsmethode, bei der Menschen die
+                                Antworten des Modells bewerten, um es moralisch und faktisch besser einzustellen.</td>
+                        </tr>
+                        <tr>
+                            <td>Skalarprodukt</td>
+                            <td>Das Ergebnis der Multiplikation zweier Vektoren, das eine einzelne Zahl ergibt. Es misst
+                                die Ähnlichkeit oder wie sehr zwei Vektoren in die gleiche Richtung zeigen.</td>
+                        </tr>
+                        <tr>
+                            <td>Softmax</td>
+                            <td>Eine Funktion, die Zahlen in eine Wahrscheinlichkeitsverteilung (zwischen 0 und 1)
+                                umwandelt, oft genutzt für die Auswahl des nächsten Wortes.</td>
+                        </tr>
+                        <tr>
+                            <td>System-Prompt</td>
+                            <td>Eine für den Endbenutzer unsichtbare Anweisung des Herstellers, die Regeln oder
+                                Verhaltensweisen für das LLM festlegt (z. B. "Du bist hilfreich").</td>
                         </tr>
                         <tr>
                             <td>Temperatur</td>
-                            <td>Ein Parameter, der die "Kreativität" des Modells steuert. Eine niedrige Temperatur macht
-                                Antworten deterministisch, eine hohe sorgt für mehr Varianz.</td>
+                            <td>Ein Parameter, der die "Zufälligkeit" steuert. Niedrige Temperatur macht das Modell
+                                strikter/faktischer, hohe Temperatur macht es kreativer/variabler.</td>
                         </tr>
                         <tr>
-                            <td>Agent (KI-Agent)</td>
-                            <td>Ein System, das ein LLM nutzt, um eigenständig Aufgaben zu planen, Tools zu verwenden
-                                und Ziele zu erreichen.</td>
+                            <td>Token</td>
+                            <td>Die kleinste Einheit, in die Text zerlegt wird (Wörter, Wortteile oder Zeichen), um in
+                                Vektoren umgewandelt zu werden.</td>
+                        </tr>
+                        <tr>
+                            <td>Transformer</td>
+                            <td>Die Architektur moderner LLMs, die Text parallel verarbeitet (statt Wort für Wort) und
+                                sich an Zusammenhänge im gesamten Text erinnern kann.</td>
+                        </tr>
+                        <tr>
+                            <td>Vektor</td>
+                            <td>Eine Darstellung von Wörtern oder Konzepten als Zahlenreihe in einem hochdimensionalen
+                                Raum, um deren Bedeutung und Attribute festzuhalten.</td>
+                        </tr>
+                        <tr>
+                            <td>Verlust (Loss)</td>
+                            <td>Ein Messwert, der angibt, wie weit die Vorhersage des Modells von der korrekten Antwort
+                                (Wahrheit) entfernt ist. Das Ziel des Trainings ist die Minimierung dieses Wertes.</td>
                         </tr>
                     </tbody>
                 </table>
