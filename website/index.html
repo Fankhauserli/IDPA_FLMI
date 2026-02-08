@@ -65,6 +65,57 @@
             background-color: #717171;
         }
 
+        .collapsible-content-wrapper {
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        /* Style for the collapsible question summary */
+        .collapsible-question summary {
+            display: flex;
+            align-items: center; /* Vertically align the arrow and text */
+            cursor: pointer;
+            padding: 10px 15px; /* Add padding around the summary */
+            background-color: #f0f0f0; /* Light background for the summary */
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 10px; /* Space between summary and content */
+            user-select: none; /* Prevent text selection on summary */
+        }
+
+        /* Hide default disclosure triangle */
+        .collapsible-question summary::-webkit-details-marker {
+            display: none;
+        }
+        .collapsible-question summary::marker {
+            display: none;
+        }
+
+        /* Custom arrow icon using a pseudo-element */
+        .collapsible-question summary::before {
+            content: '►'; /* Right-pointing triangle */
+            font-size: 1.2em;
+            margin-right: 10px; /* Space between arrow and text */
+            color: #555; /* Color for the arrow */
+            transform: rotate(0deg);
+            transition: transform 0.2s ease-in-out;
+            flex-shrink: 0; /* Prevent arrow from shrinking */
+        }
+
+        /* Rotate arrow when details is open */
+        .collapsible-question[open] summary::before {
+            transform: rotate(90deg); /* Down-pointing when open */
+        }
+
+        /* Style the h4 inside the summary for centering */
+        .collapsible-question summary .chat-header {
+            flex-grow: 1; /* Allow h4 to take available space */
+            text-align: center; /* Center the text */
+            margin: 0; /* Remove default h4 margins */
+            color: #333; /* Darker text color */
+        }
+
+
         /* On larger screens, show answers side-by-side */
         @media (min-width: 768px) {
             .answers-slider {
@@ -97,13 +148,15 @@
 
         <section id="einleitung">
             <h2 class="gradient-text">Einleitung</h2>
-            <p>KI Chatbots beeinflussen schon heute wie wir an Informationen gelangen. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. KI Chatbots beeinflussen schon heute wie wir an Informationen gelangen. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>In der heutigen digitalen Landschaft sind Large Language Models (LLMs) überall präsent. Sie bilden das Herzstück fast aller modernen Chatbots. Diese Systeme beeindrucken durch ihre Fähigkeit, komplexe Texte zu generieren, die oft nicht mehr von menschlichen Formulierungen zu unterscheiden sind. Doch hinter der sprachlichen Eleganz verbirgt sich eine fundamentale Herausforderung: Die Modelle sind darauf trainiert, einen sachlichen und selbstbewussten Tonfall zu pflegen, unabhängig davon, ob der Inhalt faktisch korrekt ist. Dies führt zur sogenannten «Autoritäts-Falle», bei der die Nutzer den plausibel klingenden, aber fehlerhaften Antworten, den sogenannten Halluzinationen, blind vertrauen.</p>
+            <p>Da die Modelle lediglich berechnen, was statistisch «plausibel» klingt, stellt sich die Frage, ob wir jemals eine KI ohne Fehlinformationen erleben werden. Diese Arbeit setzt genau hier an und untersucht die tieferliegenden Mechanismen von der Vektoreinbettung bis hin zum Training durch Backpropagation.</p>
+            <p>Dazu analysieren wir nicht nur die Fehlerquellen in der Architektur, wie etwa das «Snowballing» in der Attention-Schicht, sondern bewerten auch moderne Lösungsansätze wie Retrieval Augmented Generation (RAG), das Anpassen der Temperatur sowie strategisches Prompt Engineering und Agent-Architekturen. Ziel ist es, ein Verständnis dafür zu schaffen, warum KI «lügt» und wie wir diese Systeme dennoch als wertvolle Werkzeuge nutzen können, ohne der «Autoritäts-Falle» zu erliegen.</p>
         </section>
 
         <section id="fragestellung" class="dark-section">
             <h2>Fragestellung</h2>
-            <h3>Wie anfällig sind LLMs auf Falschinformationen?</h3>
-            <p>KI Chatbots beeinflussen schon heute wie wir an Informationen gelangen. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>Im Zentrum steht die Untersuchung unserer Leitfrage. Diese haben wir während der Arbeit angepasst, um noch gezielter ein Berech abzudecken. Folgendes ist unsere finale Fragestellung:</p>
+            <h3>Inwiefern führen die mathematischen Grundlagen von Large Language Models zwangsläufig zu Halluzinationen und wie wirksam sind aktuelle technische Gegenmassnahmen?</h3>
         </section>
 
         <section id="themen">
@@ -113,7 +166,7 @@
                 <a href="/llm/" class="topic-link">
                     <div class="topic-box">
                         <h3>LLM</h3>
-                        <p>Lernen Sie wie ein LLM funktioniert?</p>
+                        <p>Lernen Sie wie ein LLM funktioniert</p>
                         <span class="learn-more">Erfahre mehr</span>
                     </div>
                 </a>
@@ -127,7 +180,7 @@
                 <a href="/anfaelligkeit/" class="topic-link">
                     <div class="topic-box">
                         <h3>Anfälligkeit</h3>
-                        <p>Wie entstehen Fehler in Large Language Models?</p>
+                        <p>Lenren Sie wie Fehler in LLM entstehen</p>
                         <span class="learn-more">Erfahre mehr</span>
                     </div>
                 </a>
@@ -151,10 +204,10 @@
         <section id="interview" class="tips">
             <h2 class="gradient-text">Interview</h2>
             <p>Um unsere Recherche mit Fachwissen abzustürzen haben wir verschiedene Fachpersonen nach einem Interview gefragt. Ursprünglich war die Idee jemand aus der ETH Zürich zu befragen, da dort mit "Apertus" vor kürzerem ein eigenes LLM entwickelt wurde. Leider antwortete uns niemand auf unsere Anfrage zu einem Interview.</p>
-            <p>Auf der Webseite der Berner Fachhochschule (BFH) wurden wir anschliessend auf eine Weiterbildung im Bereich LLM aufmerksam. Wir beschlossen den Studiengangleiter dieser Weiterbildung anzuschreiben und nach einem Interview zu bitten. Nach einer initialen Zusage zu einem Interview, waren wir etwas enttäuscht, als uns mitgeteilt wurde wir sollen unsere Interview-Fragen vollständig mit ChatGPT oder Perprexity erarbeiten. Im folgendem Abschnitt ist unser Mailverkehr mit dem Studiengangleiter abgebildet. (Der Name wurde geschwärzt, da wir keine Erlaubnis haben diesen zu publizieren)</p>
+            <p>Auf der Webseite einer Fachhochschule wurden wir anschliessend auf eine Person, welche im Bereich LLM tätig ist, aufmerksam. Wir beschlossen diese anzuschreiben und nach einem Interview zu bitten. Nach einer initialen Zusage zu einem Interview, waren wir etwas enttäuscht, als uns mitgeteilt wurde wir sollen unsere Interview-Fragen mit ChatGPT oder Perprexity erarbeiten. Im folgendem Abschnitt ist unser Mailverkehr mit der Person abgebildet. (Der Namen und Tätigkeitsbereich der Person, wie auch der Fachhochschulname wurde geschwärzt, da wir keine Erlaubnis haben diesen zu publizieren)</p>
             <div class="tip-box">
                 <div class="chat-container">
-                    <h5 class="chat-header">Mailverkehr mit Studienleiter:</h5>
+                    <h5 class="chat-header">Mailverkehr mit der genannten Person:</h5>
                     <div class="message message-right">
                         <details class="collapsible-message">
                             <summary><strong>Wir:</strong>&nbspAnfrage für ein Interview</summary>
@@ -164,9 +217,8 @@
                                     <p>Mein Name ist Fabio Flückiger und ich schreibe Ihnen im Namen meines Lernendenteams von der GIBB (Gewerblich Industrielle Berufsfachschule Bern), Berufsmaturität. Im Rahmen unseres interdisziplinären Projekts (IDPA) untersuchen wir das Verhalten von Fehlinformationen innerhalb von künstlicher Intelligenz, insbesondere grosser Sprachmodelle (LLMs).</p>
                                     <p>Unsere zentrale Fragestellung lautet: "Wie kann bei Künstlichen Intelligenzen die Auswirkung von Falschinformationen technisch eingeschränkt werden?“</p>
                                     <p>Für den methodischen Teil unserer Arbeit, in dem wir die Struktur moderner Algorithmen und die Ursprünge von Fehlinformationen analysieren, wäre ein Interview mit einer Fachperson von unschätzbarem Wert. </p>
-                                    <p>Wir sind durch die offizielle BFH-Website auf die Weiterbildung "CAS/Generative KI" aufmerksam geworden, bei welcher Sie als Studienleiter hinterlegt sind.</p>
+                                    <p>Wir sind durch die offizielle <span class="censored">Webseite der FH</span> auf <span class="censored">den Tätigkeitsbereich der Person</span> aufmerksam geworden, bei welcher Sie hinterlegt sind.</p>
                                     <p>Hätten Sie Zeit für ein Interview? Wir können Ihnen die Fragen schriftlich zukommen lassen oder nach Terminvereinbarung das Interview per Videokonferenz, Telefon oder persönlich durchführen.</p>
-                                    <p>Falls Sie bei dieser Weiterbildung kein Dozent sind, könnten Sie uns die Kontaktdaten der Dozent:innen bzw. einer geeigneten Ansprechperson weitergeben?</p>
                                     <p>Vielen Dank für Ihre Zeit und Ihre Aufmerksamkeit.</p>
                                     <p>Freundliche Grüsse<br>
                                     Isaiah Dias<br>
@@ -249,12 +301,12 @@
                     </div>
                 </div>
             </div>
-            <p>Wir wissen nicht, warum der Studienleiter die Fragen nicht selbständig beantwortet hat. Vielleicht gab es ein Missverständnis und er dachte er würde durch das Beantworten der Frage unsere Recherche übernehmen. Wobei wir viel mehr seine persönliche Meinung erfahren wollten. Möglicherweise waren unsere Frage auch zu simpel und er wollte uns Auffordern, uns noch tiefer ins Thema einzulesen. Eine weitere Option besteht darin, dass wir mit unserer Recherche in ein Gebiet vorgestossen sind, in welchem es selbst für Fachpersonen schwer ist Aussagen zu geben. Entsprechend seiner Empfehlung haben wir die Interview-Fragen mit einer künstlichen Intelligenz erarbeitet.</p>
-            <p>Nun haben wir Fragen, über Fehlinformationen und Halluzinationen innerhalb künstlicher Intelligenz, mit einer künstlichen Intelligenz beantworten lassen. Aufgrund dieser Ironie haben wir uns entschlossen weiter nach einem möglichen Interview Ausschau zu halten. Im erweiterten Bekanntenkreis stiessen wir auf Mikaela Buzdin, gelehrte Informatikerin Applikationsentwicklung EFZ und im letzten Semester des Studienganges "BSc Data Science & Artificial Intelligence" an der Fachhochschule Nordwestschweiz (FHNW). Neben dem Studium arbeitet Mikaela aktuell an einem generativem KI Projekt, welches mit Transformer-ähnlichen Strukturen (TRELLIS) arbeitet. Das Ziel dieses Projektes ist es 3D Rekonstruktion aus 2D Bildern zu erstellen. Weitere Informationen über ihr Werdegang können in ihrem <a href="https://dpoportfolio-mikaela.onrender.com/" target="_blank">Portfolio</a> gefunden werden. Sie stimmte unserem Interview zu und beantwortet unsere Fragen schriftlich.</p>
-            <div class="hinweis-box">
-                <p><strong>Hinweis:</strong> Die folgenden KI-generierten Antworten sind Platzhalter und sollten vor der Veröffentlichung überprüft und überarbeitet werden.</p>
-            </div>
-                
+            <p>Wir wissen nicht, warum die Person die Fragen nicht selbständig beantwortet hat. Vielleicht gab es ein Missverständnis und er dachte er würde durch das Beantworten der Frage unsere Recherche übernehmen. Wobei wir viel mehr seine persönliche Meinung erfahren wollten. Möglicherweise waren unsere Frage auch zu simpel und er wollte uns Auffordern, uns noch tiefer ins Thema einzulesen. Eine weitere Option besteht darin, dass wir mit unserer Recherche in ein Gebiet vorgestossen sind, in welchem es selbst für Fachpersonen schwer ist Aussagen zu geben. Entsprechend seiner Empfehlung haben wir die Interview-Fragen mit einer künstlichen Intelligenz erarbeitet.</p>
+            <p>Nun haben wir Fragen, über Fehlinformationen und Halluzinationen innerhalb künstlicher Intelligenz, mit einer künstlichen Intelligenz beantworten lassen. Aufgrund dieser Ironie haben wir uns entschlossen weiter nach einem möglichen Interview Ausschau zu halten. Im erweiterten Bekanntenkreis stiessen wir auf Mikaela, gelehrte Informatikerin Applikationsentwicklung EFZ und im letzten Semester des Studienganges "BSc Data Science & Artificial Intelligence" an der Fachhochschule Nordwestschweiz (FHNW). Neben dem Studium arbeitet Mikaela aktuell an einem generativem KI Projekt, welches mit Transformer-ähnlichen Strukturen (TRELLIS) arbeitet. Das Ziel dieses Projektes ist es 3D Rekonstruktion aus 2D Bildern zu erstellen. Weitere Informationen über ihr Werdegang können in ihrem <a href="https://dpoportfolio-mikaela.onrender.com/" target="_blank">Portfolio</a> gefunden werden. Sie stimmte unserem Interview zu und beantwortet unsere Fragen schriftlich.</p>
+                    <details class="collapsible-question">
+                        <summary><h4 class="chat-header">Interview Fragen und Antworten</h4></summary>
+                        <div class="collapsible-content-wrapper">
+                            <div class="collapsible-content">
                     <div class="question-block">
                         <h5 class="chat-header">Warum treten Halluzinationen auf?</h5>
                         <div class="answers-container slider-container">
@@ -265,7 +317,7 @@
                                     <p style="font-size: 0.8em; color: #666; margin-top: 10px;">Quelle: <a href="https://gemini.google.com/share/16e1eedaea84" target="_blank">https://gemini.google.com/share/16e1eedaea84</a></p>
                                 </div>
                                 <div class="answer">
-                                    <h4>Antwort von Mikaela Buzdin</h4>
+                                    <h4>Antwort von Mikaela</h4>
                                     <p>Halluzinationen können aus vielen Quellen entstehen, beispielsweise durch Overfitting oder Underfitting, je nachdem, wie die Trainingsdaten und/oder die Struktur des Transformers/LLMs sind oder wie einige Prozesse während der Datenaufbereitung stattfanden. Ein leicht illustrierbares Beispiel, das in letzter Zeit viel Aufmerksamkeit erhalten hat, ist die Frage „Is there a seahorse emoji?” bei ChatGPT. Da ChatGPT auf Next-Word-Prediction trainiert wurde und kein Seahorse-Emoji kennt, fiel es aufgrund interner Gewichte in einen langen Loop, in dem es sich dachte: „Ja, ich kenne das Seahorse-Emoji”, ein falsches Emoji postete, sich dann entschuldigte und wieder von vorne begann.</p>
                                 </div>
                             </div>
@@ -282,7 +334,7 @@
                                     <p style="font-size: 0.8em; color: #666; margin-top: 10px;">Quelle: <a href="https://gemini.google.com/share/473dfcb65adb" target="_blank">https://gemini.google.com/share/473dfcb65adb</a></p>
                                 </div>
                                 <div class="answer">
-                                    <h4>Antwort von Mikaela Buzdin</h4>
+                                    <h4>Antwort von Mikaela</h4>
                                     <p>Ja, es wäre möglich, aber es ist eine schreckliche Idee, die die „Halluzinationen” nur verschlimmert. Wenn wir Live-Daten aus dem Internet beziehen, beziehen wir unglaublich viele unverifizierte Informationen, oft auch Informationen, die sich direkt widersprechen. Wenn wir wahllos Daten aus dem Internet beziehen, fügen wir unserem Datensatz nur mehr Rauschen hinzu. Und auch wenn diese Daten eine Ahnung von aktuellen Themen haben, sind sie wahrscheinlich inkorrekt und somit ein grosses Risiko für Firmen, die LLMs anbieten. Wenn wir rein hypothetisch ein System aufbauen, das Daten automatisch korrekt und gut recherchiert bezieht, wäre dies möglich und könnte Halluzinationen verringern. Das rigorose Überprüfen der aktuell schon vorhandenen Daten wäre jedoch ein gleichwertiger, wenn nicht sogar besserer Ansatz, um Halluzinationen zu verhindern. Oft sind aktuelle Themen auch noch entwickelnde Geschichten bei welchen Halbwahrheiten und Rumore Vortritt vor Fakten nehmen.</p>
                                 </div>
                             </div>
@@ -299,7 +351,7 @@
                                     <p style="font-size: 0.8em; color: #666; margin-top: 10px;">Quelle: <a href="https://gemini.google.com/share/41a74bcf8c8e" target="_blank">https://gemini.google.com/share/41a74bcf8c8e</a></p>
                                 </div>
                                 <div class="answer">
-                                    <h4>Antwort von Mikaela Buzdin</h4>
+                                    <h4>Antwort von Mikaela</h4>
                                     <p>Das Problem lässt sich durch Skalierung und mehr Informationen reduzieren. Mehr Verständnis dieser Informationen führt natürlich zu einer Verminderung solcher Fehlinformationen. Eine vollständige Behebung wird jedoch nie möglich sein, solange Fehlinformationen in der Welt existieren – was sie vorhersehbar immer tun werden.</p>
                                 </div>
                             </div>
@@ -316,7 +368,7 @@
                                     <p style="font-size: 0.8em; color: #666; margin-top: 10px;">Quelle: <a href="https://gemini.google.com/share/f1577ac31a56" target="_blank">https://gemini.google.com/share/f1577ac31a56</a></p>
                                 </div>
                                 <div class="answer">
-                                    <h4>Antwort von Mikaela Buzdin</h4>
+                                    <h4>Antwort von Mikaela</h4>
                                     <p>Es gibt viele verschiedene Ansätze, die der Entwicklung von LLMs helfen können. Human Feedback ist immer ein starker Kandidat für Verbesserungen. Auch generelle Erläuterungen bei schwierigen Themen, bei denen sich KI nicht sicher ist und dies auch klarmacht, sind hilfreich. Jedoch bin ich nicht intim beschäftigt mit der Historie der Entwicklung von Large Language Modellen, es steht sicher noch mehr Online dazu als ich hier vermittle.</p>
                                 </div>
                             </div>
@@ -333,7 +385,7 @@
                                     <p style="font-size: 0.8em; color: #666; margin-top: 10px;">Quelle: <a href="https://gemini.google.com/share/37a5f038ca2f" target="_blank">https://gemini.google.com/share/37a5f038ca2f</a></p>
                                 </div>
                                 <div class="answer">
-                                    <h4>Antwort von Mikaela Buzdin</h4>
+                                    <h4>Antwort von Mikaela</h4>
                                     <p>Auch hier bin ich keine Expertin, mir ist jedoch bewusst, dass es seit einiger Zeit ein erhöhtes Interesse an der Erklärbarkeit von KI gibt, insbesondere in LLMs. Es geht darum, zu untersuchen, was genau in den verschiedenen Gewichten und Vorurteilen eines Layers abläuft und wie allein schon die Einbettungen auf einer intimen und intuitiven Ebene erklärt werden können ist noch ein entwickelndes Thema, welches uns auch hilft exakte Massnahmen zu treffen um LLMs in diesen Ansätzen zu verbessern.</p>
                                 </div>
                             </div>
@@ -350,7 +402,7 @@
                                     <p style="font-size: 0.8em; color: #666; margin-top: 10px;">Quelle: <a href="https://gemini.google.com/share/febe989dc02a" target="_blank">https://gemini.google.com/share/febe989dc02a</a></p>
                                 </div>
                                 <div class="answer">
-                                    <h4>Antwort von Mikaela Buzdin</h4>
+                                    <h4>Antwort von Mikaela</h4>
                                     <p>Exaktes und einheitliches prompten, es gibt viele Arten wie man LLMs prompten kann um mehr Informationen zu gewinnen über den Generierungsprozess. Ebenfalls haben LLMs einen limitierten Kontext, somit sollte man Vorsichtig sein viele Sachen auf einmal zu Fragen. Ich kann empfehlen oft nach Quellen von Antworten zu fragen und diese zu überprüfen und jeweils nur 1 Frage pro Nachricht zu senden.</p>
                                 </div>
                             </div>
@@ -367,7 +419,7 @@
                                     <p style="font-size: 0.8em; color: #666; margin-top: 10px;">Quelle: <a href="https://gemini.google.com/share/f881278bfb1b" target="_blank">https://gemini.google.com/share/f881278bfb1b</a></p>
                                 </div>
                                 <div class="answer">
-                                    <h4>Antwort von Mikaela Buzdin</h4>
+                                    <h4>Antwort von Mikaela</h4>
                                     <p>Prompt-Engineering kann dem Output massiv helfen das zu kriegen was man erwartet, mehr Kontext verhilft Sprachmodellen exaktere Quellen zu beziehen und Outputs nach diesen Quellen zu produzieren.</p>
                                 </div>
                             </div>
@@ -385,7 +437,7 @@
                                     <p style="font-size: 0.8em; color: #666; margin-top: 10px;">Quelle: <a href="https://gemini.google.com/share/bc31629f968c" target="_blank">https://gemini.google.com/share/bc31629f968c</a></p>
                                 </div>
                                 <div class="answer">
-                                    <h4>Antwort von Mikaela Buzdin</h4>
+                                    <h4>Antwort von Mikaela</h4>
                                     <p>Nein, ein und dasselbe Modell würde nur seine eigenen Verzerrungen und Fehler verstärken. Auch wenn man ein anderes Modell nützt hilft man hier nur wenig, das kein Modell an sich eine Wahrheitsbasis besitzt.</p>
                                 </div>
                             </div>
@@ -402,7 +454,7 @@
                                     <p style="font-size: 0.8em; color: #666; margin-top: 10px;">Quelle: <a href="https://gemini.google.com/share/ea56ae772f1e" target="_blank">https://gemini.google.com/share/ea56ae772f1e</a></p>
                                 </div>
                                 <div class="answer">
-                                    <h4>Antwort von Mikaela Buzdin</h4>
+                                    <h4>Antwort von Mikaela</h4>
                                     <p>Das hängt davon ab, was hier mit dem Limit von genau gemeint ist. Natürlich ist eine Next-Token-Prediction nicht für Anwendungsfälle ausserhalb der Sprache optimal. Mit Transformer-Modellen, die viele verschiedene Architekturen nutzen, können wir jedoch Modelle bauen, die für verschiedene Aufgaben viel besser geeignet sind. Aktuell sind wir ja auch schon weiter als nur „Next-Token-Prediction“ und moderne Architekturen arbeiten mit verschiedenen Tasks zur Optimierung.</p>
                                 </div>
                             </div>
@@ -419,23 +471,27 @@
                                     <p style="font-size: 0.8em; color: #666; margin-top: 10px;">Quelle: <a href="https://gemini.google.com/share/b0340b616781" target="_blank">https://gemini.google.com/share/b0340b616781</a></p>
                                 </div>
                                 <div class="answer">
-                                    <h4>Antwort von Mikaela Buzdin</h4>
+                                    <h4>Antwort von Mikaela</h4>
                                     <p>Ja, grundsätzlich schon. Es gibt noch sehr viel Arbeit im Umfeld von KI und insbesondere von Transformer-Modellen in allen möglichen Richtungen: Performance, Rechenzeit, Erklärbarkeit, Stromverbrauch usw. Wie schon zuvor sollten wir uns weiterhin bemühen, neue Architekturen und Modellansätze zu entwickeln.</p>
                                 </div>
                             </div>
                             <div class="slider-dots"></div>
                         </div>
                     </div>
+                            </div>
+                        </div>
+                    </details>
+                    <h4>Auswertung des Interviews</h4>
+                    <p>Die beiden Interviews, sowohl mit Mikaela wie auch mit der generativen KI, ermöglichen uns nun die Themen aus zwei unterschiedlichen Blickwinkeln zu analysieren. Während Gemini die Fragen in den meisten Fällen sehr allgemeingültig beantwortete, hatte Mikaela eine klarere Meinung zu den Themen und distanzierte sich auch offiziell von Fragen, bei welchen sie nicht ausreichend Fakten hatte.</p>
+                    <p>Im Interview wird klar, dass private Anwender am meisten beeinflussen können, indem sie durch Prompt Engineering ihre Prompts verbessern und nach Quellen fragen, welche sie anschliessend unabhängig von dem LLM überprüfen. Auch die korrekte Verwendung von verschiedenen Chats und der Online Such Funktion wird erwähnt.</p>
+                    <p>Aus den Antworten ist ersichtlich, dass bei der Entwicklung von LLM drei unterschiedliche Bereiche gibt, welche zur Verhinderung Fehlinformation nützlich sein können. Es kann die LLM-Architektur angepasst werden, beim Training des LLM anders vorgegangen werden oder Umsystemen verwendet werden, die Halluzinationen eingegrenzt werden. Laut Gemini stösst auch die "Next-Token-Prediction" irgendwann auf ein Limit, da die Vorhersagung von nächsten Worten keine Faktenchecks beinhalten. Gerade hier erwähnt Mikaela, dass wir schon viel weiter sind als diese Vorhersage. Zum Beispiel RLHF war im Training eine sehr effektive Variante, um Halluzinationen weiter einzudämmen. Zusätzlich erwähnt Mikaela, dass auch intern im Aufbau eines Transformer schon viel angepasst wurde. Durch Verschieben oder neu anordnen von Komponenten können andere Ziele erreicht werden. Umsysteme bieten zwar einen grossen Mehrwert, verschieben aber das Problem meist nur auf einen anderen Punkt. Bei RAG hat man beispielsweise das Problem, dass bei steigender Grösse nicht mehr alle Quellen verifizierte, werden können.</p>
+                    <p>Zusätzlich ist uns beim Auswerten des Interviews noch etwas weiteres aufgefallen. Gemini antwortete, dass aktuell Mechanismen entwickelt werden, damit LLM Antworten, bei fehlenden Quellen oder Unsicherheiten, verweigern können. Mikaela hat bei zwei Fragen sich Distanziert und mit Aussagen wie "bin ich keine Expertin" klargemacht, dass die Fakten nicht vollständig sind oder sie etwas unsicher ist. Das wäre für LLM sicherlich eine der grössten Entwicklungen gegen Halluzinationen. Wenn eine LLM Situationen erkennt, in welchen zu wenig Belege vorhanden sind, und diese anschliessend markiert, hätten die Benutzer ein erster Anhaltspunkt wie wahrheitsgetreu die Antwort sein kann.</p>
+                    <p>Ein grosses Erkenntnis aus dem Mailverkehr mit dem Studiengangleiter und dem Interview war, dass unsere Fragestellung immer noch zu allgemein gehalten war. Daher passten wir diese noch während der Arbeit an.</p>
                 </section>
-        
-
-
-
-
         <section id="fazit" class="gradient-section">
             <h2>Fazit</h2>
             <p>KI Chatbots beeinflussen schon heute wie wir an Informationen gelangen. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. KI Chatbots beeinflussen schon heute wie wir an Informationen gelangen. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p>KI Chatbots beeinflussen schon heute wie wir an Informationen gelangen. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. KI Chatbots beeinflussen schon heute wie we an Informationen gelangen. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>KI Chatbots beeinflussen schon heute wie we an Informationen gelangen. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. KI Chatbots beeinflussen schon heute wie we an Informationen gelangen. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </section>
     </main>
 
@@ -445,7 +501,7 @@
     <script src="/js/footer.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const allDetails = document.querySelectorAll('.collapsible-message');
+            const allDetails = document.querySelectorAll('.collapsible-message, .collapsible-question');
             
             allDetails.forEach(details => {
                 const summary = details.querySelector('summary');
