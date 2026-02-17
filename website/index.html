@@ -197,7 +197,7 @@
                 <p>Im Zentrum steht die Untersuchung unserer Leitfrage:</p>
                 <h3>Inwiefern führen die mathematischen Grundlagen von Large Language Models zwangsläufig zu
                     Halluzinationen
-                    und wie wirksam sind aktuelle technische Gegenmassnahmen?</h3>
+                    und welche Gegenmassnahmen sind wirksam?</h3>
             </div>
             <p>Die vorliegende Arbeit ist in drei wesentliche Abschnitte unterteilt:</p>
             <div class="topic-links-container">
@@ -268,15 +268,17 @@
         <section id="interview" class="tips">
             <h2 class="gradient-text">Interview</h2>
             <p>Um unsere Recherche mit Fachwissen abzustürzen haben wir verschiedene Fachpersonen nach einem Interview
-                gefragt. Ursprünglich war die Idee jemand aus der ETH Zürich zu befragen, da dort mit "Apertus" vor
+                gefragt. Ursprünglich war die Idee jemanden aus der ETH Zürich zu befragen, da dort mit "Apertus" vor
                 kürzerem ein eigenes LLM entwickelt wurde. Leider antwortete uns niemand auf unsere Anfrage zu einem
-                Interview.</p>
+                Interview. Anschliessend fragten wir eine Person von einer Fachhochschule an. Innerhalb dieses
+                Dokument haben wir den Namen der Person, aufgrund des Datenschutzes, geschwärzt. Als diese
+                eine etwas merkwürdige Antwort gab, interviewten wir Mikaela Buzdin, welche wir im persöhnlichen
+                Bekanntenkreis fanden.</p>
+            <h4>Organisation Interview</h4>
             <p>Auf der Webseite einer Fachhochschule wurden wir anschliessend auf eine Person, welche im Bereich LLM
                 tätig ist, aufmerksam. Wir beschlossen diese anzuschreiben und nach einem Interview zu bitten. Nach
                 einer initialen Zusage zu einem Interview, waren wir etwas enttäuscht, als uns mitgeteilt wurde wir
-                sollen unsere Interview-Fragen mit ChatGPT oder Perprexity erarbeiten. Im folgendem Abschnitt ist unser
-                Mailverkehr mit der Person abgebildet. (Der Namen und Tätigkeitsbereich der Person, wie auch der
-                Fachhochschulname wurde geschwärzt, da wir keine Erlaubnis haben diesen zu publizieren)</p>
+                sollen unsere Interview-Fragen mit ChatGPT oder Perprexity erarbeiten.</p>
             <div class="tip-box">
                 <div class="chat-container">
                     <h5 class="chat-header">Mailverkehr mit der genannten Person:</h5>
@@ -417,21 +419,21 @@
             </div>
             <p>Wir wissen nicht, warum die Person die Fragen nicht selbständig beantwortet hat. Vielleicht gab es ein
                 Missverständnis und er dachte er würde durch das Beantworten der Frage unsere Recherche übernehmen.
-                Wobei wir viel mehr seine persönliche Meinung erfahren wollten. Möglicherweise waren unsere Frage auch
-                zu simpel und er wollte uns Auffordern, uns noch tiefer ins Thema einzulesen. Eine weitere Option
+                Wobei wir viel mehr seine persönliche Meinung erfahren wollten. Möglicherweise waren unsere Fragen auch
+                zu simpel und er wollte uns auffordern, uns noch tiefer ins Thema einzulesen. Eine weitere Option
                 besteht darin, dass wir mit unserer Recherche in ein Gebiet vorgestossen sind, in welchem es selbst für
-                Fachpersonen schwer ist Aussagen zu geben. Entsprechend seiner Empfehlung haben wir die Interview-Fragen
+                Fachpersonen schwer ist Aussagen zu treffen. Entsprechend seiner Empfehlung haben wir die
+                Interview-Fragen
                 mit einer künstlichen Intelligenz erarbeitet.</p>
             <p>Nun haben wir Fragen, über Fehlinformationen und Halluzinationen innerhalb künstlicher Intelligenz, mit
-                einer künstlichen Intelligenz beantworten lassen. Aufgrund dieser Ironie haben wir uns entschlossen
+                einer künstlichen Intelligenz beantworten lassen. Aufgrund dieser Ironie haben wir uns entschlossen,
                 weiter nach einem möglichen Interview Ausschau zu halten. Im erweiterten Bekanntenkreis stiessen wir auf
                 Mikaela, gelehrte Informatikerin Applikationsentwicklung EFZ und im letzten Semester des Studienganges
-                "BSc Data Science & Artificial Intelligence" an der Fachhochschule Nordwestschweiz (FHNW). Neben dem
-                Studium arbeitet Mikaela aktuell an einem generativem KI Projekt, welches mit Transformer-ähnlichen
+                "BSc Data Science &amp; Artificial Intelligence" an der Fachhochschule Nordwestschweiz (FHNW). Neben dem
+                Studium arbeitet Mikaela aktuell an einem generativen KI-Projekt, welches mit Transformer-ähnlichen
                 Strukturen (TRELLIS) arbeitet. Das Ziel dieses Projektes ist es 3D Rekonstruktion aus 2D Bildern zu
                 erstellen. Weitere Informationen über ihr Werdegang können in ihrem <a
-                    href="https://dpoportfolio-mikaela.onrender.com/" target="_blank">Portfolio</a> gefunden werden. Sie
-                stimmte unserem Interview zu und beantwortet unsere Fragen schriftlich.</p>
+                    href="https://dpoportfolio-mikaela.onrender.com/" target="_blank">Portfolio</a> gefunden werden.</p>
             <details class="collapsible-question">
                 <summary>
                     <h4 class="chat-header">Interview Fragen und Antworten</h4>
@@ -764,80 +766,94 @@
                 sich auch offiziell von Fragen, bei welchen sie nicht ausreichend Fakten hatte.</p>
             <p>Im Interview wird klar, dass private Anwender am meisten beeinflussen können, indem sie durch Prompt
                 Engineering ihre Prompts verbessern und nach Quellen fragen, welche sie anschliessend unabhängig von dem
-                LLM überprüfen. Auch die korrekte Verwendung von verschiedenen Chats und der Online Such Funktion wird
+                LLM überprüfen. Auch die korrekte Verwendung von verschiedenen Chats und der Online-Suchfunktion wird
                 erwähnt.</p>
-            <p>Aus den Antworten ist ersichtlich, dass bei der Entwicklung von LLM drei unterschiedliche Bereiche gibt,
-                welche zur Verhinderung Fehlinformation nützlich sein können. Es kann die LLM-Architektur angepasst
-                werden, beim Training des LLM anders vorgegangen werden oder Umsystemen verwendet werden, die
-                Halluzinationen eingegrenzt werden. Laut Gemini stösst auch die "Next-Token-Prediction" irgendwann auf
-                ein Limit, da die Vorhersagung von nächsten Worten keine Faktenchecks beinhalten. Gerade hier erwähnt
-                Mikaela, dass wir schon viel weiter sind als diese Vorhersage. Zum Beispiel RLHF war im Training eine
-                sehr effektive Variante, um Halluzinationen weiter einzudämmen. Zusätzlich erwähnt Mikaela, dass auch
-                intern im Aufbau eines Transformer schon viel angepasst wurde. Durch Verschieben oder neu anordnen von
-                Komponenten können andere Ziele erreicht werden. Umsysteme bieten zwar einen grossen Mehrwert,
-                verschieben aber das Problem meist nur auf einen anderen Punkt. Bei RAG hat man beispielsweise das
-                Problem, dass bei steigender Grösse nicht mehr alle Quellen verifizierte, werden können.</p>
-            <p>Zusätzlich ist uns beim Auswerten des Interviews noch etwas weiteres aufgefallen. Gemini antwortete, dass
-                aktuell Mechanismen entwickelt werden, damit LLM Antworten, bei fehlenden Quellen oder Unsicherheiten,
-                verweigern können. Mikaela hat bei zwei Fragen sich Distanziert und mit Aussagen wie "bin ich keine
-                Expertin" klargemacht, dass die Fakten nicht vollständig sind oder sie etwas unsicher ist. Das wäre für
-                LLM sicherlich eine der grössten Entwicklungen gegen Halluzinationen. Wenn eine LLM Situationen erkennt,
-                in welchen zu wenig Belege vorhanden sind, und diese anschliessend markiert, hätten die Benutzer ein
-                erster Anhaltspunkt wie wahrheitsgetreu die Antwort sein kann.</p>
-            <p>Ein grosses Erkenntnis aus dem Mailverkehr mit dem Studiengangleiter und dem Interview war, dass unsere
-                Fragestellung immer noch zu allgemein gehalten war. Daher passten wir diese noch während der Arbeit an.
-            </p>
+            <p>Aus den Antworten ist ersichtlich, dass es bei der Entwicklung von LLM drei unterschiedliche Bereiche
+                gibt,
+                welche zur Verhinderung von Fehlinformation nützlich sein können. Es kann die LLM-Architektur angepasst
+                werden, beim Training des LLM anders vorgegangen werden oder Umsystemen verwendet werden. Laut Gemini
+                stösst auch die "Next-Token-Prediction" irgendwann an ein Limit, da die Vorhersage von nächsten Worten
+                keine Faktenchecks beinhaltet. Gerade hier erwähnt Mikaela, dass wir schon viel weiter sind als diese
+                Vorhersage. Zum Beispiel RLHF war im Training eine sehr effektive Variante, um Halluzinationen weiter
+                einzudämmen. Zusätzlich erwähnt Mikaela, dass auch intern im Aufbau eines Transformers schon viel
+                angepasst wurde. Durch das Verschieben oder Neuanordnen von Komponenten können andere Ziele erreicht
+                werden. Umsysteme bieten zwar einen grossen Mehrwert, verschieben aber das Problem meist nur auf einen
+                anderen Punkt. Bei RAG hat man beispielsweise das Problem, dass bei steigender Grösse nicht mehr alle
+                Quellen verifiziert, werden können.</p>
+            <p>Zusätzlich ist uns beim Auswerten des Interviews noch etwas Weiteres aufgefallen. Gemini antwortete, dass
+                aktuell Mechanismen entwickelt werden, damit LLM Antworten bei fehlenden Quellen oder Unsicherheiten
+                verweigern können. Mikaela hat sich bei zwei Fragen distanziert und mit Aussagen wie "bin ich keine
+                Expertin" klargemacht, dass die Fakten nicht vollständig sind oder sie etwas unsicher ist.</p>
+            <p>Das wäre für LLM sicherlich eine der grössten Entwicklungen gegen Halluzinationen. Wenn eine LLM
+                Situationen erkennt, in welchen zu wenig Belege vorhanden sind, und diese anschliessend markiert, hätten
+                die Benutzer einen ersten Anhaltspunkt, wie wahrheitsgetreu die Antwort sein kann.</p>
+            <p>Eine grosse Erkenntnis aus dem Mailverkehr mit der Person, von der Fachhochschule, und dem Interview war,
+                dass unsere Fragestellung immer noch zu allgemein gehalten war. Daher passten wir diese noch während der
+                Arbeit an.</p>
         </section>
         <section id="fazit" class="gradient-section">
             <h2>Fazit</h2>
             <p>Am Anfang dieser Arbeit haben wir uns eine übergeordnete Fragestellung überlegt und davon mehrere
-                untergeordnete Fragen abgeleitet. Mithilfe dieser können wir nun die übergeordnete Fragestellung
+                untergeordnete Fragen abgeleitet. Dadurch können wir nun die übergeordnete Fragestellung
                 "Inwiefern führen die mathematischen Grundlagen von Large Language Models zwangsläufig zu
-                Halluzinationen und wie wirksam sind aktuelle technische Gegenmassnahmen?" beantworten.</p>
+                Halluzinationen welche Gegenmassnahmen sind wirksam?" beantworten.</p>
 
-            <h3>Wie funktioniert ein Large Language Models mathematisch?</h3>
-            <p>Damit wir das fundamentale Verständnisse für LLM erhielten, haben wir zuerst erarbeitet, wie ein LLM
-                Mathematisch aufgebaut ist. Es gibt viele verschiedene LLM-Architekturen. Während der Arbeit haben wir
-                die Transformer Architektur weiter angeschaut. Bei Transformer werden Wörter, vom Input, zuerst in
+            <h3>Wie funktioniert ein Large Language Model mathematisch?</h3>
+            <p>Damit wir das fundamentale Verständnis für LLMs erhielten, haben wir zuerst erarbeitet, wie ein LLM
+                mathematisch aufgebaut ist. Es gibt viele verschiedene LLM-Architekturen. Während der Arbeit haben wir
+                die Transformer-Architektur weiter angeschaut. Bei Transformern werden Wörter, vom Input, zuerst in
                 Vektoren umgewandelt. Danach durchlaufen diese Vektoren die Attention. Innerhalb der Attention wird,
-                mithilfe von mehreren Matrixmultiplikationen, Skalar Berechnungen und Softmax, der LLM ermöglicht, den
-                Kontext von Worten zu verstehen. Im darauffolgenden MLP, wird ein Neurales Netzwerk verwendet, welches
-                das Speichern von Informationen innerhalb des LLM ermöglicht. Auch hier werden Matrixmultiplikationen,
-                Vektor Rechnungen und eine Funktion wie beispielsweise ReLU verwendet.</p>
+                mithilfe von mehreren Matrixmultiplikationen, Skalar Berechnungen und Softmax Funktionen, dem LLM
+                ermöglicht den Kontext von Worten zu verstehen. Im darauffolgenden MLP, wird ein neurales Netzwerk
+                verwendet, welches das Speichern von Informationen innerhalb des LLM ermöglicht. Auch hier werden
+                Matrixmultiplikationen, Vektor Rechnungen und eine Funktion wie beispielsweise ReLU verwendet. Nach
+                meheren Wiederholungen, der Attention und des MLP, kann das LLM angeben, welches Wort als nächstes
+                besten auf den Gegebenen Text passt.</p>
 
             <h3>Aus welchen Gründen halluzinieren LLMs?</h3>
-            <p>Als wir diese Arbeit starteten, wussten wir bereits, dass LLMs Halluzinationen haben. Erst während dem
-                Recherchieren fürs Thema wurde uns bewusst, dass die Architektur der aktuellen AI zwangsläufig zu
-                Halluzinationen führen. Dies ist kein Fehler in der Software, sondern ein Teil des fundamentalen
-                Prinzips, der Next-Token-Prediction. Denn es priorisiert eine plausibel klingende Antwort über die
-                Faktisch korrekte. Zudem hat das LLMs kein "Wissen", es hat legentlich Milliarden von Parametern, die
+            <p>Erst während der Recherche fürs Thema wurde uns bewusst, dass die Architektur der aktuellen AI
+                zwangsläufig zu Halluzinationen führt. Dies ist kein Fehler in der Software, sondern ein Teil des
+                fundamentalen Prinzips, der Next-Token-Prediction. Es priorisiert eine plausibel klingende Antwort über
+                die faktisch korrekte. Zudem hat das LLM kein "Wissen", es hat lediglich Milliarden von Parametern, die
                 dieses "Wissen" beinhalten. Das führt immer dazu, dass ein gewisser Teil falsch sein musss, denn man
-                kann, laut der Shannon-Entropie, nicht alle Informationen der Welt in einigen hundert Gigabytes ohne
-                Verlust abspeichern.</p>
-            <p>Dazu kommen die Fehler, die in dem Embedding, der Attention oder dem MLP passieren können und das ganze
-                Konstrukt wird für Fehler nur so ein Paradis.</p>
+                kann nicht alle Informationen der Welt in einigen hundert Gigabytes ohne Verlust abspeichern.</p>
+            <p>Im Embedding können ähnliche Vektore etwas essenziell anderes bedeutet. Falls das LLM den falschen
+                Vektor verwendet kann dadurch die komplette Generation beeinlusst werden. Sobald eine Fehlinformation,
+                zum Beispiel durch das Prompt des Benutzers, in die Attention gelangt, wird die Attention darauf
+                aufbauen. Dies führt dazu, dass die Antwort deutlich von der Wahrheit abweichen kann.</p>
             <p>Unsere Recherche stützen wir zusätzlich mit einem Interview. Grundsätzlich überschnitten sich die
                 Antworten des Interviews mit unserer Recherche. Es gab ein paar kleine neue Erkenntnisse, so zum
-                Beispiel, das aktuell daran gearbeitet wird die einzelnen Parameter besser zu verstehen.</p>
+                Beispiel, das aktuell daran gearbeitet wird, die einzelnen Parameter eines LLM besser zu verstehen.</p>
 
             <h3>Welche Möglichkeiten gibt es, um Halluzinationen in LLMs zu vermindern?</h3>
-            <p>Während unserer Arbeit habe wir mehre mögliche Ansätze gefunden, um Halluzinationen innerhalb von LLMs zu
+            <p>Wir haben folgende mögliche Ansätze gefunden, um Halluzinationen innerhalb von LLMs zu
                 reduzieren. Eine wichtige Erkenntnis ist, dass Next-Token-Prediction niemals komplett fehlerfrei werden
                 wird. Mithilfe von diesen Möglichkeiten können die Halluzinationen jedoch weiter eingegrenzt werden.
                 Sowohl private Anwender wie auch Entwickler können hier einen Beitrag leisten. Benutzer können am
                 meisten Unterschied beim Prompt Engineering erreichen. Entwickler können mit Umsystemen,
-                Architektur-Anpassungen und Trainingsprozess Anpassungen gegen Halluzinationen vorgehen. Im Rahmen der
-                Arbeit haben wir eine Website mit Tipps erstellt: <a href="/vorschlaege/">f3o.ch/vorschlaege/</a></p>
+                Architektur-Anpassungen und Trainingsprozess anpassungen gegen Halluzinationen vorgehen. Im Rahmen der
+                Arbeit haben wir eine Website mit Tipps erstellt: <a href="/vorschlaege/">f3o.ch/vorschlaege/</a>.
+                Damit wollen wir insbesondere Anwendern aufzeigen, was sie unternehmen können, um Falschinformationen
+                zu verhindern.</p>
 
             <h3>Gesamtfazit</h3>
-            <p>Wir möchten mit dieser Arbeit nicht erreichen, dass aus Angst vor Fehlinformationen nicht KI oder LLMs
-                verwendet werden. Heutzutage ist die Verwendung von diesem generativen Tool eine grosse Chance, um
-                Produktivität zu fördern. Jedoch können, wie bereits erwähnt, Antworten überzeugend sein, aber aus
-                Fehlinformationen bestehen. Selbst wenn die aktuelle Transformer Architektur perfekt implementiert wird,
-                entstehen durch die Next-Token-Prediction Fehler. Quellenangaben von künstlichen Intelligenzen müssen
-                unabhängig überprüft werden, da auch dort Halluzinationen öfters entstehen.</p>
-            <p>Aus unserer Sicht ist KI ein geniales Tool für kreative Sachen oder erste Entwürfe eines Produktes. Für
-                grössere Arbeiten, gerade bei Recherchen, würden wir empfehlen KI nur sehr gezielt einzusetzen und
+            <p>Wir möchten mit dieser Arbeit erreichen, dass Anwender von LLM und KI sich der Fehlinformationen bewusst
+                sind. Heutzutage ist die Verwendung von generativen Tools eine grosse Chance, um unsere Produktivität
+                zu fördern. Jedoch können, wie bereits erwähnt, Antworten überzeugend sein, aber aus Fehlinformationen
+                bestehen. Selbst wenn die aktuelle Transformer-Architektur perfekt implementiert wird, entstehen durch
+                die Next-Token-Prediction Fehler. Auch Quellenangaben von künstlichen Intelligenzen sind davon betroffen
+                und müssen unabhängig überprüft werden. Neben dem Überprüfen der Fakten muss, aus unserer Sicht, das
+                Wissen vermittelt werden, wie ein LLM korrekt gepromptet wird. Hier haben wir versucht mit unserer
+                Webseite einen ersten Schritt zu gehen. Obwohl Agent-Architekturen auch durch Anwender erstellt werden
+                können, finden wir das besonders Unternehmen noch mehr in diesem Gebiet investieren können. Gerade weil
+                Transformer immer Halluzinationen haben werden, sind Agent-Architekturen ideal, um die Halluzinationen
+                abzufangen. Zwar haben wir im Interview erfahren, dass RLHF in der Vergangenheit am Meisten gegen
+                Fehlinformationen geholfen hat. Aufgrund unserer Recherche würden wir aber weniger darin investieren, da
+                Transformer, selbst beim perfekten Training, Fehler machen werden. Interessant wäre aus unserer Sicht
+                auch das erforschen und entwicklen von neuen LLM-Architekturen, wobei dies Zeit- und Ressourcenintensiv
+                ist.</p>
+            <p>Aus unserer Sicht ist KI ein geniales Tool für kreative Sachen oder erste Entwürfe eines Produktes.
+                Aktuell empfehlen wir für grössere Arbeiten, gerade bei Recherchen, KI nur sehr gezielt einzusetzen und
                 Informationen immer zu überprüfen.</p>
         </section>
     </main>

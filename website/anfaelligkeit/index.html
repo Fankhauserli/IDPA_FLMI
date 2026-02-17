@@ -39,10 +39,12 @@
                 Englischsprachige Anfragen sind deshalb sehr zuverlässig, kleinere europäische Sprachen sind weniger
                 zuverlässig.</p>
             <p>Der Bericht zeigt, dass die Menschen immer weniger Vertrauen in Fakten haben. Wenn man immer mehr
-                Informationen von KI-Systemen bekommt, kann man leicht falsche Geschichten verbreiten. Das ist schlecht
+                Informationen von KI-Systemen bekommt, kann man leicht falsche Informationen verbreiten. Das ist
+                schlecht
                 für die Qualität von Nachrichten. Die Experten der EBU und der BBC denken, dass KI-Assistenten im Moment
                 eher als kreative Werkzeuge und nicht als verlässliche Fakten-Sammlungen benutzt werden sollten. Jedoch
-                gibt es schon jetzt ein paar Methoden diese Fehlerquote zu verbessern, diese schauen wir uns in diesem
+                gibt es schon jetzt ein paar Methoden, um diese Fehlerquote zu verbessern, diese schauen wir uns in
+                diesem
                 Kapitel an.</p>
         </section>
 
@@ -50,7 +52,7 @@
         <section id="ursachen">
             <h2 class="gradient-text">Ursachen</h2>
             <h3>Warum passieren Fehler?</h3>
-            <p>Das Maschinen Fehler machen scheint auf den ersten Blick einfach lösbar, denn eine Maschine macht ja
+            <p>Dass Maschinen Fehler machen, scheint auf den ersten Blick einfach lösbar, denn eine Maschine macht ja
                 nur das, was man ihr sagt, also kann man einer LLM nicht einfach sagen, dass sie keine Fehler machen
                 soll? Die Antwort ist komplex, denn im Gegensatz zu herkömmlicher Software basieren LLMs nicht auf
                 logischen Regeln, sondern auf statistischen Wahrscheinlichkeiten. Sie “wissen” nichts, sie berechnen
@@ -67,9 +69,9 @@
                 vorkommen, im Vektorraum
                 sehr nahe beieinander dargestellt. So zum Beispiel sind die Vektoren, welche die Wörter Airbus und
                 Boeing darstellen sehr ähnlich. Wenn ein Modell jetzt halluziniert, greift es nicht komplett
-                daneben, sondern nur ein bisschen, also kann zum Beispiel bei dem Satz: “Das Flugzeug A350 wird
-                hergestellt von” das nächste Wort in der Vektoriellen Darstellung näher bei Boeing als bei Airbus
-                sein und das Modell gibt mit voller Sicherheit den Satz: “Das Flugzeug A350 wird hergestellt von
+                daneben, sondern nur ein bisschen, also kann zum Beispiel beim Satz, “Das Flugzeug A350 wird
+                hergestellt von” das nächste Wort in der vektoriellen Darstellung näher bei Boeing als bei Airbus
+                sein und das Modell gibt mit voller Sicherheit den Satz, “Das Flugzeug A350 wird hergestellt von
                 Boeing.” aus.</p>
 
             <h4>Fehler in der Attention</h4>
@@ -77,20 +79,19 @@
                 wird, wie
                 stark jedes Wort im Satz mit jedem
                 anderen Wort in Verbindung steht.</p>
-            <p>Was nun passieren kann ist das sogenannte “snowballing”, bei dem Phänomen handelt es sich darum, dass
-                der Attention-Algorithmus, wenn im Input eine falsche Prämisse steht, seinen Fokus darauf ausrichtet
-                und generiert basierend auf dieser falschen Annahme weiter, um den Kontext kohärent zu halten. Das
-                Modell priorisiert Kohärenz (dass der Satz flüssig klingt) über Korrektheit. Es achtet auf Muster,
-                nicht auf Wahrheitsgehalt.</p>
+            <p>Was nun passieren kann, ist das sogenannte “snowballing”. Sobald beim Attention Input eine falsche
+                Aussage steht, wird der Fokus der Attention danach ausgerichtet. Das LLM generiert dann sämtlichen
+                folgenden Text aufgrund dieser falschen Annahme weiter. Das Modell priorisiert den flüssigen Satz
+                gegenüber Korrektheit. Es achtet auf Muster, nicht auf den Wahrheitsgehalt, des Textes.</p>
 
             <h4>Fehler im MLP</h4>
             <p>Während die Attention Beziehungen zwischen Wörtern herstellt, vermuten Forscher, dass das eigentliche
                 "Wissen" in den <a href="/llm/index.html#mlp-detail">MLPs</a> gespeichert ist, die auf die Attention
                 folgen.</p>
-            <p>Das Problem hierbei ist, dass falls Falsche Trainingsdaten verwendet werden die Gewichte des
+            <p>Das Problem hierbei ist, dass falls falsche Trainingsdaten verwendet werden, die Gewichte des
                 Netzwerks nicht mehr stimmen.</p>
             <p>Das tönt zwar nach einem einfachen Problem, da man einfach die Daten nach ihrer Richtigkeit
-                überprüfen kann, bevor man diese zum Trainieren benutzt. Jedoch ist das Problem, das die Menge von
+                überprüfen kann, bevor man diese zum Trainieren benutzt. Jedoch ist das Problem, dass die Menge von
                 Informationen, die gebracht werden, so gross ist, dass es unmöglich wäre für einen Menschen diese zu
                 überprüfen. Zudem gibt es neue Modelle, die während der Ausführung Zugriff auf das Internet haben
                 und somit kann man die Daten nicht überprüfen.</p>

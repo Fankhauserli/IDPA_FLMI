@@ -295,38 +295,38 @@
                 Rechenaufwand, der bei Transformer quadratisch zur Textlänge steigt, linear zur Textlänge gestalten.
                 Innerhalb dieser IDPA werden wir nur auf die Transformer Architektur weiter eingehen, da diese
                 aktuell am meisten verwendet wird.</p>
-            <p>Bei allen folgenden Informationen zum Transformer Aufbau muss beachtet werden, dass diese stark
+            <p>Bei allen folgenden Informationen zum Transformer-Aufbau muss beachtet werden, dass diese stark
                 vereinfacht sind. Da LLM ihre Modell-Parameter selbst einstellen, kann zwar erklärt werden, welche
-                Mathematische Funktion ausgeführt werden, was diese aber schlussendlich wirklich bewirken, bleibt
+                mathematische Funktionen ausgeführt werden, was diese aber schlussendlich wirklich bewirken, bleibt
                 selbst für Expert:innen oft eine Vermutung.</p>
 
             <p>Grundsätzlich ist ein Transformer in vier Teilschritte trennbar. Im ersten Teil wandelt der
-                Transformer die, für uns Menschen verständliche, Wörter aus der Eingabe in Computer verständliche
-                Worte um. Dieser Schritt wird Embedding genannt. Anschliessend in der sogenannten Attention
-                berechnet der Transformer den Kontext der einzelnen Worte. Dieser Schritt ermöglicht es, komplexere
-                Wörter oder Sätze zu verstehen. So gibt es zum Beispiel Wörter, welche mehrere Bedeutungen haben,
-                wobei die richtige Bedeutung erst durch den Kontext hervorkommt. Ein Beispiel für ein solches Wort
-                ist die “Bank”. Im nächsten Schritt hat die LLM dann noch die Chance das Wort, welches generiert
-                wird, mit eigenen Informationen anzureichern. Bei diesem Schritt gibt es verschiedene
-                Lösungsansätze, wir schauen uns nur das MLP (Multilayer Perzeptron) genauer an. Nach diesem Schritt
-                ist die generierung des Wortes abgeschlossen und das Wort wird wieder umgewandelt in ein, für uns
-                Menschen, verständliches Wort.</p>
+                Transformer die, für uns Menschen verständlichen, Wörter um. Genauer gesagt, erstellt er Vektoren,
+                die dieses Wort abbilden und für den Computer verständlich sind. Dieser Schritt wird Embedding genannt.
+                Anschliessend, in der sogenannten Attention berechnet der Transformer den Kontext der einzelnen Wörter.
+                Dieser Schritt ermöglicht es, komplexere Wörter oder Sätze zu verstehen. So gibt es zum Beispiel Wörter,
+                welche mehrere Bedeutungen haben, wobei die richtige Bedeutung erst durch den Kontext hervorkommt. Ein
+                Beispiel für ein solches Wort ist die "Bank". Im nächsten Schritt hat die LLM dann noch die Chance das
+                Wort, welches generiert wird, mit eigenen Informationen anzureichern. Bei diesem Schritt gibt es
+                verschiedene Lösungsansätze, wir schauen uns nur das MLP (Multilayer Perzeptron) genauer an. Nach diesem
+                Schritt ist die Generierung des Wortes abgeschlossen und das Wort wird wieder umgewandelt in ein, für
+                uns Menschen, verständliches Wort.</p>
         </section>
 
         <section id="embedding">
             <h2 class="gradient-text">Embedding</h2>
             <h3 id="vektoren">Bedeutung in Vektoren</h3>
-            <p>Ein Wort erhält im Sprachmodell seine Bedeutung nicht in sich selbst, sondern aus den vielen
-                Beziehungen, die es zu anderen Wörtern hat. Die Vektoreneinbettung ist das Zuteilen der Bedeutung zu
-                Wörtern, indem es gegen andere ähnliche Wörter verglichen wird. Sie erhalten einen eigenen Wert, der
-                dann durch den Kontext anderer Wörter in einem Satz ergänzt wird.</p>
-            <p>Wie kann nun die Bedeutung eines Wortes in Werten festgehalten werden? In LLMs wird dies mit
-                hochdimensionalen Vektoren gemacht.</p>
-            <p>Ein Beispiel für die Festhaltung von nicht numerischer Bedeutung in Vektoren ist wie Computer mit
-                Farben im RGB-Profil umgehen. Diese werden in einem 3-dimensionalen Vektor festgehalten.</p>
-            <p>Wir haben 3 Dimensionen, drei «Richtungen». Rot, Grün und Blau. Die Werte gehen von 0-255. Der
-                Computer versteht nicht, dass dies die Farbe Rot ist, doch er weiss, wo Rot im 3-dimensionalen Raum
-                liegt. (255, 0, 0) bedeutet “Die Roten Pixel sollen auf der höchsten Helligkeit sein”.</p>
+            <p>LLMs nutzen hochdimensionale Vektoren um die Bedeutung von Wörtern festgehalten. Diese Vektoren
+                haben tausende von Dimensionen, welche verschiedene Attribute des Wortes festhalten.</p>
+            <p>Ein Beispiel für die Festhaltung von nicht numerischer Bedeutung in den Dimensionen von Vektoren,
+                ist wie Farben innerhalb des RGB-Farb-Profils dargestellt werden. RGB wird von Bildschirmen genutzt,
+                um Farben darzustellen. Ein Computer muss also wissen, wie er eine spezifische Farbe darstellt. Dies
+                wird durch einen Vektor gemacht, welcher die Farbmischung darstellt.</p>
+            <p>Der Vektor zeigt auf eine einzige Farbe, beispielsweise Gelb. Der Computer kennt jedoch nur Rot,
+                Grün und Blau. Also informieren wir den Computer wie ausgeprägt alle der Grundfarben sind, damit
+                Gelb entsteht. Der Ausprägungsgrad pro Dimension ist ein Wert von 0-255. Der Computer versteht
+                nicht, was die Farbe Gelb effektiv ist, doch er versteht, wo genau Gelb im dreidimensionalen Raum
+                liegt. (255, 255, 0) bedeutet "rote und grüne Pixel auf maximaler Helligkeit".</p>
 
             <div class="tip-box-special">
                 <h4>Interaktives Element: Farben als Vektoren (3D)</h4>
@@ -373,19 +373,18 @@
             <script type="module" src="/js/rgb_cube.js?v=2"
                 onerror="document.getElementById('rgb-3d-container').innerHTML = '<p style=\'padding:20px; color:red\'>Fehler beim Laden von 3D. Bitte Internetverbindung prüfen.</p>'"></script>
 
-            <p>Ein Computer versteht so welche Farbe es anzeigen soll, somit “Weiss” der Computer, was Blau ist, und
-                kann es anzeigen. Er versteht sogar den Unterschied zwischen Hellblau und Dunkelblau, da der Vektor
-                der Farbe einfach weiter Richtung weiss zeigt. Er weiss nicht, was Rot wirklich ist, doch kennt
-                seinen Vektor. So wird eine Bedeutung in einem Vektor festgehalten.</p>
-            <p>Wörter sind für LLMs genauso Vektoren, nur dass diese durch die erhöhte Komplexität der Bedeutung von
-                Wörtern deutlich mehr Dimensionen haben, welche dem LLM Helfen “Attribute” der Wörter festzuhalten.
-                Bei modernen LLMs sind dies ungefähr 2’000-10’000 Dimensionen. Diese Dimensionen sind nicht benannt
-                wie in unserem Beispiel der Farben (Richtung Rot, Grün und Blau), doch das LLM weiss was diese
-                bedeuten.</p>
-            <p>Die Wörter müssen zuerst ihre Werte erhalten. Dies geschieht in der Vektoreneinbettung. Durch
-                “Training”, wo einem LLM viele Textdaten gegeben werden, schaut das LLM jedes einzelne Wort in
-                seinem Kontext an und generiert dafür einen Vektor der die Bedeutung durch die Abhängigkeit und
-                Ähnlichkeit zu anderen Wörtern erlangt.</p>
+            <p>Nun kann der Computer Gelb repräsentieren, obwohl er gar nicht wirklich weiss, was Gelb ist.
+                Viele Informationen kann er nun auch aus den Beziehungen zwischen zwei Farben entnehmen.
+                Beispielsweise weiss er, dass die Farben "Gelb" und "Orange" ähnlich sind, da ihre Vektoren an
+                einen ähnlichen Orte zeigen. Wiederum versteht er, dass Dunkelblau überhaupt nicht nahe an diesen
+                Farben ist.</p>
+            <p>Wörter sind für LLMs genauso Vektoren, nur dass diese durch die erhöhte Komplexität in ihrer
+                Bedeutung deutlich mehr Dimensionen benötigen, worin Attribute oder auch Fakten festgehalten werden
+                können. Rot, Grün und Blau reichen nicht um das Wort "Flugzeug" zu beschreiben. Moderne LLMs haben
+                zehntausende an Dimensionen. Diese Dimensionen sind jedoch nicht klar benennt und uns Menschen
+                unbekannt. Sie werden durch "Self Supervised Learning" definiert. Vereinfacht -> Das LLM bringt sich
+                dies selbst bei. Nur das LLM selbst versteht, was die Dimensionen bedeuten und wie sie
+                zusammenspielen.</p>
             </div>
 
             </div>
@@ -403,19 +402,19 @@
                 zu einem Wort hinzugefügt werden. In diesem Abschnitt werden wir nur die Self-Attention genauer
                 anschauen, die Cross-Attention lassen wir aus.</p>
 
-            <h4>Query und Key Vektoren</h4>
-            <p>Innerhalb der Attention wird mit jedem Token zwei <a href="/math/index.html#matrix-vektor"
+            <h4>Query- und Key-Vektoren</h4>
+            <p>Innerhalb der Attention werden mit jedem Token zwei <a href="/math/index.html#matrix-vektor"
                     class="text-indigo-600 hover:underline">Matrixmultiplikationen</a> durchgeführt. Beide Matrizen
-                bestehen komplett aus Modelparameter, welche, während dem Lernen der LLM definiert werden. Als
+                bestehen komplett aus Modellparametern, welche, während dem Lernen der LLM definiert werden. Als
                 Ergebnis der beiden Multiplikationen erhalten wir Query und Key Vektoren, diese befinden sich in
                 einer kleineren Dimension im Vergleich zum ursprünglichen Einbettungsraum.</p>
             <p>Die erste Matrixmultiplikation ergibt einen Query-Vektor, welcher eine Frage an die umliegenden
-                Tokens widerspiegelt. Ein sehr stark vereinfachtes Beispiel ist, dass die Matrik, welche bei der
-                Matrixmultiplikation für den Query-Vektor verwendet wird, bei Nomen den Fragenvektor “Gibt es ein
-                Flugzeug Typ vor mir?” zurückgibt.</p>
+                Tokens widerspiegelt. Ein sehr stark vereinfachtes Beispiel ist, das die Matrix, welche bei der
+                Matrixmultiplikation für den Query-Vektor verwendet wird, bei Nomen den Fragenvektor "Gibt es ein
+                Flugzeugtyp vor mir?" zurückgibt.</p>
             <p>Bei der zweiten Matrixmultiplikation erhalten wir einen Key-Vektor. Der Key-Vektor ist die Antwort
-                zur Frage des Query-Vektors. Hier würden in unserem Beispiel Tokens, welche einen Flugzeug Typ
-                repräsentieren, die Antwort geben “Ich bin ein Flugzeug Typ, an der Position X”.</p>
+                zur Frage des Query-Vektors. Hier würden in unserem Beispiel Tokens, welche einen Flugzeugtyp
+                repräsentieren, die Antwort geben, "Ich bin ein Flugzeug Typ, an der Position X".</p>
 
             <div class="nn-architecture-diagram">
                 <div class="html-diagram">
@@ -456,39 +455,39 @@
                 Key-Vektor mit jedem Query-Vektor ausgerechnet. Wenn das Skalarprodukt von einem Query-Vektor und
                 einem Key-Vektor stark positiv ist, bedeutet dies, dass das Token vom Key-Vektor auf das Token vom
                 Query-Vektor Einfluss haben sollte. Bei einem Skalarprodukt nahe bei Null oder im Minus beeinflussen
-                sich die Token gegenseitig nicht oder nur sehr schwach. Bei unserem Beispiel würde das Skalarprodukt
-                von einem Flugzeug Typ darstellendem Key-Vektor und einem “Flugzeug” Query-Vektor ein sehr hohes
-                Skalarprodukt ergeben und somit aufzeigen, dass ein Flugzeug Typ das Wort “Flugzeug” stark
+                sich die Tokens gegenseitig nicht oder nur sehr schwach. Bei unserem Beispiel würde das Skalarprodukt
+                von einem Flugzeugtyp darstellendem Key-Vektor und einem "Flugzeug" Query-Vektor ein sehr hohes
+                Skalarprodukt ergeben und somit aufzeigen, dass ein Flugzeugtyp das Wort "Flugzeug" stark
                 beeinflusst.</p>
 
             <h4>Softmax</h4>
             <p>Sämtliche Skalarprodukte von Key-Vektoren, welche nach einem Query-Vektor in der Reihenfolge sind,
-                werden auf minus Unendlich gesetzt. Dies bewirkt, dass in folgendem Beispielsatz: “Das A320 Flugzeug
-                neben dem PC-21” das Token für “PC-21” das Token für “Flugzeug” nicht beeinflusst.</p>
+                werden auf minus unendlich gesetzt. Dies bewirkt, dass in folgendem Beispielsatz: "Das A320 Flugzeug
+                neben dem PC-21" das Token für "PC-21" das Token für "Flugzeug" nicht beeinflusst.</p>
             <p>Anschliessend wird ein <a href="/math/index.html#softmax"
                     class="text-indigo-600 hover:underline">Softmax</a> von allen Skalaren von einem Query-Vektor und
                 allen Key-Vektoren
-                genommen. Softmax setzt alle Werte im Minus Bereich auf Null und gewichtet alle positiven Zahlen so,
+                genommen. Softmax setzt alle Werte im Minusbereich auf Null und gewichtet alle positiven Zahlen so,
                 dass am Schluss die Summe sämtlicher Zahlen zusammenaddiert Eins ergeben. Das Ergebnis vom Softmax
                 ist eine normalisierte Spalte, in welcher abgelesen werden kann welcher Token welchen Token wie fest
                 beeinflussen muss.</p>
 
             <h4>Beeinflussung</h4>
-            <p>Nun wissen wir, zum Beispiel, dass “A320” die Einbettung für “Flugzeug” beeinflussen muss. Für die
-                eigentlich Beeinflussung muss nun die Einbettung vom "Flugzeug” Token angepasst werden. Hier wird
-                eine weitere Matrixmultiplikation gerechnet. Auch bei dieser besteht die Matrix aus Modelparameter,
-                die wiederum, während dem Lernen gesetzt werden. Die Einbettung von jedem Token wird mit der Matrik
-                multipliziert, draus erhält man einen weiteren Vektor, der aufzeigt, was bei einem anderen Token
+            <p>Nun wissen wir, zum Beispiel, dass "A320" die Einbettung für "Flugzeug" beeinflussen muss. Für die
+                eigentliche Beeinflussung muss nun die Einbettung vom "Flugzeug"-Token angepasst werden. Hier wird
+                eine weitere Matrixmultiplikation gerechnet. Auch bei dieser besteht die Matrix aus Modelparametern,
+                die wiederum während dem Lernen gesetzt werden. Die Einbettung von jedem Token wird mit der Matrix
+                multipliziert, daraus erhält man einen weiteren Vektor, der aufzeigt, was bei einem anderen Token
                 addiert werden muss, um diesen zu beeinflussen. Diesen Vektor nennen wir von nun an
-                “Beeinflussungs-Vektor”. Bei unserem Beispiel würde die Multiplikation, der Matrix, mit dem Vektor
-                für “A320” ein Beeinflussungs-Vektor ergeben, welcher zu “Flugzeug” addiert werden kann. Das
-                Ergebnis daraus wäre “Flugzeug” mit dem Kontext “A320”.</p>
+                "Beeinflussungs-Vektor". Bei unserem Beispiel würde die Multiplikation, der Matrix, mit dem Vektor
+                für "A320" einen Beeinflussungs-Vektor ergeben, welcher zu "Flugzeug" addiert werden kann. Das
+                Ergebnis daraus wäre "Flugzeug" mit dem Kontext "A320".</p>
 
             <p>Da wir mehrere Tokens haben, welche unterschiedlich stark beeinflussen, müssen sämtliche
-                Beeinflussungs-Vektoren mit dem Softmax Ergebnis des gleichen Key-Token multipliziert werden. Nun
+                Beeinflussungs-Vektoren mit dem Softmax-Ergebnis des gleichen Key-Tokens multipliziert werden. Nun
                 können alle Ergebnisse für ein Query-Token zusammenaddiert werden, um einen Vektor zu erhalten,
-                welcher die unterschiedlich stark Gewichtete Beeinflussungen beinhaltet. In unserem Beispiel könnte
-                also mit einem Vektor zum Token “Flugzeug” den Kontext “weiss, A320, Airbus” dazu addiert werden,
+                welcher die unterschiedlich stark gewichteten Beeinflussungen beinhaltet. In unserem Beispiel könnte
+                also mit einem Vektor zum Token "Flugzeug" der Kontext "weiss, A320, Airbus" dazu addiert werden,
                 wobei die einzelnen Kontextwörter unterschiedlich gewichtet wurden.</p>
 
             <div class="nn-architecture-diagram">
@@ -507,7 +506,8 @@
 
                         <!-- Context -->
                         <div class="diagram-column">
-                            <div class="node rect highlight">Kontext "A320"</div>
+                            <div class="node rect highlight" style="background: #e6e0f8; color: #4d25fc;">Fakten Vektor
+                                (Neu)</div>
                         </div>
 
                         <!-- Arrow -->
@@ -522,17 +522,18 @@
                 </div>
             </div>
 
-            <p>Nun konnten wir erfolgreich Kontext, aufgrund anderen Tokens, zu einem zuvor kontextlosen Token
+            <p>Nun konnten wir erfolgreich Kontext, aufgrund anderer Tokens, zu einem zuvor kontextlosen Token
                 hinzufügen.</p>
             </div>
 
             <div class="tip-box">
                 <h3>Multi Headed Attention</h3>
-                <p>Sämtliche Schritte, welche nun erklärt wurden, werden in der Fachsprache einen “Head” genannt. In
-                    fast allen LLM’s gibt es nicht nur einen “Head” in der Attention, sondern viele aneinander gereihte
-                    “Head”. Dies wird dann Multi Headed Attention genannt. Der Hauptgrund, wieso eine Multi Headed
-                    Attention durchgeführt wird, ist, dass bei jedem einzelnen “Head” neue Matrizen verwendet werden,
-                    welche aus unterschiedlichen Modelparamter bestehen. Somit kann Kontext noch schneller und genauer
+                <p>Sämtliche Schritte der Attention werden in der Fachsprache "Head" genannt. In
+                    fast allen LLM's gibt es nicht nur einen "Head" in der Attention, sondern viele aneinander gereihte
+                    "Head". Dies wird dann Multi Headed Attention genannt. Der Hauptgrund, wieso eine Multi Headed
+                    Attention durchgeführt wird, ist, dass bei jedem einzelnen "Head" neue Matrizen verwendet werden,
+                    welche aus unterschiedlichen Modellparametern bestehen. Somit kann Kontext noch schneller und
+                    genauer
                     bei Tokens hinzugefügt werden.</p>
             </div>
 
@@ -542,15 +543,15 @@
         <section id="mlp">
             <h2 class="gradient-text">Multilayer Perzeptron (MLP)</h2>
             <h3 id="mlp-detail">Multilayer Perzeptron (MLP)</h3>
-            <p>Das MLP ist ein Neurales Netzwerk, welches dem LLM ermöglicht Informationen zu speichern. Ein
-                Anschauliches Beispiel ist, wenn man ein ChatBot fragt, wie viel Personen in ein Airbus A320 passen.
-                Solange das LLM keinen Zugriff aufs Internet hat, muss die Sitzplatzanzahl innerhalb des Models
+            <p>Das MLP ist ein neurales Netzwerk, welches dem LLM ermöglicht Informationen zu speichern. Ein
+                anschauliches Beispiel ist, wenn man einen ChatBot fragt, wie viel Personen in einen Airbus A320 passen.
+                Solange das LLM keinen Zugriff aufs Internet hat, muss die Sitzplatzanzahl innerhalb des Modells
                 gespeichert sein. Genau diesen Schritt übernimmt das MLP. Jeder Vektor, aus der Attention,
                 durchläuft die MLP-Schicht parallel und isoliert von sämtlichen anderen Vektoren. Damit wir den
-                Aufbau des MLP besser verstehen ignorieren wir die Parallelität und folgen schrittweise einem
+                Aufbau des MLP besser verstehen, ignorieren wir die Parallelität und folgen schrittweise einem
                 Durchlauf durchs MLP.</p>
 
-            <h4>Input ins MLP (Matrix Multiplikation)</h4>
+            <h4>Input ins MLP</h4>
             <p>Nach der Attention haben wir mehrere Vektoren erhalten, welche von anderen Tokens beeinflusst wurden.
                 Da in der MLP-Schicht alle Vektoren parallel und isoliert voneinander verarbeitet werden, werden wir
                 zur Vereinfachung nur einen Vektor, welcher den Airbus A320 widerspiegelt, anschauen.</p>
@@ -903,9 +904,9 @@
                 </div>
             </div>
 
-            <p>Wir trainieren es damit, das Wort «Katze» als Säugetier zu klassifizieren. Im Forward-Pass fliesst
-                die Aktivierung durch das Netz, am Ende kommt bei «Säugetier» ein Wert von 0,7 heraus – richtig,
-                aber unsicher. Der Verlust beträgt -log(0,7) = 0,15.</p>
+            <p>Wir trainieren es damit, das Wort «Katze» als Säugetier zu klassifizieren. Im Forward-
+                Pass fliesst die Aktivierung durch das Netz, am Ende kommt bei «Säugetier» ein Wert von 0,7 heraus –
+                richtig, aber unsicher. Der Verlust beträgt -log(0,7) = 0,15.</p>
 
             <!-- Visualization: Network with values -->
             <!-- Visualization: Network with values -->
@@ -991,7 +992,7 @@
                 Kettenregel multipliziert nun für jede Verbindung die lokalen Ableitungen – also: Wie stark ändert
                 sich die Aktivierung dieser Schicht, wenn ich das Gewicht davor verändere? Durch das geschickte
                 Zwischenspeichern dieser Teilableitungen während des Forward-Passes kann der Algorithmus im
-                Backward-Pass in einem einzigen Sweep von hinten nach vorne alle Gradienten berechnen, ohne für
+                Backward-Pass in einem einzigen Durchlauf von hinten nach vorne alle Gradienten berechnen, ohne für
                 jedes Gewicht einen separaten Durchlauf zu starten.</p>
 
 
@@ -1034,11 +1035,11 @@
 
             <div id="rlhf">
                 <h3>Reinforcement Learning from Human Feedback</h3>
-                <p>RLHF ist eine Training Methode, bei welcher Menschen die Antwort zu einem gegebenen Prompt schreiben.
+                <p>RLHF ist eine Trainigmethode, bei welcher Menschen die Antwort zu einem gegebenen Prompt schreiben.
                     Anhand dieser Prompts und Antworten wird dann das LLM trainiert. Damit erhält man ein LLM, welches
-                    unterandere auch moralische Werte abbilden kann. So kann das LLM zum Beispiel lernen, dass Gewalt
+                    unter anderem auch moralische Werte abbilden kann. So kann das LLM zum Beispiel lernen, dass Gewalt
                     keine Lösung für einen verbalen Konflikt ist, wobei, rein faktisch gesehen, Gewalt eine Lösung ist.
-                    Diese Trainings Methode ist zeitintensiv und teuer, da viel manuelle Arbeit ins Trainieren
+                    Diese Trainings methode ist zeitintensiv und teuer, da viel manuelle Arbeit ins Trainieren
                     einfliesst.</p>
                 <p>Um Kosten und Zeit zu sparen, wird nach dem erfolgreichen ersten Training, wie oben beschrieben, das
                     LLM nach einem anderen Vorgehen weitertrainiert. Anstelle, dass das LLM anhand bereits bestehender

@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IDPA FLMI - Lösung</title>
     <link rel="stylesheet" href="/style.css">
 </head>
+
 <body>
     <div id="header-placeholder"></div>
 
     <main>
         <section class="hero">
             <h1 class="gradient-text">Tipps zum Verhindern von Halluzinationen</h1>
-            <p>Mit folgenden Massnahmen können Fehlinformationen innerhalb eines Large Language Modules erfolgreich minimiert werden.</p>
+            <p>Mit folgenden Massnahmen können Fehlinformationen innerhalb eines Large Language Modules erfolgreich
+                minimiert werden.</p>
             <div class="hero-buttons">
                 <a href="#private-user-section" class="button">Für private Anwender</a>
                 <a href="#enterprise-section" class="button">Für Unternehmen</a>
@@ -22,15 +25,31 @@
         <section class="general-solutions">
             <h2 class="gradient-text" id="private-user-section">Für private Anwender</h2>
             <div class="hinweis-box">
-                <p><strong>Hinweis:</strong> Die hier vorgestellten Massnahmen können das Auftreten von Halluzinationen reduzieren, aber nicht eliminieren! Du solltest kritisch bleiben und weiterhin die wichtigsten Fakten überprüfen.</p>
+                <p><strong>Hinweis:</strong> Die hier vorgestellten Massnahmen können das Auftreten von Halluzinationen
+                    reduzieren, aber nicht eliminieren! Du solltest kritisch bleiben und weiterhin die wichtigsten
+                    Fakten überprüfen.</p>
             </div>
             <div id="prompt-engineering">
                 <h3>Prompt Engineering</h3>
-                <p>Unter Prompt Engineering wird verstanden, Abfragen von <a href="/llm/index.html#llm-aufbau" class="text-indigo-600 hover:underline">LLM</a> so
-                    anzupassen, dass das LLM die bestmögliche Antwort generiert. Für sämtliche Abfragen muss ein
-                    Benutzer ein Prompt schreiben, somit gibt es hier grosses Optimierungspotential.</p>
-                <p>Der korrekte Aufbau von einem Prompt ist wichtig. Wieso dies so ist, lässt sich einfach erklären. Wie auch bei einer Kommunikation zwischen zwei Menschen hilft mehr Kontext und spezifischere Aussagen Missverständnisse zu verhindern, so auch bei LLMs. Der einzige Unterschied ist, dass das LLM nicht unseren Tonfall hört und unsere Körpersprache lesen kann. Dadurch ist es noch schwieriger unsere Nachricht korrekt zu übermitteln. Im <a href="/llm/index.html#architekturen" class="text-indigo-600 hover:underline">Transformer</a> des LLM kann, wenn mehr Kontext mitgeliefert wird, innerhalb der <a href="/llm/index.html#attention" class="text-indigo-600 hover:underline">Attention</a> besser berechnet werden, welche Antwort am besten geeignet ist.</p> 
-                <p>Zusätzlich haben LLMs heutzutage Zugriff ins Internet. Wenn nicht gezielt mitgeteilt wird, von wo Informationen geholt werden sollen, kann das LLM-Quellen, wie Fragwürdige Chat Foren, aufgreifen und von dort Falschinformationen abgreifen.  Durch die Rollen vergabe sucht das LLM auch in einem anderen Muster im Internet. Beispielsweise ein Physik Lehrer würde nicht auf Halbwissen aus einem Chat Forum seinen Unterrichtsstoff aufbauen, dafür sich eher auf ein offizielles Dokument einer Universität stützen.</p> 
+                <p>Unter Prompt Engineering wird verstanden, Anweisungen für das LLM so anzupassen, dass es die
+                    bestmögliche Antwort generiert. Auch für die LLM-Hersteller ist Prompt Engineering wichtig. Die
+                    Hersteller definieren sogenannte System-Prompts, diese sind für den Endbenutzer unsichtbar und
+                    können nicht überschrieben werden, enthalten jedoch wichtige Regeln oder Anweisung für die LLM.</p>
+                <p>Der korrekte Aufbau von einem Prompt ist wichtig. Wieso dies so ist, lässt sich einfach erklären. Wie
+                    auch bei einer Kommunikation zwischen zwei Menschen helfen mehr Kontext und spezifischere Aussagen
+                    Missverständnisse zu verhindern, so auch bei LLMs. Der einzige Unterschied ist, dass das LLM nicht
+                    unseren Tonfall hört und unsere Körpersprache lesen kann. Dadurch ist es noch schwieriger unsere
+                    Nachricht korrekt zu übermitteln. Im <a href="/llm/index.html#architekturen"
+                        class="text-indigo-600 hover:underline">Transformer</a> des LLM kann, wenn mehr Kontext
+                    mitgeliefert wird, innerhalb der <a href="/llm/index.html#attention"
+                        class="text-indigo-600 hover:underline">Attention</a> besser berechnet werden, welche Antwort am
+                    besten geeignet ist.</p>
+                <p>Zusätzlich haben LLMs heutzutage Zugriff ins Internet. Wenn nicht gezielt mitgeteilt wird, von wo
+                    Informationen geholt werden sollen, kann das LLM Quellen, wie fragwürdige Chat-Foren, aufgreifen und
+                    von dort Falschinformationen abrufen. Durch die Rollen vergabe sucht das LLM auch in einem anderen
+                    Muster im Internet. Beispielsweise ein Physiklehrer würde nicht auf Halbwissen aus einem Chat Forum
+                    seinen Unterrichtsstoff aufbauen, sondern sich eher auf ein offizielles Dokument einer Universität
+                    stützen.</p>
                 <h4>Tipps für den idealen Prompt-Aufbau</h4>
                 <div class="prompt-tip-block">
                     <h5>Abtrennungen</h5>
@@ -58,30 +77,53 @@ Problem: What is the capital of France?</code></pre>
                 </div>
                 <div class="prompt-tip-block">
                     <h5>Beweise und Quellen</h5>
-                    <p>Frage das Modell nach Quellen oder belege. Bestenfalls gibst du bereits die wichtigsten Informationen mit oder einen ersten Link, bei welchem es mit dem Suchen starten kann.</p>
+                    <p>Frage das Modell nach Quellen oder belege. Bestenfalls gibst du bereits die wichtigsten
+                        Informationen mit oder einen ersten Link, bei welchem es mit dem Suchen starten kann.</p>
                     <pre><code>Get your informations from: https://f3o.ch/llm/
 Answer the following question: What is the Attention inside an Transformer?</code></pre>
                 </div>
                 <div class="prompt-tip-block">
                     <h5>Keine Antwort zulassen</h5>
-                    <p>Grundsätzlich ist das Modell darauf <a href="/llm/index.html#training" class="text-indigo-600 hover:underline">traniert</a> immer eine Antwort zu liefern. Wenn gezielt danach gefragt wird, kann es sein, dass es ausnahmsweise auch keine Antwort gibt.</p>
+                    <p>Grundsätzlich ist das Modell darauf <a href="/llm/index.html#training"
+                            class="text-indigo-600 hover:underline">traniert</a> immer eine Antwort zu liefern. Wenn
+                        gezielt danach gefragt wird, kann es sein, dass es ausnahmsweise auch keine Antwort gibt.</p>
                     <pre><code>Answer the following question. If you do not know the answer, say "I don't know".
 Question: What is the population of Mars?</code></pre>
                 </div>
             </div>
             <div id="agenten">
                 <h3>Agent Architektur</h3>
-                <p>Anstelle von einer einzigen LLM, welche den User Prompt verarbeitet, gibt es den Ansatz von KI-Agents.
-                    Dies sind Systeme, welche aus einer LLM bestehen, welche verschiedene Aufgaben
+                <p>Anstelle von einem einzigen LLM, welches den User Prompt verarbeitet, gibt es den Ansatz von
+                    KI-Agents.
+                    Dies sind Systeme, die aus einem LLM bestehen, welches verschiedene Aufgaben
                     koordinieren kann. Zusätzlich sind oft andere Tools, wie Mail, Kalender oder Datenbanken daran
-                    angeschlossen, um eine Antwort noch besser und fehlerfreier zu generieren. Halluzinationen können durch das koppeln mehrerer solcher Agents weiter verhindert werden. Privat Personen können solche Systeme oft selbständig, mithilfe eines Online Tools aufbauen. Diese Online Tools sind in den meisten Fällen innerhalb der Kostenpflichtigen Abonnemente von KI-Platformen.</p>
+                    angeschlossen, um eine Antwort noch besser und fehlerfreier zu generieren. Bei allen folgenden
+                    Beispielen kann ein Agent wie eine alleinstehende LLM angeschaut werden.</p>
                 <h4 id="reflektion">Reflektion</h4>
-                <p>Mithilfe von mehreren Agents kann zum Beispiel eine automatische Reflektion erzeugt werden. Der User Prompt wird von einem Agent (eine LLM) verarbeitet. Anstatt das diese Antwort nun direkt zurückgegeben wird, verarbeitet ein zweiter Agent (eine zweite LLM) die Antwort. Das zweite LLM kann den Text überprüfen, Fehler finden und anschliessend, via zweiten Prompt an den ersten Agent, Verbesserungen wünschen. Wenn dies mehrmals gemacht wird können falsche Antworten besser ausgefiltert werden. Es besteht aber auch die Möglichkeit, dass die Antworten den roten Faden verlieren.</p>
+                <p>Mithilfe von mehreren Agents kann zum Beispiel eine automatische Reflektion erzeugt werden. Der User
+                    Prompt wird von einem Agent (einem LLM) verarbeitet. Anstatt dass diese Antwort nun direkt
+                    zurückgegeben wird, verarbeitet ein zweiter Agent (ein zweites LLM) die Antwort. Das zweite LLM kann
+                    den Text überprüfen, Fehler finden und anschliessend, via zweiten Prompt an den ersten Agent,
+                    Verbesserungen wünschen. Wenn dies mehrmals gemacht wird, können falsche Antworten besser
+                    ausgefiltert werden. Es besteht aber auch die Möglichkeit, dass die Antworten den roten Faden
+                    verlieren.</p>
                 <h4 id="plan">Plan</h4>
-                <p>Eine weitere Agent Architektur ist, dass im ersten Schritt der Verarbeitung das User Prompt geplant wird. Anstelle vom direkten Beantworten oder Verarbeiten der eigentlichen Anforderung wird ein Schritt für Schritt Plan erstellt, wie vorgegangen werden soll. Dieser wird dann entsprechend abgearbeitet und die endgültige Antwort dem User zurückgegeben. Aktuell kann dieses Vorgehen sehr gut bei der Deep Research Funktion von Gemini beobachtet werden. Gemini erstellt zuerst einen Plan für die Recherche, welche anschliessend sogar noch vom Benutzer editiert werden kann, bevor die eigentliche Recherche startet.</p>
+                <p>Eine weitere Agent Architektur ist, dass im ersten Schritt der Verarbeitung der User Prompt geplant
+                    wird. Anstelle vom direkten Beantworten oder Verarbeiten der eigentlichen Anforderung wird ein
+                    Schritt-für-Schritt Plan erstellt, wie vorgegangen werden soll. Dieser wird dann entsprechend
+                    abgearbeitet und die endgültige Antwort dem User zurückgegeben. Aktuell kann dieses Vorgehen sehr
+                    gut bei der Deep Research Funktion von Gemini beobachtet werden. Gemini erstellt zuerst einen Plan
+                    für die Recherche, welche anschliessend sogar noch vom Benutzer editiert werden kann, bevor die
+                    eigentliche Recherche startet.</p>
                 <h4>Unternehmen Nachstellung</h4>
-                <p>Der folgende Ansatz ist noch sehr experimentell, scheint aber teilweise zu funktionieren. In dieser Architektur wird pro Abteilung in einem realen Unternehmen ein Agent erstellt, welcher in
-                    seinem Bereich spezialisiert ist. Wenn nun ein Benutzer sein Prompt absetzt, wird dies dem
+                <p>Noch experimentell ist der Versuch, Unternehmen mit verschiedenen Agents abzubilden. Gerade wenn ein
+                    Benutzer eine sehr komplexe Aufgabe dem LLM übergibt, könnte diese Architektur ihre Vorteile haben.
+                    In dieser Architektur wird pro Abteilung in einem realen Unternehmen ein Agent erstellt, welcher
+                    gezielte Systemprompts für seinen Bereich hat oder schon im Training gezielt darauf trainiert wurde.
+                    Somit kann es zum Beispiel ein Agent geben, der im Innendesign ein grosses Wissen hat, ein Agent,
+                    welcher im Möbelschreinern Spezialist ist und zum Schluss ein Agent, welcher sich im Finanzwesen
+                    vertieft hat. Um diese zu koordinieren hat es zum Beispiel einen Projektleiter-Agent. Wenn nun ein
+                    Benutzer seinen Prompt absetzt, wird dies dem
                     Projektleiter gegeben, welcher dann einen ersten Plan entwirft. Dieser wird dann den einzelnen
                     Agents gegeben und von dort an wie in einem echten Unternehmen abgearbeitet. Die verschiedenen
                     Agents können hierbei komplett frei miteinander kommunizieren.</p>
@@ -105,14 +147,20 @@ Question: What is the population of Mars?</code></pre>
                         </div>
                     </div>
                 </div>
-                <p>Ein grosser Vorteil von diesem Aufbau ist, dass jeder Agent (LLM) auf ein spezifisches Thema <a href="/llm/index.html#training" class="text-indigo-600 hover:underline">trainiert</a> werden kann ist und nicht
+                <p>Ein grosser Vorteil von diesem Aufbau ist, dass jeder Agent auf ein Thema spezialisiert ist und nicht
                     alles verstehen muss. Die Aufgabe vom User wird in kleine Subtasks aufgeteilt, welche dann gezielt
-                    und genauer abgearbeitet werden können.</p>
+                    und genauer abgearbeitet werden können. Wie auch bei echten Unternehmen besteht jedoch die Gefahr,
+                    zum Beispiel durch Fehlkommunikation das Ziel zu verfehlen.</p>
             </div>
             <h2 class="gradient-text" id="enterprise-section">Für Unternehmen</h2>
             <div id="rag">
                 <h3>Retrieval Augmented Generation (RAG)</h3>
-                <p>Retrieval Augmented Generation ermöglicht es zwischen dem Embedding und der Berechnung des nächsten Tokens, weiteren Kontext zum Prompt hinzuzufügen. Wenn nun ein Benutzer fragt “Wie viele Sitzplätze hat der A320?”, werden die Vektoren beim RAG-System abgefragt. Dieses erkennt, dass es dazu Informationen enthält und kann somit automatisch den Kontext “Ein A320 hat 150-187 Sitzplätze” hinzufügen. Dadurch erhält das LLM gerade sämtliche Fakten und muss nicht auf interne, beim Training gelernte, Informationen (welche auch veraltet sein könnten) zurückgreifen.</p>
+                <p>Retrieval Augmented Generation ermöglicht es zwischen dem Embedding und der Berechnung des nächsten
+                    Tokens, weiteren Kontext zum Prompt hinzuzufügen. Wenn nun ein Benutzer fragt “Wie viele Sitzplätze
+                    hat der A320?”, werden die Vektoren beim RAG-System abgefragt. Dieses erkennt, dass es dazu
+                    Informationen enthält und kann somit automatisch den Kontext “Ein A320 hat 150-187 Sitzplätze”
+                    hinzufügen. Dadurch erhält das LLM gerade sämtliche Fakten und muss nicht auf interne, beim Training
+                    gelernte, Informationen (welche auch veraltet sein könnten) zurückgreifen.</p>
                 <div class="nn-architecture-diagram">
                     <div class="rag-diagram">
                         <!-- User -->
@@ -150,23 +198,29 @@ Question: What is the population of Mars?</code></pre>
                 </div>
 
                 <p>Während Halluzinationen meistens behoben werden können, hat dieser Lösungsansatz jedoch ein grosses
-                    Risiko für "Prompt Injections".
-                    Dabei versucht der Angreifer den System Prompt des LLMs so zu manipulieren, dass es seine
-                    ursprünglichen Instruktionen ignoriert und Dinge tut, die es eigentlich nicht tun sollte.
-                    Da die Daten aus der Datenbank direkt (onhe Filterung) in den Prompt des LLMs geschrieben werden,
-                    kann
-                    ein Angreifer durch das Hinzufügen von bösartigen Daten in die Datenbank das LLM steuern.
-                    Ein Beispiel für einen Angriffsvektor wäre eine bösartige E-Mail, die in einem Ticket-System
-                    gespeichert wird und dann vom Support-Bot gelesen wird.</p>
+                    Problem. Die Quelle, von welcher RAG die Informationen bekommt, darf keine Fehlinformationen
+                    beinhaltet. Bei einer kleinen Informationssammlung ist dies vielleicht noch überprüfbar, aber das
+                    Limit von menschlicher Kontrolle ist schon bald erreicht. Somit muss entweder ein System erstellt
+                    werden, welches falsche und richtige Informationen erkennt und nur die richtigen abspeichert oder
+                    es muss ein anderer Lösungsansatz bei einem grösseren Wissens-Kontext verwendet werden.</p>
             </div>
             <div id="temperatur">
                 <h3>Temperatur</h3>
-                <p>Jedes LLM hat einen Temperatur-Parameter, welcher steuert, wie "kreativ" das Modell ist.
-                    Eine tiefe Temperatur (nahe 0) macht das Modell deterministisch und faktisch.
-                    Eine hohe Temperatur (nahe 1 oder höher) macht das Modell kreativer, erhöht aber das Risiko für
-                    Halluzinationen massiv.
-                    Für klassische RAG Systeme, welche Fakten wiedergeben sollen, wird meist eine Temperatur von 0
-                    gewählt, um das Risiko so gering wie möglich zu
+                <p>Die Temperatur ist ein Parameter, der steuert, wie streng sich das Modell an die berechneten
+                    Wahrscheinlichkeiten hält. Sie bestimmt den Grad der «Zufälligkeit» bei der Auswahl des nächsten
+                    Wortes.</p>
+                <ul style="margin-left: 20px; list-style-type: disc;">
+                    <li><strong>Niedrige Temperatur (nahe 0):</strong> Das Modell wählt fast immer das Wort mit der
+                        allerhöchsten berechneten Wahrscheinlichkeit. Das Verhalten ist sehr strikt und deterministisch.
+                    </li>
+                    <li><strong>Hohe Temperatur (nahe 1):</strong> Das Modell hat mehr Freiheiten und darf auch Wörter
+                        wählen, die statistisch etwas weniger wahrscheinlich sind. Dies sorgt für vielfältigere, aber
+                        auch unvorhersehbarere Texte.</li>
+                </ul>
+                <p>Halluzinationen entstehen oft, wenn das Modell vom sichersten Pfad abweicht und anfängt,
+                    unwahrscheinliche Verknüpfungen zu bilden (es wird zu «kreativ» bei Fakten). Indem man die
+                    Temperatur senkt, zwingt man das Modell, strikt beim statistisch sichersten Pfad zu bleiben. Das
+                    eliminiert das Risiko, dass das Modell zufällig Fakten erfindet, nur um den Text variabler zu
                     gestalten.</p>
 
                 <!-- Visualization: Temperature -->
@@ -188,19 +242,22 @@ Question: What is the population of Mars?</code></pre>
                 <h3>Reinforcement Learning from Human Feedback (RLHF)</h3>
                 <p>Ein grosser Vorteil von RLHF ist, dass Menschen direkt im Prozess involviert sind. Da sämtliche
                     Antworten von Menschen angeschaut und auch auf faktische Korrektheit überprüft werden, können
-                    Halluzinationen direkt erkennt werden und schlecht bewertet werden. Dadurch werden diese weniger
-                    oder sogar komplett aus dem System genommen. Bei grossen KI-Firmen wird dies schon längstens
-                    umgesetzt, könnte hier durch noch längeres oder besseres RLHF mehr Fehlinformationen aus dem System
+                    Halluzinationen direkt erkennt und schlecht bewertet werden. Dadurch werden diese weniger
+                    oder sogar komplett aus dem System genommen. Bei grossen KI-Firmen wird dies schon längst
+                    umgesetzt, trotzdem könnte hier durch noch längeres oder besseres RLHF mehr Fehlinformationen aus
+                    dem System
                     gefiltert werden.</p>
                 <p>Es gibt Vermutungen, dass durch RLHF jedoch eine neue Form von Fehlinformationen im System auftauchen
-                    können. Während dem RLHF wird das LLM <a href="/llm/index.html#training" class="text-indigo-600 hover:underline">trainiert</a>, hilfreich zu sein und dem Menschen zuzustimmen.
+                    können. Während dem RLHF wird das LLM <a href="/llm/index.html#training"
+                        class="text-indigo-600 hover:underline">trainiert</a>, hilfreich zu sein und dem Menschen
+                    zuzustimmen.
                     Besonders bei Fragen, auf welche eine Antwort im RLHF gewählt wird, die faktisch nicht korrekt ist.
                     Beispielsweise lernt das LLM, dass es auf die Frage, wie ein Auto gestohlen werden kann, antwortet,
                     dass diese Handlung illegal ist. Rein faktisch ist diese Antwort jedoch inkorrekt, weil nicht
                     beschrieben ist, wie ein Auto gestohlen werden kann. Das führt zu einem Konflikt zwischen Wahrheit
                     und der Erwartung von uns Menschen, was dazu führen kann, dass das LLM die Antwort gibt, welche wir
                     erwarten und nicht die Wahrheit.</p>
-                </div>
+            </div>
         </section>
 
     </main>
@@ -210,4 +267,5 @@ Question: What is the population of Mars?</code></pre>
     <script src="/js/main.js"></script>
     <script src="/js/footer.js"></script>
 </body>
+
 </html>

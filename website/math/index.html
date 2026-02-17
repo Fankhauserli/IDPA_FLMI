@@ -107,9 +107,9 @@
         <!-- Matrix-Vektor-Multiplikation Section -->
         <section id="matrix-vektor">
             <h2 class="gradient-text">Matrix-Vektor-Multiplikation</h2>
-            <p>Die Matrix-Vektor-Multiplikation ist eine zentrale Operation, bei der eine Matrix mit einem Vektor
-                multipliziert wird, um einen neuen Vektor zu erzeugen. Man kann sich diesen Vorgang als eine
-                <strong>Transformation</strong> des ursprünglichen Vektors vorstellen. Die Matrix agiert wie eine
+            <p>Die Matrix-Vektor-Multiplikation ist eine Operation, bei der eine Matrix mit einem Vektor
+                multipliziert wird. Daraus erhält man einen neuen Vektor. Man kann sich diesen Vorgang wie eine
+                Transformation des ursprünglichen Vektors vorstellen. Die Matrix agiert wie eine
                 Funktion, die den Vektor nimmt und ihn streckt, staucht, dreht oder in eine andere Dimension projiziert.
             </p>
 
@@ -215,18 +215,18 @@
         <!-- Skalarprodukt Section -->
         <section id="skalarprodukt">
             <h2 class="gradient-text">Skalarprodukt</h2>
-            <p>Das Skalarprodukt ist eine fundamentale Operation in der linearen Algebra. Es
+            <p>Das Skalarprodukt ist ein wichtiger Bestandteil der linearen Algebra. Es
                 nimmt zwei Vektoren und gibt eine einzelne Zahl (einen Skalar) zurück. Diese Zahl sagt etwas über die
                 Beziehung zwischen den beiden Vektoren aus, insbesondere wie sehr sie in die gleiche Richtung zeigen.
             </p>
 
             <h3>Geometrische Interpretation</h3>
-            <p>Geometrisch kann das Skalarprodukt auch so ausgedrückt werden:</p>
+            <p>Das Skalarprodukt kann so ausgedrückt werden:</p>
             <div class="glass-panel" style="text-align: center; padding: 20px; margin: 20px 0;">
                 <code
                     style="font-family: monospace; font-size: 1.3rem;"><strong>a</strong> · <strong>b</strong> = ||<strong>a</strong>|| ||<strong>b</strong>|| cos(θ)</code>
             </div>
-            <p>Hierbei ist ||<strong>a</strong>|| die Länge (Norm) des Vektors
+            <p>Hierbei ist ||<strong>a</strong>|| die Länge (Betrag) des Vektors
                 <strong>a</strong>, ||<strong>b</strong>|| die Länge des Vektors <strong>b</strong>, und θ (theta) ist
                 der Winkel zwischen den beiden Vektoren.
             </p>
@@ -264,7 +264,7 @@
             <h3>Anwendung in LLMs</h3>
             <p>In Large Language Models (LLMs) werden Wörter und Konzepte als Vektoren in einem
                 hochdimensionalen Raum dargestellt (siehe Vektoreinbettung). Das Skalarprodukt ist hier entscheidend, um
-                die <strong>semantische Ähnlichkeit</strong> zwischen Vektoren zu messen.</p>
+                die <strong>Ähnlichkeit</strong> zwischen Vektoren zu messen.</p>
         </section>
 
         <!-- Softmax Section -->
@@ -356,20 +356,18 @@
             </div>
 
             <h3>Anwendung in LLMs</h3>
-            <p>In Large Language Models (LLMs) wird die Softmax-Funktion typischerweise in der letzten Schicht für
-                Aufgaben wie Textklassifikation, maschinelle Übersetzung oder Textgenerierung verwendet. Besonders bei
-                der Sprachmodellierung spielt sie eine entscheidende Rolle:</p>
+            <p>In Large Language Models (LLMs) wird die Softmax-Funktion in einem der letzten Schritte verwendet.
+                Besonders bei der Sprachmodellierung spielt sie eine entscheidende Rolle:</p>
 
             <div class="glass-panel" style="padding: 30px; margin-top: 20px;">
                 <ul style="list-style-type: disc; margin-left: 20px;">
-                    <li><strong>Nächstes Wort Vorhersage:</strong> Nach der Verarbeitung einer Eingabesequenz generiert
-                        das LLM einen Vektor von Logits (unnormalisierte Scores) für jedes mögliche nächste Wort im
-                        Vokabular. Die Softmax-Funktion wandelt diese Logits in eine Wahrscheinlichkeitsverteilung über
-                        das gesamte Vokabular um. Das Wort mit der höchsten Wahrscheinlichkeit wird dann oft als das
-                        nächste Wort ausgewählt.</li>
-                    <li><strong>Klassifikation:</strong> Wenn ein LLM zur Klassifikation von Text (z.B.
-                        Sentiment-Analyse, Themenkategorisierung) eingesetzt wird, werden die Logits für jede Kategorie
-                        durch Softmax in Wahrscheinlichkeiten umgewandelt.</li>
+                    <li><strong>Next-Token-Prediction:</strong> Das Modell berechnet für jedes Wort in seinem
+                        Wörterbuch eine Punktzahl (siehe LLM-Aufbau). Softmax macht daraus eine Rangliste mit
+                        Wahrscheinlichkeiten. Das Wort mit der höchsten Prozentzahl wird meistens als nächstes
+                        Wort ausgewählt.</li>
+                    <li><strong>Texte einordnen (Klassifikation):</strong> Wenn die KI entscheiden muss, ob eine
+                        Kundenbewertung positiv oder negativ ist, gibt Softmax an, wie sicher sich das Modell bei
+                        der jeweiligen Kategorie ist.</li>
                 </ul>
             </div>
         </section>
