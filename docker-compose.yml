@@ -8,6 +8,8 @@ services:
     restart: unless-stopped
     labels:
       - "traefik.enable=false"
+    volumes:
+      - ./website:/usr/share/nginx/html
     develop:
       watch:
         - path: .

@@ -625,8 +625,10 @@ td a:hover {
 .topic-link {
     text-decoration: none;
     color: inherit;
-    flex: 0 0 calc(50% - 10px); /* Two columns with 20px gap */
-    max-width: calc(50% - 10px); /* Two columns with 20px gap */
+    flex: 0 0 calc(50% - 10px);
+    /* Two columns with 20px gap */
+    max-width: calc(50% - 10px);
+    /* Two columns with 20px gap */
     display: flex;
     box-sizing: border-box;
 }
@@ -1689,10 +1691,10 @@ input[type=range].valve-slider {
     .answer {
         word-break: break-word;
     }
-    
+
     .topic-link {
-      flex: 0 0 calc(100% - 10px);
-      max-width: calc(100% - 10px);
+        flex: 0 0 calc(100% - 10px);
+        max-width: calc(100% - 10px);
     }
 }
 
@@ -1736,8 +1738,8 @@ input[type=range].valve-slider {
     }
 
     .topic-link {
-      flex: 0 0 calc(100% - 10px);
-      max-width: calc(100% - 10px);
+        flex: 0 0 calc(100% - 10px);
+        max-width: calc(100% - 10px);
     }
 }
 
@@ -1768,7 +1770,53 @@ input[type=range].valve-slider {
     }
 
     .topic-link {
-      flex: 0 0 calc(100% - 10px);
-      max-width: calc(100% - 10px);
+        flex: 0 0 calc(100% - 10px);
+        max-width: calc(100% - 10px);
     }
-  }
+}
+
+
+
+
+
+.intro-network-diagram .architecture-container {
+    max-width: 280px;
+    /* Scaled width (700 * 0.4) */
+    margin: 0 auto;
+    height: 120px;
+    /* Scaled height aligned with SVG (4 * (20 + 10)) */
+    overflow: visible;
+    /* Prevent clipping */
+}
+
+.intro-network-diagram .layer-group {
+    padding: 0 !important;
+    /* Remove global padding to fit scaled columns */
+    gap: 10px;
+    /* Vert alignment gap */
+    width: 100%;
+    /* Ensure column takes grid width */
+}
+
+.intro-network-diagram .node {
+    border-width: 1.5px;
+    font-size: 0.6em;
+}
+
+.intro-network-diagram .node.circle {
+    width: 20px;
+    height: 20px;
+}
+
+.intro-network-diagram .layer-label {
+    font-size: 0.6em;
+    /* Readable size */
+    bottom: -25px;
+    white-space: nowrap;
+    /* No wrapping preferred if space allows */
+    width: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    height: auto;
+}
