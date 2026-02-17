@@ -25,5 +25,30 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Burger Animation
                 burger.classList.toggle('toggle');
             });
+
+            // Smooth scroll for "Tauchen Sie ein" button and other anchor links
+            const anchorLinks = document.querySelectorAll('a[href^="#"]'); // Selects all anchor links
+            anchorLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault(); // Prevent default anchor jump
+
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        // Dynamically get the header height
+                        const header = document.querySelector('header');
+                        const headerOffset = header ? header.offsetHeight : 0; 
+                        
+                        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                        const offsetPosition = elementPosition - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
+                    }
+                });
+            });
         });
 });
