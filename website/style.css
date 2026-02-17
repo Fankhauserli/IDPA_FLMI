@@ -625,8 +625,8 @@ td a:hover {
 .topic-link {
     text-decoration: none;
     color: inherit;
-    flex: 0 0 calc(33.333% - 20px);
-    max-width: calc(33.333% - 20px);
+    flex: 0 0 calc(50% - 10px); /* Two columns with 20px gap */
+    max-width: calc(50% - 10px); /* Two columns with 20px gap */
     display: flex;
     box-sizing: border-box;
 }
@@ -1689,10 +1689,10 @@ input[type=range].valve-slider {
     .answer {
         word-break: break-word;
     }
-
+    
     .topic-link {
-        flex: 0 0 calc(50% - 20px);
-        max-width: calc(50% - 20px);
+      flex: 0 0 calc(100% - 10px);
+      max-width: calc(100% - 10px);
     }
 }
 
@@ -1734,6 +1734,11 @@ input[type=range].valve-slider {
         max-width: 95%;
         padding: 8px 12px;
     }
+
+    .topic-link {
+      flex: 0 0 calc(100% - 10px);
+      max-width: calc(100% - 10px);
+    }
 }
 
 @media (max-width: 400px) {
@@ -1761,18 +1766,9 @@ input[type=range].valve-slider {
         padding: 6px;
         font-size: 12px;
     }
-}
 
-@media (max-width: 768px) {
     .topic-link {
-        flex: 0 0 100%;
-        max-width: 100%;
+      flex: 0 0 calc(100% - 10px);
+      max-width: calc(100% - 10px);
     }
-}
-
-@media (max-width: 1024px) {
-    .topic-link {
-        flex: 0 0 calc(50% - 20px);
-        max-width: calc(50% - 20px);
-    }
-}
+  }
